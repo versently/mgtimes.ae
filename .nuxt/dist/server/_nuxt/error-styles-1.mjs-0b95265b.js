@@ -1,0 +1,5 @@
+const error_vue_vue_type_style_index_0_lang = ".nofound__wrapper .front-section__title{font-size:120px}.nofound__wrapper{height:unset}.nofound__wrapper .front-section__title{color:#000}.nofound__wrapper .front-section__text{color:#000;font-size:16px;font-weight:500}.front-section__line{margin:20px auto}.nofound__wrapper a{color:#000;font-size:15px;font-weight:500;padding-left:40px;padding-top:15px;position:relative;transition:all .4s ease-in-out;white-space:nowrap;width:-moz-fit-content;width:fit-content}.nofound__wrapper a:after{bottom:0;content:url(" + __publicAssetsURL("img/index/services-section/list/arrow.svg") + ");height:24px;left:-5px;position:absolute;right:unset;top:unset;transform:rotate(-180deg);transition:all .4s ease-in-out;width:26px}.nofound__wrapper a:hover{color:#9e2220}.nofound__wrapper a:hover:after{content:url(" + __publicAssetsURL("img/index/services-section/list/arrow-red.svg") + ");left:-15px}";
+export {
+  error_vue_vue_type_style_index_0_lang as default
+};
+//# sourceMappingURL=error-styles-1.mjs-0b95265b.js.map

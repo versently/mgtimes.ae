@@ -82,7 +82,7 @@ const { t } = useI18n({
       <div class="popup-order__block">
         <button class="popup-order__close">
           <svg class="popup-order__close-svg">
-            <use xlink:href="@/assets/img/popup-order/sprite.svg#close"></use>
+            <use xlink:href="/img/popup-order/sprite.svg#close"></use>
           </svg>
         </button>
         <div class="popup-order__title">{{ t("Order an escort") }}</div>
@@ -131,7 +131,7 @@ const { t } = useI18n({
 
             <svg class="popup-order__btn-svg">
               <use
-                xlink:href="@/assets/img/popup-order/sprite.svg#telegram"
+                xlink:href="/img/popup-order/sprite.svg#telegram"
               ></use>
             </svg>
           </a>
@@ -144,7 +144,7 @@ const { t } = useI18n({
 
             <svg class="popup-order__btn-svg">
               <use
-                xlink:href="@/assets/img/popup-order/sprite.svg#whatsapp"
+                xlink:href="/img/popup-order/sprite.svg#whatsapp"
               ></use>
             </svg>
           </a>

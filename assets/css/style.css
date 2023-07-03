@@ -374,7 +374,7 @@
 }
 
 .select-city__title::after {
-  content: url(./../img/header/arrow.svg);
+  content: url(/img/header/arrow.svg);
   -webkit-transform: rotate(0deg);
   -ms-transform: rotate(0deg);
   transform: rotate(0deg);

@@ -45,7 +45,7 @@ defineProps(["error"]);
   white-space: nowrap;
 }
 .nofound__wrapper a:after {
-  content: url(@/assets/img/index/services-section/list/arrow.svg);
+  content: url(/img/index/services-section/list/arrow.svg);
   position: absolute;
   top: unset;
   bottom: 0;
@@ -61,6 +61,6 @@ defineProps(["error"]);
 }
 .nofound__wrapper a:hover:after {
   left: -15px;
-  content: url(@/assets/img/index/services-section/list/arrow-red.svg);
+  content: url(/img/index/services-section/list/arrow-red.svg);
 }
 </style>

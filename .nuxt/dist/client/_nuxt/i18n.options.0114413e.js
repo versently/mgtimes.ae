@@ -1,0 +1,1 @@
+import{_ as i,a6 as e,a7 as r}from"./entry.9e657410.js";async function c(o){const a=await i(()=>import("./i18n.config.6db054ba.js"),[],import.meta.url).then(t=>t.default||t),s=e.isFunction(a)?await a(o):e.isObject(a)?a:{};return s.messages=await r(s.messages,"6558258c"),s}export{c as default};
