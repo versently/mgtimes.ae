@@ -137,6 +137,7 @@ export default defineNuxtConfig({
   css: ["@/assets/css/style.css"],
   modules: ["@nuxt/image", "@nuxt/content", "@nuxtjs/i18n"],
   image: {
+    provider: 'netlify',
     format: ['webp'],
     quality: 80,
     domains: ['https://mgtimes.ae']
