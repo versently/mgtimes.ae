@@ -8,7 +8,7 @@
         >Go back to the main page</a
       >
     </div>
-  </section>
+  </section> 
 </template>
 
 <script setup>
