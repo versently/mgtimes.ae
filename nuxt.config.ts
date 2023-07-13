@@ -135,7 +135,7 @@ export default defineNuxtConfig({
   },
 
   css: ["@/assets/css/style.css"],
-  modules: ["@nuxt/image", "@nuxt/content", "@nuxtjs/i18n", "nuxt-compress"],
+  modules: ["@nuxt/image", "@nuxt/content", "@nuxtjs/i18n"],
   image: {
     provider: 'netlify',
     format: ['webp'],
