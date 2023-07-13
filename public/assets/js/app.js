@@ -188,7 +188,7 @@ document.addEventListener("click", (e) => {
     },
     slidesPerView: "auto",
     // simulateTouch: true,
-    freeMode: true,
+    //freeMode: true,
 
     // mousewheel: {
     // 	sensitivity: 1,
@@ -217,7 +217,7 @@ const swiperSliderService = new Swiper(".additional-services-section__swiper", {
   },
   slidesPerView: "auto",
   simulateTouch: true,
-  freeMode: true,
+  //freeMode: true,
 
   // mousewheel: {
   // 	sensitivity: 1,
@@ -238,7 +238,7 @@ if (modelBlocker) {
     },
     slidesPerView: "auto",
     simulateTouch: true,
-    freeMode: true,
+    //freeMode: true,
     observer: true,
 
     mousewheel: {
@@ -254,7 +254,7 @@ if (modelBlocker) {
     },
     slidesPerView: "auto",
     simulateTouch: true,
-    freeMode: true,
+    //freeMode: true,
     observer: true,
   });
 }

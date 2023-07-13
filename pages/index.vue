@@ -70,7 +70,8 @@ useHead({
               >
                 {{ t("Romantic meetings:") }}</a
               >
-              <nuxt-img loading="lazy"
+              <nuxt-img
+                loading="lazy"
                 src="/img/index/services-section/list/item01.webp"
                 alt=""
               />
@@ -82,14 +83,16 @@ useHead({
               >
                 {{ t("Private events:") }}</a
               >
-              <nuxt-img loading="lazy"
+              <nuxt-img
+                loading="lazy"
                 src="/img/index/services-section/list/item02.webp"
                 alt=""
               />
             </div>
             <div class="services-section__list-item">
               <a href="/services/models-for-accompanying">{{ t("Escorts") }}</a>
-              <nuxt-img loading="lazy"
+              <nuxt-img
+                loading="lazy"
                 src="/img/index/services-section/list/item03.webp"
                 alt=""
               />
@@ -100,7 +103,8 @@ useHead({
                 href="/services/models-for-travel-support"
                 >{{ t("Travel and business trips") }}</a
               >
-              <nuxt-img loading="lazy"
+              <nuxt-img
+                loading="lazy"
                 src="/img/index/services-section/list/item04.webp"
                 alt=""
               />
@@ -110,7 +114,8 @@ useHead({
               <a href="/services/models-for-relationships">{{
                 t("Relationships")
               }}</a>
-              <nuxt-img loading="lazy"
+              <nuxt-img
+                loading="lazy"
                 src="/img/index/services-section/list/item05.webp"
                 alt=""
               />
@@ -119,7 +124,8 @@ useHead({
         </div>
         <div class="services-section__decoration">
           <div class="services-section__decoration-img-first">
-            <nuxt-img loading="lazy"
+            <nuxt-img
+              loading="lazy"
               src="/img/index/services-section/first-girl.webp"
               alt=""
             />
@@ -127,7 +133,8 @@ useHead({
 
           <div class="services-section__decoration-text">Beautiful</div>
           <div class="services-section__decoration-img-second">
-            <nuxt-img loading="lazy"
+            <nuxt-img
+              loading="lazy"
               src="/img/index/services-section/second-girl.webp"
               alt=""
             />
@@ -184,11 +191,12 @@ useHead({
                     v-for="models in list"
                     :key="models._path"
                   >
-                    <nuxt-img loading="lazy"
+                    <nuxt-img
+                      loading="lazy"
                       :src="`/assets/img/models/${models.folder}/${models.mainImage}`"
                       :alt="`${models.folder}`"
-                     
                     />
+                    <div class="swiper-lazy-preloader"></div>
                     <div class="models-section__slide-description">
                       <div class="models-section__slide-name">
                         {{ models.title }}
@@ -270,7 +278,11 @@ useHead({
         </div>
         <div class="casting-section__content">
           <div class="casting-section__content-img">
-            <nuxt-img loading="lazy" src="/img/index/casting-section/main-img.webp" alt="" />
+            <nuxt-img
+              loading="lazy"
+              src="/img/index/casting-section/main-img.webp"
+              alt=""
+            />
           </div>
           <div class="casting-section__text">
             {{
@@ -311,10 +323,18 @@ useHead({
               {{ t("Charming girls") }}
             </div>
             <div class="vip-section__side-img">
-              <nuxt-img loading="lazy" src="/img/index/vip-section/side-img.webp" alt="" />
+              <nuxt-img
+                loading="lazy"
+                src="/img/index/vip-section/side-img.webp"
+                alt=""
+              />
             </div>
             <div class="vip-section__main-img">
-              <nuxt-img loading="lazy" src="/img/index/vip-section/main-img.webp" alt="" />
+              <nuxt-img
+                loading="lazy"
+                src="/img/index/vip-section/main-img.webp"
+                alt=""
+              />
             </div>
           </div>
         </div>
@@ -349,10 +369,13 @@ useHead({
                     v-for="services in list"
                     :key="services._path"
                   >
-                    <nuxt-img loading="lazy"
+                    <nuxt-img
+                      loading="lazy"
                       :src="`/assets/img/services/${services.img}.webp`"
-                      :alt="services.title" 
+                      :alt="services.title"
                     />
+                    <div class="swiper-lazy-preloader"></div>
+
                     <div class="additional-services-section__slide-description">
                       <div class="additional-services-section__slide-title">
                         {{ services.title }}
@@ -417,17 +440,19 @@ useHead({
                   v-for="(media, index) in list.slice(-1)"
                   :key="media._path"
                 >
-                  <nuxt-img loading="lazy"
+                  <nuxt-img
+                    loading="lazy"
                     :src="`/assets/img/media/${media.folder}/${media.mainImage}`"
                     :alt="media.title"
-            
                   />
                   <div class="media-section__item-content">
                     <div class="media-section__item-shell-title-date">
                       <div class="media-section__item-title">
                         {{ media.title }}
                       </div>
-                      <div class="media-section__item-date">{{media.date}}</div>
+                      <div class="media-section__item-date">
+                        {{ media.date }}
+                      </div>
                     </div>
                     <div class="media-section__item-text">
                       {{ media.description }}
