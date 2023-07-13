@@ -662,7 +662,7 @@ input[name=language]:checked+label {
 }
 
 .front-section {
-  background-image: url(./../img/index/front-section/bg-image.webp);
+  background-image: url(/img/index/front-section/bg-image.webp);
 }
 
 .front-section {
@@ -861,7 +861,7 @@ input[name=language]:checked+label {
 }
 
 .services-section__list-item a::after {
-  content: url(./../img/index/services-section/list/arrow.svg);
+  content: url(/img/index/services-section/list/arrow.svg);
   position: absolute;
   top: 0px;
   right: 15px;
@@ -870,7 +870,7 @@ input[name=language]:checked+label {
 }
 
 .services-section__list-item a:hover::after {
-  content: url(./../img/index/services-section/list/arrow-red.svg);
+  content: url(/img/index/services-section/list/arrow-red.svg);
 }
 
 .services-section__decoration-img-first {
@@ -3546,12 +3546,12 @@ input[name=language]:checked+label {
 
 .model__swiper-button-prev:after,
 .model .swiper-rtl .model__swiper-button-next:after {
-  content: url(./../img/model/prev-arrow.svg);
+  content: url(/img/model/prev-arrow.svg);
 }
 
 .model__swiper-button-next:after,
 .model .swiper-rtl .model__swiper-button-prev:after {
-  content: url(./../img/model/next-arrow.svg);
+  content: url(/img/model/next-arrow.svg);
 }
 
 .swiper-button-lock {
@@ -4339,11 +4339,11 @@ input[name=language]:checked+label {
 }
 
 .form__input-images-label:hover .form__input-image-label-icon {
-  background: url(./../img/casting/input-btn-icon-white.svg);
+  background: url(/img/casting/input-btn-icon-white.svg);
 }
 
 .form__input-image-label-icon {
-  background: url(./../img/casting/input-btn-icon-red.svg);
+  background: url(/img/casting/input-btn-icon-red.svg);
   border-radius: 50%;
   width: 26px;
   height: 26px;
@@ -4354,7 +4354,7 @@ input[name=language]:checked+label {
 }
 
 .form__input-image-label-icon:hover {
-  background: url(./../img/casting/input-btn-icon-white.svg);
+  background: url(/img/casting/input-btn-icon-white.svg);
 }
 
 .form__preview-images {
@@ -9485,7 +9485,7 @@ h6 {
   }
 
   .necessarily__content-img {
-    background-image: url(./../img/casting/necessarily/full-img.webp);
+    background-image: url(/img/casting/necessarily/full-img.webp);
   }
 
   .necessarily__content-img {
@@ -9716,13 +9716,13 @@ h6 {
 }
 
 .front-section {
-  background-image: url(./../img/index/front-section/bg-image.webp);
+  background-image: url(/img/index/front-section/bg-image.webp);
 }
 
 @media (max-width: 575.98px) {
 
   .necessarily__content-img {
-    background-image: url(./../img/casting/necessarily/full-img.webp);
+    background-image: url(/img/casting/necessarily/full-img.webp);
   }
 }
 
