@@ -3,10 +3,10 @@ export default defineNuxtConfig({
   app: {
     head: {
       script: [
-        { src: "/assets/js/SmoothScroll.js", body: true },
-        { src: "/assets/js/gsap/gsap.min.js", body: true },
-        { src: "/assets/js/gsap/ScrollTrigger.min.js", body: true },
-        { src: "/assets/js/swiper/swiper-bundle.min.js", body: true },
+        { src: "/assets/js/SmoothScroll.js", body: true, async: true, },
+        { src: "/assets/js/gsap/gsap.min.js", body: true, async: true, },
+        { src: "/assets/js/gsap/ScrollTrigger.min.js", body: true, async: true, },
+        { src: "/assets/js/swiper/swiper-bundle.min.js", body: true, async: true, },
         { src: "/assets/js/app.js", body: true },
         //organization sherma
         {
@@ -35,7 +35,7 @@ export default defineNuxtConfig({
         },
 
         {
-          async: true,
+          defer: true,
           src: "https://www.googletagmanager.com/gtag/js?id=G-5ZMFKJYM1N",
         },
         {
