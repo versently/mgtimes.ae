@@ -74,6 +74,7 @@ useHead({
                 loading="lazy"
                 src="/img/index/services-section/list/item01.webp"
                 alt=""
+                sizes="sm:100vw md:50vw lg:400px"
               />
             </div>
             <div class="services-section__list-item">
@@ -87,6 +88,7 @@ useHead({
                 loading="lazy"
                 src="/img/index/services-section/list/item02.webp"
                 alt=""
+                sizes="sm:100vw md:50vw lg:400px"
               />
             </div>
             <div class="services-section__list-item">
@@ -95,6 +97,7 @@ useHead({
                 loading="lazy"
                 src="/img/index/services-section/list/item03.webp"
                 alt=""
+                sizes="sm:100vw md:50vw lg:400px"
               />
             </div>
             <div class="services-section__list-item">
@@ -107,6 +110,7 @@ useHead({
                 loading="lazy"
                 src="/img/index/services-section/list/item04.webp"
                 alt=""
+                sizes="sm:100vw md:50vw lg:400px"
               />
             </div>
 
@@ -118,6 +122,7 @@ useHead({
                 loading="lazy"
                 src="/img/index/services-section/list/item05.webp"
                 alt=""
+                sizes="sm:100vw md:50vw lg:400px"
               />
             </div>
           </div>
@@ -128,6 +133,7 @@ useHead({
               loading="lazy"
               src="/img/index/services-section/first-girl.webp"
               alt=""
+              sizes="sm:100vw md:50vw lg:400px"
             />
           </div>
 
@@ -137,6 +143,7 @@ useHead({
               loading="lazy"
               src="/img/index/services-section/second-girl.webp"
               alt=""
+              sizes="sm:100vw md:50vw lg:400px"
             />
           </div>
         </div>
@@ -195,6 +202,7 @@ useHead({
                       loading="lazy"
                       :src="`/assets/img/models/${models.folder}/${models.mainImage}`"
                       :alt="`${models.folder}`"
+                      sizes="sm:100vw md:50vw lg:400px"
                     />
                     <div class="swiper-lazy-preloader"></div>
                     <div class="models-section__slide-description">
@@ -282,6 +290,7 @@ useHead({
               loading="lazy"
               src="/img/index/casting-section/main-img.webp"
               alt=""
+              sizes="sm:100vw md:50vw lg:400px"
             />
           </div>
           <div class="casting-section__text">
@@ -327,6 +336,7 @@ useHead({
                 loading="lazy"
                 src="/img/index/vip-section/side-img.webp"
                 alt=""
+                sizes="sm:100vw md:50vw lg:400px"
               />
             </div>
             <div class="vip-section__main-img">
@@ -334,6 +344,7 @@ useHead({
                 loading="lazy"
                 src="/img/index/vip-section/main-img.webp"
                 alt=""
+                sizes="sm:100vw md:50vw lg:400px"
               />
             </div>
           </div>
@@ -373,7 +384,9 @@ useHead({
                       loading="lazy"
                       :src="`/assets/img/services/${services.img}.webp`"
                       :alt="services.title"
+                      sizes="sm:100vw md:50vw lg:400px"
                     />
+                    
                     <div class="swiper-lazy-preloader"></div>
 
                     <div class="additional-services-section__slide-description">

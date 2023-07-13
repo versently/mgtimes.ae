@@ -139,7 +139,7 @@ export default defineNuxtConfig({
   image: {
     provider: 'netlify',
     format: ['webp'],
-    quality: 80,
+    quality: 70,
     domains: ['https://mgtimes.ae']
   },
   i18n: {
