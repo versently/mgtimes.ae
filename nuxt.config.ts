@@ -1,11 +1,11 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
 
-  nitro: {
-    prerender: {
-      crawlLinks: true,
-    },
-  },
+  // nitro: {
+  //   prerender: {
+  //     crawlLinks: true,
+  //   },
+  // },
   app: {
     head: {
       script: [
@@ -176,6 +176,6 @@ export default defineNuxtConfig({
   //   payloadExtraction: false,
   // },
   delayHydration: {
-    mode: 'init'
+    mode: 'mount'
   },
 });
