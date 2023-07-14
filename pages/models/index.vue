@@ -85,13 +85,13 @@ const route = useRoute();
                     <div class="models__model-name">{{ models.title }}</div>
                     <div class="models__model-characteristics">
                       <div class="models__model-property">
-                        {{ t("Height") }} <span>171</span>
+                        {{ t("Height:") }} <span>171</span>
                       </div>
                       <div class="models__model-property">
                         {{ t("Weight") }}: <span>52</span>
                       </div>
                       <div class="models__model-property">
-                        {{ t("Age") }} <span>25</span>
+                        {{ t("Age:") }} <span>25</span>
                       </div>
                     </div>
                   </div>
@@ -187,7 +187,7 @@ const route = useRoute();
             </div>
           </div>
           <div class="features-models-section__text-decoration">
-           Dreams come true... You just have to want to
+            {{ t("Dreams come true... You just have to want to") }}
           </div>
         </section>
         <section class="models__vip-escort-section vip-escort-section">
