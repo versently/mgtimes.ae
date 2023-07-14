@@ -69,7 +69,7 @@ export default defineNuxtConfig({
         //     k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
         //     (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
 
-        //     ym(91305537, "init", {
+        //     ym(69520198, "init", {
         //          clickmap:true,
         //          trackLinks:true,
         //          accurateTrackBounce:true,
@@ -82,7 +82,7 @@ export default defineNuxtConfig({
         //   {
         //     innerHTML: `
         // <!-- Yandex.Metrika counter -->
-        // <div><img src="https://mc.yandex.ru/watch/91305537" style="position:absolute; left:-9999px;" alt="" /></div>
+        // <div><img src="https://mc.yandex.ru/watch/69520198" style="position:absolute; left:-9999px;" alt="" /></div>
         // <!-- Yandex.Metrika counter -->
         //  `,
         //   },
@@ -164,7 +164,12 @@ export default defineNuxtConfig({
     "@nuxt/content",
     "@nuxtjs/i18n",
     "nuxt-delay-hydration",
+    "@nuxtjs/yandex-metrika",
   ],
+  yandexMetrika: {
+    id: "69520198",
+    // ...
+  },
   delayHydration: {
     mode: "init",
   },
