@@ -146,11 +146,11 @@ export default defineNuxtConfig({
     "@nuxt/image",
     "@nuxt/content",
     "@nuxtjs/i18n",
-    // "nuxt-delay-hydration",
+   "nuxt-delay-hydration",
   ],
-  // delayHydration: {
-  //   mode: 'init'
-  // },
+  delayHydration: {
+    mode: 'init'
+  },
   image: {
     provider: "netlify",
     format: ["webp"],
