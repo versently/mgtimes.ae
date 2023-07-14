@@ -198,7 +198,7 @@ useHead({
                     v-for="models in list"
                     :key="models._path"
                   >
-                  <div class="swiper-lazy-preloader"></div>
+                 
                     <nuxt-img
                       loading="lazy"
                       :src="`/assets/img/models/${models.folder}/${models.mainImage}`"
@@ -288,7 +288,7 @@ useHead({
         <div class="casting-section__content">
           <div class="casting-section__content-img">
             <nuxt-img
-              loading="lazy"
+              
               src="/img/index/casting-section/main-img.webp"
               alt=""
               sizes="sm:100vw md:50vw lg:400px"
@@ -388,7 +388,7 @@ useHead({
                       sizes="sm:100vw md:50vw lg:400px"
                     />
                     
-                    <div class="swiper-lazy-preloader"></div>
+                   
 
                     <div class="additional-services-section__slide-description">
                       <div class="additional-services-section__slide-title">

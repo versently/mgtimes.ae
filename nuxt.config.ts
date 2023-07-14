@@ -3,18 +3,24 @@ export default defineNuxtConfig({
   app: {
     head: {
       script: [
-        { src: "/assets/js/SmoothScroll.js", body: true },
-        { src: "/assets/js/gsap/gsap.min.js", body: true },
+        { src: "/assets/js/SmoothScroll.js", body: true, defer: true },
         {
-          src: "/assets/js/gsap/ScrollTrigger.min.js",
+          src: "https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js",
           body: true,
+          defer: true,
+        },
+        {
+          src: "https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js",
+          body: true,
+          defer: true,
         },
 
         {
-          src: "/assets/js/swiper/swiper-bundle.min.js",
+          src: "https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js",
           body: true,
+          defer: true,
         },
-        { src: "/assets/js/app.js", body: true },
+        { src: "/assets/js/app.js", body: true, defer: true },
         //organization sherma
         {
           type: "application/ld+json",
@@ -45,6 +51,7 @@ export default defineNuxtConfig({
           defer: true,
           src: "https://www.googletagmanager.com/gtag/js?id=G-5ZMFKJYM1N",
         },
+
         {
           innerHTML: `window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}
@@ -110,6 +117,10 @@ export default defineNuxtConfig({
         { property: "og:image:height", content: "600" },
       ],
       link: [
+        {
+          rel: "stylesheet",
+          href: "https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css",
+        },
         // {
         //   rel: "alternate",
         //   href: `https://mgtimes.ae`,
@@ -146,10 +157,10 @@ export default defineNuxtConfig({
     "@nuxt/image",
     "@nuxt/content",
     "@nuxtjs/i18n",
-   "nuxt-delay-hydration",
+    "nuxt-delay-hydration",
   ],
   delayHydration: {
-    mode: 'init'
+    mode: "init",
   },
   image: {
     provider: "netlify",
