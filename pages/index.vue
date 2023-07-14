@@ -198,13 +198,14 @@ useHead({
                     v-for="models in list"
                     :key="models._path"
                   >
+                  <div class="swiper-lazy-preloader"></div>
                     <nuxt-img
                       loading="lazy"
                       :src="`/assets/img/models/${models.folder}/${models.mainImage}`"
                       :alt="`${models.folder}`"
                       sizes="sm:100vw md:50vw lg:400px"
                     />
-                    <div class="swiper-lazy-preloader"></div>
+               
                     <div class="models-section__slide-description">
                       <div class="models-section__slide-name">
                         {{ models.title }}

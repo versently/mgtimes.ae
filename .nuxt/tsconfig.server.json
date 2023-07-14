@@ -77,9 +77,6 @@
       "#i18n": [
         "/Users/vitaly/Sites/hostiman_artur/mgtimes_nuxt/node_modules/@nuxtjs/i18n/dist/runtime/composables"
       ],
-      "#delay-hydration": [
-        "/Users/vitaly/Sites/hostiman_artur/mgtimes_nuxt/.nuxt/delay-hydration"
-      ],
       "#content/server": [
         "/Users/vitaly/Sites/hostiman_artur/mgtimes_nuxt/node_modules/@nuxt/content/dist/runtime/server/index"
       ]

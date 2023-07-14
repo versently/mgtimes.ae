@@ -9,6 +9,7 @@ export default defineNuxtConfig({
           src: "/assets/js/gsap/ScrollTrigger.min.js",
           body: true,
         },
+
         {
           src: "/assets/js/swiper/swiper-bundle.min.js",
           body: true,
@@ -145,11 +146,11 @@ export default defineNuxtConfig({
     "@nuxt/image",
     "@nuxt/content",
     "@nuxtjs/i18n",
-    "nuxt-delay-hydration",
+    // "nuxt-delay-hydration",
   ],
-  delayHydration: {
-    mode: 'init'
-  },
+  // delayHydration: {
+  //   mode: 'init'
+  // },
   image: {
     provider: "netlify",
     format: ["webp"],
