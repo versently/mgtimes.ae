@@ -288,7 +288,6 @@ useHead({
         <div class="casting-section__content">
           <div class="casting-section__content-img">
             <nuxt-img
-              
               src="/img/index/casting-section/main-img.webp"
               alt=""
               sizes="sm:100vw md:50vw lg:400px"
