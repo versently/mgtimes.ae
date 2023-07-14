@@ -143,7 +143,7 @@ declare module 'nuxt/schema' {
 
       defaultLocale: any,
 
-      integrity: any,
+      integrity: number,
 
       experimental: {
          stripQueryParameters: boolean,
@@ -236,11 +236,6 @@ declare module 'nuxt/schema' {
   }
 }
 declare module 'vue' {
-        interface ComponentCustomProperties {
-          $config: RuntimeConfig
-        }
-      }
-declare module '@vue/runtime-dom' {
         interface ComponentCustomProperties {
           $config: RuntimeConfig
         }

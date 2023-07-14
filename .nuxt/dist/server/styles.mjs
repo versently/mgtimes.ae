@@ -1,9 +1,10 @@
 const interopDefault = r => r.default || r || []
 export default {
-  "node_modules/@nuxt/content/dist/runtime/components/Prose/ProseCode.vue": () => import('./_nuxt/ProseCode-styles.93005832.mjs').then(interopDefault),
-  "pages/privacy-policy.vue": () => import('./_nuxt/privacy-policy-styles.aa6a27d0.mjs').then(interopDefault),
-  "pages/services/index.vue": () => import('./_nuxt/index-styles.cf2a2828.mjs').then(interopDefault),
-  "components/Header.vue": () => import('./_nuxt/Header-styles.20439db3.mjs').then(interopDefault),
-  "node_modules/@nuxt/ui-templates/dist/templates/error-404.vue": () => import('./_nuxt/error-404-styles.a5c3f351.mjs').then(interopDefault),
-  "node_modules/@nuxt/ui-templates/dist/templates/error-500.vue": () => import('./_nuxt/error-500-styles.6b5b5ff2.mjs').then(interopDefault)
+  "node_modules/nuxt/dist/app/entry.js": () => import('./_nuxt/entry-styles.567b09a5.mjs').then(interopDefault),
+  "node_modules/@nuxt/content/dist/runtime/components/Prose/ProseCode.vue": () => import('./_nuxt/ProseCode-styles.d95187be.mjs').then(interopDefault),
+  "pages/privacy-policy.vue": () => import('./_nuxt/privacy-policy-styles.e7382b4f.mjs').then(interopDefault),
+  "pages/services/index.vue": () => import('./_nuxt/index-styles.a03e2b4a.mjs').then(interopDefault),
+  "node_modules/@nuxt/ui-templates/dist/templates/error-404.vue": () => import('./_nuxt/error-404-styles.cf00f4cc.mjs').then(interopDefault),
+  "node_modules/@nuxt/ui-templates/dist/templates/error-500.vue": () => import('./_nuxt/error-500-styles.a001b7ed.mjs').then(interopDefault),
+  "layouts/default.vue": () => import('./_nuxt/default-styles.e21c5ea2.mjs').then(interopDefault)
 }

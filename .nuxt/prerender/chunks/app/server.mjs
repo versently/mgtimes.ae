@@ -1,13 +1,13 @@
-import { getCurrentInstance, version, toRef, isRef, inject, defineComponent, h, onUnmounted, ref, watchEffect, watch, computed, Fragment as Fragment$1, useSSRContext, createApp, reactive, unref, provide, onErrorCaptured, onServerPrefetch, createVNode, resolveDynamicComponent, shallowRef, isReadonly, Text, defineAsyncComponent, effectScope, withCtx, nextTick, Suspense, Transition } from 'file:///Users/vitaly/Sites/hostiman_artur/mgtimes_nuxt/node_modules/vue/index.mjs';
+import { hasInjectionContext, getCurrentInstance, toRef, isRef, inject, version, defineAsyncComponent, defineComponent, h, onUnmounted, ref, watchEffect, watch, computed, Fragment, useSSRContext, createApp, reactive, unref, provide, onErrorCaptured, onServerPrefetch, createVNode, resolveDynamicComponent, shallowRef, shallowReactive, isReadonly, Text, isShallow, isReactive, toRaw, effectScope, withCtx, mergeProps, nextTick, Suspense, Transition } from 'file:///Users/vitaly/Sites/hostiman_artur/mgtimes_nuxt/node_modules/vue/index.mjs';
 import { $fetch } from 'file:///Users/vitaly/Sites/hostiman_artur/mgtimes_nuxt/node_modules/ofetch/dist/node.mjs';
 import { createHooks } from 'file:///Users/vitaly/Sites/hostiman_artur/mgtimes_nuxt/node_modules/hookable/dist/index.mjs';
 import { getContext, executeAsync } from 'file:///Users/vitaly/Sites/hostiman_artur/mgtimes_nuxt/node_modules/unctx/dist/index.mjs';
+import { useRouter as useRouter$1, useRoute as useRoute$1, createMemoryHistory, createRouter, START_LOCATION, RouterView } from 'file:///Users/vitaly/Sites/hostiman_artur/mgtimes_nuxt/node_modules/vue-router/dist/vue-router.node.mjs';
+import { createError as createError$1, sanitizeStatusCode } from 'file:///Users/vitaly/Sites/hostiman_artur/mgtimes_nuxt/node_modules/h3/dist/index.mjs';
+import { withQuery, hasProtocol, parseURL, joinURL } from 'file:///Users/vitaly/Sites/hostiman_artur/mgtimes_nuxt/node_modules/ufo/dist/index.mjs';
 import { renderSSRHead } from 'file:///Users/vitaly/Sites/hostiman_artur/mgtimes_nuxt/node_modules/@unhead/ssr/dist/index.mjs';
 import { getActiveHead, createServerHead as createServerHead$1 } from 'file:///Users/vitaly/Sites/hostiman_artur/mgtimes_nuxt/node_modules/unhead/dist/index.mjs';
 import { defineHeadPlugin } from 'file:///Users/vitaly/Sites/hostiman_artur/mgtimes_nuxt/node_modules/@unhead/shared/dist/index.mjs';
-import { useRouter as useRouter$1, useRoute as useRoute$1, createMemoryHistory, createRouter, RouterView } from 'file:///Users/vitaly/Sites/hostiman_artur/mgtimes_nuxt/node_modules/vue-router/dist/vue-router.node.mjs';
-import { createError as createError$1, sendRedirect } from 'file:///Users/vitaly/Sites/hostiman_artur/mgtimes_nuxt/node_modules/h3/dist/index.mjs';
-import { hasProtocol, parseURL, joinURL } from 'file:///Users/vitaly/Sites/hostiman_artur/mgtimes_nuxt/node_modules/ufo/dist/index.mjs';
 import { CoreWarnCodes, CompileErrorCodes, registerMessageCompiler, compile, registerMessageResolver, resolveValue, registerLocaleFallbacker, fallbackWithLocaleChain, setDevToolsHook, createCompileError, DEFAULT_LOCALE as DEFAULT_LOCALE$1, updateFallbackLocale, NUMBER_FORMAT_OPTIONS_KEYS, DATETIME_FORMAT_OPTIONS_KEYS, setFallbackContext, createCoreContext, clearDateTimeFormat, clearNumberFormat, setAdditionalMeta, getFallbackContext, NOT_REOSLVED, isTranslateFallbackWarn, isTranslateMissingWarn, parseTranslateArgs, translate, MISSING_RESOLVE_VALUE, parseDateTimeArgs, datetime, parseNumberArgs, number, isMessageAST } from 'file:///Users/vitaly/Sites/hostiman_artur/mgtimes_nuxt/node_modules/@intlify/core-base/dist/core-base.mjs';
 import { setupDevtoolsPlugin } from 'file:///Users/vitaly/Sites/hostiman_artur/mgtimes_nuxt/node_modules/vue-devtools-stub/dist/index.mjs';
 import { VueDevToolsLabels, VueDevToolsPlaceholders, VueDevToolsTimelineColors } from 'file:///Users/vitaly/Sites/hostiman_artur/mgtimes_nuxt/node_modules/@intlify/vue-devtools/dist/vue-devtools.mjs';
@@ -20,10 +20,14 @@ import 'file:///Users/vitaly/Sites/hostiman_artur/mgtimes_nuxt/node_modules/node
 import 'file:///Users/vitaly/Sites/hostiman_artur/mgtimes_nuxt/node_modules/destr/dist/index.mjs';
 import 'file:///Users/vitaly/Sites/hostiman_artur/mgtimes_nuxt/node_modules/unenv/runtime/fetch/index.mjs';
 import 'file:///Users/vitaly/Sites/hostiman_artur/mgtimes_nuxt/node_modules/scule/dist/index.mjs';
+import 'file:///Users/vitaly/Sites/hostiman_artur/mgtimes_nuxt/node_modules/klona/dist/index.mjs';
 import 'file:///Users/vitaly/Sites/hostiman_artur/mgtimes_nuxt/node_modules/ohash/dist/index.mjs';
 import 'file:///Users/vitaly/Sites/hostiman_artur/mgtimes_nuxt/node_modules/unstorage/dist/index.mjs';
 import 'file:///Users/vitaly/Sites/hostiman_artur/mgtimes_nuxt/node_modules/unstorage/drivers/fs.mjs';
 import 'file:///Users/vitaly/Sites/hostiman_artur/mgtimes_nuxt/node_modules/radix3/dist/index.mjs';
+import 'file:///Users/vitaly/Sites/hostiman_artur/mgtimes_nuxt/node_modules/packrup/dist/index.mjs';
+import 'node:fs';
+import 'node:url';
 import 'file:///Users/vitaly/Sites/hostiman_artur/mgtimes_nuxt/node_modules/pathe/dist/index.mjs';
 import 'file:///Users/vitaly/Sites/hostiman_artur/mgtimes_nuxt/node_modules/unified/index.js';
 import 'file:///Users/vitaly/Sites/hostiman_artur/mgtimes_nuxt/node_modules/mdast-util-to-string/index.js';
@@ -65,7 +69,7 @@ function createNuxtApp(options) {
     globalName: "nuxt",
     versions: {
       get nuxt() {
-        return "3.4.1";
+        return "3.6.2";
       },
       get vue() {
         return nuxtApp.vueApp.version;
@@ -80,6 +84,7 @@ function createNuxtApp(options) {
     static: {
       data: {}
     },
+    runWithContext: (fn) => callWithNuxt(nuxtApp, fn),
     isHydrating: false,
     deferHydration() {
       if (!nuxtApp.isHydrating) {
@@ -110,7 +115,7 @@ function createNuxtApp(options) {
   {
     async function contextCaller(hooks, args) {
       for (const hook of hooks) {
-        await nuxtAppCtx.call(nuxtApp, () => hook(...args));
+        await nuxtApp.runWithContext(() => hook(...args));
       }
     }
     nuxtApp.hooks.callHook = (name, ...args) => nuxtApp.hooks.callHookWith(contextCaller, name, ...args);
@@ -126,9 +131,8 @@ function createNuxtApp(options) {
   {
     if (nuxtApp.ssrContext) {
       nuxtApp.ssrContext.nuxt = nuxtApp;
-    }
-    if (nuxtApp.ssrContext) {
       nuxtApp.ssrContext._payloadReducers = {};
+      nuxtApp.payload.path = nuxtApp.ssrContext.url;
     }
     nuxtApp.ssrContext = nuxtApp.ssrContext || {};
     if (nuxtApp.ssrContext.payload) {
@@ -141,363 +145,76 @@ function createNuxtApp(options) {
     };
   }
   const runtimeConfig = options.ssrContext.runtimeConfig;
-  const compatibilityConfig = new Proxy(runtimeConfig, {
-    get(target, prop) {
-      if (prop in target) {
-        return target[prop];
-      }
-      return target.public[prop];
-    },
-    set(target, prop, value) {
-      {
-        return false;
-      }
-    }
-  });
-  nuxtApp.provide("config", compatibilityConfig);
+  nuxtApp.provide("config", runtimeConfig);
   return nuxtApp;
 }
-async function applyPlugin(nuxtApp, plugin) {
-  if (typeof plugin !== "function") {
-    return;
+async function applyPlugin(nuxtApp, plugin2) {
+  if (plugin2.hooks) {
+    nuxtApp.hooks.addHooks(plugin2.hooks);
   }
-  const { provide: provide2 } = await callWithNuxt(nuxtApp, plugin, [nuxtApp]) || {};
-  if (provide2 && typeof provide2 === "object") {
-    for (const key in provide2) {
-      nuxtApp.provide(key, provide2[key]);
+  if (typeof plugin2 === "function") {
+    const { provide: provide2 } = await nuxtApp.runWithContext(() => plugin2(nuxtApp)) || {};
+    if (provide2 && typeof provide2 === "object") {
+      for (const key in provide2) {
+        nuxtApp.provide(key, provide2[key]);
+      }
     }
   }
 }
 async function applyPlugins(nuxtApp, plugins2) {
-  for (const plugin of plugins2) {
-    await applyPlugin(nuxtApp, plugin);
+  const parallels = [];
+  const errors = [];
+  for (const plugin2 of plugins2) {
+    const promise = applyPlugin(nuxtApp, plugin2);
+    if (plugin2.parallel) {
+      parallels.push(promise.catch((e) => errors.push(e)));
+    } else {
+      await promise;
+    }
+  }
+  await Promise.all(parallels);
+  if (errors.length) {
+    throw errors[0];
   }
 }
-function normalizePlugins(_plugins2) {
-  const plugins2 = [];
-  for (const plugin of _plugins2) {
-    if (typeof plugin !== "function") {
-      continue;
-    }
-    let _plugin = plugin;
-    if (plugin.length > 1) {
-      _plugin = (nuxtApp) => plugin(nuxtApp, nuxtApp.provide);
-    }
-    plugins2.push(_plugin);
+/*! @__NO_SIDE_EFFECTS__ */
+function defineNuxtPlugin(plugin2) {
+  if (typeof plugin2 === "function") {
+    return plugin2;
   }
-  plugins2.sort((a, b) => {
-    var _a, _b;
-    return (((_a = a.meta) == null ? void 0 : _a.order) || orderMap.default) - (((_b = b.meta) == null ? void 0 : _b.order) || orderMap.default);
-  });
-  return plugins2;
-}
-const orderMap = {
-  pre: -20,
-  default: 0,
-  post: 20
-};
-function defineNuxtPlugin(plugin, meta) {
-  var _a;
-  if (typeof plugin === "function") {
-    return /* @__PURE__ */ defineNuxtPlugin({ setup: plugin }, meta);
-  }
-  const wrapper = (nuxtApp) => {
-    if (plugin.hooks) {
-      nuxtApp.hooks.addHooks(plugin.hooks);
-    }
-    if (plugin.setup) {
-      return plugin.setup(nuxtApp);
-    }
-  };
-  wrapper.meta = {
-    name: (meta == null ? void 0 : meta.name) || plugin.name || ((_a = plugin.setup) == null ? void 0 : _a.name),
-    order: (meta == null ? void 0 : meta.order) || plugin.order || orderMap[plugin.enforce || "default"] || orderMap.default
-  };
-  wrapper[NuxtPluginIndicator] = true;
-  return wrapper;
+  delete plugin2.name;
+  return Object.assign(plugin2.setup || (() => {
+  }), plugin2, { [NuxtPluginIndicator]: true });
 }
 function callWithNuxt(nuxt, setup, args) {
   const fn = () => args ? setup(...args) : setup();
   {
-    return nuxtAppCtx.callAsync(nuxt, fn);
+    return nuxt.vueApp.runWithContext(() => nuxtAppCtx.callAsync(nuxt, fn));
   }
 }
+/*! @__NO_SIDE_EFFECTS__ */
 function useNuxtApp() {
-  const nuxtAppInstance = nuxtAppCtx.tryUse();
+  var _a;
+  let nuxtAppInstance;
+  if (hasInjectionContext()) {
+    nuxtAppInstance = (_a = getCurrentInstance()) == null ? void 0 : _a.appContext.app.$nuxt;
+  }
+  nuxtAppInstance = nuxtAppInstance || nuxtAppCtx.tryUse();
   if (!nuxtAppInstance) {
-    const vm = getCurrentInstance();
-    if (!vm) {
-      throw new Error("nuxt instance unavailable");
+    {
+      throw new Error("[nuxt] instance unavailable");
     }
-    return vm.appContext.app.$nuxt;
   }
   return nuxtAppInstance;
 }
+/*! @__NO_SIDE_EFFECTS__ */
 function useRuntimeConfig() {
   return useNuxtApp().$config;
 }
 function defineGetter$1(obj, key, val) {
   Object.defineProperty(obj, key, { get: () => val });
 }
-const components = {
-  ContentDoc: /* @__PURE__ */ defineAsyncComponent(() => import(
-    './_nuxt/ContentDoc-29a856ce.mjs'
-    /* webpackChunkName: "components/content-doc" */
-  ).then((c) => c.default || c)),
-  ContentList: /* @__PURE__ */ defineAsyncComponent(() => import(
-    './_nuxt/ContentList-8e5c205f.mjs'
-    /* webpackChunkName: "components/content-list" */
-  ).then((c) => c.default || c)),
-  ContentNavigation: /* @__PURE__ */ defineAsyncComponent(() => import(
-    './_nuxt/ContentNavigation-38cab591.mjs'
-    /* webpackChunkName: "components/content-navigation" */
-  ).then((c) => c.default || c)),
-  ContentQuery: /* @__PURE__ */ defineAsyncComponent(() => import(
-    './_nuxt/ContentQuery-0318a8c4.mjs'
-    /* webpackChunkName: "components/content-query" */
-  ).then((c) => c.default || c)),
-  ContentRenderer: /* @__PURE__ */ defineAsyncComponent(() => import(
-    './_nuxt/ContentRenderer-80ba82e8.mjs'
-    /* webpackChunkName: "components/content-renderer" */
-  ).then((c) => c.default || c)),
-  ContentRendererMarkdown: /* @__PURE__ */ defineAsyncComponent(() => import(
-    './_nuxt/ContentRendererMarkdown-d67fd408.mjs'
-    /* webpackChunkName: "components/content-renderer-markdown" */
-  ).then((c) => c.default || c)),
-  ContentSlot: /* @__PURE__ */ defineAsyncComponent(() => import(
-    './_nuxt/ContentSlot-a1c4650e.mjs'
-    /* webpackChunkName: "components/content-slot" */
-  ).then((c) => c.default || c)),
-  DocumentDrivenEmpty: /* @__PURE__ */ defineAsyncComponent(() => import(
-    './_nuxt/DocumentDrivenEmpty-e7fcdb87.mjs'
-    /* webpackChunkName: "components/document-driven-empty" */
-  ).then((c) => c.default || c)),
-  DocumentDrivenNotFound: /* @__PURE__ */ defineAsyncComponent(() => import(
-    './_nuxt/DocumentDrivenNotFound-84f1d547.mjs'
-    /* webpackChunkName: "components/document-driven-not-found" */
-  ).then((c) => c.default || c)),
-  Markdown: /* @__PURE__ */ defineAsyncComponent(() => import(
-    './_nuxt/Markdown-137fbc79.mjs'
-    /* webpackChunkName: "components/markdown" */
-  ).then((c) => c.default || c)),
-  ProseA: /* @__PURE__ */ defineAsyncComponent(() => import(
-    './_nuxt/ProseA-8e3290dc.mjs'
-    /* webpackChunkName: "components/prose-a" */
-  ).then((c) => c.default || c)),
-  ProseBlockquote: /* @__PURE__ */ defineAsyncComponent(() => import(
-    './_nuxt/ProseBlockquote-f8be78d0.mjs'
-    /* webpackChunkName: "components/prose-blockquote" */
-  ).then((c) => c.default || c)),
-  ProseCode: /* @__PURE__ */ defineAsyncComponent(() => import(
-    './_nuxt/ProseCode-e127d4dd.mjs'
-    /* webpackChunkName: "components/prose-code" */
-  ).then((c) => c.default || c)),
-  ProseCodeInline: /* @__PURE__ */ defineAsyncComponent(() => import(
-    './_nuxt/ProseCodeInline-50fdcb9c.mjs'
-    /* webpackChunkName: "components/prose-code-inline" */
-  ).then((c) => c.default || c)),
-  ProseEm: /* @__PURE__ */ defineAsyncComponent(() => import(
-    './_nuxt/ProseEm-93e924f6.mjs'
-    /* webpackChunkName: "components/prose-em" */
-  ).then((c) => c.default || c)),
-  ProseH1: /* @__PURE__ */ defineAsyncComponent(() => import(
-    './_nuxt/ProseH1-91ca6221.mjs'
-    /* webpackChunkName: "components/prose-h1" */
-  ).then((c) => c.default || c)),
-  ProseH2: /* @__PURE__ */ defineAsyncComponent(() => import(
-    './_nuxt/ProseH2-6bb248b3.mjs'
-    /* webpackChunkName: "components/prose-h2" */
-  ).then((c) => c.default || c)),
-  ProseH3: /* @__PURE__ */ defineAsyncComponent(() => import(
-    './_nuxt/ProseH3-24ce698f.mjs'
-    /* webpackChunkName: "components/prose-h3" */
-  ).then((c) => c.default || c)),
-  ProseH4: /* @__PURE__ */ defineAsyncComponent(() => import(
-    './_nuxt/ProseH4-03abf162.mjs'
-    /* webpackChunkName: "components/prose-h4" */
-  ).then((c) => c.default || c)),
-  ProseH5: /* @__PURE__ */ defineAsyncComponent(() => import(
-    './_nuxt/ProseH5-a2051879.mjs'
-    /* webpackChunkName: "components/prose-h5" */
-  ).then((c) => c.default || c)),
-  ProseH6: /* @__PURE__ */ defineAsyncComponent(() => import(
-    './_nuxt/ProseH6-0f51877e.mjs'
-    /* webpackChunkName: "components/prose-h6" */
-  ).then((c) => c.default || c)),
-  ProseHr: /* @__PURE__ */ defineAsyncComponent(() => import(
-    './_nuxt/ProseHr-613c2d85.mjs'
-    /* webpackChunkName: "components/prose-hr" */
-  ).then((c) => c.default || c)),
-  ProseImg: /* @__PURE__ */ defineAsyncComponent(() => import(
-    './_nuxt/ProseImg-803f2a7e.mjs'
-    /* webpackChunkName: "components/prose-img" */
-  ).then((c) => c.default || c)),
-  ProseLi: /* @__PURE__ */ defineAsyncComponent(() => import(
-    './_nuxt/ProseLi-6a0e630f.mjs'
-    /* webpackChunkName: "components/prose-li" */
-  ).then((c) => c.default || c)),
-  ProseOl: /* @__PURE__ */ defineAsyncComponent(() => import(
-    './_nuxt/ProseOl-a831024e.mjs'
-    /* webpackChunkName: "components/prose-ol" */
-  ).then((c) => c.default || c)),
-  ProseP: /* @__PURE__ */ defineAsyncComponent(() => import(
-    './_nuxt/ProseP-7c459ce2.mjs'
-    /* webpackChunkName: "components/prose-p" */
-  ).then((c) => c.default || c)),
-  ProseStrong: /* @__PURE__ */ defineAsyncComponent(() => import(
-    './_nuxt/ProseStrong-03abc703.mjs'
-    /* webpackChunkName: "components/prose-strong" */
-  ).then((c) => c.default || c)),
-  ProseTable: /* @__PURE__ */ defineAsyncComponent(() => import(
-    './_nuxt/ProseTable-e703a6f4.mjs'
-    /* webpackChunkName: "components/prose-table" */
-  ).then((c) => c.default || c)),
-  ProseTbody: /* @__PURE__ */ defineAsyncComponent(() => import(
-    './_nuxt/ProseTbody-53b57fe3.mjs'
-    /* webpackChunkName: "components/prose-tbody" */
-  ).then((c) => c.default || c)),
-  ProseTd: /* @__PURE__ */ defineAsyncComponent(() => import(
-    './_nuxt/ProseTd-ed0ec29d.mjs'
-    /* webpackChunkName: "components/prose-td" */
-  ).then((c) => c.default || c)),
-  ProseTh: /* @__PURE__ */ defineAsyncComponent(() => import(
-    './_nuxt/ProseTh-68935e23.mjs'
-    /* webpackChunkName: "components/prose-th" */
-  ).then((c) => c.default || c)),
-  ProseThead: /* @__PURE__ */ defineAsyncComponent(() => import(
-    './_nuxt/ProseThead-32676174.mjs'
-    /* webpackChunkName: "components/prose-thead" */
-  ).then((c) => c.default || c)),
-  ProseTr: /* @__PURE__ */ defineAsyncComponent(() => import(
-    './_nuxt/ProseTr-5f36a71e.mjs'
-    /* webpackChunkName: "components/prose-tr" */
-  ).then((c) => c.default || c)),
-  ProseUl: /* @__PURE__ */ defineAsyncComponent(() => import(
-    './_nuxt/ProseUl-20e4ea37.mjs'
-    /* webpackChunkName: "components/prose-ul" */
-  ).then((c) => c.default || c))
-};
-const components_plugin_KR1HBZs4kY = /* @__PURE__ */ defineNuxtPlugin({
-  name: "nuxt:global-components",
-  setup(nuxtApp) {
-    for (const name in components) {
-      nuxtApp.vueApp.component(name, components[name]);
-      nuxtApp.vueApp.component("Lazy" + name, components[name]);
-    }
-  }
-});
-function resolveUnref(r) {
-  return typeof r === "function" ? r() : unref(r);
-}
-function resolveUnrefHeadInput(ref2, lastKey = "") {
-  if (ref2 instanceof Promise)
-    return ref2;
-  const root = resolveUnref(ref2);
-  if (!ref2 || !root)
-    return root;
-  if (Array.isArray(root))
-    return root.map((r) => resolveUnrefHeadInput(r, lastKey));
-  if (typeof root === "object") {
-    return Object.fromEntries(
-      Object.entries(root).map(([k, v]) => {
-        if (k === "titleTemplate" || k.startsWith("on"))
-          return [k, unref(v)];
-        return [k, resolveUnrefHeadInput(v, k)];
-      })
-    );
-  }
-  return root;
-}
-const Vue3 = version.startsWith("3");
-const headSymbol = "usehead";
-function injectHead() {
-  return getCurrentInstance() && inject(headSymbol) || getActiveHead();
-}
-function vueInstall(head) {
-  const plugin = {
-    install(app) {
-      if (Vue3) {
-        app.config.globalProperties.$unhead = head;
-        app.config.globalProperties.$head = head;
-        app.provide(headSymbol, head);
-      }
-    }
-  };
-  return plugin.install;
-}
-function createServerHead(options = {}) {
-  const head = createServerHead$1({
-    ...options,
-    plugins: [
-      VueReactiveUseHeadPlugin(),
-      ...(options == null ? void 0 : options.plugins) || []
-    ]
-  });
-  head.install = vueInstall(head);
-  return head;
-}
-const VueReactiveUseHeadPlugin = () => {
-  return defineHeadPlugin({
-    hooks: {
-      "entries:resolve": function(ctx) {
-        for (const entry2 of ctx.entries)
-          entry2.resolvedInput = resolveUnrefHeadInput(entry2.input);
-      }
-    }
-  });
-};
-function clientUseHead(input, options = {}) {
-  const head = injectHead();
-  const deactivated = ref(false);
-  const resolvedInput = ref({});
-  watchEffect(() => {
-    resolvedInput.value = deactivated.value ? {} : resolveUnrefHeadInput(input);
-  });
-  const entry2 = head.push(resolvedInput.value, options);
-  watch(resolvedInput, (e) => {
-    entry2.patch(e);
-  });
-  getCurrentInstance();
-  return entry2;
-}
-function serverUseHead(input, options = {}) {
-  const head = injectHead();
-  return head.push(input, options);
-}
-function useHead(input, options = {}) {
-  var _a;
-  const head = injectHead();
-  if (head) {
-    const isBrowser = !!((_a = head.resolvedOptions) == null ? void 0 : _a.document);
-    if (options.mode === "server" && isBrowser || options.mode === "client" && !isBrowser)
-      return;
-    return isBrowser ? clientUseHead(input, options) : serverUseHead(input, options);
-  }
-}
-const appHead = { "meta": [{ "name": "viewport", "content": "width=device-width, initial-scale=1" }, { "charset": "utf-8" }, { "name": "yandex-verification", "content": "aa730f68b9c3659c" }, { "property": "og:site_name", "content": "Elite escort services in Dubai MGTIMES" }, { "property": "og:title", "content": "Elite escort services in Dubai | VIP girls 🖤 | MGTIMES" }, { "property": "og:type", "content": "website" }, { "property": "og:description", "content": "Escort services and model escorts in Moscow. Elite escort agency for successful men! Selection of VIP models to accompany. Strictly confidential 📞 +79775944345 ⚡" }, { "property": "og:url", "content": "https://mgtimes.ae" }, { "property": "og:image", "content": "https://mgtimes.ae/extra-activity.png" }, { "property": "og:image:alt", "content": "Escort Agency «Mgtimes»" }, { "property": "og:image:width", "content": "600" }, { "property": "og:image:height", "content": "600" }], "link": [{ "rel": "apple-touch-icon", "sizes": "180x180", "href": "/apple-touch-icon.png" }, { "rel": "icon", "type": "image/png", "sizes": "32x32", "href": "/favicon-32x32.png" }, { "rel": "icon", "type": "image/png", "sizes": "16x16", "href": "/favicon-16x16.png" }], "style": [], "script": [{ "src": "/assets/js/SmoothScroll.js", "body": true }, { "src": "/assets/js/gsap/gsap.min.js", "body": true }, { "src": "/assets/js/gsap/ScrollTrigger.min.js", "body": true }, { "src": "/assets/js/swiper/swiper-bundle.min.js", "body": true, "async": true }, { "src": "/assets/js/app.js", "body": true }, { "type": "application/ld+json", "innerHTML": '{"@context":"https://schema.org/","@type":"Organization","name":"Mgtimes","telephone":"+7 977 594-43-45","email":"info@mgtimes.ru","image":"https://mgtimes.ae/extra-activity.png","address":{"@type":"PostalAddress","addressLocality":"Dubai","streetAddress":"Dubai, Business Bay"}}' }, { "defer": true, "src": "https://www.googletagmanager.com/gtag/js?id=G-5ZMFKJYM1N" }, { "innerHTML": "window.dataLayer = window.dataLayer || [];\n        function gtag(){dataLayer.push(arguments);}\n        gtag('js', new Date());\n      \n        gtag('config', 'G-5ZMFKJYM1N');" }, { "innerHTML": '\n          <!-- Yandex.Metrika counter -->\n          (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};\n          m[i].l=1*new Date();\n          for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}\n          k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})\n          (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");\n       \n          ym(91305537, "init", {\n               clickmap:true,\n               trackLinks:true,\n               accurateTrackBounce:true,\n               webvisor:true\n          });\n         ' }], "noscript": [{ "innerHTML": '\n      <!-- Yandex.Metrika counter -->\n      <div><img src="https://mc.yandex.ru/watch/91305537" style="position:absolute; left:-9999px;" alt="" /></div>\n      <!-- Yandex.Metrika counter -->\n       ' }] };
-const appLayoutTransition = false;
-const appPageTransition = false;
-const appKeepalive = false;
-const unhead_KgADcZ0jPj = /* @__PURE__ */ defineNuxtPlugin({
-  name: "nuxt:head",
-  setup(nuxtApp) {
-    const createHead = createServerHead;
-    const head = createHead();
-    head.push(appHead);
-    nuxtApp.vueApp.use(head);
-    {
-      nuxtApp.ssrContext.renderMeta = async () => {
-        const meta = await renderSSRHead(head);
-        return {
-          ...meta,
-          bodyScriptsPrepend: meta.bodyTagsOpen,
-          // resolves naming difference with NuxtMeta and Unhead
-          bodyScripts: meta.bodyTags
-        };
-      };
-    }
-  }
-});
+const useStateKeyPrefix = "$s";
 function useState(...args) {
   const autoKey = typeof args[args.length - 1] === "string" ? args.pop() : void 0;
   if (typeof args[0] !== "string") {
@@ -510,7 +227,7 @@ function useState(...args) {
   if (init !== void 0 && typeof init !== "function") {
     throw new Error("[nuxt] [useState] init must be a function: " + init);
   }
-  const key = "$s" + _key;
+  const key = useStateKeyPrefix + _key;
   const nuxt = useNuxtApp();
   const state = toRef(nuxt.payload.state, key);
   if (state.value === void 0 && init) {
@@ -523,17 +240,22 @@ function useState(...args) {
   }
   return state;
 }
+const LayoutMetaSymbol = Symbol("layout-meta");
+const PageRouteSymbol = Symbol("route");
 const useRouter = () => {
   var _a;
   return (_a = useNuxtApp()) == null ? void 0 : _a.$router;
 };
 const useRoute = () => {
-  if (getCurrentInstance()) {
-    return inject("_route", useNuxtApp()._route);
+  if (hasInjectionContext()) {
+    return inject(PageRouteSymbol, useNuxtApp()._route);
   }
   return useNuxtApp()._route;
 };
-const defineNuxtRouteMiddleware = (middleware) => middleware;
+/*! @__NO_SIDE_EFFECTS__ */
+function defineNuxtRouteMiddleware(middleware) {
+  return middleware;
+}
 const addRouteMiddleware = (name, middleware, options = {}) => {
   const nuxtApp = useNuxtApp();
   const global2 = options.global || typeof name !== "string";
@@ -562,7 +284,10 @@ const navigateTo = (to, options) => {
   if (!to) {
     to = "/";
   }
-  const toPath = typeof to === "string" ? to : to.path || "/";
+  const toPath = typeof to === "string" ? to : withQuery(to.path || "/", to.query || {}) + (to.hash || "");
+  if (options == null ? void 0 : options.open) {
+    return Promise.resolve();
+  }
   const isExternal = (options == null ? void 0 : options.external) || hasProtocol(toPath, { acceptRelative: true });
   if (isExternal && !(options == null ? void 0 : options.external)) {
     throw new Error("Navigating to external URL is not allowed by default. Use `navigateTo (url, { external: true })`.");
@@ -572,20 +297,29 @@ const navigateTo = (to, options) => {
   }
   const inMiddleware = isProcessingMiddleware();
   const router = useRouter();
+  const nuxtApp = useNuxtApp();
   {
-    const nuxtApp = useNuxtApp();
-    if (nuxtApp.ssrContext && nuxtApp.ssrContext.event) {
+    if (nuxtApp.ssrContext) {
       const fullPath = typeof to === "string" || isExternal ? toPath : router.resolve(to).fullPath || "/";
-      const redirectLocation = isExternal ? toPath : joinURL(useRuntimeConfig().app.baseURL, fullPath);
-      const redirect = () => nuxtApp.callHook("app:redirected").then(() => sendRedirect(nuxtApp.ssrContext.event, redirectLocation, (options == null ? void 0 : options.redirectCode) || 302)).then(() => inMiddleware ? (
-        /* abort route navigation */
-        false
-      ) : void 0);
+      const location2 = isExternal ? toPath : joinURL(useRuntimeConfig().app.baseURL, fullPath);
+      async function redirect(response) {
+        await nuxtApp.callHook("app:redirected");
+        const encodedLoc = location2.replace(/"/g, "%22");
+        nuxtApp.ssrContext._renderResponse = {
+          statusCode: sanitizeStatusCode((options == null ? void 0 : options.redirectCode) || 302, 302),
+          body: `<!DOCTYPE html><html><head><meta http-equiv="refresh" content="0; url=${encodedLoc}"></head></html>`,
+          headers: { location: location2 }
+        };
+        return response;
+      }
       if (!isExternal && inMiddleware) {
-        router.beforeEach((final) => final.fullPath === fullPath ? redirect() : void 0);
+        router.afterEach((final) => final.fullPath === fullPath ? redirect(false) : void 0);
         return to;
       }
-      return redirect();
+      return redirect(!inMiddleware ? void 0 : (
+        /* abort route navigation */
+        false
+      ));
     }
   }
   if (isExternal) {
@@ -593,6 +327,13 @@ const navigateTo = (to, options) => {
       location.replace(toPath);
     } else {
       location.href = toPath;
+    }
+    if (inMiddleware) {
+      if (!nuxtApp.isHydrating) {
+        return false;
+      }
+      return new Promise(() => {
+      });
     }
     return Promise.resolve();
   }
@@ -603,14 +344,16 @@ const showError = (_err) => {
   const err = createError(_err);
   try {
     const nuxtApp = useNuxtApp();
-    nuxtApp.callHook("app:error", err);
     const error = useError();
+    if (false)
+      ;
     error.value = error.value || err;
   } catch {
     throw err;
   }
   return err;
 };
+const isNuxtError = (err) => !!(err && typeof err === "object" && "__nuxt_error" in err);
 const createError = (err) => {
   const _err = createError$1(err);
   _err.__nuxt_error = true;
@@ -623,7 +366,7 @@ const _routes = [
     meta: {},
     alias: [],
     redirect: void 0,
-    component: () => import('./_nuxt/casting-f2300fe4.mjs').then((m) => m.default || m)
+    component: () => import('./_nuxt/casting-95afa81f.mjs').then((m) => m.default || m)
   },
   {
     name: "casting___ru",
@@ -631,7 +374,7 @@ const _routes = [
     meta: {},
     alias: [],
     redirect: void 0,
-    component: () => import('./_nuxt/casting-f2300fe4.mjs').then((m) => m.default || m)
+    component: () => import('./_nuxt/casting-95afa81f.mjs').then((m) => m.default || m)
   },
   {
     name: "contacts___en",
@@ -639,7 +382,7 @@ const _routes = [
     meta: {},
     alias: [],
     redirect: void 0,
-    component: () => import('./_nuxt/contacts-7e150620.mjs').then((m) => m.default || m)
+    component: () => import('./_nuxt/contacts-9aa624bb.mjs').then((m) => m.default || m)
   },
   {
     name: "contacts___ru",
@@ -647,7 +390,7 @@ const _routes = [
     meta: {},
     alias: [],
     redirect: void 0,
-    component: () => import('./_nuxt/contacts-7e150620.mjs').then((m) => m.default || m)
+    component: () => import('./_nuxt/contacts-9aa624bb.mjs').then((m) => m.default || m)
   },
   {
     name: "index___en",
@@ -655,7 +398,7 @@ const _routes = [
     meta: {},
     alias: [],
     redirect: void 0,
-    component: () => import('./_nuxt/index-f48969ad.mjs').then((m) => m.default || m)
+    component: () => import('./_nuxt/index-3d8272d2.mjs').then((m) => m.default || m)
   },
   {
     name: "index___ru",
@@ -663,7 +406,7 @@ const _routes = [
     meta: {},
     alias: [],
     redirect: void 0,
-    component: () => import('./_nuxt/index-f48969ad.mjs').then((m) => m.default || m)
+    component: () => import('./_nuxt/index-3d8272d2.mjs').then((m) => m.default || m)
   },
   {
     name: "media-slug___en",
@@ -671,7 +414,7 @@ const _routes = [
     meta: {},
     alias: [],
     redirect: void 0,
-    component: () => import('./_nuxt/_...slug_-4df89f17.mjs').then((m) => m.default || m)
+    component: () => import('./_nuxt/_...slug_-31747570.mjs').then((m) => m.default || m)
   },
   {
     name: "media-slug___ru",
@@ -679,7 +422,7 @@ const _routes = [
     meta: {},
     alias: [],
     redirect: void 0,
-    component: () => import('./_nuxt/_...slug_-4df89f17.mjs').then((m) => m.default || m)
+    component: () => import('./_nuxt/_...slug_-31747570.mjs').then((m) => m.default || m)
   },
   {
     name: "media___en",
@@ -687,7 +430,7 @@ const _routes = [
     meta: {},
     alias: [],
     redirect: void 0,
-    component: () => import('./_nuxt/index-c9b12c30.mjs').then((m) => m.default || m)
+    component: () => import('./_nuxt/index-84c1559f.mjs').then((m) => m.default || m)
   },
   {
     name: "media___ru",
@@ -695,7 +438,7 @@ const _routes = [
     meta: {},
     alias: [],
     redirect: void 0,
-    component: () => import('./_nuxt/index-c9b12c30.mjs').then((m) => m.default || m)
+    component: () => import('./_nuxt/index-84c1559f.mjs').then((m) => m.default || m)
   },
   {
     name: "models-slug___en",
@@ -703,7 +446,7 @@ const _routes = [
     meta: {},
     alias: [],
     redirect: void 0,
-    component: () => import('./_nuxt/_...slug_-8e2b736c.mjs').then((m) => m.default || m)
+    component: () => import('./_nuxt/_...slug_-1318e198.mjs').then((m) => m.default || m)
   },
   {
     name: "models-slug___ru",
@@ -711,7 +454,7 @@ const _routes = [
     meta: {},
     alias: [],
     redirect: void 0,
-    component: () => import('./_nuxt/_...slug_-8e2b736c.mjs').then((m) => m.default || m)
+    component: () => import('./_nuxt/_...slug_-1318e198.mjs').then((m) => m.default || m)
   },
   {
     name: "models___en",
@@ -719,7 +462,7 @@ const _routes = [
     meta: {},
     alias: [],
     redirect: void 0,
-    component: () => import('./_nuxt/index-49cbd7dc.mjs').then((m) => m.default || m)
+    component: () => import('./_nuxt/index-5fccfa0f.mjs').then((m) => m.default || m)
   },
   {
     name: "models___ru",
@@ -727,7 +470,7 @@ const _routes = [
     meta: {},
     alias: [],
     redirect: void 0,
-    component: () => import('./_nuxt/index-49cbd7dc.mjs').then((m) => m.default || m)
+    component: () => import('./_nuxt/index-5fccfa0f.mjs').then((m) => m.default || m)
   },
   {
     name: "privacy-policy___en",
@@ -735,7 +478,7 @@ const _routes = [
     meta: {},
     alias: [],
     redirect: void 0,
-    component: () => import('./_nuxt/privacy-policy-6340e113.mjs').then((m) => m.default || m)
+    component: () => import('./_nuxt/privacy-policy-799844b4.mjs').then((m) => m.default || m)
   },
   {
     name: "privacy-policy___ru",
@@ -743,7 +486,7 @@ const _routes = [
     meta: {},
     alias: [],
     redirect: void 0,
-    component: () => import('./_nuxt/privacy-policy-6340e113.mjs').then((m) => m.default || m)
+    component: () => import('./_nuxt/privacy-policy-799844b4.mjs').then((m) => m.default || m)
   },
   {
     name: "services-slug___en",
@@ -751,7 +494,7 @@ const _routes = [
     meta: {},
     alias: [],
     redirect: void 0,
-    component: () => import('./_nuxt/_...slug_-5dbe752d.mjs').then((m) => m.default || m)
+    component: () => import('./_nuxt/_...slug_-9f071308.mjs').then((m) => m.default || m)
   },
   {
     name: "services-slug___ru",
@@ -759,7 +502,7 @@ const _routes = [
     meta: {},
     alias: [],
     redirect: void 0,
-    component: () => import('./_nuxt/_...slug_-5dbe752d.mjs').then((m) => m.default || m)
+    component: () => import('./_nuxt/_...slug_-9f071308.mjs').then((m) => m.default || m)
   },
   {
     name: "services___en",
@@ -767,7 +510,7 @@ const _routes = [
     meta: {},
     alias: [],
     redirect: void 0,
-    component: () => import('./_nuxt/index-c96eec18.mjs').then((m) => m.default || m)
+    component: () => import('./_nuxt/index-d8b07be1.mjs').then((m) => m.default || m)
   },
   {
     name: "services___ru",
@@ -775,9 +518,13 @@ const _routes = [
     meta: {},
     alias: [],
     redirect: void 0,
-    component: () => import('./_nuxt/index-c96eec18.mjs').then((m) => m.default || m)
+    component: () => import('./_nuxt/index-d8b07be1.mjs').then((m) => m.default || m)
   }
 ];
+const appHead = { "meta": [{ "name": "viewport", "content": "width=device-width, initial-scale=1" }, { "charset": "utf-8" }, { "name": "yandex-verification", "content": "aa730f68b9c3659c" }, { "property": "og:site_name", "content": "Elite escort services in Dubai MGTIMES" }, { "property": "og:title", "content": "Elite escort services in Dubai | VIP girls 🖤 | MGTIMES" }, { "property": "og:type", "content": "website" }, { "property": "og:description", "content": "Escort services and model escorts in Moscow. Elite escort agency for successful men! Selection of VIP models to accompany. Strictly confidential 📞 +79775944345 ⚡" }, { "property": "og:url", "content": "https://mgtimes.ae" }, { "property": "og:image", "content": "https://mgtimes.ae/extra-activity.png" }, { "property": "og:image:alt", "content": "Escort Agency «Mgtimes»" }, { "property": "og:image:width", "content": "600" }, { "property": "og:image:height", "content": "600" }], "link": [{ "rel": "apple-touch-icon", "sizes": "180x180", "href": "/apple-touch-icon.png" }, { "rel": "icon", "type": "image/png", "sizes": "32x32", "href": "/favicon-32x32.png" }, { "rel": "icon", "type": "image/png", "sizes": "16x16", "href": "/favicon-16x16.png" }], "style": [], "script": [{ "src": "/assets/js/SmoothScroll.js", "body": true }, { "src": "/assets/js/gsap/gsap.min.js", "body": true }, { "src": "/assets/js/gsap/ScrollTrigger.min.js", "body": true }, { "src": "/assets/js/swiper/swiper-bundle.min.js", "body": true }, { "src": "/assets/js/app.js", "body": true }, { "type": "application/ld+json", "innerHTML": '{"@context":"https://schema.org/","@type":"Organization","name":"Mgtimes","telephone":"+7 977 594-43-45","email":"info@mgtimes.ru","image":"https://mgtimes.ae/extra-activity.png","address":{"@type":"PostalAddress","addressLocality":"Dubai","streetAddress":"Dubai, Business Bay"}}' }, { "defer": true, "src": "https://www.googletagmanager.com/gtag/js?id=G-5ZMFKJYM1N" }, { "innerHTML": "window.dataLayer = window.dataLayer || [];\n        function gtag(){dataLayer.push(arguments);}\n        gtag('js', new Date());\n      \n        gtag('config', 'G-5ZMFKJYM1N');" }, { "innerHTML": '\n          <!-- Yandex.Metrika counter -->\n          (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};\n          m[i].l=1*new Date();\n          for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}\n          k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})\n          (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");\n       \n          ym(91305537, "init", {\n               clickmap:true,\n               trackLinks:true,\n               accurateTrackBounce:true,\n               webvisor:true\n          });\n         ' }], "noscript": [{ "innerHTML": '\n      <!-- Yandex.Metrika counter -->\n      <div><img src="https://mc.yandex.ru/watch/91305537" style="position:absolute; left:-9999px;" alt="" /></div>\n      <!-- Yandex.Metrika counter -->\n       ' }] };
+const appLayoutTransition = false;
+const appPageTransition = false;
+const appKeepalive = false;
 const routerOptions0 = {
   scrollBehavior(to, from, savedPosition) {
     const nuxtApp = useNuxtApp();
@@ -816,12 +563,15 @@ function _getHashElementScrollMarginTop(selector) {
   }
   return 0;
 }
-function _isDifferentRoute(a, b) {
-  const samePageComponent = a.matched[0] === b.matched[0];
+function _isDifferentRoute(from, to) {
+  const samePageComponent = to.matched.every((comp, index) => {
+    var _a, _b, _c;
+    return ((_a = comp.components) == null ? void 0 : _a.default) === ((_c = (_b = from.matched[index]) == null ? void 0 : _b.components) == null ? void 0 : _c.default);
+  });
   if (!samePageComponent) {
     return true;
   }
-  if (samePageComponent && JSON.stringify(a.params) !== JSON.stringify(b.params)) {
+  if (samePageComponent && JSON.stringify(from.params) !== JSON.stringify(to.params)) {
     return true;
   }
   return false;
@@ -837,7 +587,6 @@ const validate = /* @__PURE__ */ defineNuxtRouteMiddleware(async (to) => {
   if (!((_a = to.meta) == null ? void 0 : _a.validate)) {
     return;
   }
-  useNuxtApp();
   useRouter();
   const result = ([__temp, __restore] = executeAsync(() => Promise.resolve(to.meta.validate(to))), __temp = await __temp, __restore(), __temp);
   if (result === true) {
@@ -847,6 +596,94 @@ const validate = /* @__PURE__ */ defineNuxtRouteMiddleware(async (to) => {
     return result;
   }
 });
+function resolveUnref(r) {
+  return typeof r === "function" ? r() : unref(r);
+}
+function resolveUnrefHeadInput(ref2, lastKey = "") {
+  if (ref2 instanceof Promise)
+    return ref2;
+  const root = resolveUnref(ref2);
+  if (!ref2 || !root)
+    return root;
+  if (Array.isArray(root))
+    return root.map((r) => resolveUnrefHeadInput(r, lastKey));
+  if (typeof root === "object") {
+    return Object.fromEntries(
+      Object.entries(root).map(([k, v]) => {
+        if (k === "titleTemplate" || k.startsWith("on"))
+          return [k, unref(v)];
+        return [k, resolveUnrefHeadInput(v, k)];
+      })
+    );
+  }
+  return root;
+}
+const Vue3 = version.startsWith("3");
+const headSymbol = "usehead";
+function injectHead() {
+  return getCurrentInstance() && inject(headSymbol) || getActiveHead();
+}
+function vueInstall(head) {
+  const plugin2 = {
+    install(app) {
+      if (Vue3) {
+        app.config.globalProperties.$unhead = head;
+        app.config.globalProperties.$head = head;
+        app.provide(headSymbol, head);
+      }
+    }
+  };
+  return plugin2.install;
+}
+function createServerHead(options = {}) {
+  const head = createServerHead$1({
+    ...options,
+    plugins: [
+      VueReactiveUseHeadPlugin(),
+      ...(options == null ? void 0 : options.plugins) || []
+    ]
+  });
+  head.install = vueInstall(head);
+  return head;
+}
+function VueReactiveUseHeadPlugin() {
+  return defineHeadPlugin({
+    hooks: {
+      "entries:resolve": function(ctx) {
+        for (const entry2 of ctx.entries)
+          entry2.resolvedInput = resolveUnrefHeadInput(entry2.input);
+      }
+    }
+  });
+}
+function clientUseHead(input, options = {}) {
+  const head = injectHead();
+  const deactivated = ref(false);
+  const resolvedInput = ref({});
+  watchEffect(() => {
+    resolvedInput.value = deactivated.value ? {} : resolveUnrefHeadInput(input);
+  });
+  const entry2 = head.push(resolvedInput.value, options);
+  watch(resolvedInput, (e) => {
+    entry2.patch(e);
+  });
+  getCurrentInstance();
+  return entry2;
+}
+function serverUseHead(input, options = {}) {
+  const head = injectHead();
+  return head.push(input, options);
+}
+function useHead(input, options = {}) {
+  var _a;
+  const head = injectHead();
+  if (head) {
+    const isBrowser = !!((_a = head.resolvedOptions) == null ? void 0 : _a.document);
+    if (options.mode === "server" && isBrowser || options.mode === "client" && !isBrowser)
+      return;
+    return isBrowser ? clientUseHead(input, options) : serverUseHead(input, options);
+  }
+}
 function useRequestHeaders(include) {
   var _a;
   const headers = ((_a = useNuxtApp().ssrContext) == null ? void 0 : _a.event.node.req.headers) ?? {};
@@ -858,6 +695,11 @@ function useRequestHeaders(include) {
 function useRequestEvent(nuxtApp = useNuxtApp()) {
   var _a;
   return (_a = nuxtApp.ssrContext) == null ? void 0 : _a.event;
+}
+function definePayloadReducer(name, reduce) {
+  {
+    useNuxtApp().ssrContext._payloadReducers[name] = reduce;
+  }
 }
 const redirect_45trailing_45slash_45global = /* @__PURE__ */ defineNuxtRouteMiddleware((to, from) => {
   if (to.path !== "/" && to.path.endsWith("/")) {
@@ -880,7 +722,7 @@ const globalMiddleware = [
   without_45php_45global
 ];
 const namedMiddleware = {};
-const router_jmwsqit4Rs = /* @__PURE__ */ defineNuxtPlugin({
+const plugin = /* @__PURE__ */ defineNuxtPlugin({
   name: "nuxt:router",
   enforce: "pre",
   async setup(nuxtApp) {
@@ -892,9 +734,19 @@ const router_jmwsqit4Rs = /* @__PURE__ */ defineNuxtPlugin({
     }
     const history = ((_a = routerOptions.history) == null ? void 0 : _a.call(routerOptions, routerBase)) ?? createMemoryHistory(routerBase);
     const routes = ((_b = routerOptions.routes) == null ? void 0 : _b.call(routerOptions, _routes)) ?? _routes;
+    let startPosition;
     const initialURL = nuxtApp.ssrContext.url;
     const router = createRouter({
       ...routerOptions,
+      scrollBehavior: (to, from, savedPosition) => {
+        var _a2;
+        if (from === START_LOCATION) {
+          startPosition = savedPosition;
+          return;
+        }
+        router.options.scrollBehavior = routerOptions.scrollBehavior;
+        return (_a2 = routerOptions.scrollBehavior) == null ? void 0 : _a2.call(routerOptions, to, START_LOCATION, startPosition || savedPosition);
+      },
       history,
       routes
     });
@@ -919,9 +771,11 @@ const router_jmwsqit4Rs = /* @__PURE__ */ defineNuxtPlugin({
     });
     const route = {};
     for (const key in _route.value) {
-      route[key] = computed(() => _route.value[key]);
+      Object.defineProperty(route, key, {
+        get: () => _route.value[key]
+      });
     }
-    nuxtApp._route = reactive(route);
+    nuxtApp._route = shallowReactive(route);
     nuxtApp._middleware = nuxtApp._middleware || {
       global: [],
       named: {}
@@ -937,48 +791,50 @@ const router_jmwsqit4Rs = /* @__PURE__ */ defineNuxtPlugin({
       [__temp, __restore] = executeAsync(() => router.isReady()), await __temp, __restore();
       ;
     } catch (error2) {
-      [__temp, __restore] = executeAsync(() => callWithNuxt(nuxtApp, showError, [error2])), await __temp, __restore();
+      [__temp, __restore] = executeAsync(() => nuxtApp.runWithContext(() => showError(error2))), await __temp, __restore();
     }
     const initialLayout = useState("_layout");
     router.beforeEach(async (to, from) => {
-      var _a2;
+      var _a2, _b2;
       to.meta = reactive(to.meta);
       if (nuxtApp.isHydrating && initialLayout.value && !isReadonly(to.meta.layout)) {
         to.meta.layout = initialLayout.value;
       }
       nuxtApp._processingMiddleware = true;
-      const middlewareEntries = /* @__PURE__ */ new Set([...globalMiddleware, ...nuxtApp._middleware.global]);
-      for (const component of to.matched) {
-        const componentMiddleware = component.meta.middleware;
-        if (!componentMiddleware) {
-          continue;
-        }
-        if (Array.isArray(componentMiddleware)) {
-          for (const entry2 of componentMiddleware) {
-            middlewareEntries.add(entry2);
+      if (!((_a2 = nuxtApp.ssrContext) == null ? void 0 : _a2.islandContext)) {
+        const middlewareEntries = /* @__PURE__ */ new Set([...globalMiddleware, ...nuxtApp._middleware.global]);
+        for (const component of to.matched) {
+          const componentMiddleware = component.meta.middleware;
+          if (!componentMiddleware) {
+            continue;
           }
-        } else {
-          middlewareEntries.add(componentMiddleware);
-        }
-      }
-      for (const entry2 of middlewareEntries) {
-        const middleware = typeof entry2 === "string" ? nuxtApp._middleware.named[entry2] || await ((_a2 = namedMiddleware[entry2]) == null ? void 0 : _a2.call(namedMiddleware).then((r) => r.default || r)) : entry2;
-        if (!middleware) {
-          throw new Error(`Unknown route middleware: '${entry2}'.`);
-        }
-        const result = await callWithNuxt(nuxtApp, middleware, [to, from]);
-        {
-          if (result === false || result instanceof Error) {
-            const error2 = result || createError$1({
-              statusCode: 404,
-              statusMessage: `Page Not Found: ${initialURL}`
-            });
-            await callWithNuxt(nuxtApp, showError, [error2]);
-            return false;
+          if (Array.isArray(componentMiddleware)) {
+            for (const entry2 of componentMiddleware) {
+              middlewareEntries.add(entry2);
+            }
+          } else {
+            middlewareEntries.add(componentMiddleware);
           }
         }
-        if (result || result === false) {
-          return result;
+        for (const entry2 of middlewareEntries) {
+          const middleware = typeof entry2 === "string" ? nuxtApp._middleware.named[entry2] || await ((_b2 = namedMiddleware[entry2]) == null ? void 0 : _b2.call(namedMiddleware).then((r) => r.default || r)) : entry2;
+          if (!middleware) {
+            throw new Error(`Unknown route middleware: '${entry2}'.`);
+          }
+          const result = await nuxtApp.runWithContext(() => middleware(to, from));
+          {
+            if (result === false || result instanceof Error) {
+              const error2 = result || createError$1({
+                statusCode: 404,
+                statusMessage: `Page Not Found: ${initialURL}`
+              });
+              await nuxtApp.runWithContext(() => showError(error2));
+              return false;
+            }
+          }
+          if (result || result === false) {
+            return result;
+          }
         }
       }
     });
@@ -986,18 +842,19 @@ const router_jmwsqit4Rs = /* @__PURE__ */ defineNuxtPlugin({
       delete nuxtApp._processingMiddleware;
     });
     router.afterEach(async (to, _from, failure) => {
+      var _a2;
       delete nuxtApp._processingMiddleware;
       if ((failure == null ? void 0 : failure.type) === 4) {
         return;
       }
-      if (to.matched.length === 0) {
-        await callWithNuxt(nuxtApp, showError, [createError$1({
+      if (to.matched.length === 0 && !((_a2 = nuxtApp.ssrContext) == null ? void 0 : _a2.islandContext)) {
+        await nuxtApp.runWithContext(() => showError(createError$1({
           statusCode: 404,
           fatal: false,
           statusMessage: `Page not found: ${to.fullPath}`
-        })]);
-      } else if (to.redirectedFrom) {
-        await callWithNuxt(nuxtApp, navigateTo, [to.fullPath || "/"]);
+        })));
+      } else if (to.redirectedFrom && to.fullPath !== initialURL) {
+        await nuxtApp.runWithContext(() => navigateTo(to.fullPath || "/"));
       }
     });
     nuxtApp.hooks.hookOnce("app:created", async () => {
@@ -1005,194 +862,211 @@ const router_jmwsqit4Rs = /* @__PURE__ */ defineNuxtPlugin({
         await router.replace({
           ...router.resolve(initialURL),
           name: void 0,
-          // #4920, #$4982
+          // #4920, #4982
           force: true
         });
+        router.options.scrollBehavior = routerOptions.scrollBehavior;
       } catch (error2) {
-        await callWithNuxt(nuxtApp, showError, [error2]);
+        await nuxtApp.runWithContext(() => showError(error2));
       }
     });
     return { provide: { router } };
   }
-}, 1);
+});
+const reducers = {
+  NuxtError: (data) => isNuxtError(data) && data.toJSON(),
+  EmptyShallowRef: (data) => isRef(data) && isShallow(data) && !data.value && (typeof data.value === "bigint" ? "0n" : JSON.stringify(data.value) || "_"),
+  EmptyRef: (data) => isRef(data) && !data.value && (typeof data.value === "bigint" ? "0n" : JSON.stringify(data.value) || "_"),
+  ShallowRef: (data) => isRef(data) && isShallow(data) && data.value,
+  ShallowReactive: (data) => isReactive(data) && isShallow(data) && toRaw(data),
+  Ref: (data) => isRef(data) && data.value,
+  Reactive: (data) => isReactive(data) && toRaw(data)
+};
+const revive_payload_server_eJ33V7gbc6 = /* @__PURE__ */ defineNuxtPlugin({
+  name: "nuxt:revive-payload:server",
+  setup() {
+    for (const reducer in reducers) {
+      definePayloadReducer(reducer, reducers[reducer]);
+    }
+  }
+});
+const LazyContentDoc = defineAsyncComponent(() => import('./_nuxt/ContentDoc-a5c59cd8.mjs').then((r) => r.default));
+const LazyContentList = defineAsyncComponent(() => import('./_nuxt/ContentList-9870115f.mjs').then((r) => r.default));
+const LazyContentNavigation = defineAsyncComponent(() => import('./_nuxt/ContentNavigation-89511583.mjs').then((r) => r.default));
+const LazyContentQuery = defineAsyncComponent(() => import('./_nuxt/ContentQuery-3fcff742.mjs').then((r) => r.default));
+const LazyContentRenderer = defineAsyncComponent(() => import('./_nuxt/ContentRenderer-44088b12.mjs').then((r) => r.default));
+const LazyContentRendererMarkdown = defineAsyncComponent(() => import('./_nuxt/ContentRendererMarkdown-30b2a030.mjs').then((r) => r.default));
+const LazyContentSlot = defineAsyncComponent(() => import('./_nuxt/ContentSlot-a313c999.mjs').then((r) => r.default));
+const LazyDocumentDrivenEmpty = defineAsyncComponent(() => import('./_nuxt/DocumentDrivenEmpty-e7fcdb87.mjs').then((r) => r.default));
+const LazyDocumentDrivenNotFound = defineAsyncComponent(() => import('./_nuxt/DocumentDrivenNotFound-84f1d547.mjs').then((r) => r.default));
+const LazyMarkdown = defineAsyncComponent(() => import('./_nuxt/Markdown-9d83c195.mjs').then((r) => r.default));
+const LazyProseA = defineAsyncComponent(() => import('./_nuxt/ProseA-1cfdad2e.mjs').then((r) => r.default));
+const LazyProseBlockquote = defineAsyncComponent(() => import('./_nuxt/ProseBlockquote-1a2d5a43.mjs').then((r) => r.default));
+const LazyProseCode = defineAsyncComponent(() => import('./_nuxt/ProseCode-9cd09ca5.mjs').then((r) => r.default));
+const LazyProseCodeInline = defineAsyncComponent(() => import('./_nuxt/ProseCodeInline-469bb623.mjs').then((r) => r.default));
+const LazyProseEm = defineAsyncComponent(() => import('./_nuxt/ProseEm-daf49df7.mjs').then((r) => r.default));
+const LazyProseH1 = defineAsyncComponent(() => import('./_nuxt/ProseH1-650a2af9.mjs').then((r) => r.default));
+const LazyProseH2 = defineAsyncComponent(() => import('./_nuxt/ProseH2-836103f0.mjs').then((r) => r.default));
+const LazyProseH3 = defineAsyncComponent(() => import('./_nuxt/ProseH3-e7b21f78.mjs').then((r) => r.default));
+const LazyProseH4 = defineAsyncComponent(() => import('./_nuxt/ProseH4-6c5da784.mjs').then((r) => r.default));
+const LazyProseH5 = defineAsyncComponent(() => import('./_nuxt/ProseH5-85c84ca6.mjs').then((r) => r.default));
+const LazyProseH6 = defineAsyncComponent(() => import('./_nuxt/ProseH6-644e14ae.mjs').then((r) => r.default));
+const LazyProseHr = defineAsyncComponent(() => import('./_nuxt/ProseHr-ef4ef818.mjs').then((r) => r.default));
+const LazyProseImg = defineAsyncComponent(() => import('./_nuxt/ProseImg-29d91672.mjs').then((r) => r.default));
+const LazyProseLi = defineAsyncComponent(() => import('./_nuxt/ProseLi-222b7499.mjs').then((r) => r.default));
+const LazyProseOl = defineAsyncComponent(() => import('./_nuxt/ProseOl-64341a4f.mjs').then((r) => r.default));
+const LazyProseP = defineAsyncComponent(() => import('./_nuxt/ProseP-22db6751.mjs').then((r) => r.default));
+const LazyProseStrong = defineAsyncComponent(() => import('./_nuxt/ProseStrong-a940ccb7.mjs').then((r) => r.default));
+const LazyProseTable = defineAsyncComponent(() => import('./_nuxt/ProseTable-eb886f01.mjs').then((r) => r.default));
+const LazyProseTbody = defineAsyncComponent(() => import('./_nuxt/ProseTbody-0cb72462.mjs').then((r) => r.default));
+const LazyProseTd = defineAsyncComponent(() => import('./_nuxt/ProseTd-a4cbafc8.mjs').then((r) => r.default));
+const LazyProseTh = defineAsyncComponent(() => import('./_nuxt/ProseTh-54bc4db9.mjs').then((r) => r.default));
+const LazyProseThead = defineAsyncComponent(() => import('./_nuxt/ProseThead-3a0aab84.mjs').then((r) => r.default));
+const LazyProseTr = defineAsyncComponent(() => import('./_nuxt/ProseTr-d01b9f83.mjs').then((r) => r.default));
+const LazyProseUl = defineAsyncComponent(() => import('./_nuxt/ProseUl-83cbb99f.mjs').then((r) => r.default));
+const lazyGlobalComponents = [
+  ["ContentDoc", LazyContentDoc],
+  ["ContentList", LazyContentList],
+  ["ContentNavigation", LazyContentNavigation],
+  ["ContentQuery", LazyContentQuery],
+  ["ContentRenderer", LazyContentRenderer],
+  ["ContentRendererMarkdown", LazyContentRendererMarkdown],
+  ["ContentSlot", LazyContentSlot],
+  ["DocumentDrivenEmpty", LazyDocumentDrivenEmpty],
+  ["DocumentDrivenNotFound", LazyDocumentDrivenNotFound],
+  ["Markdown", LazyMarkdown],
+  ["ProseA", LazyProseA],
+  ["ProseBlockquote", LazyProseBlockquote],
+  ["ProseCode", LazyProseCode],
+  ["ProseCodeInline", LazyProseCodeInline],
+  ["ProseEm", LazyProseEm],
+  ["ProseH1", LazyProseH1],
+  ["ProseH2", LazyProseH2],
+  ["ProseH3", LazyProseH3],
+  ["ProseH4", LazyProseH4],
+  ["ProseH5", LazyProseH5],
+  ["ProseH6", LazyProseH6],
+  ["ProseHr", LazyProseHr],
+  ["ProseImg", LazyProseImg],
+  ["ProseLi", LazyProseLi],
+  ["ProseOl", LazyProseOl],
+  ["ProseP", LazyProseP],
+  ["ProseStrong", LazyProseStrong],
+  ["ProseTable", LazyProseTable],
+  ["ProseTbody", LazyProseTbody],
+  ["ProseTd", LazyProseTd],
+  ["ProseTh", LazyProseTh],
+  ["ProseThead", LazyProseThead],
+  ["ProseTr", LazyProseTr],
+  ["ProseUl", LazyProseUl]
+];
+const components_plugin_KR1HBZs4kY = /* @__PURE__ */ defineNuxtPlugin({
+  name: "nuxt:global-components",
+  setup(nuxtApp) {
+    for (const [name, component] of lazyGlobalComponents) {
+      nuxtApp.vueApp.component(name, component);
+      nuxtApp.vueApp.component("Lazy" + name, component);
+    }
+  }
+});
+const unhead_KgADcZ0jPj = /* @__PURE__ */ defineNuxtPlugin({
+  name: "nuxt:head",
+  setup(nuxtApp) {
+    const createHead = createServerHead;
+    const head = createHead();
+    head.push(appHead);
+    nuxtApp.vueApp.use(head);
+    {
+      nuxtApp.ssrContext.renderMeta = async () => {
+        const meta = await renderSSRHead(head);
+        return {
+          ...meta,
+          bodyScriptsPrepend: meta.bodyTagsOpen,
+          // resolves naming difference with NuxtMeta and Unhead
+          bodyScripts: meta.bodyTags
+        };
+      };
+    }
+  }
+});
 const composition_sLxaNGmlSL = /* @__PURE__ */ defineNuxtPlugin(() => {
 });
-var commonjsGlobal = typeof globalThis !== "undefined" ? globalThis : typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : {};
-var sharedExports = {};
-var shared$1 = {
-  get exports() {
-    return sharedExports;
-  },
-  set exports(v) {
-    sharedExports = v;
-  }
-};
-var shared = {};
 /*!
   * shared v9.3.0-beta.22
   * (c) 2023 kazuya kawaguchi
   * Released under the MIT License.
   */
-var hasRequiredShared;
-function requireShared() {
-  if (hasRequiredShared)
-    return shared;
-  hasRequiredShared = 1;
-  const inBrowser = false;
-  shared.mark = void 0;
-  shared.measure = void 0;
-  const RE_ARGS = /\{([0-9a-zA-Z]+)\}/g;
-  function format(message, ...args) {
-    if (args.length === 1 && isObject2(args[0])) {
-      args = args[0];
-    }
-    if (!args || !args.hasOwnProperty) {
-      args = {};
-    }
-    return message.replace(RE_ARGS, (match, identifier) => {
-      return args.hasOwnProperty(identifier) ? args[identifier] : "";
-    });
+const inBrowser = false;
+const RE_ARGS = /\{([0-9a-zA-Z]+)\}/g;
+function format(message, ...args) {
+  if (args.length === 1 && isObject$1(args[0])) {
+    args = args[0];
   }
-  const makeSymbol2 = (name, shareable = false) => !shareable ? Symbol(name) : Symbol.for(name);
-  const generateFormatCacheKey = (locale, key, source) => friendlyJSONstringify({ l: locale, k: key, s: source });
-  const friendlyJSONstringify = (json) => JSON.stringify(json).replace(/\u2028/g, "\\u2028").replace(/\u2029/g, "\\u2029").replace(/\u0027/g, "\\u0027");
-  const isNumber = (val) => typeof val === "number" && isFinite(val);
-  const isDate = (val) => toTypeString(val) === "[object Date]";
-  const isRegExp = (val) => toTypeString(val) === "[object RegExp]";
-  const isEmptyObject = (val) => isPlainObject(val) && Object.keys(val).length === 0;
-  function warn2(msg, err) {
-    if (typeof console !== "undefined") {
-      console.warn(`[intlify] ` + msg);
-      if (err) {
-        console.warn(err.stack);
-      }
-    }
+  if (!args || !args.hasOwnProperty) {
+    args = {};
   }
-  const assign2 = Object.assign;
-  let _globalThis;
-  const getGlobalThis = () => {
-    return _globalThis || (_globalThis = typeof globalThis !== "undefined" ? globalThis : typeof self !== "undefined" ? self : typeof commonjsGlobal !== "undefined" ? commonjsGlobal : {});
-  };
-  function escapeHtml(rawText) {
-    return rawText.replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;").replace(/'/g, "&apos;");
-  }
-  const hasOwnProperty = Object.prototype.hasOwnProperty;
-  function hasOwn(obj, key) {
-    return hasOwnProperty.call(obj, key);
-  }
-  const isArray2 = Array.isArray;
-  const isFunction2 = (val) => typeof val === "function";
-  const isString2 = (val) => typeof val === "string";
-  const isBoolean = (val) => typeof val === "boolean";
-  const isSymbol2 = (val) => typeof val === "symbol";
-  const isObject2 = (val) => val !== null && typeof val === "object";
-  const isPromise = (val) => {
-    return isObject2(val) && isFunction2(val.then) && isFunction2(val.catch);
-  };
-  const objectToString = Object.prototype.toString;
-  const toTypeString = (value) => objectToString.call(value);
-  const isPlainObject = (val) => {
-    if (!isObject2(val))
-      return false;
-    const proto = Object.getPrototypeOf(val);
-    return proto === null || proto.constructor === Object;
-  };
-  const toDisplayString = (val) => {
-    return val == null ? "" : isArray2(val) || isPlainObject(val) && val.toString === objectToString ? JSON.stringify(val, null, 2) : String(val);
-  };
-  function join(items, separator = "") {
-    return items.reduce((str, item, index) => index === 0 ? str + item : str + separator + item, "");
-  }
-  const RANGE = 2;
-  function generateCodeFrame(source, start = 0, end = source.length) {
-    const lines = source.split(/\r?\n/);
-    let count = 0;
-    const res = [];
-    for (let i = 0; i < lines.length; i++) {
-      count += lines[i].length + 1;
-      if (count >= start) {
-        for (let j = i - RANGE; j <= i + RANGE || end > count; j++) {
-          if (j < 0 || j >= lines.length)
-            continue;
-          const line = j + 1;
-          res.push(`${line}${" ".repeat(3 - String(line).length)}|  ${lines[j]}`);
-          const lineLength = lines[j].length;
-          if (j === i) {
-            const pad = start - (count - lineLength) + 1;
-            const length = Math.max(1, end > count ? lineLength - pad : end - start);
-            res.push(`   |  ` + " ".repeat(pad) + "^".repeat(length));
-          } else if (j > i) {
-            if (end > count) {
-              const length = Math.max(Math.min(end - count, lineLength), 1);
-              res.push(`   |  ` + "^".repeat(length));
-            }
-            count += lineLength + 1;
-          }
-        }
-        break;
-      }
-    }
-    return res.join("\n");
-  }
-  function createEmitter() {
-    const events = /* @__PURE__ */ new Map();
-    const emitter = {
-      events,
-      on(event, handler) {
-        const handlers = events.get(event);
-        const added = handlers && handlers.push(handler);
-        if (!added) {
-          events.set(event, [handler]);
-        }
-      },
-      off(event, handler) {
-        const handlers = events.get(event);
-        if (handlers) {
-          handlers.splice(handlers.indexOf(handler) >>> 0, 1);
-        }
-      },
-      emit(event, payload) {
-        (events.get(event) || []).slice().map((handler) => handler(payload));
-        (events.get("*") || []).slice().map((handler) => handler(event, payload));
-      }
-    };
-    return emitter;
-  }
-  shared.assign = assign2;
-  shared.createEmitter = createEmitter;
-  shared.escapeHtml = escapeHtml;
-  shared.format = format;
-  shared.friendlyJSONstringify = friendlyJSONstringify;
-  shared.generateCodeFrame = generateCodeFrame;
-  shared.generateFormatCacheKey = generateFormatCacheKey;
-  shared.getGlobalThis = getGlobalThis;
-  shared.hasOwn = hasOwn;
-  shared.inBrowser = inBrowser;
-  shared.isArray = isArray2;
-  shared.isBoolean = isBoolean;
-  shared.isDate = isDate;
-  shared.isEmptyObject = isEmptyObject;
-  shared.isFunction = isFunction2;
-  shared.isNumber = isNumber;
-  shared.isObject = isObject2;
-  shared.isPlainObject = isPlainObject;
-  shared.isPromise = isPromise;
-  shared.isRegExp = isRegExp;
-  shared.isString = isString2;
-  shared.isSymbol = isSymbol2;
-  shared.join = join;
-  shared.makeSymbol = makeSymbol2;
-  shared.objectToString = objectToString;
-  shared.toDisplayString = toDisplayString;
-  shared.toTypeString = toTypeString;
-  shared.warn = warn2;
-  return shared;
+  return message.replace(RE_ARGS, (match, identifier) => {
+    return args.hasOwnProperty(identifier) ? args[identifier] : "";
+  });
 }
-(function(module) {
-  {
-    module.exports = requireShared();
+const makeSymbol$1 = (name, shareable = false) => !shareable ? Symbol(name) : Symbol.for(name);
+const isNumber = (val) => typeof val === "number" && isFinite(val);
+const isRegExp = (val) => toTypeString(val) === "[object RegExp]";
+const isEmptyObject = (val) => isPlainObject(val) && Object.keys(val).length === 0;
+function warn$1(msg, err) {
+  if (typeof console !== "undefined") {
+    console.warn(`[intlify] ` + msg);
+    if (err) {
+      console.warn(err.stack);
+    }
   }
-})(shared$1);
+}
+const assign$1 = Object.assign;
+let _globalThis;
+const getGlobalThis = () => {
+  return _globalThis || (_globalThis = typeof globalThis !== "undefined" ? globalThis : typeof self !== "undefined" ? self : typeof global !== "undefined" ? global : {});
+};
+const hasOwnProperty = Object.prototype.hasOwnProperty;
+function hasOwn(obj, key) {
+  return hasOwnProperty.call(obj, key);
+}
+const isArray$1 = Array.isArray;
+const isFunction$1 = (val) => typeof val === "function";
+const isString$1 = (val) => typeof val === "string";
+const isBoolean = (val) => typeof val === "boolean";
+const isObject$1 = (val) => val !== null && typeof val === "object";
+const objectToString = Object.prototype.toString;
+const toTypeString = (value) => objectToString.call(value);
+const isPlainObject = (val) => {
+  if (!isObject$1(val))
+    return false;
+  const proto = Object.getPrototypeOf(val);
+  return proto === null || proto.constructor === Object;
+};
+function createEmitter() {
+  const events = /* @__PURE__ */ new Map();
+  const emitter = {
+    events,
+    on(event, handler) {
+      const handlers = events.get(event);
+      const added = handlers && handlers.push(handler);
+      if (!added) {
+        events.set(event, [handler]);
+      }
+    },
+    off(event, handler) {
+      const handlers = events.get(event);
+      if (handlers) {
+        handlers.splice(handlers.indexOf(handler) >>> 0, 1);
+      }
+    },
+    emit(event, payload) {
+      (events.get(event) || []).slice().map((handler) => handler(payload));
+      (events.get("*") || []).slice().map((handler) => handler(event, payload));
+    }
+  };
+  return emitter;
+}
 /*!
   * vue-i18n v9.3.0-beta.22
   * (c) 2023 kazuya kawaguchi
@@ -1201,7 +1075,7 @@ function requireShared() {
 const VERSION = "9.3.0-beta.22";
 function initFeatureFlags() {
   if (typeof __INTLIFY_PROD_DEVTOOLS__ !== "boolean") {
-    sharedExports.getGlobalThis().__INTLIFY_PROD_DEVTOOLS__ = false;
+    getGlobalThis().__INTLIFY_PROD_DEVTOOLS__ = false;
   }
 }
 let code$1 = CoreWarnCodes.__EXTEND_POINT__;
@@ -1228,7 +1102,7 @@ const warnMessages = {
   [I18nWarnCodes.IGNORE_OBJ_FLATTEN]: `Ignore object flatten: '{key}' key has an string value`
 };
 function getWarnMessage(code2, ...args) {
-  return sharedExports.format(warnMessages[code2], ...args);
+  return format(warnMessages[code2], ...args);
 }
 let code = CompileErrorCodes.__EXTEND_POINT__;
 const inc = () => ++code;
@@ -1280,24 +1154,23 @@ const errorMessages = {
   [I18nErrorCodes.MUST_DEFINE_I18N_OPTION_IN_ALLOW_COMPOSITION]: "Must define ‘i18n’ option or custom block in Composition API with using local scope in Legacy API mode",
   [I18nErrorCodes.NOT_AVAILABLE_COMPOSITION_IN_LEGACY]: "Not available Compostion API in Legacy API mode. Please make sure that the legacy API mode is working properly"
 };
-const TranslateVNodeSymbol = /* @__PURE__ */ sharedExports.makeSymbol("__translateVNode");
-const DatetimePartsSymbol = /* @__PURE__ */ sharedExports.makeSymbol("__datetimeParts");
-const NumberPartsSymbol = /* @__PURE__ */ sharedExports.makeSymbol("__numberParts");
-const EnableEmitter = /* @__PURE__ */ sharedExports.makeSymbol("__enableEmitter");
-const DisableEmitter = /* @__PURE__ */ sharedExports.makeSymbol("__disableEmitter");
-const SetPluralRulesSymbol = sharedExports.makeSymbol("__setPluralRules");
-sharedExports.makeSymbol("__intlifyMeta");
-const InejctWithOption = /* @__PURE__ */ sharedExports.makeSymbol("__injectWithOption");
+const TranslateVNodeSymbol = /* @__PURE__ */ makeSymbol$1("__translateVNode");
+const DatetimePartsSymbol = /* @__PURE__ */ makeSymbol$1("__datetimeParts");
+const NumberPartsSymbol = /* @__PURE__ */ makeSymbol$1("__numberParts");
+const EnableEmitter = /* @__PURE__ */ makeSymbol$1("__enableEmitter");
+const DisableEmitter = /* @__PURE__ */ makeSymbol$1("__disableEmitter");
+const SetPluralRulesSymbol = makeSymbol$1("__setPluralRules");
+const InejctWithOption = /* @__PURE__ */ makeSymbol$1("__injectWithOption");
 function handleFlatJson(obj) {
-  if (!sharedExports.isObject(obj)) {
+  if (!isObject$1(obj)) {
     return obj;
   }
   for (const key in obj) {
-    if (!sharedExports.hasOwn(obj, key)) {
+    if (!hasOwn(obj, key)) {
       continue;
     }
     if (!key.includes(".")) {
-      if (sharedExports.isObject(obj[key])) {
+      if (isObject$1(obj[key])) {
         handleFlatJson(obj[key]);
       }
     } else {
@@ -1309,8 +1182,8 @@ function handleFlatJson(obj) {
         if (!(subKeys[i] in currentObj)) {
           currentObj[subKeys[i]] = {};
         }
-        if (!sharedExports.isObject(currentObj[subKeys[i]])) {
-          sharedExports.warn(getWarnMessage(I18nWarnCodes.IGNORE_OBJ_FLATTEN, {
+        if (!isObject$1(currentObj[subKeys[i]])) {
+          warn$1(getWarnMessage(I18nWarnCodes.IGNORE_OBJ_FLATTEN, {
             key: subKeys[i]
           }));
           hasStringValue = true;
@@ -1322,7 +1195,7 @@ function handleFlatJson(obj) {
         currentObj[subKeys[lastIndex]] = obj[key];
         delete obj[key];
       }
-      if (sharedExports.isObject(currentObj[subKeys[lastIndex]])) {
+      if (isObject$1(currentObj[subKeys[lastIndex]])) {
         handleFlatJson(currentObj[subKeys[lastIndex]]);
       }
     }
@@ -1331,8 +1204,8 @@ function handleFlatJson(obj) {
 }
 function getLocaleMessages(locale, options) {
   const { messages, __i18n, messageResolver, flatJson } = options;
-  const ret = sharedExports.isPlainObject(messages) ? messages : sharedExports.isArray(__i18n) ? {} : { [locale]: {} };
-  if (sharedExports.isArray(__i18n)) {
+  const ret = isPlainObject(messages) ? messages : isArray$1(__i18n) ? {} : { [locale]: {} };
+  if (isArray$1(__i18n)) {
     __i18n.forEach((custom) => {
       if ("locale" in custom && "resource" in custom) {
         const { locale: locale2, resource } = custom;
@@ -1343,26 +1216,26 @@ function getLocaleMessages(locale, options) {
           deepCopy$1(resource, ret);
         }
       } else {
-        sharedExports.isString(custom) && deepCopy$1(JSON.parse(custom), ret);
+        isString$1(custom) && deepCopy$1(JSON.parse(custom), ret);
       }
     });
   }
   if (messageResolver == null && flatJson) {
     for (const key in ret) {
-      if (sharedExports.hasOwn(ret, key)) {
+      if (hasOwn(ret, key)) {
         handleFlatJson(ret[key]);
       }
     }
   }
   return ret;
 }
-const isNotObjectOrIsArray = (val) => !sharedExports.isObject(val) || sharedExports.isArray(val);
+const isNotObjectOrIsArray = (val) => !isObject$1(val) || isArray$1(val);
 function deepCopy$1(src, des) {
   if (isNotObjectOrIsArray(src) || isNotObjectOrIsArray(des)) {
     throw createI18nError(I18nErrorCodes.INVALID_VALUE);
   }
   for (const key in src) {
-    if (sharedExports.hasOwn(src, key)) {
+    if (hasOwn(src, key)) {
       if (isNotObjectOrIsArray(src[key]) || isNotObjectOrIsArray(des[key])) {
         des[key] = src[key];
       } else {
@@ -1375,7 +1248,7 @@ function getComponentOptions(instance) {
   return instance.type;
 }
 function adjustI18nResources(gl, options, componentOptions) {
-  let messages = sharedExports.isObject(options.messages) ? options.messages : {};
+  let messages = isObject$1(options.messages) ? options.messages : {};
   if ("__i18nGlobal" in componentOptions) {
     messages = getLocaleMessages(gl.locale.value, {
       messages,
@@ -1389,7 +1262,7 @@ function adjustI18nResources(gl, options, componentOptions) {
     });
   }
   {
-    if (sharedExports.isObject(options.datetimeFormats)) {
+    if (isObject$1(options.datetimeFormats)) {
       const locales2 = Object.keys(options.datetimeFormats);
       if (locales2.length) {
         locales2.forEach((locale) => {
@@ -1397,7 +1270,7 @@ function adjustI18nResources(gl, options, componentOptions) {
         });
       }
     }
-    if (sharedExports.isObject(options.numberFormats)) {
+    if (isObject$1(options.numberFormats)) {
       const locales2 = Object.keys(options.numberFormats);
       if (locales2.length) {
         locales2.forEach((locale) => {
@@ -1425,28 +1298,28 @@ const getMetaInfo = () => {
 function createComposer(options = {}, VueI18nLegacy) {
   const { __root } = options;
   const _isGlobal = __root === void 0;
-  let _inheritLocale = sharedExports.isBoolean(options.inheritLocale) ? options.inheritLocale : true;
+  let _inheritLocale = isBoolean(options.inheritLocale) ? options.inheritLocale : true;
   const _locale = ref(
     // prettier-ignore
-    __root && _inheritLocale ? __root.locale.value : sharedExports.isString(options.locale) ? options.locale : DEFAULT_LOCALE$1
+    __root && _inheritLocale ? __root.locale.value : isString$1(options.locale) ? options.locale : DEFAULT_LOCALE$1
   );
   const _fallbackLocale = ref(
     // prettier-ignore
-    __root && _inheritLocale ? __root.fallbackLocale.value : sharedExports.isString(options.fallbackLocale) || sharedExports.isArray(options.fallbackLocale) || sharedExports.isPlainObject(options.fallbackLocale) || options.fallbackLocale === false ? options.fallbackLocale : _locale.value
+    __root && _inheritLocale ? __root.fallbackLocale.value : isString$1(options.fallbackLocale) || isArray$1(options.fallbackLocale) || isPlainObject(options.fallbackLocale) || options.fallbackLocale === false ? options.fallbackLocale : _locale.value
   );
   const _messages = ref(getLocaleMessages(_locale.value, options));
-  const _datetimeFormats = ref(sharedExports.isPlainObject(options.datetimeFormats) ? options.datetimeFormats : { [_locale.value]: {} });
-  const _numberFormats = ref(sharedExports.isPlainObject(options.numberFormats) ? options.numberFormats : { [_locale.value]: {} });
-  let _missingWarn = __root ? __root.missingWarn : sharedExports.isBoolean(options.missingWarn) || sharedExports.isRegExp(options.missingWarn) ? options.missingWarn : true;
-  let _fallbackWarn = __root ? __root.fallbackWarn : sharedExports.isBoolean(options.fallbackWarn) || sharedExports.isRegExp(options.fallbackWarn) ? options.fallbackWarn : true;
-  let _fallbackRoot = __root ? __root.fallbackRoot : sharedExports.isBoolean(options.fallbackRoot) ? options.fallbackRoot : true;
+  const _datetimeFormats = ref(isPlainObject(options.datetimeFormats) ? options.datetimeFormats : { [_locale.value]: {} });
+  const _numberFormats = ref(isPlainObject(options.numberFormats) ? options.numberFormats : { [_locale.value]: {} });
+  let _missingWarn = __root ? __root.missingWarn : isBoolean(options.missingWarn) || isRegExp(options.missingWarn) ? options.missingWarn : true;
+  let _fallbackWarn = __root ? __root.fallbackWarn : isBoolean(options.fallbackWarn) || isRegExp(options.fallbackWarn) ? options.fallbackWarn : true;
+  let _fallbackRoot = __root ? __root.fallbackRoot : isBoolean(options.fallbackRoot) ? options.fallbackRoot : true;
   let _fallbackFormat = !!options.fallbackFormat;
-  let _missing = sharedExports.isFunction(options.missing) ? options.missing : null;
-  let _runtimeMissing = sharedExports.isFunction(options.missing) ? defineCoreMissingHandler(options.missing) : null;
-  let _postTranslation = sharedExports.isFunction(options.postTranslation) ? options.postTranslation : null;
-  let _warnHtmlMessage = __root ? __root.warnHtmlMessage : sharedExports.isBoolean(options.warnHtmlMessage) ? options.warnHtmlMessage : true;
+  let _missing = isFunction$1(options.missing) ? options.missing : null;
+  let _runtimeMissing = isFunction$1(options.missing) ? defineCoreMissingHandler(options.missing) : null;
+  let _postTranslation = isFunction$1(options.postTranslation) ? options.postTranslation : null;
+  let _warnHtmlMessage = __root ? __root.warnHtmlMessage : isBoolean(options.warnHtmlMessage) ? options.warnHtmlMessage : true;
   let _escapeParameter = !!options.escapeParameter;
-  const _modifiers = __root ? __root.modifiers : sharedExports.isPlainObject(options.modifiers) ? options.modifiers : {};
+  const _modifiers = __root ? __root.modifiers : isPlainObject(options.modifiers) ? options.modifiers : {};
   let _pluralRules = options.pluralRules || __root && __root.pluralRules;
   let _context;
   const getCoreContext = () => {
@@ -1472,11 +1345,11 @@ function createComposer(options = {}, VueI18nLegacy) {
     {
       ctxOptions.datetimeFormats = _datetimeFormats.value;
       ctxOptions.numberFormats = _numberFormats.value;
-      ctxOptions.__datetimeFormatters = sharedExports.isPlainObject(_context) ? _context.__datetimeFormatters : void 0;
-      ctxOptions.__numberFormatters = sharedExports.isPlainObject(_context) ? _context.__numberFormatters : void 0;
+      ctxOptions.__datetimeFormatters = isPlainObject(_context) ? _context.__datetimeFormatters : void 0;
+      ctxOptions.__numberFormatters = isPlainObject(_context) ? _context.__numberFormatters : void 0;
     }
     {
-      ctxOptions.__v_emitter = sharedExports.isPlainObject(_context) ? _context.__v_emitter : void 0;
+      ctxOptions.__v_emitter = isPlainObject(_context) ? _context.__v_emitter : void 0;
     }
     const ctx = createCoreContext(ctxOptions);
     _isGlobal && setFallbackContext(ctx);
@@ -1512,7 +1385,7 @@ function createComposer(options = {}, VueI18nLegacy) {
   const datetimeFormats = /* @__PURE__ */ computed(() => _datetimeFormats.value);
   const numberFormats = /* @__PURE__ */ computed(() => _numberFormats.value);
   function getPostTranslationHandler() {
-    return sharedExports.isFunction(_postTranslation) ? _postTranslation : null;
+    return isFunction$1(_postTranslation) ? _postTranslation : null;
   }
   function setPostTranslationHandler(handler) {
     _postTranslation = handler;
@@ -1548,11 +1421,11 @@ function createComposer(options = {}, VueI18nLegacy) {
         }
       }
     }
-    if (sharedExports.isNumber(ret) && ret === NOT_REOSLVED) {
+    if (isNumber(ret) && ret === NOT_REOSLVED) {
       const [key, arg2] = argumentParser();
-      if (__root && sharedExports.isString(key) && isResolvedTranslateMessage(warnType, arg2)) {
+      if (__root && isString$1(key) && isResolvedTranslateMessage(warnType, arg2)) {
         if (_fallbackRoot && (isTranslateFallbackWarn(_fallbackWarn, key) || isTranslateMissingWarn(_missingWarn, key))) {
-          sharedExports.warn(getWarnMessage(I18nWarnCodes.FALLBACK_TO_ROOT, {
+          warn$1(getWarnMessage(I18nWarnCodes.FALLBACK_TO_ROOT, {
             key,
             type: warnType
           }));
@@ -1577,23 +1450,23 @@ function createComposer(options = {}, VueI18nLegacy) {
     }
   };
   function t(...args) {
-    return wrapWithDeps((context) => Reflect.apply(translate, null, [context, ...args]), () => parseTranslateArgs(...args), "translate", (root) => Reflect.apply(root.t, root, [...args]), (key) => key, (val) => sharedExports.isString(val));
+    return wrapWithDeps((context) => Reflect.apply(translate, null, [context, ...args]), () => parseTranslateArgs(...args), "translate", (root) => Reflect.apply(root.t, root, [...args]), (key) => key, (val) => isString$1(val));
   }
   function rt(...args) {
     const [arg1, arg2, arg3] = args;
-    if (arg3 && !sharedExports.isObject(arg3)) {
+    if (arg3 && !isObject$1(arg3)) {
       throw createI18nError(I18nErrorCodes.INVALID_ARGUMENT);
     }
-    return t(...[arg1, arg2, sharedExports.assign({ resolvedMessage: true }, arg3 || {})]);
+    return t(...[arg1, arg2, assign$1({ resolvedMessage: true }, arg3 || {})]);
   }
   function d(...args) {
-    return wrapWithDeps((context) => Reflect.apply(datetime, null, [context, ...args]), () => parseDateTimeArgs(...args), "datetime format", (root) => Reflect.apply(root.d, root, [...args]), () => MISSING_RESOLVE_VALUE, (val) => sharedExports.isString(val));
+    return wrapWithDeps((context) => Reflect.apply(datetime, null, [context, ...args]), () => parseDateTimeArgs(...args), "datetime format", (root) => Reflect.apply(root.d, root, [...args]), () => MISSING_RESOLVE_VALUE, (val) => isString$1(val));
   }
   function n(...args) {
-    return wrapWithDeps((context) => Reflect.apply(number, null, [context, ...args]), () => parseNumberArgs(...args), "number format", (root) => Reflect.apply(root.n, root, [...args]), () => MISSING_RESOLVE_VALUE, (val) => sharedExports.isString(val));
+    return wrapWithDeps((context) => Reflect.apply(number, null, [context, ...args]), () => parseNumberArgs(...args), "number format", (root) => Reflect.apply(root.n, root, [...args]), () => MISSING_RESOLVE_VALUE, (val) => isString$1(val));
   }
   function normalize(values) {
-    return values.map((val) => sharedExports.isString(val) || sharedExports.isNumber(val) || sharedExports.isBoolean(val) ? createTextNode(String(val)) : val);
+    return values.map((val) => isString$1(val) || isNumber(val) || isBoolean(val) ? createTextNode(String(val)) : val);
   }
   const interpolate = (val) => val;
   const processor = {
@@ -1619,7 +1492,7 @@ function createComposer(options = {}, VueI18nLegacy) {
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
       (root) => root[TranslateVNodeSymbol](...args),
       (key) => [createTextNode(key)],
-      (val) => sharedExports.isArray(val)
+      (val) => isArray$1(val)
     );
   }
   function numberParts(...args) {
@@ -1630,7 +1503,7 @@ function createComposer(options = {}, VueI18nLegacy) {
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
       (root) => root[NumberPartsSymbol](...args),
       () => [],
-      (val) => sharedExports.isString(val) || sharedExports.isArray(val)
+      (val) => isString$1(val) || isArray$1(val)
     );
   }
   function datetimeParts(...args) {
@@ -1641,7 +1514,7 @@ function createComposer(options = {}, VueI18nLegacy) {
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
       (root) => root[DatetimePartsSymbol](...args),
       () => [],
-      (val) => sharedExports.isString(val) || sharedExports.isArray(val)
+      (val) => isString$1(val) || isArray$1(val)
     );
   }
   function setPluralRules(rules) {
@@ -1649,7 +1522,7 @@ function createComposer(options = {}, VueI18nLegacy) {
     _context.pluralRules = _pluralRules;
   }
   function te(key, locale2) {
-    const targetLocale = sharedExports.isString(locale2) ? locale2 : _locale.value;
+    const targetLocale = isString$1(locale2) ? locale2 : _locale.value;
     const message = getLocaleMessage(targetLocale);
     return _context.messageResolver(message, key) !== null;
   }
@@ -1685,31 +1558,31 @@ function createComposer(options = {}, VueI18nLegacy) {
   function getDateTimeFormat(locale2) {
     return _datetimeFormats.value[locale2] || {};
   }
-  function setDateTimeFormat(locale2, format) {
-    _datetimeFormats.value[locale2] = format;
+  function setDateTimeFormat(locale2, format2) {
+    _datetimeFormats.value[locale2] = format2;
     _context.datetimeFormats = _datetimeFormats.value;
-    clearDateTimeFormat(_context, locale2, format);
+    clearDateTimeFormat(_context, locale2, format2);
   }
-  function mergeDateTimeFormat(locale2, format) {
-    _datetimeFormats.value[locale2] = sharedExports.assign(_datetimeFormats.value[locale2] || {}, format);
+  function mergeDateTimeFormat(locale2, format2) {
+    _datetimeFormats.value[locale2] = assign$1(_datetimeFormats.value[locale2] || {}, format2);
     _context.datetimeFormats = _datetimeFormats.value;
-    clearDateTimeFormat(_context, locale2, format);
+    clearDateTimeFormat(_context, locale2, format2);
   }
   function getNumberFormat(locale2) {
     return _numberFormats.value[locale2] || {};
   }
-  function setNumberFormat(locale2, format) {
-    _numberFormats.value[locale2] = format;
+  function setNumberFormat(locale2, format2) {
+    _numberFormats.value[locale2] = format2;
     _context.numberFormats = _numberFormats.value;
-    clearNumberFormat(_context, locale2, format);
+    clearNumberFormat(_context, locale2, format2);
   }
-  function mergeNumberFormat(locale2, format) {
-    _numberFormats.value[locale2] = sharedExports.assign(_numberFormats.value[locale2] || {}, format);
+  function mergeNumberFormat(locale2, format2) {
+    _numberFormats.value[locale2] = assign$1(_numberFormats.value[locale2] || {}, format2);
     _context.numberFormats = _numberFormats.value;
-    clearNumberFormat(_context, locale2, format);
+    clearNumberFormat(_context, locale2, format2);
   }
   composerID++;
-  if (__root && sharedExports.inBrowser) {
+  if (__root && inBrowser) {
     watch(__root.locale, (val) => {
       if (_inheritLocale) {
         _locale.value = val;
@@ -1858,7 +1731,7 @@ function getInterpolateArg({ slots }, keys) {
       return [
         ...slot,
         // prettier-ignore
-        ...current.type === Fragment$1 ? current.children : [current]
+        ...current.type === Fragment ? current.children : [current]
       ];
     }, []);
   } else {
@@ -1872,12 +1745,12 @@ function getInterpolateArg({ slots }, keys) {
   }
 }
 function getFragmentableTag(tag) {
-  return Fragment$1;
+  return Fragment;
 }
 const TranslationImpl = /* @__PURE__ */ defineComponent({
   /* eslint-disable */
   name: "i18n-t",
-  props: sharedExports.assign({
+  props: assign$1({
     keypath: {
       type: String,
       required: true
@@ -1885,7 +1758,7 @@ const TranslationImpl = /* @__PURE__ */ defineComponent({
     plural: {
       type: [Number, String],
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      validator: (val) => sharedExports.isNumber(val) || !isNaN(val)
+      validator: (val) => isNumber(val) || !isNaN(val)
     }
   }, baseFormatProps),
   /* eslint-enable */
@@ -1903,19 +1776,19 @@ const TranslationImpl = /* @__PURE__ */ defineComponent({
         options.locale = props.locale;
       }
       if (props.plural !== void 0) {
-        options.plural = sharedExports.isString(props.plural) ? +props.plural : props.plural;
+        options.plural = isString$1(props.plural) ? +props.plural : props.plural;
       }
       const arg = getInterpolateArg(context, keys);
       const children = i18n[TranslateVNodeSymbol](props.keypath, arg, options);
-      const assignedAttrs = sharedExports.assign({}, attrs);
-      const tag = sharedExports.isString(props.tag) || sharedExports.isObject(props.tag) ? props.tag : getFragmentableTag();
+      const assignedAttrs = assign$1({}, attrs);
+      const tag = isString$1(props.tag) || isObject$1(props.tag) ? props.tag : getFragmentableTag();
       return h(tag, assignedAttrs, children);
     };
   }
 });
 const Translation = TranslationImpl;
 function isVNode(target) {
-  return sharedExports.isArray(target) && !sharedExports.isString(target[0]);
+  return isArray$1(target) && !isString$1(target[0]);
 }
 function renderFormatter(props, context, slotKeys, partFormatter) {
   const { slots, attrs } = context;
@@ -1925,19 +1798,19 @@ function renderFormatter(props, context, slotKeys, partFormatter) {
     if (props.locale) {
       options.locale = props.locale;
     }
-    if (sharedExports.isString(props.format)) {
+    if (isString$1(props.format)) {
       options.key = props.format;
-    } else if (sharedExports.isObject(props.format)) {
-      if (sharedExports.isString(props.format.key)) {
+    } else if (isObject$1(props.format)) {
+      if (isString$1(props.format.key)) {
         options.key = props.format.key;
       }
       overrides = Object.keys(props.format).reduce((options2, prop) => {
-        return slotKeys.includes(prop) ? sharedExports.assign({}, options2, { [prop]: props.format[prop] }) : options2;
+        return slotKeys.includes(prop) ? assign$1({}, options2, { [prop]: props.format[prop] }) : options2;
       }, {});
     }
     const parts = partFormatter(...[props.value, options, overrides]);
     let children = [options.key];
-    if (sharedExports.isArray(parts)) {
+    if (isArray$1(parts)) {
       children = parts.map((part, index) => {
         const slot = slots[part.type];
         const node = slot ? slot({ [part.type]: part.value, index, parts }) : [part.value];
@@ -1946,18 +1819,18 @@ function renderFormatter(props, context, slotKeys, partFormatter) {
         }
         return node;
       });
-    } else if (sharedExports.isString(parts)) {
+    } else if (isString$1(parts)) {
       children = [parts];
     }
-    const assignedAttrs = sharedExports.assign({}, attrs);
-    const tag = sharedExports.isString(props.tag) || sharedExports.isObject(props.tag) ? props.tag : getFragmentableTag();
+    const assignedAttrs = assign$1({}, attrs);
+    const tag = isString$1(props.tag) || isObject$1(props.tag) ? props.tag : getFragmentableTag();
     return h(tag, assignedAttrs, children);
   };
 }
 const NumberFormatImpl = /* @__PURE__ */ defineComponent({
   /* eslint-disable */
   name: "i18n-n",
-  props: sharedExports.assign({
+  props: assign$1({
     value: {
       type: Number,
       required: true
@@ -1983,7 +1856,7 @@ const NumberFormat = NumberFormatImpl;
 const DatetimeFormatImpl = /* @__PURE__ */ defineComponent({
   /* eslint-disable */
   name: "i18n-d",
-  props: sharedExports.assign({
+  props: assign$1({
     value: {
       type: [Number, Date],
       required: true
@@ -2023,7 +1896,7 @@ function vTDirective(i18n) {
     }
     const composer = getComposer$2(i18n, instance.$);
     if (modifiers.preserve) {
-      sharedExports.warn(getWarnMessage(I18nWarnCodes.NOT_SUPPORTED_PRESERVE));
+      warn$1(getWarnMessage(I18nWarnCodes.NOT_SUPPORTED_PRESERVE));
     }
     const parsedValue = parseValue(value);
     return [
@@ -2033,20 +1906,10 @@ function vTDirective(i18n) {
   };
   const register = (el, binding) => {
     const [textContent, composer] = _process(binding);
-    if (sharedExports.inBrowser && i18n.global === composer) {
-      el.__i18nWatcher = watch(composer.locale, () => {
-        binding.instance && binding.instance.$forceUpdate();
-      });
-    }
     el.__composer = composer;
     el.textContent = textContent;
   };
   const unregister = (el) => {
-    if (sharedExports.inBrowser && el.__i18nWatcher) {
-      el.__i18nWatcher();
-      el.__i18nWatcher = void 0;
-      delete el.__i18nWatcher;
-    }
     if (el.__composer) {
       el.__composer = void 0;
       delete el.__composer;
@@ -2073,9 +1936,9 @@ function vTDirective(i18n) {
   };
 }
 function parseValue(value) {
-  if (sharedExports.isString(value)) {
+  if (isString$1(value)) {
     return { path: value };
-  } else if (sharedExports.isPlainObject(value)) {
+  } else if (isPlainObject(value)) {
     if (!("path" in value)) {
       throw createI18nError(I18nErrorCodes.REQUIRED_VALUE, "path");
     }
@@ -2088,23 +1951,23 @@ function makeParams(value) {
   const { path, locale, args, choice, plural } = value;
   const options = {};
   const named = args || {};
-  if (sharedExports.isString(locale)) {
+  if (isString$1(locale)) {
     options.locale = locale;
   }
-  if (sharedExports.isNumber(choice)) {
+  if (isNumber(choice)) {
     options.plural = choice;
   }
-  if (sharedExports.isNumber(plural)) {
+  if (isNumber(plural)) {
     options.plural = plural;
   }
   return [path, named, options];
 }
 function apply(app, i18n, ...options) {
-  const pluginOptions = sharedExports.isPlainObject(options[0]) ? options[0] : {};
+  const pluginOptions = isPlainObject(options[0]) ? options[0] : {};
   const useI18nComponentName = !!pluginOptions.useI18nComponentName;
-  const globalInstall = sharedExports.isBoolean(pluginOptions.globalInstall) ? pluginOptions.globalInstall : true;
+  const globalInstall = isBoolean(pluginOptions.globalInstall) ? pluginOptions.globalInstall : true;
   if (globalInstall && useI18nComponentName) {
-    sharedExports.warn(getWarnMessage(I18nWarnCodes.COMPONENT_NAME_LEGACY_COMPATIBLE, {
+    warn$1(getWarnMessage(I18nWarnCodes.COMPONENT_NAME_LEGACY_COMPATIBLE, {
       name: Translation.name
     }));
   }
@@ -2275,11 +2138,11 @@ function getLocaleMessageValue(messages) {
   const value = {};
   Object.keys(messages).forEach((key) => {
     const v = messages[key];
-    if (sharedExports.isFunction(v) && "source" in v) {
+    if (isFunction$1(v) && "source" in v) {
       value[key] = getMessageFunctionDetails(v);
     } else if (isMessageAST(v) && v.loc && v.loc.source) {
       value[key] = v.loc.source;
-    } else if (sharedExports.isObject(v)) {
+    } else if (isObject$1(v)) {
       value[key] = getLocaleMessageValue(v);
     } else {
       value[key] = v;
@@ -2444,22 +2307,22 @@ function editScope(payload, i18n) {
   const composer = getComposer$1(payload.nodeId, i18n);
   if (composer) {
     const [field] = payload.path;
-    if (field === "locale" && sharedExports.isString(payload.state.value)) {
+    if (field === "locale" && isString$1(payload.state.value)) {
       composer.locale.value = payload.state.value;
-    } else if (field === "fallbackLocale" && (sharedExports.isString(payload.state.value) || sharedExports.isArray(payload.state.value) || sharedExports.isObject(payload.state.value))) {
+    } else if (field === "fallbackLocale" && (isString$1(payload.state.value) || isArray$1(payload.state.value) || isObject$1(payload.state.value))) {
       composer.fallbackLocale.value = payload.state.value;
-    } else if (field === "inheritLocale" && sharedExports.isBoolean(payload.state.value)) {
+    } else if (field === "inheritLocale" && isBoolean(payload.state.value)) {
       composer.inheritLocale = payload.state.value;
     }
   }
 }
-const I18nInjectionKey = /* @__PURE__ */ sharedExports.makeSymbol("global-vue-i18n");
+const I18nInjectionKey = /* @__PURE__ */ makeSymbol$1("global-vue-i18n");
 function createI18n(options = {}, VueI18nLegacy) {
-  const __globalInjection = sharedExports.isBoolean(options.globalInjection) ? options.globalInjection : true;
+  const __globalInjection = isBoolean(options.globalInjection) ? options.globalInjection : true;
   const __allowComposition = true;
   const __instances = /* @__PURE__ */ new Map();
   const [globalScope, __global] = createGlobal(options);
-  const symbol = /* @__PURE__ */ sharedExports.makeSymbol("vue-i18n" );
+  const symbol = /* @__PURE__ */ makeSymbol$1("vue-i18n" );
   function __getInstance(component) {
     return __instances.get(component) || null;
   }
@@ -2486,7 +2349,7 @@ function createI18n(options = {}, VueI18nLegacy) {
         }
         app.__VUE_I18N_SYMBOL__ = symbol;
         app.provide(app.__VUE_I18N_SYMBOL__, i18n);
-        if (sharedExports.isPlainObject(options2[0])) {
+        if (isPlainObject(options2[0])) {
           const opts = options2[0];
           i18n.__composerExtend = opts.__composerExtend;
           i18n.__vueI18nExtend = opts.__vueI18nExtend;
@@ -2507,7 +2370,7 @@ function createI18n(options = {}, VueI18nLegacy) {
           if (!ret) {
             throw createI18nError(I18nErrorCodes.CANNOT_SETUP_VUE_DEVTOOLS_PLUGIN);
           }
-          const emitter = sharedExports.createEmitter();
+          const emitter = createEmitter();
           {
             const _composer = __global;
             _composer[EnableEmitter] && _composer[EnableEmitter](emitter);
@@ -2554,7 +2417,7 @@ function useI18n(options = {}) {
     let composer2 = getComposer$3(i18n, instance, options.__useComponent);
     if (composer2 == null) {
       {
-        sharedExports.warn(getWarnMessage(I18nWarnCodes.NOT_FOUND_PARENT_SCOPE));
+        warn$1(getWarnMessage(I18nWarnCodes.NOT_FOUND_PARENT_SCOPE));
       }
       composer2 = gl;
     }
@@ -2563,7 +2426,7 @@ function useI18n(options = {}) {
   const i18nInternal = i18n;
   let composer = i18nInternal.__getInstance(instance);
   if (composer == null) {
-    const composerOptions = sharedExports.assign({}, options);
+    const composerOptions = assign$1({}, options);
     if ("__i18n" in componentOptions) {
       composerOptions.__i18n = componentOptions.__i18n;
     }
@@ -2599,7 +2462,7 @@ function getI18nInstance(instance) {
   }
 }
 function getScope(options, componentOptions) {
-  return sharedExports.isEmptyObject(options) ? "__i18n" in componentOptions ? "local" : "global" : !options.useScope ? "local" : options.useScope;
+  return isEmptyObject(options) ? "__i18n" in componentOptions ? "local" : "global" : !options.useScope ? "local" : options.useScope;
 }
 function getGlobalComposer(i18n) {
   return i18n.mode === "composition" ? i18n.global : i18n.global.__composer;
@@ -2689,7 +2552,7 @@ function injectGlobalFields(app, composer) {
 registerMessageResolver(resolveValue);
 registerLocaleFallbacker(fallbackWithLocaleChain);
 {
-  const target = sharedExports.getGlobalThis();
+  const target = getGlobalThis();
   target.__INTLIFY__ = true;
   setDevToolsHook(target.__INTLIFY_DEVTOOLS_GLOBAL_HOOK__);
 }
@@ -3520,7 +3383,15 @@ const resolveNuxtI18nOptions = async (context) => {
   const nuxtI18nOptions = Object({});
   nuxtI18nOptions.experimental = Object({ "jsTsFormatResource": false });
   nuxtI18nOptions.compilation = Object({ "strictMessage": true, "escapeHtml": false });
-  nuxtI18nOptions.vueI18n = Object({});
+  const vueI18nConfigLoader = async (loader) => {
+    const config = await loader().then((r) => r.default || r);
+    return typeof config === "object" ? config : typeof config === "function" ? await config() : {};
+  };
+  const vueI18n = await vueI18nConfigLoader(() => import(
+    './_nuxt/i18n.options-f86d815b.mjs'
+    /* webpackChunkName: "i18n_config_6558258c" */
+  ));
+  nuxtI18nOptions.vueI18n = vueI18n;
   nuxtI18nOptions.locales = [Object({ "code": "en", "iso": "en-AE", "name": "EN" }), Object({ "code": "ru", "iso": "ru-AE", "name": "RU" })];
   nuxtI18nOptions.defaultLocale = "en";
   nuxtI18nOptions.defaultDirection = "ltr";
@@ -3589,8 +3460,8 @@ function parseAcceptLanguage(input) {
 }
 function deepCopy(src, des, predicate) {
   for (const key in src) {
-    if (sharedExports.isArray(src[key])) {
-      if (!sharedExports.isArray(des[key])) {
+    if (isArray$1(src[key])) {
+      if (!isArray$1(des[key])) {
         des[key] = [];
       }
       src[key].forEach((item, index) => {
@@ -3600,8 +3471,8 @@ function deepCopy(src, des, predicate) {
           des[key].push(desItem);
         }
       });
-    } else if (sharedExports.isObject(src[key])) {
-      if (!sharedExports.isObject(des[key])) {
+    } else if (isObject$1(src[key])) {
+      if (!isObject$1(des[key])) {
         des[key] = {};
       }
       deepCopy(src[key], des[key], predicate);
@@ -3622,7 +3493,7 @@ async function loadMessage(context, loader, locale) {
   let message = null;
   try {
     const getter = await loader().then((r) => r.default || r);
-    if (sharedExports.isFunction(getter)) {
+    if (isFunction$1(getter)) {
       if ((_b = i18nConfig.experimental) == null ? void 0 : _b.jsTsFormatResource) {
         message = await getter(locale).then((r) => r.default || r);
       } else {
@@ -3745,7 +3616,7 @@ function setLocaleCookie(locale, context, {
     if (context.res) {
       const { res } = context;
       let headers = res.getHeader("Set-Cookie") || [];
-      if (!sharedExports.isArray(headers)) {
+      if (!isArray$1(headers)) {
         headers = [String(headers)];
       }
       const redirectCookie = serialize(cookieKey, locale, cookieOptions);
@@ -3764,7 +3635,7 @@ function detectBrowserLanguage(route, context, nuxtI18nOptions, nuxtI18nInternal
   const { strategy } = nuxtI18nOptions;
   const { ssg, callType } = detectLocaleContext;
   const { redirectOn, alwaysRedirect, useCookie, fallbackLocale } = nuxtI18nOptions.detectBrowserLanguage;
-  const path = sharedExports.isString(route) ? route : route.path;
+  const path = isString$1(route) ? route : route.path;
   if (strategy !== "no_prefix") {
     if (redirectOn === "root") {
       if (path !== "/") {
@@ -3826,7 +3697,7 @@ function getHost() {
     } else if ("host" in header) {
       detectedHost = header["host"];
     }
-    host = sharedExports.isArray(detectedHost) ? detectedHost[0] : detectedHost;
+    host = isArray$1(detectedHost) ? detectedHost[0] : detectedHost;
   }
   return host;
 }
@@ -3873,16 +3744,16 @@ function onLanguageSwitched(i18n, oldLocale, newLocale) {
 }
 function makeFallbackLocaleCodes(fallback, locales) {
   let fallbackLocales = [];
-  if (sharedExports.isArray(fallback)) {
+  if (isArray$1(fallback)) {
     fallbackLocales = fallback;
-  } else if (sharedExports.isObject(fallback)) {
+  } else if (isObject$1(fallback)) {
     const targets = [...locales, "default"];
     for (const locale of targets) {
       if (fallback[locale]) {
         fallbackLocales = [...fallbackLocales, ...fallback[locale].filter(Boolean)];
       }
     }
-  } else if (sharedExports.isString(fallback) && locales.every((locale) => locale !== fallback)) {
+  } else if (isString$1(fallback) && locales.every((locale) => locale !== fallback)) {
     fallbackLocales.push(fallback);
   }
   return fallbackLocales;
@@ -3962,7 +3833,7 @@ async function loadAndSetLocale(newLocale, context, i18n, {
 }
 function detectLocale(route, context, routeLocaleGetter, nuxtI18nOptions, initialLocaleLoader, detectLocaleContext, normalizedLocales, localeCodes2 = []) {
   const { strategy, defaultLocale, differentDomains } = nuxtI18nOptions;
-  const initialLocale = sharedExports.isFunction(initialLocaleLoader) ? initialLocaleLoader() : initialLocaleLoader;
+  const initialLocale = isFunction$1(initialLocaleLoader) ? initialLocaleLoader() : initialLocaleLoader;
   const { locale: browserLocale, stat, reason, from } = nuxtI18nOptions.detectBrowserLanguage ? detectBrowserLanguage(route, context, nuxtI18nOptions, nuxtI18nInternalOptions, detectLocaleContext, localeCodes2, initialLocale) : DefaultDetectBrowserLanguageFromResult;
   if (reason === "detect_ignore_on_ssg") {
     return initialLocale;
@@ -3996,7 +3867,7 @@ function detectRedirect(route, context, targetLocale, routeLocaleGetter, nuxtI18
     const { fullPath } = route;
     const decodedRoute = decodeURI(fullPath);
     const routePath = context.$switchLocalePath(targetLocale) || context.$localePath(fullPath, targetLocale);
-    if (sharedExports.isString(routePath) && routePath && routePath !== fullPath && routePath !== decodedRoute && !routePath.startsWith("//")) {
+    if (isString$1(routePath) && routePath && routePath !== fullPath && routePath !== decodedRoute && !routePath.startsWith("//")) {
       redirectPath = routePath;
     }
   }
@@ -4007,14 +3878,14 @@ function detectRedirect(route, context, targetLocale, routeLocaleGetter, nuxtI18
       router: context.$router
     });
     const routePath = switchLocalePath2(targetLocale);
-    if (sharedExports.isString(routePath)) {
+    if (isString$1(routePath)) {
       redirectPath = routePath;
     }
   }
   return redirectPath;
 }
 function isRootRedirectOptions(rootRedirect) {
-  return sharedExports.isObject(rootRedirect) && "path" in rootRedirect && "statusCode" in rootRedirect;
+  return isObject$1(rootRedirect) && "path" in rootRedirect && "statusCode" in rootRedirect;
 }
 const useRedirectState = () => useState(NUXT_I18N_MODULE_ID + ":redirect", () => "");
 function _navigate(redirectPath, status) {
@@ -4031,7 +3902,7 @@ async function navigate(args, {
   const { i18n, locale, route } = args;
   let { redirectPath } = args;
   if (route.path === "/" && rootRedirect) {
-    if (sharedExports.isString(rootRedirect)) {
+    if (isString$1(rootRedirect)) {
       redirectPath = "/" + rootRedirect;
     } else if (isRootRedirectOptions(rootRedirect)) {
       redirectPath = "/" + rootRedirect.path;
@@ -4084,12 +3955,12 @@ function extendSwitchLocalePathIntercepter(differentDomains, normalizedLocales, 
 function extendBaseUrl(baseUrl, options) {
   return (context) => {
     var _a, _b;
-    if (sharedExports.isFunction(baseUrl)) {
+    if (isFunction$1(baseUrl)) {
       const baseUrlResult = baseUrl(context);
       return baseUrlResult;
     }
     const { differentDomains, localeCodeLoader, normalizedLocales } = options;
-    const localeCode = sharedExports.isFunction(localeCodeLoader) ? localeCodeLoader() : localeCodeLoader;
+    const localeCode = isFunction$1(localeCodeLoader) ? localeCodeLoader() : localeCodeLoader;
     if (differentDomains && localeCode) {
       const domain = getDomainFromLocale(localeCode, normalizedLocales, options.nuxt);
       if (domain) {
@@ -4422,43 +4293,25 @@ const i18n_yfWm7jX06p = /* @__PURE__ */ defineNuxtPlugin(async (nuxt) => {
     }),
     { global: true }
   );
-}, 1);
-const _plugins = [
+});
+const plugins = [
+  plugin,
+  revive_payload_server_eJ33V7gbc6,
   components_plugin_KR1HBZs4kY,
   unhead_KgADcZ0jPj,
-  router_jmwsqit4Rs,
   composition_sLxaNGmlSL,
   i18n_yfWm7jX06p
 ];
-const Fragment = /* @__PURE__ */ defineComponent({
-  name: "FragmentWrapper",
-  setup(_props, { slots }) {
-    return () => {
-      var _a;
-      return (_a = slots.default) == null ? void 0 : _a.call(slots);
-    };
-  }
-});
 const _wrapIf = (component, props, slots) => {
-  return { default: () => props ? h(component, props === true ? {} : props, slots) : h(Fragment, {}, slots) };
+  props = props === true ? {} : props;
+  return { default: () => {
+    var _a;
+    return props ? h(component, props, slots) : (_a = slots.default) == null ? void 0 : _a.call(slots);
+  } };
 };
 const layouts = {
-  default: () => import('./_nuxt/default-e925f85b.mjs').then((m) => m.default || m)
+  default: /* @__PURE__ */ defineAsyncComponent(() => import('./_nuxt/default-ad5e56b7.mjs').then((m) => m.default || m))
 };
-const LayoutLoader = /* @__PURE__ */ defineComponent({
-  name: "LayoutLoader",
-  inheritAttrs: false,
-  props: {
-    name: String,
-    ...{}
-  },
-  async setup(props, context) {
-    const LayoutComponent = await layouts[props.name]().then((r) => r.default || r);
-    return () => {
-      return h(LayoutComponent, context.attrs, context.slots);
-    };
-  }
-});
 const __nuxt_component_0 = /* @__PURE__ */ defineComponent({
   name: "NuxtLayout",
   inheritAttrs: false,
@@ -4469,20 +4322,63 @@ const __nuxt_component_0 = /* @__PURE__ */ defineComponent({
     }
   },
   setup(props, context) {
-    const injectedRoute = inject("_route");
+    const nuxtApp = useNuxtApp();
+    const injectedRoute = inject(PageRouteSymbol);
     const route = injectedRoute === useRoute() ? useRoute$1() : injectedRoute;
     const layout = computed(() => unref(props.name) ?? route.meta.layout ?? "default");
+    const layoutRef = ref();
+    context.expose({ layoutRef });
     return () => {
+      const done = nuxtApp.deferHydration();
       const hasLayout = layout.value && layout.value in layouts;
       const transitionProps = route.meta.layoutTransition ?? appLayoutTransition;
       return _wrapIf(Transition, hasLayout && transitionProps, {
-        default: () => _wrapIf(LayoutLoader, hasLayout && {
-          key: layout.value,
-          name: layout.value,
-          ...{},
-          ...context.attrs
-        }, context.slots).default()
+        default: () => h(Suspense, { suspensible: true, onResolve: () => {
+          nextTick(done);
+        } }, {
+          // @ts-expect-error seems to be an issue in vue types
+          default: () => h(LayoutProvider, {
+            layoutProps: mergeProps(context.attrs, { ref: layoutRef }),
+            key: layout.value,
+            name: layout.value,
+            shouldProvide: !props.name,
+            hasTransition: !!transitionProps
+          }, context.slots)
+        })
       }).default();
+    };
+  }
+});
+const LayoutProvider = /* @__PURE__ */ defineComponent({
+  name: "NuxtLayoutProvider",
+  inheritAttrs: false,
+  props: {
+    name: {
+      type: [String, Boolean]
+    },
+    layoutProps: {
+      type: Object
+    },
+    hasTransition: {
+      type: Boolean
+    },
+    shouldProvide: {
+      type: Boolean
+    }
+  },
+  setup(props, context) {
+    const name = props.name;
+    if (props.shouldProvide) {
+      provide(LayoutMetaSymbol, {
+        isCurrent: (route) => name === (route.meta.layout ?? "default")
+      });
+    }
+    return () => {
+      var _a, _b;
+      if (!name || typeof name === "string" && !(name in layouts)) {
+        return (_b = (_a = context.slots).default) == null ? void 0 : _b.call(_a);
+      }
+      return h(layouts[name], props.layoutProps, context.slots);
     };
   }
 });
@@ -4503,6 +4399,36 @@ const generateRouteKey = (routeProps, override) => {
 const wrapInKeepAlive = (props, children) => {
   return { default: () => children };
 };
+const RouteProvider = /* @__PURE__ */ defineComponent({
+  name: "RouteProvider",
+  props: {
+    vnode: {
+      type: Object,
+      required: true
+    },
+    route: {
+      type: Object,
+      required: true
+    },
+    vnodeRef: Object,
+    renderKey: String,
+    trackRootNodes: Boolean
+  },
+  setup(props) {
+    const previousKey = props.renderKey;
+    const previousRoute = props.route;
+    const route = {};
+    for (const key in props.route) {
+      Object.defineProperty(route, key, {
+        get: () => previousKey === props.renderKey ? props.route[key] : previousRoute[key]
+      });
+    }
+    provide(PageRouteSymbol, shallowReactive(route));
+    return () => {
+      return h(props.vnode, { ref: props.vnodeRef });
+    };
+  }
+});
 const __nuxt_component_1 = /* @__PURE__ */ defineComponent({
   name: "NuxtPage",
   inheritAttrs: false,
@@ -4526,8 +4452,13 @@ const __nuxt_component_1 = /* @__PURE__ */ defineComponent({
       default: null
     }
   },
-  setup(props, { attrs }) {
+  setup(props, { attrs, expose }) {
     const nuxtApp = useNuxtApp();
+    const pageRef = ref();
+    inject(PageRouteSymbol, null);
+    expose({ pageRef });
+    inject(LayoutMetaSymbol, null);
+    let vnode;
     return () => {
       return h(RouterView, { name: props.name, route: props.route, ...attrs }, {
         default: (routeProps) => {
@@ -4545,19 +4476,31 @@ const __nuxt_component_1 = /* @__PURE__ */ defineComponent({
               nuxtApp.callHook("page:transition:finish", routeProps.Component);
             } }
           ].filter(Boolean));
-          return _wrapIf(
+          vnode = _wrapIf(
             Transition,
             hasTransition && transitionProps,
             wrapInKeepAlive(
               props.keepalive ?? routeProps.route.meta.keepalive ?? appKeepalive,
               h(Suspense, {
+                suspensible: true,
                 onPending: () => nuxtApp.callHook("page:start", routeProps.Component),
                 onResolve: () => {
                   nextTick(() => nuxtApp.callHook("page:finish", routeProps.Component).finally(done));
                 }
-              }, { default: () => h(RouteProvider, { key, routeProps, pageKey: key, hasTransition }) })
+              }, {
+                // @ts-expect-error seems to be an issue in vue types
+                default: () => h(RouteProvider, {
+                  key,
+                  vnode: routeProps.Component,
+                  route: routeProps.route,
+                  renderKey: key,
+                  trackRootNodes: hasTransition,
+                  vnodeRef: pageRef
+                })
+              })
             )
           ).default();
+          return vnode;
         }
       });
     };
@@ -4573,24 +4516,6 @@ function _mergeTransitionProps(routeProps) {
   }));
   return defu(..._props);
 }
-const RouteProvider = /* @__PURE__ */ defineComponent({
-  name: "RouteProvider",
-  // TODO: Type props
-  // eslint-disable-next-line vue/require-prop-types
-  props: ["routeProps", "pageKey", "hasTransition"],
-  setup(props) {
-    const previousKey = props.pageKey;
-    const previousRoute = props.routeProps.route;
-    const route = {};
-    for (const key in props.routeProps.route) {
-      route[key] = computed(() => previousKey === props.pageKey ? props.routeProps.route[key] : previousRoute[key]);
-    }
-    provide("_route", reactive(route));
-    return () => {
-      return h(props.routeProps.Component);
-    };
-  }
-});
 const _export_sfc = (sfc, props) => {
   const target = sfc.__vccOpts || sfc;
   for (const [key, val] of props) {
@@ -4598,7 +4523,7 @@ const _export_sfc = (sfc, props) => {
   }
   return target;
 };
-const _sfc_main$1 = {};
+const _sfc_main$2 = {};
 function _sfc_ssrRender(_ctx, _push, _parent, _attrs) {
   const _component_NuxtLayout = __nuxt_component_0;
   const _component_NuxtPage = __nuxt_component_1;
@@ -4615,30 +4540,65 @@ function _sfc_ssrRender(_ctx, _push, _parent, _attrs) {
     _: 1
   }, _parent));
 }
+const _sfc_setup$2 = _sfc_main$2.setup;
+_sfc_main$2.setup = (props, ctx) => {
+  const ssrContext = useSSRContext();
+  (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("node_modules/nuxt/dist/pages/runtime/app.vue");
+  return _sfc_setup$2 ? _sfc_setup$2(props, ctx) : void 0;
+};
+const AppComponent = /* @__PURE__ */ _export_sfc(_sfc_main$2, [["ssrRender", _sfc_ssrRender]]);
+const _sfc_main$1 = {
+  __name: "nuxt-error-page",
+  __ssrInlineRender: true,
+  props: {
+    error: Object
+  },
+  setup(__props) {
+    const props = __props;
+    const _error = props.error;
+    (_error.stack || "").split("\n").splice(1).map((line) => {
+      const text = line.replace("webpack:/", "").replace(".vue", ".js").trim();
+      return {
+        text,
+        internal: line.includes("node_modules") && !line.includes(".cache") || line.includes("internal") || line.includes("new Promise")
+      };
+    }).map((i) => `<span class="stack${i.internal ? " internal" : ""}">${i.text}</span>`).join("\n");
+    const statusCode = Number(_error.statusCode || 500);
+    const is404 = statusCode === 404;
+    const statusMessage = _error.statusMessage ?? (is404 ? "Page Not Found" : "Internal Server Error");
+    const description = _error.message || _error.toString();
+    const stack = void 0;
+    const _Error404 = /* @__PURE__ */ defineAsyncComponent(() => import('./_nuxt/error-404-7d8b7364.mjs').then((r) => r.default || r));
+    const _Error = /* @__PURE__ */ defineAsyncComponent(() => import('./_nuxt/error-500-50ab1f77.mjs').then((r) => r.default || r));
+    const ErrorTemplate = is404 ? _Error404 : _Error;
+    return (_ctx, _push, _parent, _attrs) => {
+      _push(ssrRenderComponent(unref(ErrorTemplate), mergeProps({ statusCode: unref(statusCode), statusMessage: unref(statusMessage), description: unref(description), stack: unref(stack) }, _attrs), null, _parent));
+    };
+  }
+};
 const _sfc_setup$1 = _sfc_main$1.setup;
 _sfc_main$1.setup = (props, ctx) => {
   const ssrContext = useSSRContext();
-  (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("node_modules/nuxt/dist/pages/runtime/app.vue");
+  (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("node_modules/nuxt/dist/app/components/nuxt-error-page.vue");
   return _sfc_setup$1 ? _sfc_setup$1(props, ctx) : void 0;
 };
-const AppComponent = /* @__PURE__ */ _export_sfc(_sfc_main$1, [["ssrRender", _sfc_ssrRender]]);
+const ErrorComponent = _sfc_main$1;
 const _sfc_main = {
   __name: "nuxt-root",
   __ssrInlineRender: true,
   setup(__props) {
-    const ErrorComponent = /* @__PURE__ */ defineAsyncComponent(() => import('./_nuxt/error-component-6622cce9.mjs').then((r) => r.default || r));
-    const IslandRenderer = /* @__PURE__ */ defineAsyncComponent(() => import('./_nuxt/island-renderer-637b1cdc.mjs').then((r) => r.default || r));
+    const IslandRenderer = /* @__PURE__ */ defineAsyncComponent(() => import('./_nuxt/island-renderer-8d676b9f.mjs').then((r) => r.default || r));
     const nuxtApp = useNuxtApp();
     nuxtApp.deferHydration();
     nuxtApp.ssrContext.url;
     const SingleRenderer = false;
-    provide("_route", useRoute());
+    provide(PageRouteSymbol, useRoute());
     nuxtApp.hooks.callHookWith((hooks) => hooks.map((hook) => hook()), "vue:setup");
     const error = useError();
     onErrorCaptured((err, target, info) => {
       nuxtApp.hooks.callHook("vue:error", err, target, info).catch((hookError) => console.error("[nuxt] Error in `vue:error` hook", hookError));
       {
-        const p = callWithNuxt(nuxtApp, showError, [err]);
+        const p = nuxtApp.runWithContext(() => showError(err));
         onServerPrefetch(() => p);
         return false;
       }
@@ -4675,7 +4635,6 @@ if (!globalThis.$fetch) {
   });
 }
 let entry;
-const plugins = normalizePlugins(_plugins);
 {
   entry = async function createNuxtAppServer(ssrContext) {
     const vueApp = createApp(RootComponent);
@@ -4687,10 +4646,13 @@ const plugins = normalizePlugins(_plugins);
       await nuxt.hooks.callHook("app:error", err);
       nuxt.payload.error = nuxt.payload.error || err;
     }
+    if (ssrContext == null ? void 0 : ssrContext._renderResponse) {
+      throw new Error("skipping render");
+    }
     return vueApp;
   };
 }
 const entry$1 = (ctx) => entry(ctx);
 
-export { _export_sfc as _, useState as a, useRoute as b, createError as c, useHead as d, entry$1 as default, useNuxtApp as e, useRequestEvent as f, useRouter as g, useI18n as h, useLocalePath as i, getComposer as j, useSwitchLocalePath as k, useLocaleHead as l, navigateTo as n, useRuntimeConfig as u };
+export { _export_sfc as _, useI18n as a, useRoute as b, createError as c, useRequestEvent as d, entry$1 as default, useRuntimeConfig as e, useNuxtApp as f, useState as g, useRouter as h, useLocalePath as i, getComposer as j, useSwitchLocalePath as k, useLocaleHead as l, isFunction$1 as m, navigateTo as n, isObject$1 as o, useHead as u };
 //# sourceMappingURL=server.mjs.map

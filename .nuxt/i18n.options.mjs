@@ -17,7 +17,8 @@ export const resolveNuxtI18nOptions = async (context) => {
                 ? await config()
                 : {}
           }
-  nuxtI18nOptions.vueI18n = Object({})
+  const vueI18n = await vueI18nConfigLoader((() => import("\u0000@nuxtjs/i18n/__config__?target=../i18n.config.ts&hash=6558258c" /* webpackChunkName: "i18n_config_6558258c" */)))
+  nuxtI18nOptions.vueI18n = vueI18n
   nuxtI18nOptions.locales = [Object({"code":"en","iso":"en-AE","name":"EN"}),Object({"code":"ru","iso":"ru-AE","name":"RU"})]
   nuxtI18nOptions.defaultLocale = "en"
   nuxtI18nOptions.defaultDirection = "ltr"

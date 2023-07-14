@@ -1,0 +1,1 @@
+{"version":3,"file":"i18n.config-8b526609.js","sources":["../../../../i18n.config.ts?config=true"],"sourcesContent":["export default defineI18nConfig(() => {});\n"],"names":[],"mappings":"AAAA,MAAA;AAAuC;"}
