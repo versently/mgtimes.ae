@@ -224,6 +224,14 @@ declare module 'nuxt/schema' {
          exclude: Array<number>,
       },
    },
+
+   i18n: {
+      experimental: {
+         jsTsFormatResource: boolean,
+      },
+
+      baseUrl: string,
+   },
   }
 }
 declare module 'vue' {

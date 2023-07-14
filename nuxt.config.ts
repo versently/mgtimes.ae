@@ -1,5 +1,10 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
+  nitro: {
+    prerender: {
+      crawlLinks: true,
+    },
+  },
   app: {
     head: {
       script: [
