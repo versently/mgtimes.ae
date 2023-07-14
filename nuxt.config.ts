@@ -1,11 +1,5 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-
-  // nitro: {
-  //   prerender: {
-  //     crawlLinks: true,
-  //   },
-  // },
   app: {
     head: {
       script: [
@@ -147,7 +141,15 @@ export default defineNuxtConfig({
   },
 
   css: ["@/assets/css/style.css"],
-  modules: ["@nuxt/image", "@nuxt/content", "@nuxtjs/i18n", 'nuxt-delay-hydration',],
+  modules: [
+    "@nuxt/image",
+    "@nuxt/content",
+    "@nuxtjs/i18n",
+    "nuxt-delay-hydration",
+  ],
+  delayHydration: {
+    mode: 'init'
+  },
   image: {
     provider: "netlify",
     format: ["webp"],
@@ -155,6 +157,7 @@ export default defineNuxtConfig({
     domains: ["https://mgtimes.ae"],
   },
   i18n: {
+    strategy: "prefix_except_default",
     defaultLocale: "en",
     baseUrl: "https://mgtimes.ae",
     locales: [
@@ -169,13 +172,5 @@ export default defineNuxtConfig({
         name: "RU",
       },
     ],
-  },
-
-  //Генерация на основе сканирование
-  // experimental: {
-  //   payloadExtraction: false,
-  // },
-  delayHydration: {
-    mode: 'mount'
   },
 });

@@ -143,7 +143,7 @@ declare module 'nuxt/schema' {
 
       defaultLocale: any,
 
-      integrity: number,
+      integrity: any,
 
       experimental: {
          stripQueryParameters: boolean,
@@ -224,14 +224,6 @@ declare module 'nuxt/schema' {
 
          exclude: Array<number>,
       },
-   },
-
-   i18n: {
-      experimental: {
-         jsTsFormatResource: boolean,
-      },
-
-      baseUrl: string,
    },
   }
 }

@@ -12,8 +12,6 @@ declare global {
   const defineAppConfig: typeof import('../../node_modules/nuxt/dist/app')['defineAppConfig']
   const defineAsyncComponent: typeof import('vue')['defineAsyncComponent']
   const defineComponent: typeof import('vue')['defineComponent']
-  const defineI18nConfig: typeof import('../../node_modules/@nuxtjs/i18n/dist/runtime/composables')['defineI18nConfig']
-  const defineI18nLocale: typeof import('../../node_modules/@nuxtjs/i18n/dist/runtime/composables')['defineI18nLocale']
   const defineI18nRoute: typeof import('../../node_modules/@nuxtjs/i18n/dist/runtime/composables')['defineI18nRoute']
   const defineModel: typeof import('vue')['defineModel']
   const defineNuxtComponent: typeof import('../../node_modules/nuxt/dist/app')['defineNuxtComponent']
@@ -107,7 +105,7 @@ declare global {
   const useFetch: typeof import('../../node_modules/nuxt/dist/app')['useFetch']
   const useHead: typeof import('@unhead/vue')['useHead']
   const useHeadSafe: typeof import('@unhead/vue')['useHeadSafe']
-  const useI18n: typeof import('../../node_modules/vue-i18n/dist/vue-i18n.runtime')['useI18n']
+  const useI18n: typeof import('../../node_modules/vue-i18n/dist/vue-i18n')['useI18n']
   const useImage: typeof import('../../node_modules/@nuxt/image/dist/runtime/composables')['useImage']
   const useLazyAsyncData: typeof import('../../node_modules/nuxt/dist/app')['useLazyAsyncData']
   const useLazyFetch: typeof import('../../node_modules/nuxt/dist/app')['useLazyFetch']
@@ -167,8 +165,6 @@ declare module 'vue' {
     readonly defineAppConfig: UnwrapRef<typeof import('../../node_modules/nuxt/dist/app')['defineAppConfig']>
     readonly defineAsyncComponent: UnwrapRef<typeof import('vue')['defineAsyncComponent']>
     readonly defineComponent: UnwrapRef<typeof import('vue')['defineComponent']>
-    readonly defineI18nConfig: UnwrapRef<typeof import('../../node_modules/@nuxtjs/i18n/dist/runtime/composables')['defineI18nConfig']>
-    readonly defineI18nLocale: UnwrapRef<typeof import('../../node_modules/@nuxtjs/i18n/dist/runtime/composables')['defineI18nLocale']>
     readonly defineI18nRoute: UnwrapRef<typeof import('../../node_modules/@nuxtjs/i18n/dist/runtime/composables')['defineI18nRoute']>
     readonly defineModel: UnwrapRef<typeof import('vue')['defineModel']>
     readonly defineNuxtComponent: UnwrapRef<typeof import('../../node_modules/nuxt/dist/app')['defineNuxtComponent']>
@@ -262,7 +258,7 @@ declare module 'vue' {
     readonly useFetch: UnwrapRef<typeof import('../../node_modules/nuxt/dist/app')['useFetch']>
     readonly useHead: UnwrapRef<typeof import('@unhead/vue')['useHead']>
     readonly useHeadSafe: UnwrapRef<typeof import('@unhead/vue')['useHeadSafe']>
-    readonly useI18n: UnwrapRef<typeof import('../../node_modules/vue-i18n/dist/vue-i18n.runtime')['useI18n']>
+    readonly useI18n: UnwrapRef<typeof import('../../node_modules/vue-i18n/dist/vue-i18n')['useI18n']>
     readonly useImage: UnwrapRef<typeof import('../../node_modules/@nuxt/image/dist/runtime/composables')['useImage']>
     readonly useLazyAsyncData: UnwrapRef<typeof import('../../node_modules/nuxt/dist/app')['useLazyAsyncData']>
     readonly useLazyFetch: UnwrapRef<typeof import('../../node_modules/nuxt/dist/app')['useLazyFetch']>
@@ -316,8 +312,6 @@ declare module '@vue/runtime-core' {
     readonly defineAppConfig: UnwrapRef<typeof import('../../node_modules/nuxt/dist/app')['defineAppConfig']>
     readonly defineAsyncComponent: UnwrapRef<typeof import('vue')['defineAsyncComponent']>
     readonly defineComponent: UnwrapRef<typeof import('vue')['defineComponent']>
-    readonly defineI18nConfig: UnwrapRef<typeof import('../../node_modules/@nuxtjs/i18n/dist/runtime/composables')['defineI18nConfig']>
-    readonly defineI18nLocale: UnwrapRef<typeof import('../../node_modules/@nuxtjs/i18n/dist/runtime/composables')['defineI18nLocale']>
     readonly defineI18nRoute: UnwrapRef<typeof import('../../node_modules/@nuxtjs/i18n/dist/runtime/composables')['defineI18nRoute']>
     readonly defineModel: UnwrapRef<typeof import('vue')['defineModel']>
     readonly defineNuxtComponent: UnwrapRef<typeof import('../../node_modules/nuxt/dist/app')['defineNuxtComponent']>
@@ -411,7 +405,7 @@ declare module '@vue/runtime-core' {
     readonly useFetch: UnwrapRef<typeof import('../../node_modules/nuxt/dist/app')['useFetch']>
     readonly useHead: UnwrapRef<typeof import('@unhead/vue')['useHead']>
     readonly useHeadSafe: UnwrapRef<typeof import('@unhead/vue')['useHeadSafe']>
-    readonly useI18n: UnwrapRef<typeof import('../../node_modules/vue-i18n/dist/vue-i18n.runtime')['useI18n']>
+    readonly useI18n: UnwrapRef<typeof import('../../node_modules/vue-i18n/dist/vue-i18n')['useI18n']>
     readonly useImage: UnwrapRef<typeof import('../../node_modules/@nuxt/image/dist/runtime/composables')['useImage']>
     readonly useLazyAsyncData: UnwrapRef<typeof import('../../node_modules/nuxt/dist/app')['useLazyAsyncData']>
     readonly useLazyFetch: UnwrapRef<typeof import('../../node_modules/nuxt/dist/app')['useLazyFetch']>
