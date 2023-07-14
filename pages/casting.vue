@@ -13,9 +13,6 @@ useHead({
     },
   ],
 });
-
-
-
 </script>
 
 <template>
@@ -61,7 +58,7 @@ useHead({
           }}
         </div>
         <div class="casting__img-main-wrapper">
-         <nuxt-img src="/img/casting/main-img.webp" alt="" />
+          <nuxt-img src="/img/casting/main-img.webp" alt="" />
         </div>
 
         <section class="casting__section-work-with-us work-with-us">
@@ -116,13 +113,13 @@ useHead({
           <div class="agency__content genscasting-content">
             <div class="agency__images-block">
               <div class="agency__img-left">
-               <nuxt-img src="/img/casting/agency/left.webp" alt="" />
+                <nuxt-img src="/img/casting/agency/left.webp" alt="" />
               </div>
               <div class="agency__img-right">
-               <nuxt-img src="/img/casting/agency/right.webp" alt="" />
+                <nuxt-img src="/img/casting/agency/right.webp" alt="" />
               </div>
               <div class="agency__text-decoration">
-                {{ t("Young beautiful girls") }}
+               Young beautiful girls
               </div>
             </div>
 
@@ -238,7 +235,7 @@ useHead({
                         v-for="models in list"
                         :key="models._path"
                       >
-                       <nuxt-img
+                        <nuxt-img
                           :src="`/assets/img/models/${models.folder}/${models.mainImage}`"
                           :alt="`${models.folder}`"
                         />
@@ -322,10 +319,10 @@ useHead({
             </ul>
             <div class="advantage__decoration">
               <div class="advantage__img">
-               <nuxt-img src="/img/casting/advantage/img.webp" alt="" />
+                <nuxt-img src="/img/casting/advantage/img.webp" alt="" />
               </div>
 
-              <div class="advantage__text">{{ t("Elite escort") }}</div>
+              <div class="advantage__text">Elite escort</div>
             </div>
           </div>
         </section>
@@ -335,7 +332,7 @@ useHead({
           </div>
           <div class="necessarily__content genscasting-content">
             <div class="necessarily__content-img">
-             <nuxt-img src="/img/casting/necessarily/full-img.webp" alt="" />
+              <nuxt-img src="/img/casting/necessarily/full-img.webp" alt="" />
             </div>
             <div class="necessarily__info">
               <div class="necessarily__subtitle genscasting-subtitle">
@@ -586,6 +583,7 @@ useHead({
     "description": "We offer work for girls in an escort agency. MGTIMES! Elite escort in Dubai! VIP escort in Dubai! Organization of recreation and the best models of Dubai for an escort! 📞 +971 58 525 2213 ⚡",
 
 
+    "More information":"More information",
     "Working in в MGTimes": "Working in в MGTimes",
     "Working in escort services is a conscious choice of every girl. It isa good opportunity for you to get a high-paying job, start a new life,fill it with cool acquaintances, bright trips and unforgettableemotions. The MGTimes agency helps beautiful model girls to becomereal muses of rich patrons. They are willing to pay money for pleasantcompany and joint leisure.": "Working in escort services is a conscious choice of every girl. It isa good opportunity for you to get a high-paying job, start a new life,fill it with cool acquaintances, bright trips and unforgettableemotions. The MGTimes agency helps beautiful model girls to becomereal muses of rich patrons. They are willing to pay money for pleasantcompany and joint leisure.",
     "Working in our agency": "Working in our agency",
@@ -634,6 +632,8 @@ useHead({
     "title": "Работа в качестве эскорта в Дубае - эскорт агентство Mgtimes",
     "description": "Предлагаем работу для девушек в эскорт агентстве. MGTIMES! Элитный эскорт в Дубае! VIP сопровождение в Дубае! Организация отдыха и лучшие модели Дубая для эскорта! 📞 +971 58 525 2213 ⚡",
 
+
+    "More information":"Узнать больше",
     "Working in в MGTimes": "Работа моделью в MGTimes",
     "Working in escort services is a conscious choice of every girl. It isa good opportunity for you to get a high-paying job, start a new life,fill it with cool acquaintances, bright trips and unforgettableemotions. The MGTimes agency helps beautiful model girls to becomereal muses of rich patrons. They are willing to pay money for pleasantcompany and joint leisure.": "Работа в сфере элитных эскорт-услуг – сознательный выбор каждой девушки. Сегодня это возможность получить высокооплачиваемую работу, начать новую жизнь, наполнить ее крутыми знакомствами, яркими путешествиями и незабываемыми эмоциями. Агентство «MGTimes» помогает красивым девушкам с модельной внешностью стать настоящими музами богатых покровителей, которые готовы платить деньги за приятное общество и совместный досуг.",
     "Working in our agency": "Работа у нас",

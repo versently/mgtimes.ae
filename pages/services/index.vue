@@ -116,7 +116,7 @@ useHead({
               }}
             </div>
             <div class="services__info-text-decoration">
-              {{ t("No one is perfect but me.") }}
+              No one is perfect but me.
             </div>
           </div>
         </div>

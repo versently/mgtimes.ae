@@ -296,7 +296,7 @@ useHead({
           <div class="casting-section__text">
             {{
               t(
-                "Working in escort services is a conscious choice of every girl. It is a good opportunity for you to get a high-paying job, start a new life, fill it with cool acquaintances, bright trips and unforgettable emotions. The MGTimes agency helps beautiful model girls to become real muses of rich patrons. They are willing to pay money for pleasant company and joint leisure."
+                "Workingin"
               )
             }}
           </div>
@@ -329,7 +329,7 @@ useHead({
 
           <div class="vip-section__decoration">
             <div class="vip-section__decoration-text">
-              {{ t("Charming girls") }}
+             Charming girls
             </div>
             <div class="vip-section__side-img">
               <nuxt-img
@@ -545,7 +545,7 @@ useHead({
 
     "More information": "More information",
 
-    "Working in escort services is a conscious choice of every girl. It is a good opportunity for you to get a high-paying job, start a new life, fill it with cool acquaintances, bright trips and unforgettable emotions. The MGTimes agency helps beautiful model girls to become real muses of rich patrons. They are willing to pay money for pleasant company and joint leisure. ": "Working in escort services is a conscious choice of every girl. It is a good opportunity for you to get a high-paying job, start a new life, fill it with cool acquaintances, bright trips and unforgettable emotions. The MGTimes agency helps beautiful model girls to become real muses of rich patrons. They are willing to pay money for pleasant company and joint leisure. ",
+    "Workingin": "Working in escort services is a conscious choice of every girl. It is a good opportunity for you to get a high-paying job, start a new life, fill it with cool acquaintances, bright trips and unforgettable emotions. The MGTimes agency helps beautiful model girls to become real muses of rich patrons. They are willing to pay money for pleasant company and joint leisure. ",
 
     "VIP-girls in Dubai": "VIP-girls in Dubai",
 
@@ -611,7 +611,7 @@ useHead({
 
     "More information": "Узнать подробнее",
 
-    "Working in escort services is a conscious choice of every girl. It is a good opportunity for you to get a high-paying job, start a new life, fill it with cool acquaintances, bright trips and unforgettable emotions. The MGTimes agency helps beautiful model girls to become real muses of rich patrons. They are willing to pay money for pleasant company and joint leisure.": "Работа в нашем эскорт-агентстве – это удел для избранных, которых ждут яхты, эксклюзивные частные мероприятия, поездки по разным странам. Если вы мечтаете устроиться на престижную работу, которая приносит удовольствие и знакомства с успешными мужчинами, приглашаем пройти кастинг. В «MGTimes» открыты вакансии, и вполне возможно, что именно вы станете теми моделями, перед которыми будут открыты все двери в мир шикарной жизни.",
+    "Workingin": "Работа в нашем эскорт-агентстве – это удел для избранных, которых ждут яхты, эксклюзивные частные мероприятия, поездки по разным странам. Если вы мечтаете устроиться на престижную работу, которая приносит удовольствие и знакомства с успешными мужчинами, приглашаем пройти кастинг. В «MGTimes» открыты вакансии, и вполне возможно, что именно вы станете теми моделями, перед которыми будут открыты все двери в мир шикарной жизни.",
 
     "VIP-girls in Dubai": "VIP-девушки в Дубае",
 

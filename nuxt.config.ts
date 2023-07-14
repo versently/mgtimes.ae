@@ -3,19 +3,18 @@ export default defineNuxtConfig({
   app: {
     head: {
       script: [
-        { src: "/assets/js/SmoothScroll.js", body: true, defer: true },
-        { src: "/assets/js/gsap/gsap.min.js", body: true, defer: true },
+        { src: "/assets/js/SmoothScroll.js", body: true },
+        { src: "/assets/js/gsap/gsap.min.js", body: true },
         {
           src: "/assets/js/gsap/ScrollTrigger.min.js",
           body: true,
-          defer: true,
         },
         {
           src: "/assets/js/swiper/swiper-bundle.min.js",
           body: true,
-          defer: true,
+          async: true,
         },
-        { src: "/assets/js/app.js", body: true,  defer: true },
+        { src: "/assets/js/app.js", body: true },
         //organization sherma
         {
           type: "application/ld+json",
@@ -151,7 +150,6 @@ export default defineNuxtConfig({
     domains: ["https://mgtimes.ae"],
   },
   i18n: {
-    strategy: "prefix_except_default",
     defaultLocale: "en",
     baseUrl: "https://mgtimes.ae",
     locales: [
@@ -166,5 +164,8 @@ export default defineNuxtConfig({
         name: "RU",
       },
     ],
+  },
+  experimental: {
+    payloadExtraction: false,
   },
 });

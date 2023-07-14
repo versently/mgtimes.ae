@@ -440,7 +440,7 @@ function useHead(input, options = {}) {
     return isBrowser ? clientUseHead(input, options) : serverUseHead(input, options);
   }
 }
-const appHead = { "meta": [{ "name": "viewport", "content": "width=device-width, initial-scale=1" }, { "charset": "utf-8" }, { "name": "yandex-verification", "content": "aa730f68b9c3659c" }, { "property": "og:site_name", "content": "Elite escort services in Dubai MGTIMES" }, { "property": "og:title", "content": "Elite escort services in Dubai | VIP girls 🖤 | MGTIMES" }, { "property": "og:type", "content": "website" }, { "property": "og:description", "content": "Escort services and model escorts in Moscow. Elite escort agency for successful men! Selection of VIP models to accompany. Strictly confidential 📞 +79775944345 ⚡" }, { "property": "og:url", "content": "https://mgtimes.ae" }, { "property": "og:image", "content": "https://mgtimes.ae/extra-activity.png" }, { "property": "og:image:alt", "content": "Escort Agency «Mgtimes»" }, { "property": "og:image:width", "content": "600" }, { "property": "og:image:height", "content": "600" }], "link": [{ "rel": "apple-touch-icon", "sizes": "180x180", "href": "/apple-touch-icon.png" }, { "rel": "icon", "type": "image/png", "sizes": "32x32", "href": "/favicon-32x32.png" }, { "rel": "icon", "type": "image/png", "sizes": "16x16", "href": "/favicon-16x16.png" }], "style": [], "script": [{ "src": "/assets/js/SmoothScroll.js", "body": true, "defer": true }, { "src": "/assets/js/gsap/gsap.min.js", "body": true, "defer": true }, { "src": "/assets/js/gsap/ScrollTrigger.min.js", "body": true, "defer": true }, { "src": "/assets/js/swiper/swiper-bundle.min.js", "body": true, "defer": true }, { "src": "/assets/js/app.js", "body": true, "defer": true }, { "type": "application/ld+json", "innerHTML": '{"@context":"https://schema.org/","@type":"Organization","name":"Mgtimes","telephone":"+7 977 594-43-45","email":"info@mgtimes.ru","image":"https://mgtimes.ae/extra-activity.png","address":{"@type":"PostalAddress","addressLocality":"Dubai","streetAddress":"Dubai, Business Bay"}}' }, { "defer": true, "src": "https://www.googletagmanager.com/gtag/js?id=G-5ZMFKJYM1N" }, { "innerHTML": "window.dataLayer = window.dataLayer || [];\n        function gtag(){dataLayer.push(arguments);}\n        gtag('js', new Date());\n      \n        gtag('config', 'G-5ZMFKJYM1N');" }, { "innerHTML": '\n          <!-- Yandex.Metrika counter -->\n          (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};\n          m[i].l=1*new Date();\n          for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}\n          k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})\n          (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");\n       \n          ym(91305537, "init", {\n               clickmap:true,\n               trackLinks:true,\n               accurateTrackBounce:true,\n               webvisor:true\n          });\n         ' }], "noscript": [{ "innerHTML": '\n      <!-- Yandex.Metrika counter -->\n      <div><img src="https://mc.yandex.ru/watch/91305537" style="position:absolute; left:-9999px;" alt="" /></div>\n      <!-- Yandex.Metrika counter -->\n       ' }] };
+const appHead = { "meta": [{ "name": "viewport", "content": "width=device-width, initial-scale=1" }, { "charset": "utf-8" }, { "name": "yandex-verification", "content": "aa730f68b9c3659c" }, { "property": "og:site_name", "content": "Elite escort services in Dubai MGTIMES" }, { "property": "og:title", "content": "Elite escort services in Dubai | VIP girls 🖤 | MGTIMES" }, { "property": "og:type", "content": "website" }, { "property": "og:description", "content": "Escort services and model escorts in Moscow. Elite escort agency for successful men! Selection of VIP models to accompany. Strictly confidential 📞 +79775944345 ⚡" }, { "property": "og:url", "content": "https://mgtimes.ae" }, { "property": "og:image", "content": "https://mgtimes.ae/extra-activity.png" }, { "property": "og:image:alt", "content": "Escort Agency «Mgtimes»" }, { "property": "og:image:width", "content": "600" }, { "property": "og:image:height", "content": "600" }], "link": [{ "rel": "apple-touch-icon", "sizes": "180x180", "href": "/apple-touch-icon.png" }, { "rel": "icon", "type": "image/png", "sizes": "32x32", "href": "/favicon-32x32.png" }, { "rel": "icon", "type": "image/png", "sizes": "16x16", "href": "/favicon-16x16.png" }], "style": [], "script": [{ "src": "/assets/js/SmoothScroll.js", "body": true }, { "src": "/assets/js/gsap/gsap.min.js", "body": true }, { "src": "/assets/js/gsap/ScrollTrigger.min.js", "body": true }, { "src": "/assets/js/swiper/swiper-bundle.min.js", "body": true, "async": true }, { "src": "/assets/js/app.js", "body": true }, { "type": "application/ld+json", "innerHTML": '{"@context":"https://schema.org/","@type":"Organization","name":"Mgtimes","telephone":"+7 977 594-43-45","email":"info@mgtimes.ru","image":"https://mgtimes.ae/extra-activity.png","address":{"@type":"PostalAddress","addressLocality":"Dubai","streetAddress":"Dubai, Business Bay"}}' }, { "defer": true, "src": "https://www.googletagmanager.com/gtag/js?id=G-5ZMFKJYM1N" }, { "innerHTML": "window.dataLayer = window.dataLayer || [];\n        function gtag(){dataLayer.push(arguments);}\n        gtag('js', new Date());\n      \n        gtag('config', 'G-5ZMFKJYM1N');" }, { "innerHTML": '\n          <!-- Yandex.Metrika counter -->\n          (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};\n          m[i].l=1*new Date();\n          for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}\n          k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})\n          (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");\n       \n          ym(91305537, "init", {\n               clickmap:true,\n               trackLinks:true,\n               accurateTrackBounce:true,\n               webvisor:true\n          });\n         ' }], "noscript": [{ "innerHTML": '\n      <!-- Yandex.Metrika counter -->\n      <div><img src="https://mc.yandex.ru/watch/91305537" style="position:absolute; left:-9999px;" alt="" /></div>\n      <!-- Yandex.Metrika counter -->\n       ' }] };
 const appLayoutTransition = false;
 const appPageTransition = false;
 const appKeepalive = false;
@@ -589,7 +589,7 @@ const _routes = [
     meta: {},
     alias: [],
     redirect: void 0,
-    component: () => import("./_nuxt/casting-88116e43.js").then((m) => m.default || m)
+    component: () => import("./_nuxt/casting-76685387.js").then((m) => m.default || m)
   },
   {
     name: "casting___ru",
@@ -597,7 +597,7 @@ const _routes = [
     meta: {},
     alias: [],
     redirect: void 0,
-    component: () => import("./_nuxt/casting-88116e43.js").then((m) => m.default || m)
+    component: () => import("./_nuxt/casting-76685387.js").then((m) => m.default || m)
   },
   {
     name: "contacts___en",
@@ -621,7 +621,7 @@ const _routes = [
     meta: {},
     alias: [],
     redirect: void 0,
-    component: () => import("./_nuxt/index-926fddcf.js").then((m) => m.default || m)
+    component: () => import("./_nuxt/index-d0c7731a.js").then((m) => m.default || m)
   },
   {
     name: "index___ru",
@@ -629,7 +629,7 @@ const _routes = [
     meta: {},
     alias: [],
     redirect: void 0,
-    component: () => import("./_nuxt/index-926fddcf.js").then((m) => m.default || m)
+    component: () => import("./_nuxt/index-d0c7731a.js").then((m) => m.default || m)
   },
   {
     name: "media-slug___en",
@@ -685,7 +685,7 @@ const _routes = [
     meta: {},
     alias: [],
     redirect: void 0,
-    component: () => import("./_nuxt/index-cfecdd7d.js").then((m) => m.default || m)
+    component: () => import("./_nuxt/index-01bb9313.js").then((m) => m.default || m)
   },
   {
     name: "models___ru",
@@ -693,7 +693,7 @@ const _routes = [
     meta: {},
     alias: [],
     redirect: void 0,
-    component: () => import("./_nuxt/index-cfecdd7d.js").then((m) => m.default || m)
+    component: () => import("./_nuxt/index-01bb9313.js").then((m) => m.default || m)
   },
   {
     name: "privacy-policy___en",
@@ -733,7 +733,7 @@ const _routes = [
     meta: {},
     alias: [],
     redirect: void 0,
-    component: () => import("./_nuxt/index-6db0f585.js").then((m) => m.default || m)
+    component: () => import("./_nuxt/index-6a1f167a.js").then((m) => m.default || m)
   },
   {
     name: "services___ru",
@@ -741,7 +741,7 @@ const _routes = [
     meta: {},
     alias: [],
     redirect: void 0,
-    component: () => import("./_nuxt/index-6db0f585.js").then((m) => m.default || m)
+    component: () => import("./_nuxt/index-6a1f167a.js").then((m) => m.default || m)
   }
 ];
 const routerOptions0 = {
