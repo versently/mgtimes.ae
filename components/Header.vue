@@ -10,18 +10,7 @@ const switchLocalePath = useSwitchLocalePath();
 const { locale } = useI18n();
 
 onMounted(() => {
-  gsap.fromTo(
-  ".header__container",
-  {
-    y: -10,
-  },
-  {
-    y: 0,
-    opacity: 1,
-    duration: 0.5,
-    delay: 0.1,
-  }
-);
+ 
   /*-------menu--------*/
 
   let menuBtn = document.querySelector(".header__btn-mobile-menu");
