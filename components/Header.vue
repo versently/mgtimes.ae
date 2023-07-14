@@ -10,7 +10,6 @@ const switchLocalePath = useSwitchLocalePath();
 const { locale } = useI18n();
 
 onMounted(() => {
- 
   /*-------menu--------*/
 
   let menuBtn = document.querySelector(".header__btn-mobile-menu");
@@ -20,44 +19,6 @@ onMounted(() => {
     menuBtn.classList.toggle("active");
     menu.classList.toggle("active");
   });
-
-  var maxWidth_1079 = window.matchMedia("(max-width: 1079.98px)");
-
-  function movingBlocks(maxWidth_1079) {
-    if (maxWidth_1079.matches) {
-      document
-        .querySelector(".header__mobile-menu")
-        .appendChild(document.querySelector(".header__menu"));
-      document
-        .querySelector(".header__mobile-menu")
-        .appendChild(document.querySelector(".header__select-language"));
-      document
-        .querySelector(".header__mobile-menu")
-        .appendChild(document.querySelector(".header__btn-order"));
-    } else {
-      let testActiveClass = document
-        .querySelector(".header__mobile-menu")
-        .classList.contains("active");
-      if (testActiveClass) {
-        menuBtn.classList.toggle("active");
-        menu.classList.toggle("active");
-      }
-      document
-        .querySelector(".header__logo")
-        .insertAdjacentElement(
-          "afterEnd",
-          document.querySelector(".header__menu")
-        );
-      document
-        .querySelector(".header__container")
-        .appendChild(document.querySelector(".header__select-language"));
-      document
-        .querySelector(".header__container")
-        .appendChild(document.querySelector(".header__btn-order"));
-    }
-  }
-  movingBlocks(maxWidth_1079);
-  maxWidth_1079.addListener(movingBlocks);
 });
 </script>
 <template>
@@ -66,7 +27,7 @@ onMounted(() => {
       <div class="header__logo">
         <a :href="localePath('index')">MGTimes</a>
       </div>
-      <div class="header__menu menu">
+      <div class="header__menu pc menu">
         <div class="menu__list">
           <div class="menu__item">
             <a :href="localePath('index')" class="menu__link">{{
@@ -124,8 +85,7 @@ onMounted(() => {
         </div>
       </div>
 
-  
-      <div class="header__select-language lang-box">
+      <div class="header__select-language pc lang-box">
         <div class="lang-box__ru">
           <a :class="{ active: locale === 'en' }" :href="switchLocalePath('en')"
             >EN</a
@@ -133,18 +93,53 @@ onMounted(() => {
         </div>
         <div class="lang-box__line"></div>
         <div class="lang-box__en">
-        <a :class="{ active: locale === 'ru' }" :href="switchLocalePath('ru')">RU</a>
+          <a :class="{ active: locale === 'ru' }" :href="switchLocalePath('ru')"
+            >RU</a
+          >
+        </div>
       </div>
-      </div>
-      <button class="header__btn-order btn-order">
+      <button class="header__btn-order pc btn-order">
         {{ t("Order an escort") }}
       </button>
 
-      <div class="header__mobile-menu"></div>
+      <div class="header__mobile-menu">
+        <div class="header__menu menu">
+          <div class="menu__list">
+            <div class="menu__item">
+              <a href="/" class="menu__link">Home</a>
+            </div>
+            <div class="menu__item">
+              <a href="/models" class="menu__link">Models</a>
+            </div>
+            <div class="menu__item">
+              <a href="/services" class="menu__link">Services</a>
+            </div>
+            <div class="menu__item">
+              <a href="/casting" class="menu__link">Casting</a>
+            </div>
+            <div class="menu__item">
+              <a href="/contacts" class="menu__link">Contacts</a>
+            </div>
+            <div class="menu__item">
+              <a href="/media" class="menu__link">Media</a>
+            </div>
+          </div>
+        </div>
+        <div class="header__select-language lang-box">
+          <div class="lang-box__ru">
+            <a class="active" href="/">EN</a>
+          </div>
+          <div class="lang-box__line"></div>
+          <div class="lang-box__en">
+            <a class="" href="/ru">RU</a>
+          </div>
+        </div>
+        <button class="header__btn-order btn-order">Order an escort</button>
+      </div>
       <button class="header__btn-mobile-menu btn-mobile-menu">
-        <span class="btn-mobile-menu__line-up"></span>
-        <span class="btn-mobile-menu__line-middle"></span>
-        <span class="btn-mobile-menu__line-bottom"></span>
+        <span class="btn-mobile-menu__line-up"></span
+        ><span class="btn-mobile-menu__line-middle"></span
+        ><span class="btn-mobile-menu__line-bottom"></span>
       </button>
     </div>
   </header>
@@ -154,6 +149,29 @@ onMounted(() => {
 .lang-box a.active {
   color: #9e2220;
   /* Другие стили для активного языка */
+}
+.header__btn-mobile-menu {
+  display: none;
+}
+.header__mobile-menu {
+  /* display: none; */
+}
+@media (max-width: 991px) {
+  .header__btn-mobile-menu {
+    display: block;
+  }
+  .header__mobile-menu {
+    /* display: block; */
+  }
+  .header__select-language.pc {
+    display: none;
+  }
+  .header__btn-order.pc {
+    display: none;
+  }
+  .header__menu.pc {
+    display: none;
+  }
 }
 </style>
 

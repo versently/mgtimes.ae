@@ -6,6 +6,9 @@ var servicesBlocker = document.querySelector(".services");
 var serviceBlocker = document.querySelector(".service");
 var contactsBlocker = document.querySelector(".contacts");
 var mediaBlocker = document.querySelector(".media");
+
+/*-------menu--------*/
+
 if (modelsBlocker) {
   var showPerClick = 1;
   document.addEventListener("DOMContentLoaded", function () {
@@ -133,6 +136,8 @@ const swiperSliderModels = new Swiper(".models-section__swiper", {
   wrapperClass: "models-section__swiper-wrapper",
   scrollbar: { el: ".models-section__swiper-scrollbar" },
   slidesPerView: "auto",
+  freeMode: true,
+  
 });
 if (indexBlocker) {
 }
@@ -145,6 +150,7 @@ const swiperSliderService = new Swiper(".additional-services-section__swiper", {
   },
   slidesPerView: "auto",
   simulateTouch: true,
+  freeMode: true,
 });
 if (modelBlocker) {
   const swiperSliderModelMore = new Swiper(".model__swiper", {
@@ -159,6 +165,7 @@ if (modelBlocker) {
     simulateTouch: true,
     observer: true,
     mousewheel: { sensitivity: 1 },
+    freeMode: true,
   });
   const swiperSliderModelImg = new Swiper(".model__swiper-img", {
     slideClass: "model__swiper-slide-img",
@@ -167,6 +174,7 @@ if (modelBlocker) {
     slidesPerView: "auto",
     simulateTouch: true,
     observer: true,
+    freeMode: true,
   });
 }
 gsap.registerPlugin(ScrollTrigger);
