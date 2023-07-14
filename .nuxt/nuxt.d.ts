@@ -2,6 +2,7 @@
 /// <reference types="@nuxt/image" />
 /// <reference types="@nuxt/content" />
 /// <reference types="@nuxtjs/i18n" />
+/// <reference types="nuxt-delay-hydration" />
 /// <reference types="@nuxt/telemetry" />
 /// <reference types="nuxt" />
 /// <reference path="types/plugins.d.ts" />

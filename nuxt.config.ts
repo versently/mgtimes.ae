@@ -1,5 +1,6 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
+
   nitro: {
     prerender: {
       crawlLinks: true,
@@ -17,7 +18,6 @@ export default defineNuxtConfig({
         {
           src: "/assets/js/swiper/swiper-bundle.min.js",
           body: true,
-          async: true,
         },
         { src: "/assets/js/app.js", body: true },
         //organization sherma
@@ -147,7 +147,7 @@ export default defineNuxtConfig({
   },
 
   css: ["@/assets/css/style.css"],
-  modules: ["@nuxt/image", "@nuxt/content", "@nuxtjs/i18n"],
+  modules: ["@nuxt/image", "@nuxt/content", "@nuxtjs/i18n", 'nuxt-delay-hydration',],
   image: {
     provider: "netlify",
     format: ["webp"],
@@ -170,7 +170,12 @@ export default defineNuxtConfig({
       },
     ],
   },
-  experimental: {
-    payloadExtraction: false,
+
+  //Генерация на основе сканирование
+  // experimental: {
+  //   payloadExtraction: false,
+  // },
+  delayHydration: {
+    mode: 'init'
   },
 });
