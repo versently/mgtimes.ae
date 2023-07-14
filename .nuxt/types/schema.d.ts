@@ -135,14 +135,6 @@ declare module 'nuxt/schema' {
          stripQueryParameters: boolean,
       },
    },
-
-   i18n: {
-      precompile: {
-         strictMessage: boolean,
-
-         escapeHtml: boolean,
-      },
-   },
   }
   interface PublicRuntimeConfig {
    content: {
@@ -231,14 +223,6 @@ declare module 'nuxt/schema' {
 
          exclude: Array<number>,
       },
-   },
-
-   i18n: {
-      experimental: {
-         jsTsFormatResource: boolean,
-      },
-
-      baseUrl: string,
    },
   }
 }

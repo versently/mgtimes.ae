@@ -1,5 +1,5 @@
 import { reactive, getCurrentInstance, defineAsyncComponent, version, inject, ref, watchEffect, watch, unref, toRef, isRef, nextTick, shallowRef, computed, isReadonly, defineComponent, h, effectScope, onUnmounted, Fragment as Fragment$1, createVNode, Text, Transition, Suspense, provide, withCtx, useSSRContext, onErrorCaptured, onServerPrefetch, resolveDynamicComponent, createApp } from "vue";
-import { $fetch as $fetch$1 } from "ofetch";
+import { $fetch } from "ofetch";
 import { useRuntimeConfig as useRuntimeConfig$1 } from "#internal/nitro";
 import { createHooks } from "hookable";
 import { getContext, executeAsync } from "unctx";
@@ -267,27 +267,27 @@ const components = {
     /* webpackChunkName: "components/prose-em" */
   ).then((c) => c.default || c)),
   ProseH1: /* @__PURE__ */ defineAsyncComponent(() => import(
-    "./_nuxt/ProseH1-91ca6221.js"
+    "./_nuxt/ProseH1-aee0861f.js"
     /* webpackChunkName: "components/prose-h1" */
   ).then((c) => c.default || c)),
   ProseH2: /* @__PURE__ */ defineAsyncComponent(() => import(
-    "./_nuxt/ProseH2-6bb248b3.js"
+    "./_nuxt/ProseH2-a90cd65c.js"
     /* webpackChunkName: "components/prose-h2" */
   ).then((c) => c.default || c)),
   ProseH3: /* @__PURE__ */ defineAsyncComponent(() => import(
-    "./_nuxt/ProseH3-24ce698f.js"
+    "./_nuxt/ProseH3-65dd906a.js"
     /* webpackChunkName: "components/prose-h3" */
   ).then((c) => c.default || c)),
   ProseH4: /* @__PURE__ */ defineAsyncComponent(() => import(
-    "./_nuxt/ProseH4-03abf162.js"
+    "./_nuxt/ProseH4-0d41ad65.js"
     /* webpackChunkName: "components/prose-h4" */
   ).then((c) => c.default || c)),
   ProseH5: /* @__PURE__ */ defineAsyncComponent(() => import(
-    "./_nuxt/ProseH5-a2051879.js"
+    "./_nuxt/ProseH5-701b1b91.js"
     /* webpackChunkName: "components/prose-h5" */
   ).then((c) => c.default || c)),
   ProseH6: /* @__PURE__ */ defineAsyncComponent(() => import(
-    "./_nuxt/ProseH6-0f51877e.js"
+    "./_nuxt/ProseH6-dd292eb1.js"
     /* webpackChunkName: "components/prose-h6" */
   ).then((c) => c.default || c)),
   ProseHr: /* @__PURE__ */ defineAsyncComponent(() => import(
@@ -295,7 +295,7 @@ const components = {
     /* webpackChunkName: "components/prose-hr" */
   ).then((c) => c.default || c)),
   ProseImg: /* @__PURE__ */ defineAsyncComponent(() => import(
-    "./_nuxt/ProseImg-803f2a7e.js"
+    "./_nuxt/ProseImg-cd0da13a.js"
     /* webpackChunkName: "components/prose-img" */
   ).then((c) => c.default || c)),
   ProseLi: /* @__PURE__ */ defineAsyncComponent(() => import(
@@ -440,7 +440,7 @@ function useHead(input, options = {}) {
     return isBrowser ? clientUseHead(input, options) : serverUseHead(input, options);
   }
 }
-const appHead = { "meta": [{ "name": "viewport", "content": "width=device-width, initial-scale=1" }, { "charset": "utf-8" }, { "name": "yandex-verification", "content": "aa730f68b9c3659c" }, { "property": "og:site_name", "content": "Elite escort services in Dubai MGTIMES" }, { "property": "og:title", "content": "Elite escort services in Dubai | VIP girls 🖤 | MGTIMES" }, { "property": "og:type", "content": "website" }, { "property": "og:description", "content": "Escort services and model escorts in Moscow. Elite escort agency for successful men! Selection of VIP models to accompany. Strictly confidential 📞 +79775944345 ⚡" }, { "property": "og:url", "content": "https://mgtimes.ae" }, { "property": "og:image", "content": "https://mgtimes.ae/extra-activity.png" }, { "property": "og:image:alt", "content": "Escort Agency «Mgtimes»" }, { "property": "og:image:width", "content": "600" }, { "property": "og:image:height", "content": "600" }], "link": [{ "rel": "apple-touch-icon", "sizes": "180x180", "href": "/apple-touch-icon.png" }, { "rel": "icon", "type": "image/png", "sizes": "32x32", "href": "/favicon-32x32.png" }, { "rel": "icon", "type": "image/png", "sizes": "16x16", "href": "/favicon-16x16.png" }], "style": [], "script": [{ "src": "/assets/js/SmoothScroll.js", "body": true, "async": true }, { "src": "/assets/js/gsap/gsap.min.js", "body": true, "async": true }, { "src": "/assets/js/gsap/ScrollTrigger.min.js", "body": true, "async": true }, { "src": "/assets/js/swiper/swiper-bundle.min.js", "body": true, "async": true }, { "src": "/assets/js/app.js", "body": true }, { "type": "application/ld+json", "innerHTML": '{"@context":"https://schema.org/","@type":"Organization","name":"Mgtimes","telephone":"+7 977 594-43-45","email":"info@mgtimes.ru","image":"https://mgtimes.ae/extra-activity.png","address":{"@type":"PostalAddress","addressLocality":"Dubai","streetAddress":"Dubai, Business Bay"}}' }, { "defer": true, "src": "https://www.googletagmanager.com/gtag/js?id=G-5ZMFKJYM1N" }, { "innerHTML": "window.dataLayer = window.dataLayer || [];\n        function gtag(){dataLayer.push(arguments);}\n        gtag('js', new Date());\n      \n        gtag('config', 'G-5ZMFKJYM1N');" }], "noscript": [] };
+const appHead = { "meta": [{ "name": "viewport", "content": "width=device-width, initial-scale=1" }, { "charset": "utf-8" }, { "name": "yandex-verification", "content": "aa730f68b9c3659c" }, { "property": "og:site_name", "content": "Elite escort services in Dubai MGTIMES" }, { "property": "og:title", "content": "Elite escort services in Dubai | VIP girls 🖤 | MGTIMES" }, { "property": "og:type", "content": "website" }, { "property": "og:description", "content": "Escort services and model escorts in Moscow. Elite escort agency for successful men! Selection of VIP models to accompany. Strictly confidential 📞 +79775944345 ⚡" }, { "property": "og:url", "content": "https://mgtimes.ae" }, { "property": "og:image", "content": "https://mgtimes.ae/extra-activity.png" }, { "property": "og:image:alt", "content": "Escort Agency «Mgtimes»" }, { "property": "og:image:width", "content": "600" }, { "property": "og:image:height", "content": "600" }], "link": [{ "rel": "apple-touch-icon", "sizes": "180x180", "href": "/apple-touch-icon.png" }, { "rel": "icon", "type": "image/png", "sizes": "32x32", "href": "/favicon-32x32.png" }, { "rel": "icon", "type": "image/png", "sizes": "16x16", "href": "/favicon-16x16.png" }], "style": [], "script": [{ "src": "/assets/js/SmoothScroll.js", "body": true, "defer": true }, { "src": "/assets/js/gsap/gsap.min.js", "body": true, "defer": true }, { "src": "/assets/js/gsap/ScrollTrigger.min.js", "body": true, "defer": true }, { "src": "/assets/js/swiper/swiper-bundle.min.js", "body": true, "defer": true }, { "src": "/assets/js/app.js", "body": true, "defer": true }, { "type": "application/ld+json", "innerHTML": '{"@context":"https://schema.org/","@type":"Organization","name":"Mgtimes","telephone":"+7 977 594-43-45","email":"info@mgtimes.ru","image":"https://mgtimes.ae/extra-activity.png","address":{"@type":"PostalAddress","addressLocality":"Dubai","streetAddress":"Dubai, Business Bay"}}' }, { "defer": true, "src": "https://www.googletagmanager.com/gtag/js?id=G-5ZMFKJYM1N" }, { "innerHTML": "window.dataLayer = window.dataLayer || [];\n        function gtag(){dataLayer.push(arguments);}\n        gtag('js', new Date());\n      \n        gtag('config', 'G-5ZMFKJYM1N');" }, { "innerHTML": '\n          <!-- Yandex.Metrika counter -->\n          (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};\n          m[i].l=1*new Date();\n          for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}\n          k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})\n          (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");\n       \n          ym(91305537, "init", {\n               clickmap:true,\n               trackLinks:true,\n               accurateTrackBounce:true,\n               webvisor:true\n          });\n         ' }], "noscript": [{ "innerHTML": '\n      <!-- Yandex.Metrika counter -->\n      <div><img src="https://mc.yandex.ru/watch/91305537" style="position:absolute; left:-9999px;" alt="" /></div>\n      <!-- Yandex.Metrika counter -->\n       ' }] };
 const appLayoutTransition = false;
 const appPageTransition = false;
 const appKeepalive = false;
@@ -589,7 +589,7 @@ const _routes = [
     meta: {},
     alias: [],
     redirect: void 0,
-    component: () => import("./_nuxt/casting-bedc3232.js").then((m) => m.default || m)
+    component: () => import("./_nuxt/casting-88116e43.js").then((m) => m.default || m)
   },
   {
     name: "casting___ru",
@@ -597,7 +597,7 @@ const _routes = [
     meta: {},
     alias: [],
     redirect: void 0,
-    component: () => import("./_nuxt/casting-bedc3232.js").then((m) => m.default || m)
+    component: () => import("./_nuxt/casting-88116e43.js").then((m) => m.default || m)
   },
   {
     name: "contacts___en",
@@ -605,7 +605,7 @@ const _routes = [
     meta: {},
     alias: [],
     redirect: void 0,
-    component: () => import("./_nuxt/contacts-4f0642c9.js").then((m) => m.default || m)
+    component: () => import("./_nuxt/contacts-0462d02d.js").then((m) => m.default || m)
   },
   {
     name: "contacts___ru",
@@ -613,7 +613,7 @@ const _routes = [
     meta: {},
     alias: [],
     redirect: void 0,
-    component: () => import("./_nuxt/contacts-4f0642c9.js").then((m) => m.default || m)
+    component: () => import("./_nuxt/contacts-0462d02d.js").then((m) => m.default || m)
   },
   {
     name: "index___en",
@@ -621,7 +621,7 @@ const _routes = [
     meta: {},
     alias: [],
     redirect: void 0,
-    component: () => import("./_nuxt/index-004f2fbb.js").then((m) => m.default || m)
+    component: () => import("./_nuxt/index-926fddcf.js").then((m) => m.default || m)
   },
   {
     name: "index___ru",
@@ -629,7 +629,7 @@ const _routes = [
     meta: {},
     alias: [],
     redirect: void 0,
-    component: () => import("./_nuxt/index-004f2fbb.js").then((m) => m.default || m)
+    component: () => import("./_nuxt/index-926fddcf.js").then((m) => m.default || m)
   },
   {
     name: "media-slug___en",
@@ -637,7 +637,7 @@ const _routes = [
     meta: {},
     alias: [],
     redirect: void 0,
-    component: () => import("./_nuxt/_...slug_-3385b1bb.js").then((m) => m.default || m)
+    component: () => import("./_nuxt/_...slug_-af5639cc.js").then((m) => m.default || m)
   },
   {
     name: "media-slug___ru",
@@ -645,7 +645,7 @@ const _routes = [
     meta: {},
     alias: [],
     redirect: void 0,
-    component: () => import("./_nuxt/_...slug_-3385b1bb.js").then((m) => m.default || m)
+    component: () => import("./_nuxt/_...slug_-af5639cc.js").then((m) => m.default || m)
   },
   {
     name: "media___en",
@@ -653,7 +653,7 @@ const _routes = [
     meta: {},
     alias: [],
     redirect: void 0,
-    component: () => import("./_nuxt/index-56e7ec29.js").then((m) => m.default || m)
+    component: () => import("./_nuxt/index-c6b6862f.js").then((m) => m.default || m)
   },
   {
     name: "media___ru",
@@ -661,7 +661,7 @@ const _routes = [
     meta: {},
     alias: [],
     redirect: void 0,
-    component: () => import("./_nuxt/index-56e7ec29.js").then((m) => m.default || m)
+    component: () => import("./_nuxt/index-c6b6862f.js").then((m) => m.default || m)
   },
   {
     name: "models-slug___en",
@@ -669,7 +669,7 @@ const _routes = [
     meta: {},
     alias: [],
     redirect: void 0,
-    component: () => import("./_nuxt/_...slug_-28a96d79.js").then((m) => m.default || m)
+    component: () => import("./_nuxt/_...slug_-498849bf.js").then((m) => m.default || m)
   },
   {
     name: "models-slug___ru",
@@ -677,7 +677,7 @@ const _routes = [
     meta: {},
     alias: [],
     redirect: void 0,
-    component: () => import("./_nuxt/_...slug_-28a96d79.js").then((m) => m.default || m)
+    component: () => import("./_nuxt/_...slug_-498849bf.js").then((m) => m.default || m)
   },
   {
     name: "models___en",
@@ -685,7 +685,7 @@ const _routes = [
     meta: {},
     alias: [],
     redirect: void 0,
-    component: () => import("./_nuxt/index-6f14b34c.js").then((m) => m.default || m)
+    component: () => import("./_nuxt/index-cfecdd7d.js").then((m) => m.default || m)
   },
   {
     name: "models___ru",
@@ -693,7 +693,7 @@ const _routes = [
     meta: {},
     alias: [],
     redirect: void 0,
-    component: () => import("./_nuxt/index-6f14b34c.js").then((m) => m.default || m)
+    component: () => import("./_nuxt/index-cfecdd7d.js").then((m) => m.default || m)
   },
   {
     name: "privacy-policy___en",
@@ -701,7 +701,7 @@ const _routes = [
     meta: {},
     alias: [],
     redirect: void 0,
-    component: () => import("./_nuxt/privacy-policy-d6f82626.js").then((m) => m.default || m)
+    component: () => import("./_nuxt/privacy-policy-47a94793.js").then((m) => m.default || m)
   },
   {
     name: "privacy-policy___ru",
@@ -709,7 +709,7 @@ const _routes = [
     meta: {},
     alias: [],
     redirect: void 0,
-    component: () => import("./_nuxt/privacy-policy-d6f82626.js").then((m) => m.default || m)
+    component: () => import("./_nuxt/privacy-policy-47a94793.js").then((m) => m.default || m)
   },
   {
     name: "services-slug___en",
@@ -717,7 +717,7 @@ const _routes = [
     meta: {},
     alias: [],
     redirect: void 0,
-    component: () => import("./_nuxt/_...slug_-302a80b8.js").then((m) => m.default || m)
+    component: () => import("./_nuxt/_...slug_-4cfcb0a1.js").then((m) => m.default || m)
   },
   {
     name: "services-slug___ru",
@@ -725,7 +725,7 @@ const _routes = [
     meta: {},
     alias: [],
     redirect: void 0,
-    component: () => import("./_nuxt/_...slug_-302a80b8.js").then((m) => m.default || m)
+    component: () => import("./_nuxt/_...slug_-4cfcb0a1.js").then((m) => m.default || m)
   },
   {
     name: "services___en",
@@ -733,7 +733,7 @@ const _routes = [
     meta: {},
     alias: [],
     redirect: void 0,
-    component: () => import("./_nuxt/index-947a5a38.js").then((m) => m.default || m)
+    component: () => import("./_nuxt/index-6db0f585.js").then((m) => m.default || m)
   },
   {
     name: "services___ru",
@@ -741,7 +741,7 @@ const _routes = [
     meta: {},
     alias: [],
     redirect: void 0,
-    component: () => import("./_nuxt/index-947a5a38.js").then((m) => m.default || m)
+    component: () => import("./_nuxt/index-6db0f585.js").then((m) => m.default || m)
   }
 ];
 const routerOptions0 = {
@@ -995,8 +995,8 @@ var shared$1 = {
 };
 var shared_prod = {};
 /*!
-  * shared v9.3.0-beta.17
-  * (c) 2023 kazuya kawaguchi
+  * shared v9.3.0-beta.11
+  * (c) 2022 kazuya kawaguchi
   * Released under the MIT License.
   */
 var hasRequiredShared_prod;
@@ -1004,6 +1004,7 @@ function requireShared_prod() {
   if (hasRequiredShared_prod)
     return shared_prod;
   hasRequiredShared_prod = 1;
+  Object.defineProperty(shared_prod, "__esModule", { value: true });
   const inBrowser = false;
   let mark;
   let measure;
@@ -1049,7 +1050,7 @@ function requireShared_prod() {
   const isArray2 = Array.isArray;
   const isFunction2 = (val) => typeof val === "function";
   const isString2 = (val) => typeof val === "string";
-  const isBoolean = (val) => typeof val === "boolean";
+  const isBoolean2 = (val) => typeof val === "boolean";
   const isSymbol2 = (val) => typeof val === "symbol";
   const isObject2 = (val) => val !== null && typeof val === "object";
   const isPromise = (val) => {
@@ -1127,7 +1128,7 @@ function requireShared_prod() {
   shared_prod.hasOwn = hasOwn;
   shared_prod.inBrowser = inBrowser;
   shared_prod.isArray = isArray2;
-  shared_prod.isBoolean = isBoolean;
+  shared_prod.isBoolean = isBoolean2;
   shared_prod.isDate = isDate;
   shared_prod.isEmptyObject = isEmptyObject;
   shared_prod.isFunction = isFunction2;
@@ -1149,8 +1150,8 @@ function requireShared_prod() {
 }
 var shared = {};
 /*!
-  * shared v9.3.0-beta.17
-  * (c) 2023 kazuya kawaguchi
+  * shared v9.3.0-beta.11
+  * (c) 2022 kazuya kawaguchi
   * Released under the MIT License.
   */
 var hasRequiredShared;
@@ -1158,6 +1159,7 @@ function requireShared() {
   if (hasRequiredShared)
     return shared;
   hasRequiredShared = 1;
+  Object.defineProperty(shared, "__esModule", { value: true });
   const inBrowser = false;
   shared.mark = void 0;
   shared.measure = void 0;
@@ -1203,7 +1205,7 @@ function requireShared() {
   const isArray2 = Array.isArray;
   const isFunction2 = (val) => typeof val === "function";
   const isString2 = (val) => typeof val === "string";
-  const isBoolean = (val) => typeof val === "boolean";
+  const isBoolean2 = (val) => typeof val === "boolean";
   const isSymbol2 = (val) => typeof val === "symbol";
   const isObject2 = (val) => val !== null && typeof val === "object";
   const isPromise = (val) => {
@@ -1281,7 +1283,7 @@ function requireShared() {
   shared.hasOwn = hasOwn;
   shared.inBrowser = inBrowser;
   shared.isArray = isArray2;
-  shared.isBoolean = isBoolean;
+  shared.isBoolean = isBoolean2;
   shared.isDate = isDate;
   shared.isEmptyObject = isEmptyObject;
   shared.isFunction = isFunction2;
@@ -1307,11 +1309,11 @@ function requireShared() {
   }
 })(shared$1);
 /*!
-  * vue-i18n v9.3.0-beta.17
+  * vue-i18n v9.3.0-beta.16
   * (c) 2023 kazuya kawaguchi
   * Released under the MIT License.
   */
-const VERSION = "9.3.0-beta.17";
+const VERSION = "9.3.0-beta.16";
 function initFeatureFlags() {
   if (typeof __INTLIFY_PROD_DEVTOOLS__ !== "boolean") {
     sharedExports.getGlobalThis().__INTLIFY_PROD_DEVTOOLS__ = false;
@@ -2801,15 +2803,17 @@ const DEFAULT_DETECTION_DIRECTION = "ltr";
 const DEFAULT_BASE_URL = "";
 const DEFAULT_DYNAMIC_PARAMS_KEY = "";
 /*!
-  * shared v9.3.0-beta.16
-  * (c) 2023 kazuya kawaguchi
+  * shared v9.3.0-beta.10
+  * (c) 2022 kazuya kawaguchi
   * Released under the MIT License.
   */
-const makeSymbol = (name, shareable = false) => !shareable ? Symbol(name) : Symbol.for(name);
+const hasSymbol = typeof Symbol === "function" && typeof Symbol.toStringTag === "symbol";
+const makeSymbol = (name) => hasSymbol ? Symbol(name) : name;
 const assign = Object.assign;
 const isArray = Array.isArray;
 const isFunction = (val) => typeof val === "function";
 const isString = (val) => typeof val === "string";
+const isBoolean = (val) => typeof val === "boolean";
 const isSymbol = (val) => typeof val === "symbol";
 const isObject = (val) => val !== null && typeof val === "object";
 const TRAILING_SLASH_RE = /\/$|\/\?/;
@@ -3124,7 +3128,7 @@ function extendVueI18n(vueI18n, hook) {
   }
 }
 function isPluginOptions(options) {
-  return isObject(options) && ("inject" in options || "__composerExtend" in options || "__vueI18nExtend" in options);
+  return isObject(options) && ("inject" in options || "__composerExtend" in options || "__vueI18nExtend" in options) && isBoolean(options.inject);
 }
 const GlobalOptionsRegistory = makeSymbol("vue-i18n-routing-gor");
 function registerGlobalOptions(router, options) {
@@ -3376,14 +3380,7 @@ function localeHead({ addDirAttribute = false, addSeoAttributes = false, identif
       metaObject.htmlAttrs.lang = currentLocaleIso;
     }
     addHreflangLinks.call(this, locales, unref(i18n.baseUrl), metaObject.link, identifierAttribute);
-    addCanonicalLinksAndOgUrl.call(
-      this,
-      unref(i18n.baseUrl),
-      metaObject.link,
-      metaObject.meta,
-      identifierAttribute,
-      addSeoAttributes
-    );
+    addCanonicalLinks.call(this, unref(i18n.baseUrl), metaObject.link, identifierAttribute, addSeoAttributes);
     addCurrentOgLocale(currentLocale, currentLocaleIso, metaObject.meta, identifierAttribute);
     addAlternateOgLocales(locales, currentLocaleIso, metaObject.meta, identifierAttribute);
   }
@@ -3431,7 +3428,7 @@ function addHreflangLinks(locales, baseUrl, link, identifierAttribute) {
     }
   }
 }
-function addCanonicalLinksAndOgUrl(baseUrl, link, meta, identifierAttribute, seoAttributesOptions) {
+function addCanonicalLinks(baseUrl, link, identifierAttribute, seoAttributesOptions) {
   const route = this.route;
   const currentRoute = localeRoute.call(this, {
     ...route,
@@ -3462,11 +3459,6 @@ function addCanonicalLinksAndOgUrl(baseUrl, link, meta, identifierAttribute, seo
       [identifierAttribute]: "i18n-can",
       rel: "canonical",
       href
-    });
-    meta.push({
-      [identifierAttribute]: "i18n-og-url",
-      property: "og:url",
-      content: href
     });
   }
 }
@@ -3607,20 +3599,11 @@ function useLocaleHead({
 }
 const localeCodes = ["en", "ru"];
 const localeMessages = {};
-const additionalMessages = Object({ "en": [], "ru": [] });
+const additionalMessages = Object({ "ru": [] });
 const resolveNuxtI18nOptions = async (context) => {
   const nuxtI18nOptions = Object({});
-  nuxtI18nOptions.experimental = Object({ "jsTsFormatResource": false });
-  nuxtI18nOptions.precompile = Object({ "strictMessage": true, "escapeHtml": false });
-  const vueI18nConfigLoader = async (context2, loader) => {
-    const config = await loader().then((r) => r.default || r);
-    return typeof config === "object" ? config : typeof config === "function" ? await config(context2) : {};
-  };
-  const vueI18n = await vueI18nConfigLoader(context, () => import(
-    "./_nuxt/i18n.options-9b03bb04.js"
-    /* webpackChunkName: "i18n_config_6558258c" */
-  ));
-  nuxtI18nOptions.vueI18n = vueI18n;
+  const vueI18nOptionsLoader = async (context2) => Object({ "legacy": false, "messages": Object({ "en": {} }) });
+  nuxtI18nOptions.vueI18n = await vueI18nOptionsLoader();
   nuxtI18nOptions.locales = [Object({ "code": "en", "iso": "en-AE", "name": "EN" }), Object({ "code": "ru", "iso": "ru-AE", "name": "RU" })];
   nuxtI18nOptions.defaultLocale = "en";
   nuxtI18nOptions.defaultDirection = "ltr";
@@ -3638,14 +3621,15 @@ const resolveNuxtI18nOptions = async (context) => {
   nuxtI18nOptions.customRoutes = "page";
   nuxtI18nOptions.pages = Object({});
   nuxtI18nOptions.skipSettingLocaleOnNavigate = false;
-  nuxtI18nOptions.types = "composition";
+  nuxtI18nOptions.onBeforeLanguageSwitch = () => "";
+  nuxtI18nOptions.onLanguageSwitched = () => null;
+  nuxtI18nOptions.types = void 0;
   nuxtI18nOptions.debug = false;
   return nuxtI18nOptions;
 };
-const nuxtI18nOptionsDefault = Object({ experimental: Object({ "jsTsFormatResource": false }), precompile: Object({ "strictMessage": true, "escapeHtml": false }), vueI18n: "", locales: [], defaultLocale: "", defaultDirection: "ltr", routesNameSeparator: "___", trailingSlash: false, defaultLocaleRouteNameSuffix: "default", strategy: "prefix_except_default", lazy: false, langDir: null, rootRedirect: null, detectBrowserLanguage: Object({ "alwaysRedirect": false, "cookieCrossOrigin": false, "cookieDomain": null, "cookieKey": "i18n_redirected", "cookieSecure": false, "fallbackLocale": "", "redirectOn": "root", "useCookie": true }), differentDomains: false, baseUrl: "", dynamicRouteParams: false, customRoutes: "page", pages: Object({}), skipSettingLocaleOnNavigate: false, types: "composition", debug: false });
+const nuxtI18nOptionsDefault = Object({ vueI18n: void 0, locales: [], defaultLocale: "", defaultDirection: "ltr", routesNameSeparator: "___", trailingSlash: false, defaultLocaleRouteNameSuffix: "default", strategy: "prefix_except_default", lazy: false, langDir: null, rootRedirect: null, detectBrowserLanguage: Object({ "alwaysRedirect": false, "cookieCrossOrigin": false, "cookieDomain": null, "cookieKey": "i18n_redirected", "cookieSecure": false, "fallbackLocale": "", "redirectOn": "root", "useCookie": true }), differentDomains: false, baseUrl: "", dynamicRouteParams: false, customRoutes: "page", pages: Object({}), skipSettingLocaleOnNavigate: false, onBeforeLanguageSwitch: () => "", onLanguageSwitched: () => null, types: void 0, debug: false });
 const nuxtI18nInternalOptions = Object({ __normalizedLocales: [Object({ "code": "en", "iso": "en-AE", "name": "EN" }), Object({ "code": "ru", "iso": "ru-AE", "name": "RU" })] });
 const NUXT_I18N_MODULE_ID = "@nuxtjs/i18n";
-const NUXT_I18N_PRECOMPILE_ENDPOINT = "/__i18n__/precompile";
 function formatMessage(message) {
   return NUXT_I18N_MODULE_ID + " " + message;
 }
@@ -3677,7 +3661,8 @@ function proxyNuxt(nuxt, target) {
         switchLocalePath: nuxt.$switchLocalePath,
         localeHead: nuxt.$localeHead,
         route: nuxt.$router.currentRoute.value,
-        router: nuxt.$router
+        router: nuxt.$router,
+        store: void 0
       },
       // eslint-disable-next-line prefer-rest-params
       arguments
@@ -3687,39 +3672,23 @@ function proxyNuxt(nuxt, target) {
 function parseAcceptLanguage(input) {
   return input.split(",").map((tag) => tag.split(";")[0]);
 }
-function deepCopy(src, des, predicate) {
+function deepCopy(src, des) {
   for (const key in src) {
     if (sharedExports.isObject(src[key])) {
       if (!sharedExports.isObject(des[key]))
         des[key] = {};
-      deepCopy(src[key], des[key], predicate);
+      deepCopy(src[key], des[key]);
     } else {
-      if (predicate) {
-        if (predicate(src[key], des[key])) {
-          des[key] = src[key];
-        }
-      } else {
-        des[key] = src[key];
-      }
+      des[key] = src[key];
     }
   }
 }
-async function loadMessage(context, loader, locale) {
-  var _a, _b;
-  const i18nConfig = (_a = context.$config.public) == null ? void 0 : _a.i18n;
+async function loadMessage(context, loader) {
   let message = null;
   try {
     const getter = await loader().then((r) => r.default || r);
     if (sharedExports.isFunction(getter)) {
-      if ((_b = i18nConfig.experimental) == null ? void 0 : _b.jsTsFormatResource) {
-        message = await getter(context, locale).then((r) => r.default || r);
-      } else {
-        console.warn(
-          formatMessage(
-            "Not support js / ts extension format as default. you can do enable with `i18n.experimental.jsTsFormatResource: true` (experimental)"
-          )
-        );
-      }
+      console.error(formatMessage("Not support executable file (e.g. js, cjs, mjs)"));
     } else {
       message = getter;
     }
@@ -3739,7 +3708,7 @@ async function loadLocale(context, locale, setter) {
         if (loadedMessages.has(key)) {
           message = loadedMessages.get(key);
         } else {
-          message = await loadMessage(context, load, locale);
+          message = await loadMessage(context, load);
           if (message != null) {
             loadedMessages.set(key, message);
           }
@@ -3754,7 +3723,7 @@ async function loadLocale(context, locale, setter) {
           if (loadedMessages.has(key)) {
             message = loadedMessages.get(key);
           } else {
-            message = await loadMessage(context, load, locale);
+            message = await loadMessage(context, load);
             if (message != null) {
               loadedMessages.set(key, message);
             }
@@ -3772,7 +3741,7 @@ async function loadAdditionalLocale(context, locale, merger) {
   {
     const additionalLoaders = additionalMessages[locale] || [];
     for (const additionalLoader of additionalLoaders) {
-      const message = await loadMessage(context, additionalLoader, locale);
+      const message = await loadMessage(context, additionalLoader);
       if (message != null) {
         merger(locale, message);
       }
@@ -3888,11 +3857,8 @@ function detectBrowserLanguage(route, context, nuxtI18nOptions, nuxtI18nInternal
     } else {
       if (finalLocale !== vueI18nLocale) {
         return { locale: finalLocale, stat: true, from: localeFrom };
-      } else if (alwaysRedirect) {
-        const redirectOnRoot = path === "/";
-        const redirectOnAll = redirectOn === "all";
-        const redirectOnNoPrefix = redirectOn === "no prefix" && !path.match(getLocalesRegex(localeCodes2));
-        if (redirectOnRoot || redirectOnAll || redirectOnNoPrefix) {
+      } else {
+        if (alwaysRedirect && path === "/") {
           return { locale: finalLocale, stat: true, from: localeFrom };
         }
       }
@@ -3945,50 +3911,6 @@ function getDomainFromLocale(localeCode, locales, nuxt) {
     return protocol + "://" + lang.domain;
   }
   console.warn(formatMessage("Could not find domain name for locale " + localeCode));
-}
-async function evalResource(raw) {
-  if (sharedExports.isString(raw)) {
-    const data = "data:text/javascript;charset=utf-8," + encodeURIComponent(raw);
-    return await import(
-      /* @vite-ignore */
-      data
-    ).then((m) => m.default || m);
-  } else {
-    const url = URL.createObjectURL(raw);
-    const code2 = await import(
-      /* @vite-ignore */
-      url
-    ).then((m) => m.default || m);
-    URL.revokeObjectURL(url);
-    return code2;
-  }
-}
-async function precompileMessages(messages, configId = "") {
-  if (messages != null) {
-    const opts = {
-      method: "POST",
-      body: {
-        type: "config",
-        configId,
-        resource: getNeedPrecompileMessages(messages)
-      }
-    };
-    const precompiledCode = await $fetch(NUXT_I18N_PRECOMPILE_ENDPOINT, opts);
-    const precompiledMessages = await evalResource(precompiledCode).then((m) => m.default || m);
-    for (const [locale, message] of Object.entries(precompiledMessages)) {
-      deepCopy(message, messages[locale]);
-    }
-  }
-  return messages;
-}
-function getNeedPrecompileMessages(messages) {
-  const needPrecompileMessages = {};
-  const predicate = (src) => !sharedExports.isFunction(src);
-  for (const [locale, message] of Object.entries(messages)) {
-    const dest = needPrecompileMessages[locale] = {};
-    deepCopy(message, dest, predicate);
-  }
-  return needPrecompileMessages;
 }
 function _setLocale(i18n, locale) {
   return callVueI18nInterfaces(i18n, "setLocale", locale);
@@ -4063,7 +3985,7 @@ async function loadAndSetLocale(newLocale, context, i18n, {
   if (oldLocale === newLocale) {
     return [ret, oldLocale];
   }
-  const localeOverride = await onBeforeLanguageSwitch(i18n, oldLocale, newLocale, initial, context);
+  const localeOverride = onBeforeLanguageSwitch(i18n, oldLocale, newLocale, initial, context);
   const localeCodes2 = getLocaleCodes(i18n);
   if (localeOverride && localeCodes2 && localeCodes2.includes(localeOverride)) {
     if (localeOverride === oldLocale) {
@@ -4090,7 +4012,7 @@ async function loadAndSetLocale(newLocale, context, i18n, {
     setCookieLocale(i18n, newLocale);
   }
   setLocale(i18n, newLocale);
-  await onLanguageSwitched(i18n, oldLocale, newLocale);
+  onLanguageSwitched(i18n, oldLocale, newLocale);
   ret = true;
   return [ret, oldLocale];
 }
@@ -4124,9 +4046,6 @@ function detectLocale(route, context, routeLocaleGetter, nuxtI18nOptions, initia
 function detectRedirect(route, context, targetLocale, routeLocaleGetter, nuxtI18nOptions) {
   const { strategy, defaultLocale, differentDomains } = nuxtI18nOptions;
   let redirectPath = "";
-  if (!isI18nRouteDefined(route)) {
-    return redirectPath;
-  }
   if (differentDomains || false) {
     const switchLocalePath2 = useSwitchLocalePath({
       i18n: getComposer(context.$i18n),
@@ -4144,13 +4063,8 @@ function isRootRedirectOptions(rootRedirect) {
   return sharedExports.isObject(rootRedirect) && "path" in rootRedirect && "statusCode" in rootRedirect;
 }
 const useRedirectState = () => useState(NUXT_I18N_MODULE_ID + ":redirect", () => "");
-function _navigate(redirectPath, status) {
-  {
-    return navigateTo(redirectPath, { redirectCode: status });
-  }
-}
 async function navigate(args, {
-  status = 301,
+  status = 302,
   rootRedirect = nuxtI18nOptionsDefault.rootRedirect,
   differentDomains = nuxtI18nOptionsDefault.differentDomains,
   skipSettingLocaleOnNavigate = nuxtI18nOptionsDefault.skipSettingLocaleOnNavigate
@@ -4159,16 +4073,16 @@ async function navigate(args, {
   let { redirectPath } = args;
   if (route.path === "/" && rootRedirect) {
     if (sharedExports.isString(rootRedirect)) {
-      redirectPath = "/" + rootRedirect;
+      redirectPath = rootRedirect;
     } else if (isRootRedirectOptions(rootRedirect)) {
       redirectPath = "/" + rootRedirect.path;
       status = rootRedirect.statusCode;
     }
-    return _navigate(redirectPath, status);
+    return navigateTo(redirectPath, { redirectCode: status });
   }
   if (!differentDomains) {
     if (redirectPath) {
-      return _navigate(redirectPath, status);
+      return navigateTo(redirectPath, { redirectCode: status });
     }
   } else {
     const state = useRedirectState();
@@ -4210,10 +4124,8 @@ function extendSwitchLocalePathIntercepter(differentDomains, normalizedLocales, 
 }
 function extendBaseUrl(baseUrl, options) {
   return (context) => {
-    var _a, _b;
     if (sharedExports.isFunction(baseUrl)) {
-      const baseUrlResult = baseUrl(context);
-      return baseUrlResult;
+      return baseUrl(context);
     }
     const { differentDomains, localeCodeLoader, normalizedLocales } = options;
     const localeCode = sharedExports.isFunction(localeCodeLoader) ? localeCodeLoader() : localeCodeLoader;
@@ -4223,17 +4135,8 @@ function extendBaseUrl(baseUrl, options) {
         return domain;
       }
     }
-    const config = (_b = (_a = context.$config) == null ? void 0 : _a.public) == null ? void 0 : _b.i18n;
-    if (config == null ? void 0 : config.baseUrl) {
-      return config.baseUrl;
-    }
     return baseUrl;
   };
-}
-function isI18nRouteDefined(route) {
-  var _a;
-  const i18nLocales = (_a = route.matched[0]) == null ? void 0 : _a.meta.nuxtI18n;
-  return i18nLocales ? Object.keys(i18nLocales).length > 0 : false;
 }
 const i18n_yfWm7jX06p = /* @__PURE__ */ defineNuxtPlugin(async (nuxt) => {
   let __temp, __restore;
@@ -4241,7 +4144,7 @@ const i18n_yfWm7jX06p = /* @__PURE__ */ defineNuxtPlugin(async (nuxt) => {
   const route = useRoute();
   const { vueApp: app } = nuxt;
   const nuxtContext = nuxt;
-  const nuxtI18nOptions = ([__temp, __restore] = executeAsync(() => resolveNuxtI18nOptions(nuxtContext)), __temp = await __temp, __restore(), __temp);
+  const nuxtI18nOptions = ([__temp, __restore] = executeAsync(() => resolveNuxtI18nOptions()), __temp = await __temp, __restore(), __temp);
   const useCookie = nuxtI18nOptions.detectBrowserLanguage && nuxtI18nOptions.detectBrowserLanguage.useCookie;
   const { __normalizedLocales: normalizedLocales } = nuxtI18nInternalOptions;
   const {
@@ -4344,7 +4247,7 @@ const i18n_yfWm7jX06p = /* @__PURE__ */ defineNuxtPlugin(async (nuxt) => {
             notInitialSetup = false;
           }
           const redirectPath = detectRedirect(route, nuxtContext, locale, getLocaleFromRoute, nuxtI18nOptions);
-          await navigate(
+          navigate(
             {
               i18n,
               redirectPath,
@@ -4362,8 +4265,8 @@ const i18n_yfWm7jX06p = /* @__PURE__ */ defineNuxtPlugin(async (nuxt) => {
         composer.getBrowserLocale = () => getBrowserLocale(nuxtI18nInternalOptions, nuxt.ssrContext);
         composer.getLocaleCookie = () => getLocaleCookie(nuxt.ssrContext, { ...nuxtI18nOptions.detectBrowserLanguage, localeCodes });
         composer.setLocaleCookie = (locale) => setLocaleCookie(locale, nuxt.ssrContext, nuxtI18nOptions.detectBrowserLanguage || void 0);
-        composer.onBeforeLanguageSwitch = (oldLocale, newLocale, initialSetup, context) => nuxt.callHook("i18n:beforeLocaleSwitch", { oldLocale, newLocale, initialSetup, context });
-        composer.onLanguageSwitched = (oldLocale, newLocale) => nuxt.callHook("i18n:localeSwitched", { oldLocale, newLocale });
+        composer.onBeforeLanguageSwitch = nuxtI18nOptions.onBeforeLanguageSwitch;
+        composer.onLanguageSwitched = nuxtI18nOptions.onLanguageSwitched;
         composer.finalizePendingLocaleChange = async () => {
           if (!i18n.__pendingLocale) {
             return;
@@ -4549,7 +4452,7 @@ const i18n_yfWm7jX06p = /* @__PURE__ */ defineNuxtPlugin(async (nuxt) => {
         notInitialSetup = false;
       }
       const redirectPath = detectRedirect(to, nuxtContext, locale, getLocaleFromRoute, nuxtI18nOptions);
-      return navigate(
+      navigate(
         {
           i18n,
           redirectPath,
@@ -4586,7 +4489,7 @@ const _wrapIf = (component, props, slots) => {
   return { default: () => props ? h(component, props === true ? {} : props, slots) : h(Fragment, {}, slots) };
 };
 const layouts = {
-  default: () => import("./_nuxt/default-052096ec.js").then((m) => m.default || m)
+  default: () => import("./_nuxt/default-a4149606.js").then((m) => m.default || m)
 };
 const LayoutLoader = /* @__PURE__ */ defineComponent({
   name: "LayoutLoader",
@@ -4813,7 +4716,7 @@ _sfc_main.setup = (props, ctx) => {
 };
 const RootComponent = _sfc_main;
 if (!globalThis.$fetch) {
-  globalThis.$fetch = $fetch$1.create({
+  globalThis.$fetch = $fetch.create({
     baseURL: baseURL()
   });
 }
@@ -4845,13 +4748,11 @@ export {
   useRequestEvent as f,
   useRouter as g,
   useI18n as h,
-  useLocalePath as i,
-  getComposer as j,
+  getComposer as i,
+  useLocalePath as j,
   useSwitchLocalePath as k,
   useLocaleHead as l,
   navigateTo as n,
-  precompileMessages as p,
-  sharedExports as s,
   useRuntimeConfig as u
 };
 //# sourceMappingURL=server.mjs.map

@@ -1,5 +1,5 @@
 import 'file:///Users/vitaly/Sites/hostiman_artur/mgtimes_nuxt/node_modules/node-fetch-native/dist/polyfill.mjs';
-import { defineEventHandler, handleCacheHeaders, createEvent, eventHandler, setHeaders, sendRedirect, proxyRequest, getRequestHeader, setResponseStatus, setResponseHeader, getRequestHeaders, readBody, createError, getQuery, getCookie, createApp, createRouter as createRouter$1, toNodeListener, fetchWithEvent, lazyEventHandler } from 'file:///Users/vitaly/Sites/hostiman_artur/mgtimes_nuxt/node_modules/h3/dist/index.mjs';
+import { defineEventHandler, handleCacheHeaders, createEvent, eventHandler, setHeaders, sendRedirect, proxyRequest, getRequestHeader, setResponseStatus, setResponseHeader, getRequestHeaders, getQuery, getCookie, createError, createApp, createRouter as createRouter$1, toNodeListener, fetchWithEvent, lazyEventHandler } from 'file:///Users/vitaly/Sites/hostiman_artur/mgtimes_nuxt/node_modules/h3/dist/index.mjs';
 import { createFetch as createFetch$1, Headers } from 'file:///Users/vitaly/Sites/hostiman_artur/mgtimes_nuxt/node_modules/ofetch/dist/node.mjs';
 import destr from 'file:///Users/vitaly/Sites/hostiman_artur/mgtimes_nuxt/node_modules/destr/dist/index.mjs';
 import { createCall, createFetch } from 'file:///Users/vitaly/Sites/hostiman_artur/mgtimes_nuxt/node_modules/unenv/runtime/fetch/index.mjs';
@@ -11,7 +11,6 @@ import { parseURL, withoutBase, joinURL, withQuery, withLeadingSlash, withoutTra
 import { createStorage, prefixStorage } from 'file:///Users/vitaly/Sites/hostiman_artur/mgtimes_nuxt/node_modules/unstorage/dist/index.mjs';
 import unstorage_47drivers_47fs from 'file:///Users/vitaly/Sites/hostiman_artur/mgtimes_nuxt/node_modules/unstorage/drivers/fs.mjs';
 import { toRouteMatcher, createRouter } from 'file:///Users/vitaly/Sites/hostiman_artur/mgtimes_nuxt/node_modules/radix3/dist/index.mjs';
-import { generateJSON } from 'file:///Users/vitaly/Sites/hostiman_artur/mgtimes_nuxt/node_modules/@intlify/bundle-utils/index.mjs';
 import { extname, join } from 'file:///Users/vitaly/Sites/hostiman_artur/mgtimes_nuxt/node_modules/pathe/dist/index.mjs';
 import { unified } from 'file:///Users/vitaly/Sites/hostiman_artur/mgtimes_nuxt/node_modules/unified/index.js';
 import { toString } from 'file:///Users/vitaly/Sites/hostiman_artur/mgtimes_nuxt/node_modules/mdast-util-to-string/index.js';
@@ -48,7 +47,7 @@ const inlineAppConfig = {};
 
 const appConfig = defuFn(inlineAppConfig);
 
-const _runtimeConfig = {"app":{"baseURL":"/","buildAssetsDir":"/_nuxt/","cdnURL":""},"nitro":{"envPrefix":"NUXT_","routeRules":{"/__nuxt_error":{"cache":false},"/_nuxt/**":{"headers":{"cache-control":"public, max-age=31536000, immutable"}}}},"public":{"content":{"locales":[],"defaultLocale":"","integrity":1689264122348,"experimental":{"stripQueryParameters":false,"clientDB":false},"api":{"baseURL":"/api/_content"},"navigation":{"fields":[]},"tags":{"p":"prose-p","a":"prose-a","blockquote":"prose-blockquote","code-inline":"prose-code-inline","code":"prose-code","em":"prose-em","h1":"prose-h1","h2":"prose-h2","h3":"prose-h3","h4":"prose-h4","h5":"prose-h5","h6":"prose-h6","hr":"prose-hr","img":"prose-img","ul":"prose-ul","ol":"prose-ol","li":"prose-li","strong":"prose-strong","table":"prose-table","thead":"prose-thead","tbody":"prose-tbody","td":"prose-td","th":"prose-th","tr":"prose-tr"},"highlight":false,"wsUrl":"","documentDriven":false,"host":"","trailingSlash":false,"anchorLinks":{"depth":4,"exclude":[1]}},"i18n":{"experimental":{"jsTsFormatResource":false},"baseUrl":"https://mgtimes.ae"}},"content":{"cacheVersion":2,"cacheIntegrity":"kc4UzpZUjI","transformers":[],"base":"","api":{"baseURL":"/api/_content"},"watch":{"ws":{"port":{"port":4000,"portRange":[4000,4040]},"hostname":"localhost","showURL":false}},"sources":{},"ignores":["\\.","-"],"locales":[],"defaultLocale":"","highlight":false,"markdown":{"tags":{"p":"prose-p","a":"prose-a","blockquote":"prose-blockquote","code-inline":"prose-code-inline","code":"prose-code","em":"prose-em","h1":"prose-h1","h2":"prose-h2","h3":"prose-h3","h4":"prose-h4","h5":"prose-h5","h6":"prose-h6","hr":"prose-hr","img":"prose-img","ul":"prose-ul","ol":"prose-ol","li":"prose-li","strong":"prose-strong","table":"prose-table","thead":"prose-thead","tbody":"prose-tbody","td":"prose-td","th":"prose-th","tr":"prose-tr"},"anchorLinks":{"depth":4,"exclude":[1]},"remarkPlugins":{},"rehypePlugins":{}},"yaml":{},"csv":{"delimeter":",","json":true},"navigation":{"fields":[]},"documentDriven":false,"experimental":{"clientDB":false,"stripQueryParameters":false}},"i18n":{"precompile":{"strictMessage":true,"escapeHtml":false}}};
+const _runtimeConfig = {"app":{"baseURL":"/","buildAssetsDir":"/_nuxt/","cdnURL":""},"nitro":{"envPrefix":"NUXT_","routeRules":{"/__nuxt_error":{"cache":false},"/_nuxt/**":{"headers":{"cache-control":"public, max-age=31536000, immutable"}}}},"public":{"content":{"locales":[],"defaultLocale":"","integrity":1689330701572,"experimental":{"stripQueryParameters":false,"clientDB":false},"api":{"baseURL":"/api/_content"},"navigation":{"fields":[]},"tags":{"p":"prose-p","a":"prose-a","blockquote":"prose-blockquote","code-inline":"prose-code-inline","code":"prose-code","em":"prose-em","h1":"prose-h1","h2":"prose-h2","h3":"prose-h3","h4":"prose-h4","h5":"prose-h5","h6":"prose-h6","hr":"prose-hr","img":"prose-img","ul":"prose-ul","ol":"prose-ol","li":"prose-li","strong":"prose-strong","table":"prose-table","thead":"prose-thead","tbody":"prose-tbody","td":"prose-td","th":"prose-th","tr":"prose-tr"},"highlight":false,"wsUrl":"","documentDriven":false,"host":"","trailingSlash":false,"anchorLinks":{"depth":4,"exclude":[1]}}},"content":{"cacheVersion":2,"cacheIntegrity":"kc4UzpZUjI","transformers":[],"base":"","api":{"baseURL":"/api/_content"},"watch":{"ws":{"port":{"port":4000,"portRange":[4000,4040]},"hostname":"localhost","showURL":false}},"sources":{},"ignores":["\\.","-"],"locales":[],"defaultLocale":"","highlight":false,"markdown":{"tags":{"p":"prose-p","a":"prose-a","blockquote":"prose-blockquote","code-inline":"prose-code-inline","code":"prose-code","em":"prose-em","h1":"prose-h1","h2":"prose-h2","h3":"prose-h3","h4":"prose-h4","h5":"prose-h5","h6":"prose-h6","hr":"prose-hr","img":"prose-img","ul":"prose-ul","ol":"prose-ol","li":"prose-li","strong":"prose-strong","table":"prose-table","thead":"prose-thead","tbody":"prose-tbody","td":"prose-td","th":"prose-th","tr":"prose-tr"},"anchorLinks":{"depth":4,"exclude":[1]},"remarkPlugins":{},"rehypePlugins":{}},"yaml":{},"csv":{"delimeter":",","json":true},"navigation":{"fields":[]},"documentDriven":false,"experimental":{"clientDB":false,"stripQueryParameters":false}}};
 const ENV_PREFIX = "NITRO_";
 const ENV_PREFIX_ALT = _runtimeConfig.nitro.envPrefix ?? process.env.NITRO_ENV_PREFIX ?? "_";
 overrideConfig(_runtimeConfig);
@@ -101,7 +100,6 @@ const storage = createStorage({});
 
 storage.mount('/assets', assets);
 
-storage.mount('i18n', unstorage_47drivers_47fs({"driver":"fs","base":"/Users/vitaly/Sites/hostiman_artur/mgtimes_nuxt/.nuxt/i18n","ignore":["**/node_modules/**","**/.git/**"]}));
 storage.mount('content:source:content', unstorage_47drivers_47fs({"name":"content:source:content","driver":"fs","base":"/Users/vitaly/Sites/hostiman_artur/mgtimes_nuxt/content","ignore":["**/node_modules/**","**/.git/**"]}));
 storage.mount('cache:content', unstorage_47drivers_47fs({"driver":"fs","base":"/Users/vitaly/Sites/hostiman_artur/mgtimes_nuxt/.nuxt/content-cache","ignore":["**/node_modules/**","**/.git/**"]}));
 storage.mount('root', unstorage_47drivers_47fs({"driver":"fs","readOnly":true,"base":"/Users/vitaly/Sites/hostiman_artur/mgtimes_nuxt","ignore":["**/node_modules/**","**/.git/**"]}));
@@ -476,105 +474,6 @@ const errorHandler = (async function errorhandler(error, event) {
   setResponseStatus(event, res.status && res.status !== 200 ? res.status : void 0, res.statusText);
   event.node.res.end(await res.text());
 });
-
-const CONFIG_KEY = "i18n";
-const BUILD_CONFIG_KEY = "config";
-const configStorage = prefixStorage(useStorage(), CONFIG_KEY);
-const PRECOMPILED_LOCALE_KEY = "i18n:locales";
-const localeStorage = prefixStorage(useStorage(), PRECOMPILED_LOCALE_KEY);
-const resolveKey = (key) => `${key}.js`;
-const configKey = (configId) => `${BUILD_CONFIG_KEY}-${configId}`;
-const _REksCv = defineEventHandler(async (event) => {
-  const body = await readBody(event);
-  validate(body);
-  const cacheCode = await getCacheCode(body);
-  if (cacheCode) {
-    await setResponseHeader(event, "content-type", "text/javascript");
-    return cacheCode.toString();
-  }
-  const [code, errors] = generateCode(body);
-  if (errors.length > 0) {
-    throw createError({ statusMessage: errors.join("|"), statusCode: 400 });
-  }
-  await setCacheCode(code, body);
-  await setResponseHeader(event, "content-type", "text/javascript");
-  return code;
-});
-function validate(body) {
-  if (!body.type) {
-    throw createError({ statusMessage: `require the 'type'`, statusCode: 400 });
-  }
-  if (body.type === "locale") {
-    if (!body.locale) {
-      throw createError({ statusMessage: `require the 'locale'`, statusCode: 400 });
-    }
-  }
-  if (body.type === "config") {
-    if (!body.configId) {
-      throw createError({ statusMessage: `require the 'configId'`, statusCode: 400 });
-    }
-  }
-  if (!body.resource) {
-    throw createError({ statusMessage: `require the 'resource'`, statusCode: 400 });
-  }
-}
-async function getCacheCode({ type, locale, configId }) {
-  if (type === "locale") {
-    return await localeStorage.getItem(resolveKey(locale));
-  } else if (type === "config") {
-    return await configStorage.getItem(resolveKey(configKey(configId)));
-  } else {
-    return null;
-  }
-}
-function generateCode(body) {
-  const errors = [];
-  const {
-    i18n: { strictMessage, escapeHtml }
-  } = useRuntimeConfig();
-  const env = "production";
-  let gen = "";
-  if (body.type === "locale") {
-    const { code } = generateJSON(JSON.stringify(body.resource), {
-      env,
-      strictMessage,
-      escapeHtml,
-      onError: (error) => {
-        errors.push(error);
-      }
-    });
-    gen = code;
-  } else if (body.type === "config") {
-    gen += `export default {
-`;
-    const codes = [];
-    Object.keys(body.resource).reduce((codes2, key) => {
-      const { code } = generateJSON(JSON.stringify(body.resource[key]), {
-        type: "bare",
-        env,
-        strictMessage,
-        escapeHtml,
-        onError: (error) => {
-          errors.push(error);
-        }
-      });
-      codes2.push(`  ${JSON.stringify(key)}: ${code},
-`);
-      return codes2;
-    }, codes);
-    gen += codes.join("");
-    gen += `}
-`;
-  }
-  return [gen, errors];
-}
-async function setCacheCode(code, { type, locale, configId }) {
-  if (type === "locale") {
-    await localeStorage.setItem(resolveKey(locale), code);
-  } else if (type === "config") {
-    await configStorage.setItem(resolveKey(configKey(configId)), code);
-  }
-}
 
 const get = (obj, path) => path.split(".").reduce((acc, part) => acc && acc[part], obj);
 const _pick = (obj, condition) => Object.keys(obj).filter(condition).reduce((newObj, key) => Object.assign(newObj, { [key]: obj[key] }), {});
@@ -3698,11 +3597,10 @@ const _lazy_o1Myue = () => import('../renderer.mjs').then(function (n) { return 
 
 const handlers = [
   { route: '/sitemap.xml', handler: _lazy_5imWjw, lazy: true, middleware: false, method: undefined },
-  { route: '/__i18n__/precompile', handler: _REksCv, lazy: false, middleware: false, method: "post" },
   { route: '/api/_content/query/:qid/**:params', handler: _5qIhKy, lazy: false, middleware: false, method: "get" },
   { route: '/api/_content/query/:qid', handler: _5qIhKy, lazy: false, middleware: false, method: "get" },
   { route: '/api/_content/query', handler: _5qIhKy, lazy: false, middleware: false, method: "get" },
-  { route: '/api/_content/cache.1689264122348.json', handler: _880hOV, lazy: false, middleware: false, method: "get" },
+  { route: '/api/_content/cache.1689330701572.json', handler: _880hOV, lazy: false, middleware: false, method: "get" },
   { route: '/api/_content/navigation/:qid/**:params', handler: _ejHqLi, lazy: false, middleware: false, method: "get" },
   { route: '/api/_content/navigation/:qid', handler: _ejHqLi, lazy: false, middleware: false, method: "get" },
   { route: '/api/_content/navigation', handler: _ejHqLi, lazy: false, middleware: false, method: "get" },

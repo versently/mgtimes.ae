@@ -3,11 +3,19 @@ export default defineNuxtConfig({
   app: {
     head: {
       script: [
-        { src: "/assets/js/SmoothScroll.js", body: true, async: true, },
-        { src: "/assets/js/gsap/gsap.min.js", body: true, async: true, },
-        { src: "/assets/js/gsap/ScrollTrigger.min.js", body: true, async: true, },
-        { src: "/assets/js/swiper/swiper-bundle.min.js", body: true, async: true, },
-        { src: "/assets/js/app.js", body: true },
+        { src: "/assets/js/SmoothScroll.js", body: true, defer: true },
+        { src: "/assets/js/gsap/gsap.min.js", body: true, defer: true },
+        {
+          src: "/assets/js/gsap/ScrollTrigger.min.js",
+          body: true,
+          defer: true,
+        },
+        {
+          src: "/assets/js/swiper/swiper-bundle.min.js",
+          body: true,
+          defer: true,
+        },
+        { src: "/assets/js/app.js", body: true,  defer: true },
         //organization sherma
         {
           type: "application/ld+json",
@@ -77,7 +85,7 @@ export default defineNuxtConfig({
       meta: [
         {
           name: "yandex-verification",
-          content: "aa730f68b9c3659c" ,
+          content: "aa730f68b9c3659c",
         },
         {
           property: "og:site_name",
@@ -137,10 +145,10 @@ export default defineNuxtConfig({
   css: ["@/assets/css/style.css"],
   modules: ["@nuxt/image", "@nuxt/content", "@nuxtjs/i18n"],
   image: {
-    provider: 'netlify',
-    format: ['webp'],
+    provider: "netlify",
+    format: ["webp"],
     quality: 70,
-    domains: ['https://mgtimes.ae']
+    domains: ["https://mgtimes.ae"],
   },
   i18n: {
     strategy: "prefix_except_default",
