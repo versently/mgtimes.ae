@@ -164,12 +164,12 @@ export default defineNuxtConfig({
     "@nuxt/content",
     "@nuxtjs/i18n",
     "nuxt-delay-hydration",
-    "@nuxtjs/yandex-metrika",
+    // "@nuxtjs/yandex-metrika",
   ],
-  yandexMetrika: {
-    id: "69520198",
-    // ...
-  },
+  // yandexMetrika: {
+  //   id: "69520198",
+  //   // ...
+  // },
   delayHydration: {
     mode: "init",
   },
