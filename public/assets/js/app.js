@@ -152,6 +152,18 @@ const swiperSliderService = new Swiper(".additional-services-section__swiper", {
   simulateTouch: true,
   freeMode: true,
 });
+
+const swiperSliderReviews = new Swiper(".additional-reviews-section__swiper", {
+  slideClass: "additional-reviews-section__swiper-slide",
+  wrapperClass: "additional-reviews-section__swiper-wrapper",
+  scrollbar: {
+    el: ".additional-reviews-section__swiper-scrollbar",
+    draggable: true,
+  },
+  slidesPerView: "auto",
+  simulateTouch: true,
+  freeMode: true,
+});
 if (modelBlocker) {
   const swiperSliderModelMore = new Swiper(".model__swiper", {
     slideClass: "model__swiper-slide",

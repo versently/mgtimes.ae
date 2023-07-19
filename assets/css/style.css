@@ -1261,7 +1261,7 @@ input[name=language]:checked+label {
   -webkit-transform: rotate(-30deg);
   -ms-transform: rotate(-30deg);
   transform: rotate(-30deg);
-  top: 550px;
+  top: 380px;
   right: 100px;
 }
 
@@ -1544,6 +1544,117 @@ input[name=language]:checked+label {
   width: 5px;
   height: 98%;
 }
+
+
+.additional-reviews-section__swiper-scrollbar {
+  border-radius: 2px;
+  position: relative;
+  -ms-touch-action: none;
+  background: #D9D9D9;
+  width: 100%;
+}
+
+.additional-reviews-section__swiper-scrollbar-disabled>.additional-reviews-section__swiper-scrollbar,
+.additional-reviews-section__swiper-scrollbar.additional-reviews-section__swiper-scrollbar-disabled {
+  display: none !important;
+}
+
+.swiper-horizontal>.additional-reviews-section__swiper-scrollbar,
+.additional-reviews-section__swiper-scrollbar.swiper-scrollbar-horizontal {
+  position: absolute;
+  left: 0;
+  bottom: -80px;
+  z-index: 5;
+  height: 3px;
+  width: 100%;
+}
+
+.swiper-vertical>.additional-reviews-section__swiper-scrollbar,
+.additional-reviews-section__swiper-scrollbar.swiper-scrollbar-vertical {
+  position: absolute;
+  right: 0px;
+  top: 1%;
+  z-index: 50;
+  width: 5px;
+  height: 98%;
+}
+
+
+
+.additional-reviews-section {
+  overflow: hidden;
+  margin: 150px -50px 0px;
+  height: 290px;
+  padding: 0px 50px 0px;
+}
+
+.additional-reviews-section__container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  position: relative;
+}
+
+.additional-reviews-section__section-name {
+  height: max-content;
+  margin: 0px 200px 0px 0px;
+  max-width: 194px;
+}
+
+.additional-reviews-section__section-name h3 {
+  font-family: "Heuristica";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 22px;
+  line-height: 120%;
+  color: #828282;
+  text-transform: uppercase;
+}
+
+.additional-reviews-section__content {
+  width: 100%;
+  margin-top: 70px;
+}
+
+.additional-reviews-section__swiper {
+  max-width: 955px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  position: relative;
+}
+
+.additional-reviews-section__swiper-wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+}
+
+.additional-reviews-section__swiper-slide {
+  position: relative;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  height: auto;
+}
+
+.additional-reviews-section__swiper-slide img {
+  width: 670px;
+  height: 290px;
+}
+
+.additional-reviews-section__swiper-slide img {
+  /* width: 370px; */
+  height: auto;
+}
+
+.additional-reviews-section__swiper-slide:not(:last-child) {
+  margin-right: 50px;
+}
+
+
 
 .media-section {
   margin: 150px 0px 0px 0px;
@@ -2028,9 +2139,11 @@ input[name=language]:checked+label {
   flex-direction: column;
 
 }
-.service-item__more-more{
+
+.service-item__more-more {
   margin-top: auto;
 }
+
 .service-item img {
   width: 100%;
 
@@ -2079,9 +2192,8 @@ input[name=language]:checked+label {
   position: relative;
   /* bottom: 30px; */
 }
-.service-item__more-more{
 
-}
+.service-item__more-more {}
 
 .service-item__more::before,
 .service-item__more::after {
@@ -4886,6 +4998,47 @@ h6 {
     bottom: -80px;
   }
 
+  .additional-reviews-section {
+    margin: 136px -40px 0px;
+    padding: 0px 40px 0px;
+    height: 290px;
+  }
+
+  .additional-reviews-section__section-name {
+    margin: 0px 120px 0px 0px;
+  }
+
+  .additional-reviews-section__section-name h3 {
+    font-size: 20.8px;
+  }
+
+  .additional-reviews-section__content {
+    width: 70%;
+  }
+
+  .additional-reviews-section__swiper-slide {
+    height: auto;
+  }
+
+  .additional-reviews-section__swiper-slide img {
+    width: 460px;
+    object-fit: contain;
+    height: auto;
+  }
+
+  .additional-reviews-section__swiper-slide:not(:last-child) {
+    margin-right: 44px;
+  }
+
+  .additional-reviews-section__slide-title {
+    font-size: 20px;
+  }
+
+  .swiper-horizontal>.additional-reviews-section__swiper-scrollbar,
+  .additional-reviews-section__swiper-scrollbar.swiper-scrollbar-horizontal {
+    bottom: -80px;
+  }
+
   .media-section {
     margin: 136px 0px 0px 0px;
   }
@@ -6796,6 +6949,10 @@ h6 {
     display: block;
   }
 
+  .additional-reviews-section__container {
+    display: block;
+  }
+
   .additional-services-section__section-name {
     margin: 0px 0px 25px 0px;
   }
@@ -7783,6 +7940,42 @@ h6 {
   .additional-services-section__swiper-scrollbar.swiper-scrollbar-horizontal {
     bottom: -50px;
   }
+
+
+
+
+  .additional-reviews-section {
+    margin: 94px 0px 0px 0px;
+    height: auto;
+  }
+
+  .additional-reviews-section__section-name h3 {
+    font-size: 17.2px;
+  }
+
+  .additional-reviews-section__swiper-slide {
+    height: 270px;
+  }
+
+  .additional-reviews-section__swiper-slide img {
+    width: 480px;
+    height: auto;
+    object-fit: contain;
+  }
+
+  .additional-reviews-section__swiper-slide:not(:last-child) {
+    margin-right: 26px;
+  }
+
+  .additional-reviews-section__slide-title {
+    font-size: 17px;
+  }
+
+  .swiper-horizontal>.additional-reviews-section__swiper-scrollbar,
+  .additional-reviews-section__swiper-scrollbar.swiper-scrollbar-horizontal {
+    bottom: -20px;
+  }
+
 
   .media-section {
     margin: 94px 0px 0px 0px;
@@ -8946,13 +9139,52 @@ h6 {
     margin-right: 20px;
   }
 
+
+
+
   .additional-services-section__slide-title {
     font-size: 16px;
     margin: 15px 0px 15px 0px;
   }
 
+  .additional-reviews-section {
+    padding: 0px 15px 0px;
+    margin: 80px -15px 0px;
+    height: 200px;
+  }
+
+  .additional-reviews-section__section-name h3 {
+    font-size: 16px;
+    margin: 0px 0px 0px 35px;
+  }
+
+  @media(max-width:991px) {
+    .additional-reviews-section__section-name h3 {
+      font-size: 16px;
+      margin: 0
+    }
+
+    .additional-reviews-section__content {
+      margin-top: 25px;
+    }
+  }
+
+  .additional-reviews-section__swiper-slide {
+    height: auto;
+  }
+
+  .additional-reviews-section__swiper-slide img {
+    width: 640px;
+    height: auto;
+    object-fit: contain;
+  }
+
+  .additional-reviews-section__swiper-slide:not(:last-child) {
+    margin-right: 20px;
+  }
+
   .media-section {
-    margin: 80px 0px 0px 0px;
+    margin: 0px 0px 0px 0px;
   }
 
   .media-section__section-name h3 {
@@ -9643,6 +9875,7 @@ h6 {
   .additional-services-section__section-name h3 {
     margin: 0px;
   }
+
 
   .media-section__section-name h3 {
     margin: 0px;

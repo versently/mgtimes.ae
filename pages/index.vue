@@ -4,14 +4,12 @@ const { t } = useI18n({
 });
 
 useHead({
-  title: t("Elite escort in Dubai | VIP escort in Dubai 🖤 | MGTIMES"),
+  title: t("titleMeta"),
 
   meta: [
     {
       name: "description",
-      content: t(
-        "MGTIMES Escort Agency – VIP escort and escort services with beautiful girls! Elite escort in Dubai! VIP escort in Moscow! Organization of recreation and the best models of Moscow to accompany!"
-      ),
+      content: t("descriptionMeta"),
     },
   ],
 });
@@ -198,14 +196,13 @@ useHead({
                     v-for="models in list"
                     :key="models._path"
                   >
-                 
                     <nuxt-img
                       loading="lazy"
                       :src="`/assets/img/models/${models.folder}/${models.mainImage}`"
                       :alt="`${models.folder}`"
                       sizes="sm:100vw md:50vw lg:400px"
                     />
-               
+
                     <div class="models-section__slide-description">
                       <div class="models-section__slide-name">
                         {{ models.title }}
@@ -280,6 +277,7 @@ useHead({
         </div>
       </div>
     </section>
+
     <section class="casting-section">
       <div class="casting-section__container">
         <div class="casting-section__section-name">
@@ -294,11 +292,7 @@ useHead({
             />
           </div>
           <div class="casting-section__text">
-            {{
-              t(
-                "Workingin"
-              )
-            }}
+            {{ t("Workingin") }}
           </div>
           <a href="/casting" class="casting-section__item-btn">
             {{ t("More information") }}
@@ -311,6 +305,37 @@ useHead({
         </div>
       </div>
     </section>
+    <div class="additional-reviews-section">
+      <div class="additional-reviews-section__container">
+        <div class="additional-reviews-section__section-name">
+          <h3>{{ t("Reviews") }}</h3>
+        </div>
+        <div class="additional-reviews-section__content">
+          <div class="additional-reviews-section__swiper reviews">
+            <!-- Additional required wrapper -->
+            <div class="additional-reviews-section__swiper-wrapper reviews">
+              <!-- Slides -->
+              <div
+                class="additional-reviews-section__swiper-slide reviews"
+                v-for="reviews in 10"
+                :key="reviews"
+              >
+                <nuxt-img
+                  loading="lazy"
+                  :src="`/img/reviews/${reviews}.webp`"
+                  alt="reviews"
+                  sizes="sm:100vw md:50vw lg:400px"
+                />
+              </div>
+            </div>
+            <!-- If we need scrollbar -->
+            <div
+              class="additional-reviews-section__swiper-scrollbar reviews"
+            ></div>
+          </div>
+        </div>
+      </div>
+    </div>
     <section class="vip-section">
       <div class="vip-section__container">
         <div class="vip-section__section-name">
@@ -328,9 +353,7 @@ useHead({
           </div>
 
           <div class="vip-section__decoration">
-            <div class="vip-section__decoration-text">
-             Charming girls
-            </div>
+            <div class="vip-section__decoration-text">Charming girls</div>
             <div class="vip-section__side-img">
               <nuxt-img
                 loading="lazy"
@@ -386,8 +409,6 @@ useHead({
                       :alt="services.title"
                       sizes="sm:100vw md:50vw lg:400px"
                     />
-                    
-                   
 
                     <div class="additional-services-section__slide-description">
                       <div class="additional-services-section__slide-title">
@@ -498,8 +519,8 @@ useHead({
 <i18n lang="json">
 {
   "en": {
-    "Elite escort in Dubai | VIP escort in Dubai 🖤 | MGTIMES": "Elite escort in Dubai | VIP escort in Dubai 🖤 | MGTIMES",
-    "MGTIMES Escort Agency – VIP escort and escort services with beautiful girls! Elite escort in Dubai! VIP escort in Moscow! Organization of recreation and the best models of Moscow to accompany!": "MGTIMES Escort Agency – VIP escort and escort services with beautiful girls! Elite escort in Dubai! VIP escort in Moscow! Organization of recreation and the best models of Moscow to accompany!",
+    "titleMeta": "Elite escort in Dubai / VIP escort in Dubai 🖤 / MGTIMES",
+    "descriptionMeta": "MGTIMES Escort Agency VIP escort and escort services with beautiful girls! Elite escort in Dubai! VIP escort in Moscow! Organization of recreation and the best models of Moscow to accompany!",
 
     "Elite escort in Dubai": "Elite escort in Dubai",
 
@@ -526,6 +547,8 @@ useHead({
     "Travel and business trips": "Travel and business trips",
 
     "Escorts": "Escorts",
+
+    "Reviews": "Reviews",
 
     "Models": "Models",
 
@@ -558,14 +581,14 @@ useHead({
     "In modern society there are professions that are rarely spoken out loud. One of these is the activity of escorts. Let's figure out what an escort is and what the representatives of the direction are doing.": "In modern society there are professions that are rarely spoken out loud. One of these is the activity of escorts. Let's figure out what an escort is and what the representatives of the direction are doing.",
 
     "View all": "View all",
-    "Additional services": "Additional services",
+    "Additional services": "Services",
     "Height": "Height",
     "Weight": "Weight",
     "Age": "Age"
   },
   "ru": {
-    "Elite escort in Dubai | VIP escort in Dubai 🖤 | MGTIMES": "Элитный эскорт в Дубае | VIP эскорт в Дубае 🖤 | MGTIMES",
-    "MGTIMES Escort Agency – VIP escort and escort services with beautiful girls! Elite escort in Dubai! VIP escort in Moscow! Organization of recreation and the best models of Moscow to accompany!": "Эскорт-агентство MGTIMES – услуги VIP эскорта и сопровождения с красивыми девушками! Элитный эскорт в Дубае! VIP эскорт в Дубае! Организация отдыха и лучшие модели для сопровождения! 📞 +79775944345 ⚡",
+    "titleMeta": "Элитный эскорт в Дубае / VIP эскорт в Дубае 🖤 / MGTIMES",
+    "descriptionMeta": "Эскорт-агентство MGTIMES – услуги VIP эскорта и сопровождения с красивыми девушками! Элитный эскорт в Дубае! VIP эскорт в Дубае! Организация отдыха и лучшие модели для сопровождения! 📞 +79775944345 ⚡",
 
     "Elite escort in Dubai": "VIP Эскорт № 1 в Дубае",
 
@@ -592,6 +615,8 @@ useHead({
     "Travel and business trips": "Путешествий и деловых поездок",
 
     "Escorts": "Сопровождения",
+
+    "Reviews": "Отзывы",
 
     "Models": "Модели",
 
@@ -626,7 +651,7 @@ useHead({
     "In modern society there are professions that are rarely spoken out loud. One of these is the activity of escorts. Let's figure out what an escort is and what the representatives of the direction are doing.": "В современном обществе есть профессии, о которых редко говорят вслух. К одной из таких относится деятельность эскортниц. Разберемся, что такое эскорт и чем занимаются представительницы направления.",
 
     "View all": "Посмотреть все",
-    "Additional services": "Дополнительные услуги",
+    "Additional services": "Услуги",
     "Height": "Рост",
     "Weight": "Вес",
     "Age": "Возраст"
