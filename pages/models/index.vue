@@ -80,6 +80,7 @@ const route = useRoute();
                   <nuxt-img
                     :src="`/assets/img/models/${models.folder}/${models.mainImage}`"
                     :alt="models.title"
+                    loading="lazy"
                   />
                   <div class="models__model-description">
                     <div class="models__model-name">{{ models.title }}</div>
