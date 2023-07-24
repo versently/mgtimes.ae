@@ -359,8 +359,8 @@ if (indexBlocker) {
       scrollTrigger: { trigger: ".services-section__text", start: "top 90%" },
       y: 0,
       opacity: 1,
-      duration: 0.5,
-      delay: 0.2,
+      duration: 0.4,
+      delay: 0,
     }
   );
   gsap.fromTo(
@@ -370,8 +370,8 @@ if (indexBlocker) {
       scrollTrigger: { trigger: ".services-section__text", start: "top 90%" },
       y: 0,
       opacity: 1,
-      duration: 0.5,
-      delay: 0.2,
+      duration: 0.4,
+      delay: 0,
     }
   );
   gsap.fromTo(
@@ -382,7 +382,7 @@ if (indexBlocker) {
       width: 235,
       opacity: 1,
       duration: 0.3,
-      delay: 0.7,
+      delay: 0,
     }
   );
   gsap.fromTo(
@@ -414,7 +414,7 @@ if (indexBlocker) {
       scrollTrigger: { trigger: ".services-section__text", start: "top 90%" },
       opacity: 1,
       duration: 1,
-      delay: 1.7,
+      delay: 0.5,
     }
   );
   gsap.fromTo(
@@ -485,7 +485,7 @@ if (indexBlocker) {
       },
       x: 0,
       opacity: 1,
-      duration: 0.7,
+      duration: 0.4,
       delay: 0.2,
     }
   );
@@ -568,7 +568,7 @@ if (indexBlocker) {
       },
       x: 0,
       opacity: 1,
-      duration: 0.7,
+      duration: 0.4,
       delay: 0.2,
     }
   );
@@ -597,7 +597,7 @@ if (indexBlocker) {
       y: 0,
       opacity: 1,
       duration: 0.5,
-      delay: 1.7,
+      delay: 0.5,
     }
   );
   gsap.fromTo(
@@ -632,7 +632,7 @@ if (indexBlocker) {
       y: 0,
       opacity: 1,
       duration: 0.5,
-      delay: 0.2,
+      delay: 0,
     }
   );
   gsap.fromTo(
@@ -643,7 +643,7 @@ if (indexBlocker) {
       width: 235,
       opacity: 1,
       duration: 0.3,
-      delay: 0.7,
+      delay: 0,
     }
   );
   gsap.fromTo(
@@ -654,7 +654,7 @@ if (indexBlocker) {
       y: 0,
       opacity: 1,
       duration: 0.5,
-      delay: 1,
+      delay: 0.5,
     }
   );
   gsap.fromTo(
@@ -676,7 +676,7 @@ if (indexBlocker) {
       y: 0,
       opacity: 1,
       duration: 1,
-      delay: 1.7,
+      delay: 0.5,
     }
   );
   gsap.fromTo(
@@ -689,7 +689,7 @@ if (indexBlocker) {
       },
       x: 0,
       opacity: 1,
-      duration: 0.7,
+      duration: 0.4,
       delay: 0.2,
     }
   );
@@ -925,7 +925,7 @@ if (modelsBlocker) {
       scrollTrigger: { trigger: ".vip-escort-section", start: "top 85%" },
       x: 0,
       opacity: 1,
-      duration: 0.7,
+      duration: 0.4,
       delay: 0.2,
     }
   );
@@ -1042,7 +1042,7 @@ if (servicesBlocker) {
       scrollTrigger: { trigger: ".services__info", start: "top 85%" },
       opacity: 1,
       duration: 1,
-      delay: 1.7,
+      delay: 0.5,
     }
   );
   gsap.fromTo(
@@ -1052,7 +1052,7 @@ if (servicesBlocker) {
       scrollTrigger: { trigger: ".services__info", start: "top 85%" },
       x: 0,
       opacity: 1,
-      duration: 0.7,
+      duration: 0.4,
       delay: 0.2,
     }
   );
@@ -1144,7 +1144,7 @@ if (castingBlocker) {
       y: 0,
       opacity: 1,
       duration: 0.5,
-      delay: 0.7,
+      delay: 0,
     }
   );
   gsap.fromTo(
@@ -1177,7 +1177,7 @@ if (castingBlocker) {
       y: 0,
       opacity: 1,
       duration: 0.5,
-      delay: 1.7,
+      delay: 0.5,
     }
   );
   gsap.fromTo(
@@ -1416,7 +1416,7 @@ if (castingBlocker) {
       y: 0,
       opacity: 1,
       duration: 0.5,
-      delay: 1.7,
+      delay: 0.5,
       stagger: 0.1,
     }
   );
@@ -1555,7 +1555,7 @@ if (castingBlocker) {
       y: 0,
       opacity: 1,
       duration: 0.5,
-      delay: 1.6,
+      delay: 1,
     }
   );
 }
@@ -1567,8 +1567,8 @@ if (contactsBlocker) {
       scrollTrigger: ".contacts__way-block",
       y: 0,
       opacity: 1,
-      duration: 0.5,
-      delay: 0.5,
+      duration: 0.4,
+      delay: 0.2,
     }
   );
   gsap.fromTo(
@@ -1578,8 +1578,8 @@ if (contactsBlocker) {
       scrollTrigger: ".contacts__title",
       y: 0,
       opacity: 1,
-      duration: 0.5,
-      delay: 0.8,
+      duration: 0.1,
+      delay: 0,
     }
   );
   gsap.fromTo(
@@ -1589,8 +1589,8 @@ if (contactsBlocker) {
       scrollTrigger: ".contacts__line",
       width: "100%",
       opacity: 1,
-      duration: 0.7,
-      delay: 0.6,
+      duration: 0.1,
+      delay: 0,
     }
   );
   gsap.fromTo(
@@ -1600,8 +1600,8 @@ if (contactsBlocker) {
       scrollTrigger: ".contacts__subtitle",
       y: 0,
       opacity: 1,
-      duration: 0.5,
-      delay: 1.2,
+      duration: 0.3,
+      delay: 0,
     }
   );
   gsap.fromTo(
@@ -1612,7 +1612,7 @@ if (contactsBlocker) {
       width: 395,
       opacity: 1,
       duration: 0.5,
-      delay: 1.5,
+      delay: 0.5,
     }
   );
   gsap.fromTo(
@@ -1623,7 +1623,7 @@ if (contactsBlocker) {
       y: 0,
       opacity: 1,
       duration: 0.5,
-      delay: 2.2,
+      delay: 1,
       stagger: 0.1,
     }
   );
@@ -1635,7 +1635,7 @@ if (contactsBlocker) {
       y: 0,
       opacity: 1,
       duration: 0.5,
-      delay: 2.5,
+      delay: 1,
     }
   );
 }
@@ -1648,7 +1648,7 @@ if (mediaBlocker) {
       y: 0,
       opacity: 1,
       duration: 0.5,
-      delay: 0.7,
+      delay: 0.2,
     }
   );
   gsap.fromTo(
@@ -1659,7 +1659,7 @@ if (mediaBlocker) {
       y: 0,
       opacity: 1,
       duration: 0.5,
-      delay: 1.2,
+      delay: 0.5,
     }
   );
   gsap.fromTo(
@@ -1669,7 +1669,7 @@ if (mediaBlocker) {
       scrollTrigger: ".media__content-block:nth-child(1)",
       opacity: 1,
       duration: 0.5,
-      delay: 1.7,
+      delay: 0.5,
     }
   );
   gsap.fromTo(
@@ -1679,7 +1679,7 @@ if (mediaBlocker) {
       scrollTrigger: ".media__content-block:nth-child(2)",
       opacity: 1,
       duration: 0.5,
-      delay: 1.7,
+      delay: 0.5,
     }
   );
   gsap.fromTo(
@@ -1742,7 +1742,7 @@ if (mediaBlocker) {
       y: 0,
       opacity: 1,
       duration: 0.5,
-      delay: 1.7,
+      delay: 0.5,
     }
   );
   gsap.fromTo(
@@ -1753,7 +1753,7 @@ if (mediaBlocker) {
       y: 0,
       opacity: 1,
       duration: 0.5,
-      delay: 1.7,
+      delay: 0.5,
     }
   );
   gsap.fromTo(
@@ -1975,8 +1975,8 @@ if (mediaBlocker) {
       scrollTrigger: ".media__content-block:nth-child(1)",
       x: 0,
       opacity: 1,
-      duration: 0.7,
-      delay: 1.7,
+      duration: 0.4,
+      delay: 0.5,
     }
   );
   gsap.fromTo(
@@ -1986,8 +1986,8 @@ if (mediaBlocker) {
       scrollTrigger: ".media__content-block:nth-child(2)",
       x: 0,
       opacity: 1,
-      duration: 0.7,
-      delay: 1.7,
+      duration: 0.4,
+      delay: 1,
     }
   );
   gsap.fromTo(
@@ -2000,7 +2000,7 @@ if (mediaBlocker) {
       },
       x: 0,
       opacity: 1,
-      duration: 0.7,
+      duration: 0.4,
       delay: 0.2,
     }
   );
@@ -2014,7 +2014,7 @@ if (mediaBlocker) {
       },
       x: 0,
       opacity: 1,
-      duration: 0.7,
+      duration: 0.4,
       delay: 0.2,
     }
   );
@@ -2108,7 +2108,7 @@ if (modelBlocker) {
       width: 235,
       opacity: 1,
       duration: 0.5,
-      delay: 1.7,
+      delay: 0.5,
     }
   );
   gsap.fromTo(
@@ -2245,7 +2245,7 @@ if (serviceBlocker) {
       y: 0,
       opacity: 1,
       duration: 0.5,
-      delay: 1.7,
+      delay: 0.5,
     }
   );
   gsap.fromTo(

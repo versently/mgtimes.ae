@@ -118,6 +118,7 @@ const images = data.value.models.images;
       <div class="model__content">
         <div class="model__images">
           <nuxt-img
+        
             :src="`/assets/img/models/${data.models.folder}/${data.models.mainImage}`"
             :alt="`${data.models.folder}`"
           />
@@ -147,11 +148,10 @@ const images = data.value.models.images;
             {{ data.models.description }}
           </div>
           <div class="model__info-price-block">
-								<div class="model__info-price" >
-								{{ data.models.Price }}
-								</div>
-
-							</div>
+            <div class="model__info-price">
+              {{ data.models.Price }}
+            </div>
+          </div>
           <button class="model__info-btn btn-order">
             {{ t("Invite a model") }}
           </button>
@@ -267,7 +267,7 @@ const images = data.value.models.images;
 <i18n lang="json">
 {
   "en": {
-    "Top Model":"Top Model",
+    "Top Model": "Top Model",
     "years old - MGtimes VIP escort in Dubai": "years old - MGtimes VIP escort in Dubai",
     "My name is": "My name is",
     "Want to know my phone number? Order VIP escort services in Dubai in the best escort agency in Dubai MGtimes": "Want to know my phone number? Order VIP escort services in Dubai in the best escort agency in Dubai MGtimes",

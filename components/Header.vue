@@ -145,35 +145,6 @@ onMounted(() => {
   </header>
 </template>
 
-<style scoped>
-.lang-box a.active {
-  color: #9e2220;
-  /* Другие стили для активного языка */
-}
-.header__btn-mobile-menu {
-  display: none;
-}
-.header__mobile-menu {
-  /* display: none; */
-}
-@media (max-width: 991px) {
-  .header__btn-mobile-menu {
-    display: block;
-  }
-  .header__mobile-menu {
-    /* display: block; */
-  }
-  .header__select-language.pc {
-    display: none;
-  }
-  .header__btn-order.pc {
-    display: none;
-  }
-  .header__menu.pc {
-    display: none;
-  }
-}
-</style>
 
 <i18n lang="json">
 {

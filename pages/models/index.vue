@@ -81,6 +81,7 @@ const route = useRoute();
                     :src="`/assets/img/models/${models.folder}/${models.mainImage}`"
                     :alt="models.title"
                     loading="lazy"
+                    sizes="sm:100vw md:50vw lg:400px"
                   />
                   <div class="models__model-description">
                     <div class="models__model-name">{{ models.title }}</div>
