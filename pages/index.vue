@@ -519,8 +519,8 @@ useHead({
 <i18n lang="json">
 {
   "en": {
-    "titleMeta": "Elite escort in Dubai / VIP escort in Dubai 🖤 / MGTIMES",
-    "descriptionMeta": "MGTIMES Escort Agency VIP escort and escort services with beautiful girls! Elite escort in Dubai! VIP escort in Moscow! Organization of recreation and the best models of Moscow to accompany!",
+    "titleMeta": "Elite escort services in Dubai 🖤 VIP girls / MGTIMES",
+    "descriptionMeta": "Escort services and model escorts in Dubai. Elite escort agency for successful men! Selection of VIP models to accompany. Strictly confidential 📞 +971 58 525 2213 ⚡",
 
     "Elite escort in Dubai": "Elite escort in Dubai",
 
@@ -587,8 +587,8 @@ useHead({
     "Age": "Age"
   },
   "ru": {
-    "titleMeta": "Элитный эскорт в Дубае / VIP эскорт в Дубае 🖤 / MGTIMES",
-    "descriptionMeta": "Эскорт-агентство MGTIMES – услуги VIP эскорта и сопровождения с красивыми девушками! Элитный эскорт в Дубае! VIP эскорт в Дубае! Организация отдыха и лучшие модели для сопровождения! 📞 +79775944345 ⚡",
+    "titleMeta": "Элитные эскорт услуги в Дубае 🖤 VIP девушки / MGTIMES",
+    "descriptionMeta": "Эскорт услуги и сопровождение моделей в Дубае. Элитное эскорт агентство для успешных мужчин! Подбор VIP моделей для сопровождения. Строго конфиденциально 📞 +971 58 525 2213 ⚡",
 
     "Elite escort in Dubai": "VIP Эскорт № 1 в Дубае",
 
