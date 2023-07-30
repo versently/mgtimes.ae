@@ -27,11 +27,11 @@ export default defineNuxtConfig({
 
         { src: "/assets/js/app.js", body: true, defer: true },
 
-        {
-          src: " https://www.googletagmanager.com/gtag/js?id=G-ED65NJF30N",
-          body: true,
-          defer: true,
-        },
+        // {
+        //   src: " https://www.googletagmanager.com/gtag/js?id=G-ED65NJF30N",
+        //   body: true,
+        //   defer: true,
+        // },
         //organization sherma
         {
           type: "application/ld+json",
