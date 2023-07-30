@@ -197,7 +197,7 @@ const _inlineRuntimeConfig = {
         "tr": "prose-tr"
       },
       "highlight": false,
-      "wsUrl": "ws://localhost:4010/",
+      "wsUrl": "ws://localhost:4012/",
       "documentDriven": false,
       "host": "",
       "trailingSlash": false,
