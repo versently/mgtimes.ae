@@ -200,6 +200,7 @@
 
 .front-section .header__btn-order {
   margin-top: 40px;
+  position: relative;
 }
 
 .header__btn-order:hover {
@@ -8937,14 +8938,17 @@ h6 {
     font-size: 27px;
     margin: 120px auto 0px;
     max-width: 250px;
+    position: relative;
   }
 
   .front-section__line {
     width: 130px;
+    position: relative;
   }
 
   .front-section__text {
     max-width: 214px;
+    position: relative;
   }
 
   .services-section__container {

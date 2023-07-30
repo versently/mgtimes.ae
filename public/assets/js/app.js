@@ -308,50 +308,50 @@ if (indexBlocker) {
       delay: 0.2,
     }
   );
-  gsap.fromTo(
-    ".front-section__title",
-    { y: -10, opacity: 0 },
-    {
-      scrollTrigger: ".front-section__title",
-      y: 0,
-      opacity: 1,
-      duration: 0.4,
-      delay: 0.2,
-    }
-  );
-  gsap.fromTo(
-    ".front-section__line",
-    { width: 0 },
-    {
-      scrollTrigger: ".front-section__line",
-      width: 172,
-      opacity: 1,
-      duration: 0.2,
-      delay: 0.3,
-    }
-  );
-  gsap.fromTo(
-    ".front-section__text",
-    { y: -10, opacity: 0 },
-    {
-      scrollTrigger: ".front-section__text",
-      y: 0,
-      opacity: 1,
-      duration: 0.2,
-      delay: 0.5,
-    }
-  );
-  gsap.fromTo(
-    ".front__btn",
-    { y: -10, opacity: 0 },
-    {
-      scrollTrigger: ".front__btn",
-      y: 0,
-      opacity: 1,
-      duration: 0.4,
-      delay: 0.6,
-    }
-  );
+  // gsap.fromTo(
+  //   ".front-section__title",
+  //   { y: -10, opacity: 0 },
+  //   {
+  //     scrollTrigger: ".front-section__title",
+  //     y: 0,
+  //     opacity: 1,
+  //     duration: 0.4,
+  //     delay: 0.2,
+  //   }
+  // );
+  // gsap.fromTo(
+  //   ".front-section__line",
+  //   { width: 0 },
+  //   {
+  //     scrollTrigger: ".front-section__line",
+  //     width: 172,
+  //     opacity: 1,
+  //     duration: 0.2,
+  //     delay: 0.3,
+  //   }
+  // );
+  // gsap.fromTo(
+  //   ".front-section__text",
+  //   { y: -10, opacity: 0 },
+  //   {
+  //     scrollTrigger: ".front-section__text",
+  //     y: 0,
+  //     opacity: 1,
+  //     duration: 0.2,
+  //     delay: 0.5,
+  //   }
+  // );
+  // gsap.fromTo(
+  //   ".front__btn",
+  //   { y: -10, opacity: 0 },
+  //   {
+  //     scrollTrigger: ".front__btn",
+  //     y: 0,
+  //     opacity: 1,
+  //     duration: 0.4,
+  //     delay: 0.6,
+  //   }
+  // );
   gsap.fromTo(
     ".services-section__section-name",
     { y: -10, opacity: 0 },
@@ -394,7 +394,8 @@ if (indexBlocker) {
       opacity: 1,
       duration: 0.5,
       delay: 1,
-    }
+    },
+    "-=1.3"
   );
   gsap.fromTo(
     ".services-section__btn",
