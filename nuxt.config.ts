@@ -129,7 +129,7 @@ export default defineNuxtConfig({
         {
           rel: "preload",
           as: "image",
-          href: "https://mgtimes.ae/_nuxt/bg-image.2fb040e1.jpg",
+          href: "/img/index/front-section/bg-image.webp",
         },
 
         {
