@@ -126,16 +126,15 @@ export default defineNuxtConfig({
         { property: "og:image:height", content: "600" },
       ],
       link: [
-        // {
-        //   rel: "preload",
-        //   as: "image",
-        //   href: "/img/index/front-section/bg-image.webp",
-        // },
+        {
+          rel: "preload",
+          as: "image",
+          href: "/img/index/front-section/bg-image.webp",
+        },
 
         {
           rel: "stylesheet",
           href: "https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css",
-          media:"print", onload:"this.media='all'"
         },
         // {
         //   rel: "alternate",
