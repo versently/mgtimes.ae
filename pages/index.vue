@@ -193,8 +193,9 @@ useHead({
                   <!-- Slides -->
                   <div
                     class="models-section__swiper-slide"
-                    v-for="models in 20"
+                    v-for="(models, index) in list.slice(0, 20)"
                     :key="models._path"
+                   
                   >
                     <nuxt-img
                       loading="lazy"
@@ -285,7 +286,8 @@ useHead({
         </div>
         <div class="casting-section__content">
           <div class="casting-section__content-img">
-            <nuxt-img loading="lazy"
+            <nuxt-img
+              loading="lazy"
               src="/img/index/casting-section/main-img.webp"
               alt=""
               sizes="sm:100vw md:50vw lg:400px"
