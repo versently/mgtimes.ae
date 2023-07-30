@@ -21,7 +21,6 @@ import { parseURL, withoutBase, joinURL, getQuery, withQuery, withLeadingSlash, 
 import { createStorage, prefixStorage } from 'file:///Users/vitaly/Sites/hostiman_artur/mgtimes_nuxt/node_modules/unstorage/dist/index.mjs';
 import unstorage_47drivers_47fs from 'file:///Users/vitaly/Sites/hostiman_artur/mgtimes_nuxt/node_modules/unstorage/drivers/fs.mjs';
 import { toRouteMatcher, createRouter } from 'file:///Users/vitaly/Sites/hostiman_artur/mgtimes_nuxt/node_modules/radix3/dist/index.mjs';
-import { packString } from 'file:///Users/vitaly/Sites/hostiman_artur/mgtimes_nuxt/node_modules/packrup/dist/index.mjs';
 import { extname, join } from 'file:///Users/vitaly/Sites/hostiman_artur/mgtimes_nuxt/node_modules/pathe/dist/index.mjs';
 import { unified } from 'file:///Users/vitaly/Sites/hostiman_artur/mgtimes_nuxt/node_modules/unified/index.js';
 import { toString } from 'file:///Users/vitaly/Sites/hostiman_artur/mgtimes_nuxt/node_modules/mdast-util-to-string/index.js';
@@ -197,7 +196,7 @@ const _inlineRuntimeConfig = {
         "tr": "prose-tr"
       },
       "highlight": false,
-      "wsUrl": "ws://localhost:4005/",
+      "wsUrl": "ws://localhost:4007/",
       "documentDriven": false,
       "host": "",
       "trailingSlash": false,
@@ -722,7 +721,6 @@ const replayScript = "(() => {\n  w._$delayHydration.then((e) => {\n    if (!(e 
 const include = [];
 const exclude = [];
 
-const SCRIPT_REGEX = /<script(.*?)>/gm;
 function createFilter(options = {}) {
   const include2 = options.include || [];
   const exclude2 = options.exclude || [];
@@ -755,45 +753,6 @@ const _Mj16PGu6kp = (function(nitro) {
         return;
     }
     let extraScripts = "";
-    let isPageSSR = true;
-    {
-      const $config = useRuntimeConfig();
-      const ASSET_RE = new RegExp(`<script[^>]*src="${$config.app.buildAssetsDir}[^>]+><\\/script>`);
-      const toLoad = [];
-      const ssrContext = htmlContext.bodyAppend.find((b) => b.includes("window.__NUXT__"));
-      const NUXT_DATA_RE = /<script type="application\/json" id="__NUXT_DATA__"[^>]*>(.*?)<\/script[^>]*>/g;
-      const regexResult = NUXT_DATA_RE.exec(ssrContext);
-      const nuxtData = regexResult && regexResult[1] ? JSON.parse(regexResult[1]) : null;
-      if (nuxtData && nuxtData.length >= 2) {
-        const serverRenderedIndex = nuxtData[1].serverRendered;
-        isPageSSR = nuxtData[serverRenderedIndex];
-      } else {
-        isPageSSR = ssrContext.includes("serverRendered:true");
-      }
-      if (!isPageSSR)
-        return;
-      htmlContext.bodyAppend = htmlContext.bodyAppend.filter(
-        (b) => {
-          if (b.includes("window.__NUXT__") || !ASSET_RE.test(b))
-            return true;
-          let match;
-          while ((match = SCRIPT_REGEX.exec(b)) !== null) {
-            if (match.index === SCRIPT_REGEX.lastIndex)
-              SCRIPT_REGEX.lastIndex++;
-            if (match)
-              toLoad.push(packString(match[1]));
-          }
-          return false;
-        }
-      );
-      extraScripts = `_$delayHydration.then(e => {
-  ;(${JSON.stringify(toLoad)}).forEach(s => {
-    const script = document.createElement('script')
-    Object.entries(s).forEach(([k, v]) => script.setAttribute(k, v))
-    document.body.appendChild(script)
-  })
-})`;
-    }
     extraScripts += `;${replayScript}`;
     htmlContext.bodyAppend.push(`<script>
 (function() {
@@ -4455,7 +4414,7 @@ const renderer$1 = /*#__PURE__*/Object.freeze({
   default: renderer
 });
 
-const _virtual__headStatic = {"headTags":"<meta charset=\"utf-8\">\n<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n<meta name=\"yandex-verification\" content=\"a74366574883d178\">\n<meta property=\"og:site_name\" content=\"Elite escort services in Dubai MGTIMES\">\n<meta property=\"og:title\" content=\"Elite escort services in Dubai | VIP girls 🖤 | MGTIMES\">\n<meta property=\"og:type\" content=\"website\">\n<meta property=\"og:description\" content=\"Escort services and model escorts in Dubai. Elite escort agency for successful men! Selection of VIP models to accompany. Strictly confidential 📞 +79775944345 ⚡\">\n<meta property=\"og:url\" content=\"https://mgtimes.ae\">\n<meta property=\"og:image\" content=\"https://mgtimes.ae/extra-activity.png\">\n<meta property=\"og:image:alt\" content=\"Escort Agency «Mgtimes»\">\n<meta property=\"og:image:width\" content=\"600\">\n<meta property=\"og:image:height\" content=\"600\">\n<link rel=\"preload\" as=\"image\" href=\"/img/index/front-section/bg-image.webp\">\n<link rel=\"stylesheet\" href=\"https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css\" media=\"print\" onload=\"this.media='all'\">\n<link rel=\"apple-touch-icon\" sizes=\"180x180\" href=\"/apple-touch-icon.png\">\n<link rel=\"icon\" type=\"image/png\" sizes=\"32x32\" href=\"/favicon-32x32.png\">\n<link rel=\"icon\" type=\"image/png\" sizes=\"16x16\" href=\"/favicon-16x16.png\">\n<script type=\"application/ld+json\">{\"@context\":\"https://schema.org/\",\"@type\":\"Organization\",\"name\":\"Mgtimes\",\"telephone\":\"+7 977 594-43-45\",\"email\":\"info@mgtimes.ru\",\"image\":\"https://mgtimes.ae/extra-activity.png\",\"address\":{\"@type\":\"PostalAddress\",\"addressLocality\":\"Dubai\",\"streetAddress\":\"Dubai, Business Bay\"}}</script>","bodyTags":"<script src=\"/assets/js/SmoothScroll.js\" defer=\"\"></script>\n<script src=\"https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js\" defer=\"\"></script>\n<script src=\"https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js\" defer=\"\"></script>\n<script src=\"https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js\" defer=\"\"></script>\n<script src=\" https://www.googletagmanager.com/gtag/js?id=G-ED65NJF30N\" async=\"\"></script>\n<script src=\"/assets/js/app.js\" defer=\"\"></script>\n<script>\n\t\tvar fired = false;\n\n\t\twindow.addEventListener('scroll', () => {\n\t\t\tif (fired === false) {\n\t\t\t\tfired = true;\n\t\t\t\tsetTimeout(() => {\n          window.dataLayer = window.dataLayer || [];\n          function gtag(){dataLayer.push(arguments);}\n          gtag('js', new Date());\n        \n          gtag('config', 'G-ED65NJF30N');\n\n\n          (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};\n          m[i].l=1*new Date();\n          for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}\n          k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})\n          (window, document, \"script\", \"https://mc.yandex.ru/metrika/tag.js\", \"ym\");\n       \n          ym(91305537, \"init\", {\n               clickmap:true,\n               trackLinks:true,\n               accurateTrackBounce:true,\n               webvisor:true\n          });\n\t\t\t\t}, 1000)\n\t\t\t}\n\t\t});\n          </script>\n<noscript>\n        <!-- Yandex.Metrika counter -->\n        <div><img src=\"https://mc.yandex.ru/watch/69520198\" style=\"position:absolute; left:-9999px;\" alt=\"\" /></div>\n        <!-- Yandex.Metrika counter -->\n         </noscript>","bodyTagsOpen":"","htmlAttrs":"","bodyAttrs":""};
+const _virtual__headStatic = {"headTags":"<meta charset=\"utf-8\">\n<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n<meta name=\"yandex-verification\" content=\"a74366574883d178\">\n<meta property=\"og:site_name\" content=\"Elite escort services in Dubai MGTIMES\">\n<meta property=\"og:title\" content=\"Elite escort services in Dubai | VIP girls 🖤 | MGTIMES\">\n<meta property=\"og:type\" content=\"website\">\n<meta property=\"og:description\" content=\"Escort services and model escorts in Dubai. Elite escort agency for successful men! Selection of VIP models to accompany. Strictly confidential 📞 +79775944345 ⚡\">\n<meta property=\"og:url\" content=\"https://mgtimes.ae\">\n<meta property=\"og:image\" content=\"https://mgtimes.ae/extra-activity.png\">\n<meta property=\"og:image:alt\" content=\"Escort Agency «Mgtimes»\">\n<meta property=\"og:image:width\" content=\"600\">\n<meta property=\"og:image:height\" content=\"600\">\n<link rel=\"stylesheet\" href=\"https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css\" media=\"print\" onload=\"this.media='all'\">\n<link rel=\"apple-touch-icon\" sizes=\"180x180\" href=\"/apple-touch-icon.png\">\n<link rel=\"icon\" type=\"image/png\" sizes=\"32x32\" href=\"/favicon-32x32.png\">\n<link rel=\"icon\" type=\"image/png\" sizes=\"16x16\" href=\"/favicon-16x16.png\">\n<script type=\"application/ld+json\">{\"@context\":\"https://schema.org/\",\"@type\":\"Organization\",\"name\":\"Mgtimes\",\"telephone\":\"+7 977 594-43-45\",\"email\":\"info@mgtimes.ru\",\"image\":\"https://mgtimes.ae/extra-activity.png\",\"address\":{\"@type\":\"PostalAddress\",\"addressLocality\":\"Dubai\",\"streetAddress\":\"Dubai, Business Bay\"}}</script>","bodyTags":"<script src=\"/assets/js/SmoothScroll.js\" defer=\"\"></script>\n<script src=\"https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js\" defer=\"\"></script>\n<script src=\"https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js\" defer=\"\"></script>\n<script src=\"https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js\" defer=\"\"></script>\n<script src=\" https://www.googletagmanager.com/gtag/js?id=G-ED65NJF30N\" async=\"\"></script>\n<script src=\"/assets/js/app.js\" defer=\"\"></script>\n<script>\n\t\tvar fired = false;\n\n\t\twindow.addEventListener('scroll', () => {\n\t\t\tif (fired === false) {\n\t\t\t\tfired = true;\n\t\t\t\tsetTimeout(() => {\n          window.dataLayer = window.dataLayer || [];\n          function gtag(){dataLayer.push(arguments);}\n          gtag('js', new Date());\n        \n          gtag('config', 'G-ED65NJF30N');\n\n\n          (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};\n          m[i].l=1*new Date();\n          for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}\n          k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})\n          (window, document, \"script\", \"https://mc.yandex.ru/metrika/tag.js\", \"ym\");\n       \n          ym(91305537, \"init\", {\n               clickmap:true,\n               trackLinks:true,\n               accurateTrackBounce:true,\n               webvisor:true\n          });\n\t\t\t\t}, 1000)\n\t\t\t}\n\t\t});\n          </script>\n<noscript>\n        <!-- Yandex.Metrika counter -->\n        <div><img src=\"https://mc.yandex.ru/watch/69520198\" style=\"position:absolute; left:-9999px;\" alt=\"\" /></div>\n        <!-- Yandex.Metrika counter -->\n         </noscript>","bodyTagsOpen":"","htmlAttrs":"","bodyAttrs":""};
 
 const _virtual__headStatic$1 = /*#__PURE__*/Object.freeze({
   __proto__: null,

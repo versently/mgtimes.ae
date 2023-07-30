@@ -126,11 +126,11 @@ export default defineNuxtConfig({
         { property: "og:image:height", content: "600" },
       ],
       link: [
-        {
-          rel: "preload",
-          as: "image",
-          href: "/img/index/front-section/bg-image.webp",
-        },
+        // {
+        //   rel: "preload",
+        //   as: "image",
+        //   href: "/img/index/front-section/bg-image.webp",
+        // },
 
         {
           rel: "stylesheet",
@@ -180,9 +180,9 @@ export default defineNuxtConfig({
   //   id: "69520198",
   //   // ...
   // },
-  delayHydration: {
-    mode: "init",
-  },
+  // delayHydration: {
+  //   mode: "init",
+  // },
   image: {
     provider: "netlify",
     format: ["webp"],
