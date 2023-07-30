@@ -193,7 +193,7 @@ useHead({
                   <!-- Slides -->
                   <div
                     class="models-section__swiper-slide"
-                    v-for="models in list"
+                    v-for="models in 20"
                     :key="models._path"
                   >
                     <nuxt-img

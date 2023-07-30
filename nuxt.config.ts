@@ -180,9 +180,9 @@ export default defineNuxtConfig({
   //   id: "69520198",
   //   // ...
   // },
-  // delayHydration: {
-  //   mode: "init",
-  // },
+  delayHydration: {
+    mode: "init",
+  },
   image: {
     provider: "netlify",
     format: ["webp"],
