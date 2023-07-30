@@ -135,6 +135,7 @@ export default defineNuxtConfig({
         {
           rel: "stylesheet",
           href: "https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css",
+          media:"print", onload:"this.media='all'"
         },
         // {
         //   rel: "alternate",
