@@ -17,6 +17,7 @@ useHead({
 <template>
   <main>
     <section class="front-section">
+      <img src="/img/index/front-section/bg-image.webp" alt="">
       <div class="front-section__container">
         <h1 class="front-section__title">
           <!-- Elite escort in Dubai -->
