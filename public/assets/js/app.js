@@ -2437,7 +2437,7 @@ document.addEventListener("DOMContentLoaded", function () {
     // simulateTouch: true,
     breakpoints: {
       320: {
-        slidesPerView: 1.2,
+        slidesPerView: 1,
       },
       640: {
         slidesPerView: 1.7,

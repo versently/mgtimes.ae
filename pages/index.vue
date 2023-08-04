@@ -283,25 +283,25 @@ useHead({
         <div class="swiper-wrapper">
           <!-- Slides -->
           <div class="swiper-slide">
-            <video  autoplay loop muted  playsinline src="/img/video/01.mp4"></video>
+            <video loading="lazy"  autoplay loop muted  playsinline src="/img/video/01.mp4"></video>
           </div>
           <div class="swiper-slide">
-            <video loop muted  playsinline src="/img/video/02.mp4"></video>
+            <video loading="lazy" loop muted  playsinline src="/img/video/02.mp4"></video>
           </div>
           <div class="swiper-slide">
-            <video loop muted  playsinline src="/img/video/03.mp4"></video>
+            <video loading="lazy" loop muted  playsinline src="/img/video/03.mp4"></video>
           </div>
           <div class="swiper-slide">
-            <video loop muted  playsinline src="/img/video/04.mp4"></video>
+            <video loading="lazy" loop muted  playsinline src="/img/video/04.mp4"></video>
           </div>
           <div class="swiper-slide">
-            <video loop muted  playsinline src="/img/video/05.mp4"></video>
+            <video loading="lazy" loop muted  playsinline src="/img/video/05.mp4"></video>
           </div>
           <div class="swiper-slide">
-            <video loop muted  playsinline src="/img/video/06.mp4"></video>
+            <video loading="lazy" loop muted  playsinline src="/img/video/06.mp4"></video>
           </div>
           <div class="swiper-slide">
-            <video loop muted  playsinline src="/img/video/07.mp4"></video>
+            <video loading="lazy" loop muted  playsinline src="/img/video/07.mp4"></video>
           </div>
           <!-- <div class="swiper-slide">
             <div></div>
