@@ -137,7 +137,6 @@ const swiperSliderModels = new Swiper(".models-section__swiper", {
   scrollbar: { el: ".models-section__swiper-scrollbar" },
   slidesPerView: "auto",
   freeMode: true,
-  
 });
 if (indexBlocker) {
 }
@@ -2425,3 +2424,45 @@ if (serviceBlocker) {
     }
   );
 }
+document.addEventListener("DOMContentLoaded", function () {
+  // Инициализируем Swiper с нужными настройками
+  const swiper = new Swiper(".girl__swiper", {
+    scrollbar: { el: ".girl__swiper-scrollbar" },
+    slidesPerView: "1.7",
+    loop:true,
+    scrollbar: { el: ".model__swiper-scrollbar-img", draggable: true },
+    // effect: "fade", // Use the "fade" effect for smooth transition
+   
+    spaceBetween: "10",
+    // simulateTouch: true,
+    breakpoints: {
+      320: {
+        slidesPerView: 1.2,
+      },
+      640: {
+        slidesPerView: 1.7,
+      },
+    },
+  });
+
+  // Получаем все видео-элементы в слайдере
+  const videos = document.querySelectorAll(".girl__swiper video");
+
+  // При активации слайда воспроизводим видео
+  swiper.on("slideChangeTransitionStart", function () {
+    const activeSlide = swiper.slides[swiper.activeIndex];
+    const video = activeSlide.querySelector("video");
+    if (video) {
+      video.play();
+    }
+  });
+
+  // При деактивации слайда останавливаем видео
+  swiper.on("slideChangeTransitionEnd", function () {
+    const previousSlide = swiper.slides[swiper.previousIndex];
+    const video = previousSlide.querySelector("video");
+    if (video) {
+      video.pause();
+    }
+  });
+});

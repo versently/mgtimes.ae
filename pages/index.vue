@@ -17,7 +17,7 @@ useHead({
 <template>
   <main>
     <section class="front-section">
-      <img src="/img/index/front-section/bg-image.webp" alt="">
+      <img src="/img/index/front-section/bg-image.webp" alt="" />
       <div class="front-section__container">
         <h1 class="front-section__title">
           <!-- Elite escort in Dubai -->
@@ -196,7 +196,6 @@ useHead({
                     class="models-section__swiper-slide"
                     v-for="(models, index) in list.slice(0, 20)"
                     :key="models._path"
-                   
                   >
                     <nuxt-img
                       loading="lazy"
@@ -279,7 +278,39 @@ useHead({
         </div>
       </div>
     </section>
-
+    <div class="girl__swiper-w">
+      <section class="girl__swiper" data-swiper-autoplay="2000">
+        <div class="swiper-wrapper">
+          <!-- Slides -->
+          <div class="swiper-slide">
+            <video  autoplay loop muted  playsinline src="/img/video/01.mp4"></video>
+          </div>
+          <div class="swiper-slide">
+            <video loop muted  playsinline src="/img/video/02.mp4"></video>
+          </div>
+          <div class="swiper-slide">
+            <video loop muted  playsinline src="/img/video/03.mp4"></video>
+          </div>
+          <div class="swiper-slide">
+            <video loop muted  playsinline src="/img/video/04.mp4"></video>
+          </div>
+          <div class="swiper-slide">
+            <video loop muted  playsinline src="/img/video/05.mp4"></video>
+          </div>
+          <div class="swiper-slide">
+            <video loop muted  playsinline src="/img/video/06.mp4"></video>
+          </div>
+          <div class="swiper-slide">
+            <video loop muted  playsinline src="/img/video/07.mp4"></video>
+          </div>
+          <!-- <div class="swiper-slide">
+            <div></div>
+          </div> -->
+        </div>
+        <!-- If we need scrollbar -->
+        <div style="margin-top: 1.25rem;" class="model__swiper-scrollbar-img"></div>
+      </section>
+    </div>
     <section class="casting-section">
       <div class="casting-section__container">
         <div class="casting-section__section-name">
@@ -288,7 +319,7 @@ useHead({
         <div class="casting-section__content">
           <div class="casting-section__content-img">
             <nuxt-img
-              loading="lazy"
+             
               src="/img/index/casting-section/main-img.webp"
               alt=""
               sizes="sm:100vw md:50vw lg:400px"
