@@ -200,7 +200,7 @@
 .girl__swiper-w{
   
   margin-top: 6rem;
-
+  position: relative;
   z-index: 65;
   overflow: hidden;
 }
