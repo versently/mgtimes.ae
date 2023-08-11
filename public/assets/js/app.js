@@ -2432,7 +2432,13 @@ document.addEventListener("DOMContentLoaded", function () {
     loop:true,
     scrollbar: { el: ".model__swiper-scrollbar-img", draggable: true },
     // effect: "fade", // Use the "fade" effect for smooth transition
-   
+    navigation: {
+      nextEl: ".swiper-button-next", // CSS-селектор для кнопки "следующий слайд"
+      prevEl: ".swiper-button-prev", // CSS-селектор для кнопки "предыдущий слайд"
+    },
+
+
+
     spaceBetween: "10",
     // simulateTouch: true,
     breakpoints: {

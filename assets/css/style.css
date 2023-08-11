@@ -231,6 +231,41 @@
 
   }
 }
+
+
+.girl__swiper-w .swiper-button-prev:after {
+  position: relative;
+  top: 69%;
+  color: rgb(158, 34, 32);
+}
+.girl__swiper-w .swiper-button-next:after {
+  position: relative;
+  top: 69%;
+  color: rgb(158, 34, 32);
+}
+@media (max-width: 1399px) {
+  .girl__swiper-w .swiper-button-prev:after {
+    top: -170%;
+  }
+  .girl__swiper-w .swiper-button-next:after {
+    top: -170%;
+  }
+}
+@media (max-width: 575px) {
+  .girl__swiper-w .swiper-button-prev:after {
+    position: relative;
+    font-size: 30px;
+    top: -128%;
+    color: rgb(158, 34, 32);
+  }
+  .girl__swiper-w .swiper-button-next:after {
+    position: relative;
+    top: -128%;
+    font-size: 30px;
+    color: rgb(158, 34, 32);
+  }
+}
+
 .front-section .header__btn-order {
   margin-top: 40px;
   position: relative;

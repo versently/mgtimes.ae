@@ -308,7 +308,9 @@ useHead({
           </div> -->
         </div>
         <!-- If we need scrollbar -->
-        <div style="margin-top: 1.25rem;" class="model__swiper-scrollbar-img"></div>
+        <div style="margin-top: 1.25rem; display: none !important;" class="model__swiper-scrollbar-img"></div>
+					<div class="swiper-button-prev"></div>
+					<div class="swiper-button-next"></div>
       </section>
     </div>
     <section class="casting-section">
