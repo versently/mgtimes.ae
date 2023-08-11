@@ -2427,10 +2427,10 @@ if (serviceBlocker) {
 document.addEventListener("DOMContentLoaded", function () {
   // Инициализируем Swiper с нужными настройками
   const swiper = new Swiper(".girl__swiper", {
-    scrollbar: { el: ".girl__swiper-scrollbar" },
+    // scrollbar: { el: ".girl__swiper-scrollbar" },
     slidesPerView: "1.7",
     loop:true,
-    scrollbar: { el: ".model__swiper-scrollbar-img", draggable: true },
+    // scrollbar: { el: ".model__swiper-scrollbar-img", draggable: true },
     // effect: "fade", // Use the "fade" effect for smooth transition
     navigation: {
       nextEl: ".swiper-button-next", // CSS-селектор для кнопки "следующий слайд"
