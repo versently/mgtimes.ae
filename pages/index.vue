@@ -1,5 +1,5 @@
 <script setup>
-const { t } = useI18n({
+const { t, locale } = useI18n({
   useScope: "local",
 });
 
@@ -13,6 +13,16 @@ useHead({
     },
   ],
 });
+
+const revCont = ref(null);
+
+revCont.value = 3;
+if (locale.value == "en") {
+  revCont.value = 3;
+} else {
+  revCont.value = 10;
+}
+console.log(locale.value);
 </script>
 <template>
   <main>
@@ -283,34 +293,80 @@ useHead({
         <div class="swiper-wrapper">
           <!-- Slides -->
           <div class="swiper-slide">
-            <video loading="lazy"  autoplay loop muted  playsinline src="/img/video/01.mp4"></video>
+            <video
+              loading="lazy"
+              autoplay
+              loop
+              muted
+              playsinline
+              src="/img/video/01.mp4"
+            ></video>
           </div>
           <div class="swiper-slide">
-            <video loading="lazy" loop muted  playsinline src="/img/video/02.mp4"></video>
+            <video
+              loading="lazy"
+              loop
+              muted
+              playsinline
+              src="/img/video/02.mp4"
+            ></video>
           </div>
           <div class="swiper-slide">
-            <video loading="lazy" loop muted  playsinline src="/img/video/03.mp4"></video>
+            <video
+              loading="lazy"
+              loop
+              muted
+              playsinline
+              src="/img/video/03.mp4"
+            ></video>
           </div>
           <div class="swiper-slide">
-            <video loading="lazy" loop muted  playsinline src="/img/video/04.mp4"></video>
+            <video
+              loading="lazy"
+              loop
+              muted
+              playsinline
+              src="/img/video/04.mp4"
+            ></video>
           </div>
           <div class="swiper-slide">
-            <video loading="lazy" loop muted  playsinline src="/img/video/05.mp4"></video>
+            <video
+              loading="lazy"
+              loop
+              muted
+              playsinline
+              src="/img/video/05.mp4"
+            ></video>
           </div>
           <div class="swiper-slide">
-            <video loading="lazy" loop muted  playsinline src="/img/video/06.mp4"></video>
+            <video
+              loading="lazy"
+              loop
+              muted
+              playsinline
+              src="/img/video/06.mp4"
+            ></video>
           </div>
           <div class="swiper-slide">
-            <video loading="lazy" loop muted  playsinline src="/img/video/07.mp4"></video>
+            <video
+              loading="lazy"
+              loop
+              muted
+              playsinline
+              src="/img/video/07.mp4"
+            ></video>
           </div>
           <!-- <div class="swiper-slide">
             <div></div>
           </div> -->
         </div>
         <!-- If we need scrollbar -->
-        <div style="margin-top: 1.25rem; display: none !important;" class="model__swiper-scrollbar-img"></div>
-					<div class="swiper-button-prev"></div>
-					<div class="swiper-button-next"></div>
+        <div
+          style="margin-top: 1.25rem; display: none !important"
+          class="model__swiper-scrollbar-img"
+        ></div>
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
       </section>
     </div>
     <section class="casting-section">
@@ -321,7 +377,6 @@ useHead({
         <div class="casting-section__content">
           <div class="casting-section__content-img">
             <nuxt-img
-             
               src="/img/index/casting-section/main-img.webp"
               alt=""
               sizes="sm:100vw md:50vw lg:400px"
@@ -353,12 +408,12 @@ useHead({
               <!-- Slides -->
               <div
                 class="additional-reviews-section__swiper-slide reviews"
-                v-for="reviews in 10"
+                v-for="reviews in revCont"
                 :key="reviews"
               >
                 <nuxt-img
                   loading="lazy"
-                  :src="`/img/reviews/${reviews}.webp`"
+                  :src="`/img/reviews/${$i18n.locale}/${reviews}.webp`"
                   alt="reviews"
                   sizes="sm:100vw md:50vw lg:400px"
                 />
@@ -410,10 +465,6 @@ useHead({
         </div>
       </div>
     </section>
-
-
- 
-
 
     <div class="additional-services-section">
       <div class="additional-services-section__container">

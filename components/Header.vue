@@ -72,7 +72,7 @@ onMounted(() => {
             >
 
             <label class="select-city__label"
-              ><a href="https://mgtimes.ru/en">{{ t("Moskow") }}</a></label
+              ><a href="https://mgtimes.ru/en">{{ t("Mosсow") }}</a></label
             >
 
             <label class="select-city__label"
