@@ -47,12 +47,11 @@ export default defineEventHandler(async (event) => {
   sitemap.write({
     url:'/ru/contacts',
   })
-  // for (const doc of docs) {
-  //   sitemap.write({
-  //     url: doc._path,
-  //     changefreq: 'monthly'
-  //   })
-  // }
+  for (const doc of docs) {
+    sitemap.write({
+      url: doc._path,
+    })
+  }
  
   sitemap.end()
 
