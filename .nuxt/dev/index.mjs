@@ -4168,7 +4168,7 @@ const errorDev = /*#__PURE__*/Object.freeze({
 });
 
 const sitemap_xml = defineEventHandler(async (event) => {
-  const docs = await serverQueryContent(event).find();
+  await serverQueryContent(event).find();
   const sitemap = new SitemapStream({
     hostname: "https://mgtimes.ae"
   });
@@ -4208,12 +4208,6 @@ const sitemap_xml = defineEventHandler(async (event) => {
   sitemap.write({
     url: "/ru/contacts"
   });
-  for (const doc of docs) {
-    sitemap.write({
-      url: doc._path,
-      changefreq: "monthly"
-    });
-  }
   sitemap.end();
   return streamToPromise(sitemap);
 });
