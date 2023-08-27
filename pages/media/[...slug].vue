@@ -70,13 +70,13 @@ const images = data.value.media.images;
           <p class="news__p">
             {{ data.media.description }}
           </p>
-          <p class="news__p">
+          <!-- <p class="news__p">
             <nuxt-img
               class="news__img-main"
               :src="`/assets/img/media/${data.media.folder}/${data.media.mainImage}`"
               :alt="data.media.title"
             />
-          </p>
+          </p> -->
 
           <ContentDoc />
         </div>
