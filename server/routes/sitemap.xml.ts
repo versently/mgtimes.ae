@@ -8,50 +8,50 @@ export default defineEventHandler(async (event) => {
     hostname: 'https://mgtimes.ae'
   })
 
-  sitemap.write({
-    url:'/',
-  })
-  sitemap.write({
-    url:'/models',
-  })
-  sitemap.write({
-    url:'/services',
-  })
-  sitemap.write({
-    url:'/media',
-  })
+  // sitemap.write({
+  //   url:'/',
+  // })
+  // sitemap.write({
+  //   url:'/models',
+  // })
+  // sitemap.write({
+  //   url:'/services',
+  // })
+  // sitemap.write({
+  //   url:'/media',
+  // })
 
-  sitemap.write({
-    url:'/casting',
-  })
-  sitemap.write({
-    url:'/contacts',
-  })
+  // sitemap.write({
+  //   url:'/casting',
+  // })
+  // sitemap.write({
+  //   url:'/contacts',
+  // })
 
   
-  sitemap.write({
-    url:'/ru',
-  })
-  sitemap.write({
-    url:'/ru/services',
-  })
-  sitemap.write({
-    url:'/ru/models',
-  })
-  sitemap.write({
-    url:'/ru/media',
-  })
-  sitemap.write({
-    url:'/ru/casting',
-  })
-  sitemap.write({
-    url:'/ru/contacts',
-  })
-  // for (const doc of docs) {
-  //   sitemap.write({
-  //     url: doc._path,
-  //   })
-  // }
+  // sitemap.write({
+  //   url:'/ru',
+  // })
+  // sitemap.write({
+  //   url:'/ru/services',
+  // })
+  // sitemap.write({
+  //   url:'/ru/models',
+  // })
+  // sitemap.write({
+  //   url:'/ru/media',
+  // })
+  // sitemap.write({
+  //   url:'/ru/casting',
+  // })
+  // sitemap.write({
+  //   url:'/ru/contacts',
+  // })
+  for (const doc of docs) {
+    sitemap.write({
+      url: doc._path,
+    })
+  }
  
   sitemap.end()
 
