@@ -9,7 +9,7 @@ export default defineEventHandler(async (event) => {
   })
 
   sitemap.write({
-    url:'',
+    url:'/',
   })
   sitemap.write({
     url:'/models',

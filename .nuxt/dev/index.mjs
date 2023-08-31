@@ -4173,7 +4173,7 @@ const sitemap_xml = defineEventHandler(async (event) => {
     hostname: "https://mgtimes.ae"
   });
   sitemap.write({
-    url: ""
+    url: "/"
   });
   sitemap.write({
     url: "/models"
