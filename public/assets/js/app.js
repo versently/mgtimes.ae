@@ -92,13 +92,15 @@ const selectSingle_labels = selectSingle.querySelectorAll(
   ".select-city__label"
 );
 const selectContent = document.querySelector(".select-city__content");
-selectSingle_title.addEventListener("click", () => {
-  if ("active" === selectSingle.getAttribute("data-state")) {
-    selectSingle.removeAttribute("data-state");
-  } else {
-    selectSingle.setAttribute("data-state", "active");
-  }
-});
+if (selectSingle_title) {
+  selectSingle_title.addEventListener("click", () => {
+    if ("active" === selectSingle.getAttribute("data-state")) {
+      selectSingle.removeAttribute("data-state");
+    } else {
+      selectSingle.setAttribute("data-state", "active");
+    }
+  });
+}
 document.addEventListener("click", (e) => {
   if (e.target.closest(".select-city__select") !== selectSingle) {
     selectSingle.removeAttribute("data-state");
@@ -2429,15 +2431,13 @@ document.addEventListener("DOMContentLoaded", function () {
   const swiper = new Swiper(".girl__swiper", {
     // scrollbar: { el: ".girl__swiper-scrollbar" },
     slidesPerView: "1.7",
-    loop:true,
+    loop: true,
     // scrollbar: { el: ".model__swiper-scrollbar-img", draggable: true },
     // effect: "fade", // Use the "fade" effect for smooth transition
     navigation: {
       nextEl: ".swiper-button-next", // CSS-селектор для кнопки "следующий слайд"
       prevEl: ".swiper-button-prev", // CSS-селектор для кнопки "предыдущий слайд"
     },
-
-
 
     spaceBetween: "10",
     // simulateTouch: true,
