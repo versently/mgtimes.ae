@@ -60,7 +60,7 @@
         "/Users/vitaly/Sites/hostiman_artur/mgtimes_nuxt/node_modules/@nuxt/image/dist/runtime/*"
       ],
       "vue-i18n": [
-        "/Users/vitaly/Sites/hostiman_artur/mgtimes_nuxt/node_modules/vue-i18n/dist/vue-i18n"
+        "/Users/vitaly/Sites/hostiman_artur/mgtimes_nuxt/node_modules/vue-i18n/dist/vue-i18n.runtime"
       ],
       "@intlify/shared": [
         "/Users/vitaly/Sites/hostiman_artur/mgtimes_nuxt/node_modules/@intlify/shared/dist/shared"
