@@ -201,11 +201,15 @@ if (route.params.slug) {
         <div class="header__menu menu">
           <div class="menu__list">
             <div class="menu__item">
-              <a href="/" class="menu__link">Home</a>
-            </div>
-            <div class="menu__item">
-              <a href="/models" class="menu__link">Models</a>
-            </div>
+            <a :href="localePath('index')" class="menu__link">{{
+              t("Home")
+            }}</a>
+          </div>
+          <div class="menu__item">
+            <a :href="localePath('/models')" class="menu__link">
+              {{ t("Models") }}</a
+            >
+          </div>
             <!-- <div class="menu__item">
               <a href="/services" class="menu__link">Services</a>
             </div> -->
@@ -246,14 +250,20 @@ if (route.params.slug) {
               </div>
             </div>
             <div class="menu__item">
-              <a href="/casting" class="menu__link">Casting</a>
-            </div>
-            <div class="menu__item">
-              <a href="/contacts" class="menu__link">Contacts</a>
-            </div>
-            <div class="menu__item">
-              <a href="/media" class="menu__link">Media</a>
-            </div>
+            <a :href="localePath('/casting')" class="menu__link">{{
+              t("Casting")
+            }}</a>
+          </div>
+          <div class="menu__item">
+            <a :href="localePath('/contacts')" class="menu__link">{{
+              t("Contacts")
+            }}</a>
+          </div>
+          <div class="menu__item">
+            <a :href="localePath('/media')" class="menu__link">{{
+              t("Media")
+            }}</a>
+          </div>
           </div>
         </div>
         <div class="header__select-language lang-box">

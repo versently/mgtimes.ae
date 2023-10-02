@@ -597,7 +597,7 @@ console.log(locale.value);
               </template>
             </ContentList>
           </div>
-          <a href="/media" class="media-section__item-btn">
+          <a :href="localePath('/media')" class="media-section__item-btn">
             {{ t("View all") }}</a
           >
         </div>
