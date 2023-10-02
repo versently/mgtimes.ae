@@ -111,7 +111,7 @@ if (route.params.slug) {
             <ContentList
               :path="localePath('/cities')"
               :query="{
-                only: ['title', '_path'],
+                only: ['title', '_path', 'h1'],
                 where: {
                   tags: {
                     $contains: filter,
@@ -122,9 +122,9 @@ if (route.params.slug) {
             >
               <template v-slot="{ list }">
                 <span v-for="сities in list" :key="сities._path">
-                  <span v-if="сities._path == src">{{ сities.title }}</span>
+                  <span v-if="сities._path == src">{{ сities.h1 }}</span>
                   <span v-else-if="сities._path == '/ru' + src">{{
-                    сities.title
+                    сities.h1
                   }}</span>
                 </span>
               </template>
@@ -145,7 +145,7 @@ if (route.params.slug) {
             <ContentList
               :path="localePath('/cities')"
               :query="{
-                only: ['title', '_path'],
+                only: ['title', '_path', 'h1'],
                 where: {
                   tags: {
                     $contains: filter,
@@ -160,7 +160,7 @@ if (route.params.slug) {
                   v-for="сities in list"
                   :key="сities._path"
                 >
-                  <a :href="сities._path">{{ сities.title }}</a>
+                  <a :href="сities._path">{{ сities.h1 }}</a>
                 </label>
               </template>
               <template #not-found>
