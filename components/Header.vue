@@ -258,11 +258,15 @@ if (route.params.slug) {
         </div>
         <div class="header__select-language lang-box">
           <div class="lang-box__ru">
-            <a class="active" href="/">EN</a>
+            <a :class="{ active: locale === 'en' }" :href="switchLocalePath('en')"
+            >EN</a
+          >
           </div>
           <div class="lang-box__line"></div>
           <div class="lang-box__en">
-            <a class="" href="/ru">RU</a>
+            <a :class="{ active: locale === 'ru' }" :href="switchLocalePath('ru')"
+            >RU</a
+          >
           </div>
         </div>
         <button class="header__btn-order btn-order">Order an escort</button>
