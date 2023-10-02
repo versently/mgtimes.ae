@@ -176,7 +176,7 @@ console.log(locale.value);
           <div class="models-section__swiper">
             <!-- Additional required wrapper -->
             <ContentList
-              path="/models"
+              :path="localePath('/models')"
               :query="{
                 only: [
                   'title',

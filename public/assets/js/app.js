@@ -86,32 +86,75 @@ if (castingBlocker) {
     inputImages.addEventListener("change", onChange);
   }
 }
-const selectSingle = document.querySelector(".select-city__select");
-const selectSingle_title = selectSingle.querySelector(".select-city__title");
-const selectSingle_labels = selectSingle.querySelectorAll(
-  ".select-city__label"
-);
-const selectContent = document.querySelector(".select-city__content");
-if (selectSingle_title) {
-  selectSingle_title.addEventListener("click", () => {
-    if ("active" === selectSingle.getAttribute("data-state")) {
+
+
+
+let serviceSelect = () => {
+
+  const selectSingle = document.querySelector(".menu__services .select-city__select");
+  const selectSingle_title = selectSingle.querySelector(".menu__services .select-city__title");
+  const selectSingle_labels = selectSingle.querySelectorAll(
+    ".menu__services .select-city__label"
+  );
+  const selectContent = document.querySelector(".menu__services .select-city__content");
+  if (selectSingle_title) {
+    selectSingle_title.addEventListener("click", () => {
+      if ("active" === selectSingle.getAttribute("data-state")) {
+        selectSingle.removeAttribute("data-state");
+      } else {
+        selectSingle.setAttribute("data-state", "active");
+      }
+    });
+  }
+  document.addEventListener("click", (e) => {
+    if (e.target.closest(".select-city__select") !== selectSingle) {
       selectSingle.removeAttribute("data-state");
-    } else {
-      selectSingle.setAttribute("data-state", "active");
     }
   });
-}
-document.addEventListener("click", (e) => {
-  if (e.target.closest(".select-city__select") !== selectSingle) {
-    selectSingle.removeAttribute("data-state");
+  for (let i = 0; i < selectSingle_labels.length; i++) {
+    selectSingle_labels[i].addEventListener("click", (evt) => {
+      selectSingle_title.textContent = evt.target.textContent;
+      selectSingle.setAttribute("data-state", "");
+    });
   }
-});
-for (let i = 0; i < selectSingle_labels.length; i++) {
-  selectSingle_labels[i].addEventListener("click", (evt) => {
-    selectSingle_title.textContent = evt.target.textContent;
-    selectSingle.setAttribute("data-state", "");
+};
+serviceSelect();
+
+
+let citySelect = () => {
+
+  const selectSingle = document.querySelector(".select-city .select-city__select");
+  const selectSingle_title = selectSingle.querySelector(".select-city .select-city__title");
+  const selectSingle_labels = selectSingle.querySelectorAll(
+    ".select-city .select-city__label"
+  );
+  const selectContent = document.querySelector(".select-city .select-city__content");
+  if (selectSingle_title) {
+    selectSingle_title.addEventListener("click", () => {
+      if ("active" === selectSingle.getAttribute("data-state")) {
+        selectSingle.removeAttribute("data-state");
+      } else {
+        selectSingle.setAttribute("data-state", "active");
+      }
+    });
+  }
+  document.addEventListener("click", (e) => {
+    if (e.target.closest(".select-city__select") !== selectSingle) {
+      selectSingle.removeAttribute("data-state");
+    }
   });
-}
+  for (let i = 0; i < selectSingle_labels.length; i++) {
+    selectSingle_labels[i].addEventListener("click", (evt) => {
+      selectSingle_title.textContent = evt.target.textContent;
+      selectSingle.setAttribute("data-state", "");
+    });
+  }
+};
+citySelect();
+
+
+
+
 let popupOrder = document.querySelector(".popup-order");
 let popupBlock = document.querySelector(".popup-order__block");
 let openPopupButtons = document.querySelectorAll(".btn-order");

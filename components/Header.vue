@@ -20,6 +20,14 @@ onMounted(() => {
     menu.classList.toggle("active");
   });
 });
+
+const route = useRoute();
+const src = ref(null);
+if (route.params.slug) {
+  src.value = "/cities/" + route.params.slug[0];
+} else {
+  src.value = null;
+}
 </script>
 <template>
   <header class="header">
@@ -40,9 +48,45 @@ onMounted(() => {
             >
           </div>
           <div class="menu__item">
-            <a :href="localePath('/services')" class="menu__link">{{
+            <!-- <a :href="localePath('/services')" class="menu__link">{{
               t("Services")
-            }}</a>
+            }}</a> -->
+            <div class="menu__services">
+              <div class="select-city__select">
+        
+                <div class="select-city__title">
+                  {{  t("Services") }}
+                </div>
+
+                <div class="select-city__content">
+                  <ContentList
+                    :path="localePath('/services')"
+                    :query="{
+                      only: ['title', '_path', 'h1'],
+                      where: {
+                        tags: {
+                          $contains: filter,
+                        },
+                      },
+                      $sensitivity: 'base',
+                    }"
+                  >
+                    <template v-slot="{ list }">
+                      <label
+                        class="select-city__label"
+                        v-for="сities in list"
+                        :key="сities._path"
+                      >
+                        <a :href="сities._path">{{ сities.h1 }}</a>
+                      </label>
+                    </template>
+                    <template #not-found>
+                      <p>error сities</p>
+                    </template>
+                  </ContentList>
+                </div>
+              </div>
+            </div>
           </div>
           <div class="menu__item">
             <a :href="localePath('/casting')" class="menu__link">{{
@@ -63,18 +107,69 @@ onMounted(() => {
       </div>
       <div class="header__select-city select-city">
         <div class="select-city__select">
-          <div class="select-city__title">
+          <div v-if="!(src == null)" class="select-city__title">
+            <ContentList
+              :path="localePath('/cities')"
+              :query="{
+                only: ['title', '_path'],
+                where: {
+                  tags: {
+                    $contains: filter,
+                  },
+                },
+                $sensitivity: 'base',
+              }"
+            >
+              <template v-slot="{ list }">
+                <span v-for="сities in list" :key="сities._path">
+                  <span v-if="сities._path == src">{{ сities.title }}</span>
+                  <span v-else-if="сities._path == '/ru' + src">{{
+                    сities.title
+                  }}</span>
+                </span>
+              </template>
+              <template #not-found>
+                <p>error сities</p>
+              </template>
+            </ContentList>
+          </div>
+          <div v-else-if="src == null" class="select-city__title">
             {{ t("Dubai") }}
           </div>
+
           <div class="select-city__content">
             <label class="select-city__label"
-              ><a href="/">{{ t("Dubai") }}</a></label
+              ><a :href="localePath('/')">{{ t("Dubai") }}</a></label
             >
 
+            <ContentList
+              :path="localePath('/cities')"
+              :query="{
+                only: ['title', '_path'],
+                where: {
+                  tags: {
+                    $contains: filter,
+                  },
+                },
+                $sensitivity: 'base',
+              }"
+            >
+              <template v-slot="{ list }">
+                <label
+                  class="select-city__label"
+                  v-for="сities in list"
+                  :key="сities._path"
+                >
+                  <a :href="сities._path">{{ сities.title }}</a>
+                </label>
+              </template>
+              <template #not-found>
+                <p>error сities</p>
+              </template>
+            </ContentList>
             <label class="select-city__label"
-              ><a href="https://mgtimes.ru/en">{{ t("Mosсow") }}</a></label
+              ><a href="https://mgtimes.ru/en">{{ t("Moscow") }}</a></label
             >
-
             <label class="select-city__label"
               ><a
                 href="https://mgtimes.ru/en/escort-modeli-sankt-peterburg.html"
@@ -145,7 +240,6 @@ onMounted(() => {
   </header>
 </template>
 
-
 <i18n lang="json">
 {
   "en": {
@@ -157,7 +251,7 @@ onMounted(() => {
     "Media": "Media",
 
     "Dubai": "Dubai",
-    "Moskow": "Moskow",
+    "Moscow": "Moscow",
     "Sankt-Peterburg": "Sankt-Peterburg",
     "Order an escort": "Order an escort"
   },
@@ -170,7 +264,7 @@ onMounted(() => {
     "Media": "Медиа",
 
     "Dubai": "Дубай",
-    "Moskow": "Москва",
+    "Moscow": "Москва",
     "Sankt-Peterburg": "Санкт-Петербург",
     "Order an escort": "Заказать эскорт"
   }
