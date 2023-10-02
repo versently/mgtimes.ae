@@ -484,10 +484,17 @@
 
 
 
-.menu__services .select-city__title::before {
+
+.menu__services .select-city__title::before
+{
   content:'';
 }
-
+.mob-menu__services .select-city__title::before{
+content: none;
+}
+.mob-menu__services .select-city__content{
+z-index: 100;
+}
 .menu__services .select-city__select{
   width: auto;
 }
@@ -4850,7 +4857,15 @@ h6 {
     font-size: 14px;
     line-height: 17px;
   }
-
+.mob-menu__services .select-city__title{
+  font-size: 14px;
+  line-height: 17px;
+}
+@media (max-width: 767.98px){
+  .mob-menu__services .select-city__title{
+    font-size: 16px;
+    line-height: 18px;
+}}
   .select-city__select {
     width: 177px;
   }

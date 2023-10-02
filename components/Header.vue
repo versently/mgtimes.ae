@@ -206,8 +206,44 @@ if (route.params.slug) {
             <div class="menu__item">
               <a href="/models" class="menu__link">Models</a>
             </div>
-            <div class="menu__item">
+            <!-- <div class="menu__item">
               <a href="/services" class="menu__link">Services</a>
+            </div> -->
+            <div class="menu__item mob-menu__services">
+              <div class="select-city__select">
+        
+                <div class="select-city__title ">
+                  {{  t("Services") }}
+                </div>
+
+                <div class="select-city__content">
+                  <ContentList
+                    :path="localePath('/services')"
+                    :query="{
+                      only: ['title', '_path', 'h1'],
+                      where: {
+                        tags: {
+                          $contains: filter,
+                        },
+                      },
+                      $sensitivity: 'base',
+                    }"
+                  >
+                    <template v-slot="{ list }">
+                      <label
+                        class="select-city__label"
+                        v-for="сities in list"
+                        :key="сities._path"
+                      >
+                        <a :href="сities._path">{{ сities.h1 }}</a>
+                      </label>
+                    </template>
+                    <template #not-found>
+                      <p>error сities</p>
+                    </template>
+                  </ContentList>
+                </div>
+              </div>
             </div>
             <div class="menu__item">
               <a href="/casting" class="menu__link">Casting</a>
