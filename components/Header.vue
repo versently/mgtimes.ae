@@ -53,10 +53,9 @@ if (route.params.slug) {
             }}</a> -->
             <div class="menu__services">
               <div class="select-city__select">
-        
-                <div class="select-city__title">
-                  {{  t("Services") }}
-                </div>
+                <a :href="localePath('/services')" class="select-city__title">
+                  {{ t("Services") }}
+                </a>
 
                 <div class="select-city__content">
                   <ContentList
@@ -201,23 +200,23 @@ if (route.params.slug) {
         <div class="header__menu menu">
           <div class="menu__list">
             <div class="menu__item">
-            <a :href="localePath('index')" class="menu__link">{{
-              t("Home")
-            }}</a>
-          </div>
-          <div class="menu__item">
-            <a :href="localePath('/models')" class="menu__link">
-              {{ t("Models") }}</a
-            >
-          </div>
+              <a :href="localePath('index')" class="menu__link">{{
+                t("Home")
+              }}</a>
+            </div>
+            <div class="menu__item">
+              <a :href="localePath('/models')" class="menu__link">
+                {{ t("Models") }}</a
+              >
+            </div>
             <!-- <div class="menu__item">
               <a href="/services" class="menu__link">Services</a>
             </div> -->
             <div class="menu__item mob-menu__services">
               <div class="select-city__select">
-        
-                <div class="select-city__title ">
-                  {{  t("Services") }}
+                <div class="select-city__title">
+                  <a :href="localePath('/services')">{{ t("Services") }}</a>
+                  <div class="ar"></div>
                 </div>
 
                 <div class="select-city__content">
@@ -250,33 +249,37 @@ if (route.params.slug) {
               </div>
             </div>
             <div class="menu__item">
-            <a :href="localePath('/casting')" class="menu__link">{{
-              t("Casting")
-            }}</a>
-          </div>
-          <div class="menu__item">
-            <a :href="localePath('/contacts')" class="menu__link">{{
-              t("Contacts")
-            }}</a>
-          </div>
-          <div class="menu__item">
-            <a :href="localePath('/media')" class="menu__link">{{
-              t("Media")
-            }}</a>
-          </div>
+              <a :href="localePath('/casting')" class="menu__link">{{
+                t("Casting")
+              }}</a>
+            </div>
+            <div class="menu__item">
+              <a :href="localePath('/contacts')" class="menu__link">{{
+                t("Contacts")
+              }}</a>
+            </div>
+            <div class="menu__item">
+              <a :href="localePath('/media')" class="menu__link">{{
+                t("Media")
+              }}</a>
+            </div>
           </div>
         </div>
         <div class="header__select-language lang-box">
           <div class="lang-box__ru">
-            <a :class="{ active: locale === 'en' }" :href="switchLocalePath('en')"
-            >EN</a
-          >
+            <a
+              :class="{ active: locale === 'en' }"
+              :href="switchLocalePath('en')"
+              >EN</a
+            >
           </div>
           <div class="lang-box__line"></div>
           <div class="lang-box__en">
-            <a :class="{ active: locale === 'ru' }" :href="switchLocalePath('ru')"
-            >RU</a
-          >
+            <a
+              :class="{ active: locale === 'ru' }"
+              :href="switchLocalePath('ru')"
+              >RU</a
+            >
           </div>
         </div>
         <button class="header__btn-order btn-order">Order an escort</button>
@@ -289,7 +292,19 @@ if (route.params.slug) {
     </div>
   </header>
 </template>
-
+<style>
+.select-city__title a {
+  color: #000;
+}
+.ar {
+  content: url(/img/header/arrow.svg);
+  transform: rotate(0deg);
+  position: relative;
+  top: 0px;
+  left: 5px;
+  display: block;
+}
+</style>
 <i18n lang="json">
 {
   "en": {

@@ -481,8 +481,10 @@
   left: 5px;
   display: block;
 }
+.mob-menu__services .select-city__title::after {
+  content: none;
 
-
+}
 
 
 .menu__services .select-city__title::before
