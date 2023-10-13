@@ -518,7 +518,7 @@ z-index: 100;
   opacity: 0;
   z-index: -5;
   max-height: 370px;
-    overflow: scroll;
+  overflow: scroll;
 }
 
 

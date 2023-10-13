@@ -179,7 +179,7 @@ const { t } = useI18n({
   "ru": {
     "Home": "Главная",
     "Models": "Модели",
-    "Services": "Сервисы",
+    "Services": "Услуги",
     "Casting": "Кастинг",
     "Contacts": "Контакты",
     "Media": "Медиа",

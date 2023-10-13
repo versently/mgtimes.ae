@@ -328,7 +328,7 @@ if (route.path.startsWith('/cities/')) {
   "ru": {
     "Home": "Главная",
     "Models": "Модели",
-    "Services": "Сервисы",
+    "Services": "Услуги",
     "Casting": "Кастинг",
     "Contacts": "Контакты",
     "Media": "Медиа",
