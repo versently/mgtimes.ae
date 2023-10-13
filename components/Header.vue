@@ -23,7 +23,7 @@ onMounted(() => {
 
 const route = useRoute();
 const src = ref(null);
-if (route.params.slug) {
+if (route.path.startsWith('/cities/')) {
   src.value = "/cities/" + route.params.slug[0];
 } else {
   src.value = null;
@@ -106,7 +106,9 @@ if (route.params.slug) {
       </div>
       <div class="header__select-city select-city">
         <div class="select-city__select">
+        
           <div v-if="!(src == null)" class="select-city__title">
+            <span class="select-city__before">{{ t("City") }}</span>
             <ContentList
               :path="localePath('/cities')"
               :query="{
@@ -121,7 +123,7 @@ if (route.params.slug) {
             >
               <template v-slot="{ list }">
                 <span v-for="сities in list" :key="сities._path">
-                  <span v-if="сities._path == src">{{ сities.h1 }}</span>
+                  <span v-if="сities._path == src">{{ сities.h1 }} </span>
                   <span v-else-if="сities._path == '/ru' + src">{{
                     сities.h1
                   }}</span>
@@ -132,7 +134,8 @@ if (route.params.slug) {
               </template>
             </ContentList>
           </div>
-          <div v-else-if="src == null" class="select-city__title">
+          <div v-else-if="src == null" class="select-city__title ">
+            <span class="select-city__before">{{ t("City") }}</span>
             {{ t("Dubai") }}
           </div>
 
@@ -318,7 +321,9 @@ if (route.params.slug) {
     "Dubai": "Dubai",
     "Moscow": "Moscow",
     "Sankt-Peterburg": "Sankt-Peterburg",
-    "Order an escort": "Order an escort"
+    "Order an escort": "Order an escort",
+
+    "City": "City:"
   },
   "ru": {
     "Home": "Главная",
@@ -331,7 +336,9 @@ if (route.params.slug) {
     "Dubai": "Дубай",
     "Moscow": "Москва",
     "Sankt-Peterburg": "Санкт-Петербург",
-    "Order an escort": "Заказать эскорт"
+    "Order an escort": "Заказать эскорт",
+
+    "City": "Город:"
   }
 }
 </i18n>

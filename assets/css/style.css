@@ -455,8 +455,7 @@
   color: #1C1B1B;
 }
 
-.select-city__title::before {
-  content: "City:";
+.select-city__title .select-city__before {
   position: relative;
   top: 0;
   margin: 0px 5px 0px 0px;
