@@ -4735,7 +4735,7 @@ html {
 
 html,
 body {
-
+  font-family: "Lato";
   height: 100%;
   width: 100%;
 }

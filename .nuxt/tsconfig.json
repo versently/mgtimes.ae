@@ -3,114 +3,127 @@
   "compilerOptions": {
     "forceConsistentCasingInFileNames": true,
     "jsx": "preserve",
+    "jsxImportSource": "vue",
     "target": "ESNext",
     "module": "ESNext",
     "moduleResolution": "Node",
     "skipLibCheck": true,
+    "isolatedModules": true,
+    "useDefineForClassFields": true,
     "strict": true,
+    "noImplicitThis": true,
+    "esModuleInterop": true,
     "allowJs": true,
-    "baseUrl": "/Users/vitaly/Sites/hostiman_artur/mgtimes_nuxt",
     "noEmit": true,
     "resolveJsonModule": true,
     "allowSyntheticDefaultImports": true,
-    "types": [
-      "node"
-    ],
     "paths": {
       "~": [
-        "/Users/vitaly/Sites/hostiman_artur/mgtimes_nuxt"
+        ".."
       ],
       "~/*": [
-        "/Users/vitaly/Sites/hostiman_artur/mgtimes_nuxt/*"
+        "../*"
       ],
       "@": [
-        "/Users/vitaly/Sites/hostiman_artur/mgtimes_nuxt"
+        ".."
       ],
       "@/*": [
-        "/Users/vitaly/Sites/hostiman_artur/mgtimes_nuxt/*"
+        "../*"
       ],
       "~~": [
-        "/Users/vitaly/Sites/hostiman_artur/mgtimes_nuxt"
+        ".."
       ],
       "~~/*": [
-        "/Users/vitaly/Sites/hostiman_artur/mgtimes_nuxt/*"
+        "../*"
       ],
       "@@": [
-        "/Users/vitaly/Sites/hostiman_artur/mgtimes_nuxt"
+        ".."
       ],
       "@@/*": [
-        "/Users/vitaly/Sites/hostiman_artur/mgtimes_nuxt/*"
+        "../*"
       ],
       "assets": [
-        "/Users/vitaly/Sites/hostiman_artur/mgtimes_nuxt/assets"
+        "../assets"
       ],
       "assets/*": [
-        "/Users/vitaly/Sites/hostiman_artur/mgtimes_nuxt/assets/*"
+        "../assets/*"
       ],
       "public": [
-        "/Users/vitaly/Sites/hostiman_artur/mgtimes_nuxt/public"
+        "../public"
       ],
       "public/*": [
-        "/Users/vitaly/Sites/hostiman_artur/mgtimes_nuxt/public/*"
+        "../public/*"
       ],
       "#app": [
-        "/Users/vitaly/Sites/hostiman_artur/mgtimes_nuxt/node_modules/nuxt/dist/app"
+        "../node_modules/nuxt/dist/app"
       ],
       "#app/*": [
-        "/Users/vitaly/Sites/hostiman_artur/mgtimes_nuxt/node_modules/nuxt/dist/app/*"
+        "../node_modules/nuxt/dist/app/*"
       ],
       "vue-demi": [
-        "/Users/vitaly/Sites/hostiman_artur/mgtimes_nuxt/node_modules/nuxt/dist/app/compat/vue-demi"
+        "../node_modules/nuxt/dist/app/compat/vue-demi"
       ],
       "#image": [
-        "/Users/vitaly/Sites/hostiman_artur/mgtimes_nuxt/node_modules/@nuxt/image/dist/runtime"
+        "../node_modules/@nuxt/image/dist/runtime"
       ],
       "#image/*": [
-        "/Users/vitaly/Sites/hostiman_artur/mgtimes_nuxt/node_modules/@nuxt/image/dist/runtime/*"
+        "../node_modules/@nuxt/image/dist/runtime/*"
       ],
       "vue-i18n": [
-        "/Users/vitaly/Sites/hostiman_artur/mgtimes_nuxt/node_modules/vue-i18n/dist/vue-i18n"
+        "../node_modules/vue-i18n/dist/vue-i18n"
       ],
       "@intlify/shared": [
-        "/Users/vitaly/Sites/hostiman_artur/mgtimes_nuxt/node_modules/@intlify/shared/dist/shared"
+        "../node_modules/@intlify/shared/dist/shared"
       ],
       "@intlify/vue-router-bridge": [
-        "/Users/vitaly/Sites/hostiman_artur/mgtimes_nuxt/node_modules/@nuxtjs/i18n/node_modules/@intlify/vue-router-bridge/lib/index"
+        "../node_modules/@nuxtjs/i18n/node_modules/@intlify/vue-router-bridge/lib/index"
       ],
       "@intlify/vue-i18n-bridge": [
-        "/Users/vitaly/Sites/hostiman_artur/mgtimes_nuxt/node_modules/@nuxtjs/i18n/node_modules/vue-i18n-routing/node_modules/@intlify/vue-i18n-bridge/lib/index"
+        "../node_modules/@nuxtjs/i18n/node_modules/vue-i18n-routing/node_modules/@intlify/vue-i18n-bridge/lib/index"
       ],
       "vue-i18n-routing": [
-        "/Users/vitaly/Sites/hostiman_artur/mgtimes_nuxt/node_modules/@nuxtjs/i18n/node_modules/vue-i18n-routing/dist/vue-i18n-routing"
+        "../node_modules/@nuxtjs/i18n/node_modules/vue-i18n-routing/dist/vue-i18n-routing"
       ],
       "#i18n": [
-        "/Users/vitaly/Sites/hostiman_artur/mgtimes_nuxt/node_modules/@nuxtjs/i18n/dist/runtime/composables"
-      ],
-      "#delay-hydration": [
-        "/Users/vitaly/Sites/hostiman_artur/mgtimes_nuxt/.nuxt/delay-hydration"
+        "../node_modules/@nuxtjs/i18n/dist/runtime/composables"
       ],
       "#vue-router": [
-        "/Users/vitaly/Sites/hostiman_artur/mgtimes_nuxt/.nuxt/vue-router"
+        "./vue-router"
       ],
       "#imports": [
-        "/Users/vitaly/Sites/hostiman_artur/mgtimes_nuxt/.nuxt/imports"
+        "./imports"
       ],
       "#build": [
-        "/Users/vitaly/Sites/hostiman_artur/mgtimes_nuxt/.nuxt"
+        "."
       ],
       "#build/*": [
-        "/Users/vitaly/Sites/hostiman_artur/mgtimes_nuxt/.nuxt/*"
+        "./*"
       ],
       "#components": [
-        "/Users/vitaly/Sites/hostiman_artur/mgtimes_nuxt/.nuxt/components"
+        "./components"
       ]
     }
   },
   "include": [
     "./nuxt.d.ts",
-    "../**/*"
+    "../**/*",
+    "../node_modules/@nuxt/image/runtime",
+    "../node_modules/@nuxt/content/runtime",
+    "../node_modules/@nuxtjs/i18n/runtime",
+    "../node_modules/@sidebase/nuxt-auth/runtime",
+    "../node_modules/@nuxt/devtools/runtime",
+    "../node_modules/@nuxt/telemetry/runtime",
+    ".."
   ],
   "exclude": [
+    "../node_modules",
+    "../node_modules/nuxt/node_modules",
+    "../node_modules/@nuxt/image/runtime/server",
+    "../node_modules/@nuxt/content/runtime/server",
+    "../node_modules/@nuxtjs/i18n/runtime/server",
+    "../node_modules/@sidebase/nuxt-auth/runtime/server",
+    "../node_modules/@nuxt/devtools/runtime/server",
+    "../node_modules/@nuxt/telemetry/runtime/server",
     "../dist",
     "../.output"
   ]

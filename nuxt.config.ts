@@ -1,5 +1,12 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
+  devtools: { enabled: true },
+  postcss: {
+    plugins: {
+      tailwindcss: {},
+      autoprefixer: {},
+    },
+  },
   app: {
     head: {
       script: [
@@ -20,7 +27,6 @@ export default defineNuxtConfig({
           body: true,
           defer: true,
         },
-     
 
         { src: "/assets/js/app.js", body: true, defer: true },
 
@@ -85,7 +91,7 @@ export default defineNuxtConfig({
 			}
 		});
           `,
-          body: true, 
+          body: true,
         },
       ],
       noscript: [
@@ -95,7 +101,7 @@ export default defineNuxtConfig({
         <div><img src="https://mc.yandex.ru/watch/69520198" style="position:absolute; left:-9999px;" alt="" /></div>
         <!-- Yandex.Metrika counter -->
          `,
-          body: true, 
+          body: true,
         },
       ],
 
@@ -173,21 +179,26 @@ export default defineNuxtConfig({
     },
   },
 
-  css: ["@/assets/css/style.css"],
+  css: ["@/assets/css/style.css", "@/assets/css/main.css"],
   modules: [
     "@nuxt/image",
     "@nuxt/content",
     "@nuxtjs/i18n",
-    "nuxt-delay-hydration",
+    "@sidebase/nuxt-auth",
+    // "nuxt-delay-hydration",
     // "@nuxtjs/yandex-metrika",
   ],
   // yandexMetrika: {
   //   id: "69520198",
   //   // ...
   // },
-  delayHydration: {
-    mode: "init",
-  },
+  // delayHydration: {
+  //   mode: "init",
+  // },
+  
+  // auth: {
+  //   globalAppMiddleware: true
+  //  },
   image: {
     provider: "netlify",
     format: ["webp"],

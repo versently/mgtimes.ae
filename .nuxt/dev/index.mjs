@@ -4,24 +4,27 @@ import { tmpdir } from 'node:os';
 import { join as join$1 } from 'node:path';
 import { mkdirSync } from 'node:fs';
 import { parentPort, threadId } from 'node:worker_threads';
-import { defineEventHandler, handleCacheHeaders, createEvent, eventHandler, setHeaders, sendRedirect, proxyRequest, setResponseStatus, getRequestHeader, setResponseHeader, getRequestHeaders, getQuery as getQuery$1, getCookie, createError, createApp, createRouter as createRouter$1, toNodeListener, fetchWithEvent, lazyEventHandler } from 'file:///Users/vitaly/Sites/hostiman_artur/mgtimes_nuxt/node_modules/h3/dist/index.mjs';
+import { defineEventHandler, handleCacheHeaders, isEvent, createEvent, getRequestHeader, splitCookiesString, eventHandler, setHeaders, sendRedirect, proxyRequest, setResponseHeader, send, getResponseStatus, setResponseStatus, setResponseHeaders, getRequestHeaders, getQuery as getQuery$1, getCookie, createError, createApp, createRouter as createRouter$1, toNodeListener, fetchWithEvent, lazyEventHandler, setCookie, appendHeader, parseCookies, getHeaders, getMethod, isMethod, readBody, getResponseStatusText } from 'file:///Users/vitaly/Sites/hostiman_artur/mgtimes_nuxt/node_modules/h3/dist/index.mjs';
+import CredentialsProvider from 'file:///Users/vitaly/Sites/hostiman_artur/mgtimes_nuxt/node_modules/next-auth/providers/credentials.js';
+import { AuthHandler } from 'file:///Users/vitaly/Sites/hostiman_artur/mgtimes_nuxt/node_modules/next-auth/core/index.js';
+import defu, { defuFn, defu as defu$1 } from 'file:///Users/vitaly/Sites/hostiman_artur/mgtimes_nuxt/node_modules/defu/dist/defu.mjs';
 import { SitemapStream, streamToPromise } from 'file:///Users/vitaly/Sites/hostiman_artur/mgtimes_nuxt/node_modules/sitemap/dist/index.js';
-import { createRenderer } from 'file:///Users/vitaly/Sites/hostiman_artur/mgtimes_nuxt/node_modules/vue-bundle-renderer/dist/runtime.mjs';
+import { getRequestDependencies, getPreloadLinks, getPrefetchLinks, createRenderer } from 'file:///Users/vitaly/Sites/hostiman_artur/mgtimes_nuxt/node_modules/vue-bundle-renderer/dist/runtime.mjs';
 import { stringify, uneval } from 'file:///Users/vitaly/Sites/hostiman_artur/mgtimes_nuxt/node_modules/devalue/index.js';
 import { renderToString } from 'file:///Users/vitaly/Sites/hostiman_artur/mgtimes_nuxt/node_modules/vue/server-renderer/index.mjs';
-import { createFetch as createFetch$1, Headers } from 'file:///Users/vitaly/Sites/hostiman_artur/mgtimes_nuxt/node_modules/ofetch/dist/node.mjs';
+import { renderSSRHead } from 'file:///Users/vitaly/Sites/hostiman_artur/mgtimes_nuxt/node_modules/@unhead/ssr/dist/index.mjs';
+import { createFetch as createFetch$1, Headers as Headers$1 } from 'file:///Users/vitaly/Sites/hostiman_artur/mgtimes_nuxt/node_modules/ofetch/dist/node.mjs';
 import destr from 'file:///Users/vitaly/Sites/hostiman_artur/mgtimes_nuxt/node_modules/destr/dist/index.mjs';
 import { createCall, createFetch } from 'file:///Users/vitaly/Sites/hostiman_artur/mgtimes_nuxt/node_modules/unenv/runtime/fetch/index.mjs';
 import { createHooks } from 'file:///Users/vitaly/Sites/hostiman_artur/mgtimes_nuxt/node_modules/hookable/dist/index.mjs';
 import { snakeCase, kebabCase, pascalCase, camelCase } from 'file:///Users/vitaly/Sites/hostiman_artur/mgtimes_nuxt/node_modules/scule/dist/index.mjs';
 import { klona } from 'file:///Users/vitaly/Sites/hostiman_artur/mgtimes_nuxt/node_modules/klona/dist/index.mjs';
-import defu, { defuFn } from 'file:///Users/vitaly/Sites/hostiman_artur/mgtimes_nuxt/node_modules/defu/dist/defu.mjs';
 import { hash } from 'file:///Users/vitaly/Sites/hostiman_artur/mgtimes_nuxt/node_modules/ohash/dist/index.mjs';
 import { parseURL, withoutBase, joinURL, getQuery, withQuery, withLeadingSlash, withoutTrailingSlash, isRelative } from 'file:///Users/vitaly/Sites/hostiman_artur/mgtimes_nuxt/node_modules/ufo/dist/index.mjs';
 import { createStorage, prefixStorage } from 'file:///Users/vitaly/Sites/hostiman_artur/mgtimes_nuxt/node_modules/unstorage/dist/index.mjs';
 import unstorage_47drivers_47fs from 'file:///Users/vitaly/Sites/hostiman_artur/mgtimes_nuxt/node_modules/unstorage/drivers/fs.mjs';
 import { toRouteMatcher, createRouter } from 'file:///Users/vitaly/Sites/hostiman_artur/mgtimes_nuxt/node_modules/radix3/dist/index.mjs';
-import { packString } from 'file:///Users/vitaly/Sites/hostiman_artur/mgtimes_nuxt/node_modules/packrup/dist/index.mjs';
+import getURL from 'file:///Users/vitaly/Sites/hostiman_artur/mgtimes_nuxt/node_modules/requrl/dist/requrl.js';
 import { extname, join } from 'file:///Users/vitaly/Sites/hostiman_artur/mgtimes_nuxt/node_modules/pathe/dist/index.mjs';
 import { unified } from 'file:///Users/vitaly/Sites/hostiman_artur/mgtimes_nuxt/node_modules/unified/index.js';
 import { toString } from 'file:///Users/vitaly/Sites/hostiman_artur/mgtimes_nuxt/node_modules/mdast-util-to-string/index.js';
@@ -44,98 +47,22 @@ import remarkParse from 'file:///Users/vitaly/Sites/hostiman_artur/mgtimes_nuxt/
 import remark2rehype from 'file:///Users/vitaly/Sites/hostiman_artur/mgtimes_nuxt/node_modules/remark-rehype/index.js';
 import { all } from 'file:///Users/vitaly/Sites/hostiman_artur/mgtimes_nuxt/node_modules/mdast-util-to-hast/index.js';
 import { detab } from 'file:///Users/vitaly/Sites/hostiman_artur/mgtimes_nuxt/node_modules/detab/index.js';
-import { u } from 'file:///Users/vitaly/Sites/hostiman_artur/mgtimes_nuxt/node_modules/unist-builder/index.js';
+import { u as u$1 } from 'file:///Users/vitaly/Sites/hostiman_artur/mgtimes_nuxt/node_modules/unist-builder/index.js';
 import { encode } from 'file:///Users/vitaly/Sites/hostiman_artur/mgtimes_nuxt/node_modules/mdurl/index.js';
 import slugify from 'file:///Users/vitaly/Sites/hostiman_artur/mgtimes_nuxt/node_modules/slugify/slugify.js';
 import { position } from 'file:///Users/vitaly/Sites/hostiman_artur/mgtimes_nuxt/node_modules/unist-util-position/index.js';
 import { visit } from 'file:///Users/vitaly/Sites/hostiman_artur/mgtimes_nuxt/node_modules/unist-util-visit/index.js';
 import { BUNDLED_LANGUAGES, BUNDLED_THEMES, getHighlighter } from 'file:///Users/vitaly/Sites/hostiman_artur/mgtimes_nuxt/node_modules/shiki-es/dist/shiki.node.mjs';
 import consola from 'file:///Users/vitaly/Sites/hostiman_artur/mgtimes_nuxt/node_modules/unenv/runtime/npm/consola.mjs';
+import { version, unref } from 'file:///Users/vitaly/Sites/hostiman_artur/mgtimes_nuxt/node_modules/vue/index.mjs';
+import { createServerHead as createServerHead$1 } from 'file:///Users/vitaly/Sites/hostiman_artur/mgtimes_nuxt/node_modules/unhead/dist/index.mjs';
+import { defineHeadPlugin } from 'file:///Users/vitaly/Sites/hostiman_artur/mgtimes_nuxt/node_modules/@unhead/shared/dist/index.mjs';
 
-const providers = [
-  ["APPVEYOR"],
-  ["AZURE_PIPELINES", "SYSTEM_TEAMFOUNDATIONCOLLECTIONURI"],
-  ["AZURE_STATIC", "INPUT_AZURE_STATIC_WEB_APPS_API_TOKEN"],
-  ["APPCIRCLE", "AC_APPCIRCLE"],
-  ["BAMBOO", "bamboo_planKey"],
-  ["BITBUCKET", "BITBUCKET_COMMIT"],
-  ["BITRISE", "BITRISE_IO"],
-  ["BUDDY", "BUDDY_WORKSPACE_ID"],
-  ["BUILDKITE"],
-  ["CIRCLE", "CIRCLECI"],
-  ["CIRRUS", "CIRRUS_CI"],
-  ["CLOUDFLARE_PAGES", "CF_PAGES", { ci: true }],
-  ["CODEBUILD", "CODEBUILD_BUILD_ARN"],
-  ["CODEFRESH", "CF_BUILD_ID"],
-  ["DRONE"],
-  ["DRONE", "DRONE_BUILD_EVENT"],
-  ["DSARI"],
-  ["GITHUB_ACTIONS"],
-  ["GITLAB", "GITLAB_CI"],
-  ["GITLAB", "CI_MERGE_REQUEST_ID"],
-  ["GOCD", "GO_PIPELINE_LABEL"],
-  ["LAYERCI"],
-  ["HUDSON", "HUDSON_URL"],
-  ["JENKINS", "JENKINS_URL"],
-  ["MAGNUM"],
-  ["NETLIFY"],
-  ["NETLIFY", "NETLIFY_LOCAL", { ci: false }],
-  ["NEVERCODE"],
-  ["RENDER"],
-  ["SAIL", "SAILCI"],
-  ["SEMAPHORE"],
-  ["SCREWDRIVER"],
-  ["SHIPPABLE"],
-  ["SOLANO", "TDDIUM"],
-  ["STRIDER"],
-  ["TEAMCITY", "TEAMCITY_VERSION"],
-  ["TRAVIS"],
-  ["VERCEL", "NOW_BUILDER"],
-  ["APPCENTER", "APPCENTER_BUILD_ID"],
-  ["CODESANDBOX", "CODESANDBOX_SSE", { ci: false }],
-  ["STACKBLITZ"],
-  ["STORMKIT"],
-  ["CLEAVR"]
-];
-function detectProvider(env) {
-  for (const provider of providers) {
-    const envName = provider[1] || provider[0];
-    if (env[envName]) {
-      return {
-        name: provider[0].toLowerCase(),
-        ...provider[2]
-      };
-    }
-  }
-  if (env.SHELL && env.SHELL === "/bin/jsh") {
-    return {
-      name: "stackblitz",
-      ci: false
-    };
-  }
-  return {
-    name: "",
-    ci: false
-  };
-}
+const r=Object.create(null),t=e=>globalThis.process?.env||globalThis._importMeta_.env||globalThis.Deno?.env.toObject()||globalThis.__env__||(e?r:globalThis),s=new Proxy(r,{get(e,o){return t()[o]??r[o]},has(e,o){const i=t();return o in i||o in r},set(e,o,i){const p=t(!0);return p[o]=i,!0},deleteProperty(e,o){if(!o)return !1;const i=t(!0);return delete i[o],!0},ownKeys(){const e=t(!0);return Object.keys(e)}}),E=typeof process<"u"&&process.env&&"development"||"",d=[["APPVEYOR"],["AZURE_PIPELINES","SYSTEM_TEAMFOUNDATIONCOLLECTIONURI"],["AZURE_STATIC","INPUT_AZURE_STATIC_WEB_APPS_API_TOKEN"],["APPCIRCLE","AC_APPCIRCLE"],["BAMBOO","bamboo_planKey"],["BITBUCKET","BITBUCKET_COMMIT"],["BITRISE","BITRISE_IO"],["BUDDY","BUDDY_WORKSPACE_ID"],["BUILDKITE"],["CIRCLE","CIRCLECI"],["CIRRUS","CIRRUS_CI"],["CLOUDFLARE_PAGES","CF_PAGES",{ci:!0}],["CODEBUILD","CODEBUILD_BUILD_ARN"],["CODEFRESH","CF_BUILD_ID"],["DRONE"],["DRONE","DRONE_BUILD_EVENT"],["DSARI"],["GITHUB_ACTIONS"],["GITLAB","GITLAB_CI"],["GITLAB","CI_MERGE_REQUEST_ID"],["GOCD","GO_PIPELINE_LABEL"],["LAYERCI"],["HUDSON","HUDSON_URL"],["JENKINS","JENKINS_URL"],["MAGNUM"],["NETLIFY"],["NETLIFY","NETLIFY_LOCAL",{ci:!1}],["NEVERCODE"],["RENDER"],["SAIL","SAILCI"],["SEMAPHORE"],["SCREWDRIVER"],["SHIPPABLE"],["SOLANO","TDDIUM"],["STRIDER"],["TEAMCITY","TEAMCITY_VERSION"],["TRAVIS"],["VERCEL","NOW_BUILDER"],["VERCEL","VERCEL",{ci:!1}],["VERCEL","VERCEL_ENV",{ci:!1}],["APPCENTER","APPCENTER_BUILD_ID"],["CODESANDBOX","CODESANDBOX_SSE",{ci:!1}],["STACKBLITZ"],["STORMKIT"],["CLEAVR"]];function B(){if(globalThis.process?.env)for(const e of d){const o=e[1]||e[0];if(globalThis.process?.env[o])return {name:e[0].toLowerCase(),...e[2]}}return globalThis.process?.env?.SHELL==="/bin/jsh"&&globalThis.process?.versions?.webcontainer?{name:"stackblitz",ci:!1}:{name:"",ci:!1}}const I=B(),U=I.name;function n(e){return e?e!=="false":!1}const l=globalThis.process?.platform||"",T=n(s.CI)||I.ci!==!1,a=n(globalThis.process?.stdout&&globalThis.process?.stdout.isTTY);n(s.DEBUG);const c=E==="test"||n(s.TEST);n(s.MINIMAL)||T||c||!a;const C=/^win/i.test(l);!n(s.NO_COLOR)&&(n(s.FORCE_COLOR)||C&&s.TERM!=="dumb"||a&&s.TERM&&s.TERM==="dumb"||T);const R=(globalThis.process?.versions?.node||"").replace(/^v/,"")||null;Number(R?.split(".")[0])||null;const Y=globalThis.process||Object.create(null),L={versions:{}};new Proxy(Y,{get(e,o){if(o==="env")return s;if(o in e)return e[o];if(o in L)return L[o]}});const _=!!globalThis.Netlify,O=!!globalThis.EdgeRuntime,D=globalThis.navigator?.userAgent==="Cloudflare-Workers",A=!!globalThis.Deno,u=!!globalThis.__lagon__,N=globalThis.process?.release?.name==="node",S=!!globalThis.Bun||!!globalThis.process?.versions?.bun,b=!!globalThis.fastly,K=[[_,"netlify"],[O,"edge-light"],[D,"workerd"],[A,"deno"],[u,"lagon"],[N,"node"],[S,"bun"],[b,"fastly"]];function F(){const e=K.find(o=>o[0]);if(e)return {name:e[1]}}const g=F();g?.name||"";
 
-const processShim = typeof process !== "undefined" ? process : {};
-const envShim = processShim.env || {};
-const providerInfo = detectProvider(envShim);
-const nodeENV = typeof process !== "undefined" && process.env && "development" || "";
-const platform = processShim.platform;
-const provider = providerInfo.name;
-const isCI = toBoolean(envShim.CI) || providerInfo.ci !== false;
-const hasTTY = toBoolean(processShim.stdout && processShim.stdout.isTTY);
-toBoolean(envShim.DEBUG);
-const isTest = nodeENV === "test" || toBoolean(envShim.TEST);
-toBoolean(envShim.MINIMAL) || isCI || isTest || !hasTTY;
-const isWindows = /^win/i.test(platform);
-function toBoolean(val) {
-  return val ? val !== "false" : false;
-}
-
-const inlineAppConfig = {};
+const inlineAppConfig = {
+  "nuxt": {}
+};
 
 
 
@@ -206,6 +133,29 @@ const _inlineRuntimeConfig = {
         "exclude": [
           1
         ]
+      }
+    },
+    "auth": {
+      "computed": {
+        "origin": "",
+        "pathname": "/api/auth",
+        "fullBaseUrl": "/api/auth"
+      },
+      "isEnabled": true,
+      "session": {
+        "enableRefreshPeriodically": false,
+        "enableRefreshOnWindowFocus": true
+      },
+      "globalAppMiddleware": {
+        "isEnabled": false,
+        "allow404WithoutAuth": true,
+        "addDefaultCallbackUrl": true
+      },
+      "provider": {
+        "type": "authjs",
+        "trustHost": false,
+        "defaultProvider": "",
+        "addDefaultCallbackUrl": true
       }
     }
   },
@@ -372,6 +322,7 @@ storage.mount('root', unstorage_47drivers_47fs({"driver":"fs","readOnly":true,"b
 storage.mount('src', unstorage_47drivers_47fs({"driver":"fs","readOnly":true,"base":"/Users/vitaly/Sites/hostiman_artur/mgtimes_nuxt/server","ignore":["**/node_modules/**","**/.git/**"]}));
 storage.mount('build', unstorage_47drivers_47fs({"driver":"fs","readOnly":false,"base":"/Users/vitaly/Sites/hostiman_artur/mgtimes_nuxt/.nuxt","ignore":["**/node_modules/**","**/.git/**"]}));
 storage.mount('cache', unstorage_47drivers_47fs({"driver":"fs","readOnly":false,"base":"/Users/vitaly/Sites/hostiman_artur/mgtimes_nuxt/.nuxt/cache","ignore":["**/node_modules/**","**/.git/**"]}));
+storage.mount('data', unstorage_47drivers_47fs({"driver":"fs","base":"/Users/vitaly/Sites/hostiman_artur/mgtimes_nuxt/.data/kv","ignore":["**/node_modules/**","**/.git/**"]}));
 
 function useStorage(base = "") {
   return base ? prefixStorage(storage, base) : storage;
@@ -390,7 +341,7 @@ function defineCachedFunction(fn, opts = {}) {
   const name = opts.name || fn.name || "_";
   const integrity = hash([opts.integrity, fn, opts]);
   const validate = opts.validate || (() => true);
-  async function get(key, resolver, shouldInvalidateCache) {
+  async function get(key, resolver, shouldInvalidateCache, event) {
     const cacheKey = [opts.base, group, name, key + ".json"].filter(Boolean).join(":").replace(/:\/$/, ":index");
     const entry = await useStorage().getItem(cacheKey) || {};
     const ttl = (opts.maxAge ?? opts.maxAge ?? 0) * 1e3;
@@ -422,13 +373,23 @@ function defineCachedFunction(fn, opts = {}) {
         entry.integrity = integrity;
         delete pending[key];
         if (validate(entry)) {
-          useStorage().setItem(cacheKey, entry).catch((error) => console.error("[nitro] [cache]", error));
+          const promise = useStorage().setItem(cacheKey, entry).catch((error) => {
+            useNitroApp().captureError(error, { event, tags: ["cache"] });
+          });
+          if (event && event.waitUntil) {
+            event.waitUntil(promise);
+          }
         }
       }
     };
     const _resolvePromise = expired ? _resolve() : Promise.resolve();
+    if (expired && event && event.waitUntil) {
+      event.waitUntil(_resolvePromise);
+    }
     if (opts.swr && entry.value) {
-      _resolvePromise.catch(console.error);
+      _resolvePromise.catch((error) => {
+        useNitroApp().captureError(error, { event, tags: ["cache"] });
+      });
       return entry;
     }
     return _resolvePromise.then(() => entry);
@@ -440,7 +401,12 @@ function defineCachedFunction(fn, opts = {}) {
     }
     const key = await (opts.getKey || getKey)(...args);
     const shouldInvalidateCache = opts.shouldInvalidateCache?.(...args);
-    const entry = await get(key, () => fn(...args), shouldInvalidateCache);
+    const entry = await get(
+      key,
+      () => fn(...args),
+      shouldInvalidateCache,
+      args[0] && isEvent(args[0]) ? args[0] : void 0
+    );
     let value = entry.value;
     if (opts.transform) {
       value = await opts.transform(entry, ...args) || value;
@@ -453,23 +419,22 @@ function getKey(...args) {
   return args.length > 0 ? hash(args, {}) : "";
 }
 function escapeKey(key) {
-  return key.replace(/[^\dA-Za-z]/g, "");
+  return String(key).replace(/\W/g, "");
 }
 function defineCachedEventHandler(handler, opts = defaultCacheOptions) {
+  const variableHeaderNames = (opts.varies || []).filter(Boolean).map((h) => h.toLowerCase()).sort();
   const _opts = {
     ...opts,
     getKey: async (event) => {
-      const key = await opts.getKey?.(event);
-      if (key) {
-        return escapeKey(key);
+      const customKey = await opts.getKey?.(event);
+      if (customKey) {
+        return escapeKey(customKey);
       }
-      const url = event.node.req.originalUrl || event.node.req.url;
-      const friendlyName = escapeKey(decodeURI(parseURL(url).pathname)).slice(
-        0,
-        16
-      );
-      const urlHash = hash(url);
-      return `${friendlyName}.${urlHash}`;
+      const _path = event.node.req.originalUrl || event.node.req.url || event.path;
+      const _pathname = escapeKey(decodeURI(parseURL(_path).pathname)).slice(0, 16) || "index";
+      const _hashedPath = `${_pathname}.${hash(_path)}`;
+      const _headers = variableHeaderNames.map((header) => [header, event.node.req.headers[header]]).map(([name, value]) => `${escapeKey(name)}.${hash(value)}`);
+      return [_hashedPath, ..._headers].join(":");
     },
     validate: (entry) => {
       if (entry.value.code >= 400) {
@@ -485,7 +450,13 @@ function defineCachedEventHandler(handler, opts = defaultCacheOptions) {
   };
   const _cachedHandler = cachedFunction(
     async (incomingEvent) => {
-      const reqProxy = cloneWithProxy(incomingEvent.node.req, { headers: {} });
+      const variableHeaders = {};
+      for (const header of variableHeaderNames) {
+        variableHeaders[header] = incomingEvent.node.req.headers[header];
+      }
+      const reqProxy = cloneWithProxy(incomingEvent.node.req, {
+        headers: variableHeaders
+      });
       const resHeaders = {};
       let _resSendBody;
       const resProxy = cloneWithProxy(incomingEvent.node.res, {
@@ -622,196 +593,6 @@ function cloneWithProxy(obj, overrides) {
 }
 const cachedEventHandler = defineCachedEventHandler;
 
-const config = useRuntimeConfig();
-const _routeRulesMatcher = toRouteMatcher(
-  createRouter({ routes: config.nitro.routeRules })
-);
-function createRouteRulesHandler() {
-  return eventHandler((event) => {
-    const routeRules = getRouteRules(event);
-    if (routeRules.headers) {
-      setHeaders(event, routeRules.headers);
-    }
-    if (routeRules.redirect) {
-      return sendRedirect(
-        event,
-        routeRules.redirect.to,
-        routeRules.redirect.statusCode
-      );
-    }
-    if (routeRules.proxy) {
-      let target = routeRules.proxy.to;
-      if (target.endsWith("/**")) {
-        let targetPath = event.path;
-        const strpBase = routeRules.proxy._proxyStripBase;
-        if (strpBase) {
-          targetPath = withoutBase(targetPath, strpBase);
-        }
-        target = joinURL(target.slice(0, -3), targetPath);
-      } else if (event.path.includes("?")) {
-        const query = getQuery(event.path);
-        target = withQuery(target, query);
-      }
-      return proxyRequest(event, target, {
-        fetch: $fetch.raw,
-        ...routeRules.proxy
-      });
-    }
-  });
-}
-function getRouteRules(event) {
-  event.context._nitro = event.context._nitro || {};
-  if (!event.context._nitro.routeRules) {
-    const path = new URL(event.node.req.url, "http://localhost").pathname;
-    event.context._nitro.routeRules = getRouteRulesForPath(
-      withoutBase(path, useRuntimeConfig().app.baseURL)
-    );
-  }
-  return event.context._nitro.routeRules;
-}
-function getRouteRulesForPath(path) {
-  return defu({}, ..._routeRulesMatcher.matchAll(path).reverse());
-}
-
-function defineRenderHandler(handler) {
-  return eventHandler(async (event) => {
-    if (event.node.req.url.endsWith("/favicon.ico")) {
-      if (!event.handled) {
-        event.node.res.setHeader("Content-Type", "image/x-icon");
-        event.node.res.end(
-          "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-        );
-      }
-      return;
-    }
-    const response = await handler(event);
-    if (!response) {
-      if (!event.handled) {
-        event.node.res.statusCode = event.node.res.statusCode === 200 ? 500 : event.node.res.statusCode;
-        event.node.res.end(
-          "No response returned from render handler: " + event.node.req.url
-        );
-      }
-      return;
-    }
-    const nitroApp = useNitroApp();
-    await nitroApp.hooks.callHook("render:response", response, { event });
-    if (!event.node.res.headersSent && response.headers) {
-      for (const header in response.headers) {
-        event.node.res.setHeader(header, response.headers[header]);
-      }
-      setResponseStatus(event, response.statusCode, response.statusMessage);
-    }
-    return typeof response.body === "string" ? response.body : JSON.stringify(response.body);
-  });
-}
-
-function buildAssetsDir() {
-  return useRuntimeConfig().app.buildAssetsDir;
-}
-function buildAssetsURL(...path) {
-  return joinURL(publicAssetsURL(), buildAssetsDir(), ...path);
-}
-function publicAssetsURL(...path) {
-  const publicBase = useRuntimeConfig().app.cdnURL || useRuntimeConfig().app.baseURL;
-  return path.length ? joinURL(publicBase, ...path) : publicBase;
-}
-
-const script = "if (!(\"requestIdleCallback\" in w) || !(\"requestAnimationFrame\" in w))\n  return new Promise((resolve) => resolve(\"not supported\"));\nfunction eventListeners() {\n  const c = new AbortController();\n  const p = new Promise((resolve) => {\n    const hydrateOnEvents = \"mousemove,scroll,keydown,click,touchstart,wheel\".split(\",\");\n    function handler(e) {\n      hydrateOnEvents.forEach((e2) => w.removeEventListener(e2, handler));\n      requestAnimationFrame(() => resolve(e));\n    }\n    hydrateOnEvents.forEach((e) => {\n      w.addEventListener(e, handler, {\n        capture: true,\n        once: true,\n        passive: true,\n        signal: c.signal\n      });\n    });\n  });\n  return { c: () => c.abort(), p };\n}\nfunction idleListener() {\n  let id;\n  const p = new Promise((resolve) => {\n    const isMobile = w.innerWidth < 640;\n    const timeout = isMobile ? Number.parseInt(\"5000\") : Number.parseInt(\"4000\");\n    const timeoutDelay = () => setTimeout(\n      () => requestAnimationFrame(() => resolve(\"timeout\")),\n      timeout\n    );\n    id = w.requestIdleCallback(timeoutDelay, { timeout: Number.parseInt(\"7000\") });\n  });\n  return { c: () => window.cancelIdleCallback(id), p };\n}\nconst triggers = [idleListener(), eventListeners()];\nconst hydrationPromise = Promise.race(\n  triggers.map((t) => t.p)\n).finally(() => {\n  triggers.forEach((t) => t.c());\n});\nreturn hydrationPromise;\n";
-const replayScript = "(() => {\n  w._$delayHydration.then((e) => {\n    if (!(e instanceof PointerEvent) && !(e instanceof MouseEvent) && !(e instanceof TouchEvent))\n      return;\n    if (e instanceof MouseEvent && e.type !== \"click\")\n      return;\n    setTimeout(\n      () => w.requestIdleCallback(\n        () => setTimeout(() => e.target?.click(), 500)\n      ),\n      50\n    );\n  });\n})();\n";
-const include = [];
-const exclude = [];
-
-const SCRIPT_REGEX = /<script(.*?)>/gm;
-function createFilter(options = {}) {
-  const include2 = options.include || [];
-  const exclude2 = options.exclude || [];
-  return function(path) {
-    for (const v of [{ rules: exclude2, result: false }, { rules: include2, result: true }]) {
-      const regexRules = v.rules.filter((r) => r instanceof RegExp);
-      if (regexRules.some((r) => r.test(path)))
-        return v.result;
-      const stringRules = v.rules.filter((r) => typeof r === "string");
-      if (stringRules.length > 0) {
-        const routes = {};
-        for (const r of stringRules) {
-          if (r === path)
-            return v.result;
-          routes[r] = true;
-        }
-        const routeRulesMatcher = toRouteMatcher(createRouter({ routes, ...options }));
-        if (routeRulesMatcher.matchAll(path).length > 0)
-          return Boolean(v.result);
-      }
-    }
-    return include2.length === 0;
-  };
-}
-const _Mj16PGu6kp = (function(nitro) {
-  nitro.hooks.hook("render:html", (htmlContext, { event }) => {
-    if (include.length || exclude.length) {
-      const filter = createFilter({ include, exclude });
-      if (!filter(event.req.url))
-        return;
-    }
-    let extraScripts = "";
-    let isPageSSR = true;
-    {
-      const $config = useRuntimeConfig();
-      const ASSET_RE = new RegExp(`<script[^>]*src="${$config.app.buildAssetsDir}[^>]+><\\/script>`);
-      const toLoad = [];
-      const ssrContext = htmlContext.bodyAppend.find((b) => b.includes("window.__NUXT__"));
-      const NUXT_DATA_RE = /<script type="application\/json" id="__NUXT_DATA__"[^>]*>(.*?)<\/script[^>]*>/g;
-      const regexResult = NUXT_DATA_RE.exec(ssrContext);
-      const nuxtData = regexResult && regexResult[1] ? JSON.parse(regexResult[1]) : null;
-      if (nuxtData && nuxtData.length >= 2) {
-        const serverRenderedIndex = nuxtData[1].serverRendered;
-        isPageSSR = nuxtData[serverRenderedIndex];
-      } else {
-        isPageSSR = ssrContext.includes("serverRendered:true");
-      }
-      if (!isPageSSR)
-        return;
-      htmlContext.bodyAppend = htmlContext.bodyAppend.filter(
-        (b) => {
-          if (b.includes("window.__NUXT__") || !ASSET_RE.test(b))
-            return true;
-          let match;
-          while ((match = SCRIPT_REGEX.exec(b)) !== null) {
-            if (match.index === SCRIPT_REGEX.lastIndex)
-              SCRIPT_REGEX.lastIndex++;
-            if (match)
-              toLoad.push(packString(match[1]));
-          }
-          return false;
-        }
-      );
-      extraScripts = `_$delayHydration.then(e => {
-  ;(${JSON.stringify(toLoad)}).forEach(s => {
-    const script = document.createElement('script')
-    Object.entries(s).forEach(([k, v]) => script.setAttribute(k, v))
-    document.body.appendChild(script)
-  })
-})`;
-    }
-    extraScripts += `;${replayScript}`;
-    htmlContext.bodyAppend.push(`<script>
-(function() {
-  const w = window;
-  w._$delayHydration = (() => {
-    ${script}}
-  )();
-  ${"w._$delayHydration.then((e) => { console.log('[nuxt-delay-hydration] Hydration event', e) })" }
-  ${extraScripts}
-})();
-<\/script>`);
-  });
-});
-
-const plugins = [
-  _Mj16PGu6kp
-];
-
 function hasReqHeader(event, name, includes) {
   const value = getRequestHeader(event, name);
   return value && typeof value === "string" && value.toLowerCase().includes(includes);
@@ -838,23 +619,223 @@ function normalizeError(error) {
     message
   };
 }
+function _captureError(error, type) {
+  console.error(`[nitro] [${type}]`, error);
+  useNitroApp().captureError(error, { tags: [type] });
+}
 function trapUnhandledNodeErrors() {
-  {
-    process.on(
-      "unhandledRejection",
-      (err) => console.error("[nitro] [unhandledRejection]", err)
-    );
-    process.on(
-      "uncaughtException",
-      (err) => console.error("[nitro] [uncaughtException]", err)
+  process.on(
+    "unhandledRejection",
+    (error) => _captureError(error, "unhandledRejection")
+  );
+  process.on(
+    "uncaughtException",
+    (error) => _captureError(error, "uncaughtException")
+  );
+}
+function joinHeaders(value) {
+  return Array.isArray(value) ? value.join(", ") : String(value);
+}
+function normalizeFetchResponse(response) {
+  if (!response.headers.has("set-cookie")) {
+    return response;
+  }
+  return new Response(response.body, {
+    status: response.status,
+    statusText: response.statusText,
+    headers: normalizeCookieHeaders(response.headers)
+  });
+}
+function normalizeCookieHeader(header = "") {
+  return splitCookiesString(joinHeaders(header));
+}
+function normalizeCookieHeaders(headers) {
+  const outgoingHeaders = new Headers();
+  for (const [name, header] of headers) {
+    if (name === "set-cookie") {
+      for (const cookie of normalizeCookieHeader(header)) {
+        outgoingHeaders.append("set-cookie", cookie);
+      }
+    } else {
+      outgoingHeaders.set(name, joinHeaders(header));
+    }
+  }
+  return outgoingHeaders;
+}
+
+const config = useRuntimeConfig();
+const _routeRulesMatcher = toRouteMatcher(
+  createRouter({ routes: config.nitro.routeRules })
+);
+function createRouteRulesHandler(ctx) {
+  return eventHandler((event) => {
+    const routeRules = getRouteRules(event);
+    if (routeRules.headers) {
+      setHeaders(event, routeRules.headers);
+    }
+    if (routeRules.redirect) {
+      return sendRedirect(
+        event,
+        routeRules.redirect.to,
+        routeRules.redirect.statusCode
+      );
+    }
+    if (routeRules.proxy) {
+      let target = routeRules.proxy.to;
+      if (target.endsWith("/**")) {
+        let targetPath = event.path;
+        const strpBase = routeRules.proxy._proxyStripBase;
+        if (strpBase) {
+          targetPath = withoutBase(targetPath, strpBase);
+        }
+        target = joinURL(target.slice(0, -3), targetPath);
+      } else if (event.path.includes("?")) {
+        const query = getQuery(event.path);
+        target = withQuery(target, query);
+      }
+      return proxyRequest(event, target, {
+        fetch: ctx.localFetch,
+        ...routeRules.proxy
+      });
+    }
+  });
+}
+function getRouteRules(event) {
+  event.context._nitro = event.context._nitro || {};
+  if (!event.context._nitro.routeRules) {
+    event.context._nitro.routeRules = getRouteRulesForPath(
+      withoutBase(event.path.split("?")[0], useRuntimeConfig().app.baseURL)
     );
   }
+  return event.context._nitro.routeRules;
 }
+function getRouteRulesForPath(path) {
+  return defu({}, ..._routeRulesMatcher.matchAll(path).reverse());
+}
+
+const script = `
+if (!window.__NUXT_DEVTOOLS_TIME_METRIC__) {
+  Object.defineProperty(window, '__NUXT_DEVTOOLS_TIME_METRIC__', {
+    value: {},
+    enumerable: false,
+    configurable: true,
+  })
+}
+window.__NUXT_DEVTOOLS_TIME_METRIC__.appInit = Date.now()
+`;
+
+const _QFQQvvoozB = (function(nitro) {
+  nitro.hooks.hook("render:html", (htmlContext) => {
+    htmlContext.head.push(`<script>${script}<\/script>`);
+  });
+});
+
+const ERROR_MESSAGES = {
+  NO_SECRET: "AUTH_NO_SECRET: No `secret` - this is an error in production, see https://sidebase.io/nuxt-auth/resources/errors. You can ignore this during development",
+  NO_ORIGIN: "AUTH_NO_ORIGIN: No `origin` - this is an error in production, see https://sidebase.io/nuxt-auth/resources/errors. You can ignore this during development"
+};
+
+const isProduction = "development" === "production";
+const useTypedBackendConfig = (runtimeConfig, type) => {
+  if (runtimeConfig.public.auth.provider.type === type) {
+    return runtimeConfig.public.auth.provider;
+  }
+  throw new Error("RuntimeError: Type must match at this point");
+};
+
+function defineRenderHandler(handler) {
+  return eventHandler(async (event) => {
+    if (event.path.endsWith("/favicon.ico")) {
+      setResponseHeader(event, "Content-Type", "image/x-icon");
+      return send(
+        event,
+        "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+      );
+    }
+    const response = await handler(event);
+    if (!response) {
+      const _currentStatus = getResponseStatus(event);
+      setResponseStatus(event, _currentStatus === 200 ? 500 : _currentStatus);
+      return send(
+        event,
+        "No response returned from render handler: " + event.path
+      );
+    }
+    const nitroApp = useNitroApp();
+    await nitroApp.hooks.callHook("render:response", response, { event });
+    if (response.headers) {
+      setResponseHeaders(event, response.headers);
+    }
+    if (response.statusCode || response.statusMessage) {
+      setResponseStatus(event, response.statusCode, response.statusMessage);
+    }
+    return typeof response.body === "string" ? response.body : JSON.stringify(response.body);
+  });
+}
+
+function buildAssetsDir() {
+  return useRuntimeConfig().app.buildAssetsDir;
+}
+function buildAssetsURL(...path) {
+  return joinURL(publicAssetsURL(), buildAssetsDir(), ...path);
+}
+function publicAssetsURL(...path) {
+  const publicBase = useRuntimeConfig().app.cdnURL || useRuntimeConfig().app.baseURL;
+  return path.length ? joinURL(publicBase, ...path) : publicBase;
+}
+
+const getServerOrigin = (event) => {
+  const envOrigin = process.env.AUTH_ORIGIN;
+  if (envOrigin) {
+    return envOrigin;
+  }
+  const runtimeConfigOrigin = useRuntimeConfig().public.auth.computed.origin;
+  if (runtimeConfigOrigin) {
+    return runtimeConfigOrigin;
+  }
+  if (event && !isProduction) {
+    return getURL(event.node.req, false);
+  }
+  throw new Error(ERROR_MESSAGES.NO_ORIGIN);
+};
+const getRequestURLFromRequest = (event, { trustHost }) => {
+  if (trustHost) {
+    const forwardedValue = getURL(event.node.req);
+    if (forwardedValue) {
+      return Array.isArray(forwardedValue) ? forwardedValue[0] : forwardedValue;
+    }
+  }
+  let origin;
+  try {
+    origin = getServerOrigin(event);
+  } catch (error) {
+    return void 0;
+  }
+  return joinURL(origin, useRuntimeConfig().public.auth.computed.pathname);
+};
+
+function defineNitroPlugin(def) {
+  return def;
+}
+const _T7jZEjEHxd = defineNitroPlugin(() => {
+  try {
+    getServerOrigin();
+  } catch (error) {
+    {
+      console.info(ERROR_MESSAGES.NO_ORIGIN);
+    }
+  }
+});
+
+const plugins = [
+  _QFQQvvoozB,
+_T7jZEjEHxd
+];
 
 const errorHandler = (async function errorhandler(error, event) {
   const { stack, statusCode, statusMessage, message } = normalizeError(error);
   const errorObject = {
-    url: event.node.req.url,
+    url: event.path,
     statusCode,
     statusMessage,
     message,
@@ -877,10 +858,9 @@ const errorHandler = (async function errorhandler(error, event) {
   setResponseStatus(event, errorObject.statusCode !== 200 && errorObject.statusCode || 500, errorObject.statusMessage);
   if (isJsonRequest(event)) {
     setResponseHeader(event, "Content-Type", "application/json");
-    event.node.res.end(JSON.stringify(errorObject));
-    return;
+    return send(event, JSON.stringify(errorObject));
   }
-  const isErrorPage = event.node.req.url?.startsWith("/__nuxt_error");
+  const isErrorPage = event.path.startsWith("/__nuxt_error");
   const res = !isErrorPage ? await useNitroApp().localFetch(withQuery(joinURL(useRuntimeConfig().app.baseURL, "/__nuxt_error"), errorObject), {
     headers: getRequestHeaders(event),
     redirect: "manual"
@@ -894,8 +874,7 @@ const errorHandler = (async function errorhandler(error, event) {
       return;
     }
     setResponseHeader(event, "Content-Type", "text/html;charset=UTF-8");
-    event.node.res.end(template(errorObject));
-    return;
+    return send(event, template(errorObject));
   }
   const html = await res.text();
   if (event.handled) {
@@ -905,7 +884,7 @@ const errorHandler = (async function errorhandler(error, event) {
     setResponseHeader(event, header, value);
   }
   setResponseStatus(event, res.status && res.status !== 200 ? res.status : void 0, res.statusText);
-  event.node.res.end(html);
+  return send(event, html);
 });
 
 const get = (obj, path) => path.split(".").reduce((acc, part) => acc && acc[part], obj);
@@ -1998,16 +1977,16 @@ function wrap(nodes, loose = false) {
   const result = [];
   let index = -1;
   if (loose) {
-    result.push(u("text", "\n"));
+    result.push(u$1("text", "\n"));
   }
   while (++index < nodes.length) {
     if (index) {
-      result.push(u("text", "\n"));
+      result.push(u$1("text", "\n"));
     }
     result.push(nodes[index]);
   }
   if (loose && nodes.length > 0) {
-    result.push(u("text", "\n"));
+    result.push(u$1("text", "\n"));
   }
   return result;
 }
@@ -2026,7 +2005,7 @@ const code = (h, node) => {
       meta: node.meta,
       code
     },
-    [h(node, "pre", {}, [h(node, "code", { __ignoreMap: "" }, [u("text", code)])])]
+    [h(node, "pre", {}, [h(node, "code", { __ignoreMap: "" }, [u$1("text", code)])])]
   );
 };
 
@@ -2038,7 +2017,7 @@ function html(h, node) {
   if (tagName === "code") {
     node.value = node.value.replace(tagName, "code-inline");
   }
-  return h.dangerous ? h.augment(node, u("raw", node.value)) : null;
+  return h.dangerous ? h.augment(node, u$1("raw", node.value)) : null;
 }
 
 function heading(h, node) {
@@ -2350,7 +2329,7 @@ function strong(h, node) {
 function inlineCode(h, node) {
   return h(node, "code-inline", node.attributes, [
     // @ts-ignore
-    u("text", node.value.replace(/\r?\n|\r/g, " "))
+    u$1("text", node.value.replace(/\r?\n|\r/g, " "))
   ]);
 }
 
@@ -4025,10 +4004,12 @@ const _ejHqLi = defineEventHandler(async (event) => {
   return createNav(contents, configs);
 });
 
+const _lazy_bjzMWt = () => Promise.resolve().then(function () { return _____$1; });
 const _lazy_5imWjw = () => Promise.resolve().then(function () { return sitemap_xml$1; });
 const _lazy_o1Myue = () => Promise.resolve().then(function () { return renderer$1; });
 
 const handlers = [
+  { route: '/api/auth/**', handler: _lazy_bjzMWt, lazy: true, middleware: false, method: undefined },
   { route: '/sitemap.xml', handler: _lazy_5imWjw, lazy: true, middleware: false, method: undefined },
   { route: '/__nuxt_error', handler: _lazy_o1Myue, lazy: true, middleware: false, method: undefined },
   { route: '/api/_content/query/:qid/**:params', handler: _5qIhKy, lazy: false, middleware: false, method: "get" },
@@ -4044,24 +4025,63 @@ const handlers = [
 function createNitroApp() {
   const config = useRuntimeConfig();
   const hooks = createHooks();
+  const captureError = (error, context = {}) => {
+    const promise = hooks.callHookParallel("error", error, context).catch((_err) => {
+      console.error("Error while capturing another error", _err);
+    });
+    if (context.event && isEvent(context.event)) {
+      const errors = context.event.context.nitro?.errors;
+      if (errors) {
+        errors.push({ error, context });
+      }
+      if (context.event.waitUntil) {
+        context.event.waitUntil(promise);
+      }
+    }
+  };
   const h3App = createApp({
     debug: destr(true),
-    onError: errorHandler
+    onError: (error, event) => {
+      captureError(error, { event, tags: ["request"] });
+      return errorHandler(error, event);
+    },
+    onRequest: async (event) => {
+      await nitroApp.hooks.callHook("request", event).catch((error) => {
+        captureError(error, { event, tags: ["request"] });
+      });
+    },
+    onBeforeResponse: async (event, response) => {
+      await nitroApp.hooks.callHook("beforeResponse", event, response).catch((error) => {
+        captureError(error, { event, tags: ["request", "response"] });
+      });
+    },
+    onAfterResponse: async (event, response) => {
+      await nitroApp.hooks.callHook("afterResponse", event, response).catch((error) => {
+        captureError(error, { event, tags: ["request", "response"] });
+      });
+    }
   });
-  const router = createRouter$1();
-  h3App.use(createRouteRulesHandler());
+  const router = createRouter$1({
+    preemptive: true
+  });
   const localCall = createCall(toNodeListener(h3App));
-  const localFetch = createFetch(localCall, globalThis.fetch);
+  const _localFetch = createFetch(localCall, globalThis.fetch);
+  const localFetch = (...args) => {
+    return _localFetch(...args).then(
+      (response) => normalizeFetchResponse(response)
+    );
+  };
   const $fetch = createFetch$1({
     fetch: localFetch,
-    Headers,
+    Headers: Headers$1,
     defaults: { baseURL: config.app.baseURL }
   });
   globalThis.$fetch = $fetch;
+  h3App.use(createRouteRulesHandler({ localFetch }));
   h3App.use(
     eventHandler((event) => {
-      event.context.nitro = event.context.nitro || {};
-      const envContext = event.node.req.__unenv__;
+      event.context.nitro = event.context.nitro || { errors: [] };
+      const envContext = event.node.req?.__unenv__;
       if (envContext) {
         Object.assign(event.context, envContext);
       }
@@ -4069,6 +4089,18 @@ function createNitroApp() {
       event.$fetch = (req, init) => fetchWithEvent(event, req, init, {
         fetch: $fetch
       });
+      event.waitUntil = (promise) => {
+        if (!event.context.nitro._waitUntilPromises) {
+          event.context.nitro._waitUntilPromises = [];
+        }
+        event.context.nitro._waitUntilPromises.push(promise);
+        if (envContext?.waitUntil) {
+          envContext.waitUntil(promise);
+        }
+      };
+      event.captureError = (error, context) => {
+        captureError(error, { event, ...context });
+      };
     })
   );
   for (const h of handlers) {
@@ -4098,10 +4130,16 @@ function createNitroApp() {
     h3App,
     router,
     localCall,
-    localFetch
+    localFetch,
+    captureError
   };
   for (const plugin of plugins) {
-    plugin(app);
+    try {
+      plugin(app);
+    } catch (err) {
+      captureError(err, { tags: ["plugin"] });
+      throw err;
+    }
   }
   return app;
 }
@@ -4110,11 +4148,11 @@ const useNitroApp = () => nitroApp;
 
 const server = new Server(toNodeListener(nitroApp.h3App));
 function getAddress() {
-  if (provider === "stackblitz" || process.env.NITRO_NO_UNIX_SOCKET) {
-    return "0";
+  if (U === "stackblitz" || process.env.NITRO_NO_UNIX_SOCKET || process.versions.bun) {
+    return 0;
   }
   const socketName = `worker-${process.pid}-${threadId}.sock`;
-  if (isWindows) {
+  if (C) {
     return join$1("\\\\.\\pipe\\nitro", socketName);
   } else {
     const socketDir = join$1(tmpdir(), "nitro");
@@ -4150,7 +4188,7 @@ __p += '<!DOCTYPE html><html><head><title>' +
 ((__t = ( messages.statusMessage )) == null ? '' : __t) +
 ' | ' +
 ((__t = ( messages.appName )) == null ? '' : __t) +
-'</title><meta charset="utf-8"><meta content="width=device-width,initial-scale=1,minimum-scale=1" name="viewport"><style>.spotlight{background:linear-gradient(45deg, #00DC82 0%, #36E4DA 50%, #0047E1 100%);opacity:0.8;filter:blur(30vh);height:60vh;bottom:-40vh}*,:before,:after{-webkit-box-sizing:border-box;box-sizing:border-box;border-width:0;border-style:solid;border-color:#e0e0e0}*{--tw-ring-inset:var(--tw-empty, );--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgba(14, 165, 233, .5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000}:root{-moz-tab-size:4;-o-tab-size:4;tab-size:4}body{margin:0;font-family:inherit;line-height:inherit}html{-webkit-text-size-adjust:100%;font-family:ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,Noto Sans,sans-serif,"Apple Color Emoji","Segoe UI Emoji",Segoe UI Symbol,"Noto Color Emoji";line-height:1.5}h1,p,pre{margin:0}h1{font-size:inherit;font-weight:inherit}pre{font-size:1em;font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,Liberation Mono,Courier New,monospace}.bg-white{--tw-bg-opacity:1;background-color:rgba(255,255,255,var(--tw-bg-opacity))}.bg-black\\/5{--tw-bg-opacity:.05;background-color:rgba(0,0,0,var(--tw-bg-opacity))}.rounded-t-md{border-top-left-radius:.375rem;border-top-right-radius:.375rem}.flex{display:-webkit-box;display:-ms-flexbox;display:-webkit-flex;display:flex}.flex-col{-webkit-box-orient:vertical;-webkit-box-direction:normal;-ms-flex-direction:column;-webkit-flex-direction:column;flex-direction:column}.flex-1{-webkit-box-flex:1;-ms-flex:1 1 0%;-webkit-flex:1 1 0%;flex:1 1 0%}.font-sans{font-family:ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,Noto Sans,sans-serif,"Apple Color Emoji","Segoe UI Emoji",Segoe UI Symbol,"Noto Color Emoji"}.font-medium{font-weight:500}.font-light{font-weight:300}.h-auto{height:auto}.text-xl{font-size:1.25rem;line-height:1.75rem}.text-6xl{font-size:3.75rem;line-height:1}.leading-tight{line-height:1.25}.mb-8{margin-bottom:2rem}.mb-6{margin-bottom:1.5rem}.min-h-screen{min-height:100vh}.overflow-y-auto{overflow-y:auto}.p-8{padding:2rem}.px-10{padding-left:2.5rem;padding-right:2.5rem}.pt-14{padding-top:3.5rem}.fixed{position:fixed}.left-0{left:0px}.right-0{right:0px}.text-black{--tw-text-opacity:1;color:rgba(0,0,0,var(--tw-text-opacity))}.antialiased{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}.z-10{z-index:10}@media (min-width: 640px){.sm\\:text-8xl{font-size:6rem;line-height:1}.sm\\:text-2xl{font-size:1.5rem;line-height:2rem}}@media (prefers-color-scheme: dark){.dark\\:bg-black{--tw-bg-opacity:1;background-color:rgba(0,0,0,var(--tw-bg-opacity))}.dark\\:bg-white\\/10{--tw-bg-opacity:.1;background-color:rgba(255,255,255,var(--tw-bg-opacity))}.dark\\:text-white{--tw-text-opacity:1;color:rgba(255,255,255,var(--tw-text-opacity))}}</style><script>(function(){const t=document.createElement("link").relList;if(t&&t.supports&&t.supports("modulepreload"))return;for(const e of document.querySelectorAll(\'link[rel="modulepreload"]\'))i(e);new MutationObserver(e=>{for(const r of e)if(r.type==="childList")for(const o of r.addedNodes)o.tagName==="LINK"&&o.rel==="modulepreload"&&i(o)}).observe(document,{childList:!0,subtree:!0});function s(e){const r={};return e.integrity&&(r.integrity=e.integrity),e.referrerPolicy&&(r.referrerPolicy=e.referrerPolicy),e.crossOrigin==="use-credentials"?r.credentials="include":e.crossOrigin==="anonymous"?r.credentials="omit":r.credentials="same-origin",r}function i(e){if(e.ep)return;e.ep=!0;const r=s(e);fetch(e.href,r)}})();</script></head><body class="font-sans antialiased bg-white px-10 pt-14 dark:bg-black text-black dark:text-white min-h-screen flex flex-col"><div class="fixed left-0 right-0 spotlight"></div><h1 class="text-6xl sm:text-8xl font-medium mb-6">' +
+'</title><meta charset="utf-8"><meta content="width=device-width,initial-scale=1,minimum-scale=1" name="viewport"><style>.spotlight{background:linear-gradient(45deg, #00DC82 0%, #36E4DA 50%, #0047E1 100%);opacity:0.8;filter:blur(30vh);height:60vh;bottom:-40vh}*,:before,:after{-webkit-box-sizing:border-box;box-sizing:border-box;border-width:0;border-style:solid;border-color:#e0e0e0}*{--tw-ring-inset:var(--tw-empty, );--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgba(14, 165, 233, .5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000}:root{-moz-tab-size:4;-o-tab-size:4;tab-size:4}body{margin:0;font-family:inherit;line-height:inherit}html{-webkit-text-size-adjust:100%;font-family:ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,Noto Sans,sans-serif,"Apple Color Emoji","Segoe UI Emoji",Segoe UI Symbol,"Noto Color Emoji";line-height:1.5}h1,p,pre{margin:0}h1{font-size:inherit;font-weight:inherit}pre{font-size:1em;font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,Liberation Mono,Courier New,monospace}.bg-white{--tw-bg-opacity:1;background-color:rgba(255,255,255,var(--tw-bg-opacity))}.bg-black\\/5{--tw-bg-opacity:.05;background-color:rgba(0,0,0,var(--tw-bg-opacity))}.rounded-t-md{border-top-left-radius:.375rem;border-top-right-radius:.375rem}.flex{display:-webkit-box;display:-ms-flexbox;display:-webkit-flex;display:flex}.flex-col{-webkit-box-orient:vertical;-webkit-box-direction:normal;-ms-flex-direction:column;-webkit-flex-direction:column;flex-direction:column}.flex-1{-webkit-box-flex:1;-ms-flex:1 1 0%;-webkit-flex:1 1 0%;flex:1 1 0%}.font-sans{font-family:ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,Noto Sans,sans-serif,"Apple Color Emoji","Segoe UI Emoji",Segoe UI Symbol,"Noto Color Emoji"}.font-medium{font-weight:500}.font-light{font-weight:300}.h-auto{height:auto}.text-xl{font-size:1.25rem;line-height:1.75rem}.text-6xl{font-size:3.75rem;line-height:1}.leading-tight{line-height:1.25}.mb-8{margin-bottom:2rem}.mb-6{margin-bottom:1.5rem}.min-h-screen{min-height:100vh}.overflow-y-auto{overflow-y:auto}.p-8{padding:2rem}.px-10{padding-left:2.5rem;padding-right:2.5rem}.pt-14{padding-top:3.5rem}.fixed{position:fixed}.left-0{left:0}.right-0{right:0}.text-black{--tw-text-opacity:1;color:rgba(0,0,0,var(--tw-text-opacity))}.antialiased{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}.z-10{z-index:10}@media (min-width: 640px){.sm\\:text-8xl{font-size:6rem;line-height:1}.sm\\:text-2xl{font-size:1.5rem;line-height:2rem}}@media (prefers-color-scheme: dark){.dark\\:bg-black{--tw-bg-opacity:1;background-color:rgba(0,0,0,var(--tw-bg-opacity))}.dark\\:bg-white\\/10{--tw-bg-opacity:.1;background-color:rgba(255,255,255,var(--tw-bg-opacity))}.dark\\:text-white{--tw-text-opacity:1;color:rgba(255,255,255,var(--tw-text-opacity))}}</style><script>(function(){const t=document.createElement("link").relList;if(t&&t.supports&&t.supports("modulepreload"))return;for(const e of document.querySelectorAll(\'link[rel="modulepreload"]\'))i(e);new MutationObserver(e=>{for(const r of e)if(r.type==="childList")for(const o of r.addedNodes)o.tagName==="LINK"&&o.rel==="modulepreload"&&i(o)}).observe(document,{childList:!0,subtree:!0});function s(e){const r={};return e.integrity&&(r.integrity=e.integrity),e.referrerPolicy&&(r.referrerPolicy=e.referrerPolicy),e.crossOrigin==="use-credentials"?r.credentials="include":e.crossOrigin==="anonymous"?r.credentials="omit":r.credentials="same-origin",r}function i(e){if(e.ep)return;e.ep=!0;const r=s(e);fetch(e.href,r)}})();</script></head><body class="font-sans antialiased bg-white px-10 pt-14 dark:bg-black text-black dark:text-white min-h-screen flex flex-col"><div class="fixed left-0 right-0 spotlight"></div><h1 class="text-6xl sm:text-8xl font-medium mb-6">' +
 ((__t = ( messages.statusCode )) == null ? '' : __t) +
 '</h1><p class="text-xl sm:text-2xl font-light mb-8 leading-tight">' +
 ((__t = ( messages.description )) == null ? '' : __t) +
@@ -4165,6 +4203,134 @@ const template$1 = _template;
 const errorDev = /*#__PURE__*/Object.freeze({
   __proto__: null,
   template: template$1
+});
+
+let preparedAuthHandler;
+let usedSecret;
+const SUPPORTED_ACTIONS = ["providers", "session", "csrf", "signin", "signout", "callback", "verify-request", "error", "_log"];
+const useConfig = () => useTypedBackendConfig(useRuntimeConfig(), "authjs");
+const readBodyForNext = async (event) => {
+  let body;
+  if (isMethod(event, "PATCH") || isMethod(event, "POST") || isMethod(event, "PUT") || isMethod(event, "DELETE")) {
+    body = await readBody(event);
+  }
+  return body;
+};
+const parseActionAndProvider = ({ context }) => {
+  const params = context.params?._?.split("/");
+  if (!params || ![1, 2].includes(params.length)) {
+    throw createError({ statusCode: 400, statusMessage: `Invalid path used for auth-endpoint. Supply either one path parameter (e.g., \`/api/auth/session\`) or two (e.g., \`/api/auth/signin/github\` after the base path (in previous examples base path was: \`/api/auth/\`. Received \`${params}\`` });
+  }
+  const [unvalidatedAction, providerId] = params;
+  const action = SUPPORTED_ACTIONS.find((action2) => action2 === unvalidatedAction);
+  if (!action) {
+    throw createError({ statusCode: 400, statusMessage: `Called endpoint with unsupported action ${unvalidatedAction}. Only the following actions are supported: ${SUPPORTED_ACTIONS.join(", ")}` });
+  }
+  return { action, providerId };
+};
+const NuxtAuthHandler = (nuxtAuthOptions) => {
+  usedSecret = nuxtAuthOptions?.secret;
+  if (!usedSecret) {
+    {
+      console.info(ERROR_MESSAGES.NO_SECRET);
+      usedSecret = "secret";
+    }
+  }
+  const options = defu$1(nuxtAuthOptions, {
+    secret: usedSecret,
+    logger: void 0,
+    providers: [],
+    trustHost: useConfig().trustHost
+  });
+  const getInternalNextAuthRequestData = async (event) => {
+    const nextRequest = {
+      host: getRequestURLFromRequest(event, { trustHost: useConfig().trustHost }),
+      body: void 0,
+      cookies: parseCookies(event),
+      query: void 0,
+      headers: getHeaders(event),
+      method: getMethod(event),
+      providerId: void 0,
+      error: void 0
+    };
+    if (event.context.checkSessionOnNonAuthRequest === true) {
+      return {
+        ...nextRequest,
+        method: "GET",
+        action: "session"
+      };
+    }
+    const query = getQuery$1(event);
+    const { action, providerId } = parseActionAndProvider(event);
+    const error = query.error;
+    if (Array.isArray(error)) {
+      throw createError({ statusCode: 400, statusMessage: "Error query parameter can only appear once" });
+    }
+    const body = await readBodyForNext(event);
+    return {
+      ...nextRequest,
+      body,
+      query,
+      action,
+      providerId,
+      error: String(error) || void 0
+    };
+  };
+  const handler = eventHandler(async (event) => {
+    const { res } = event.node;
+    const nextRequest = await getInternalNextAuthRequestData(event);
+    const nextResult = await AuthHandler({
+      req: nextRequest,
+      options
+    });
+    if (nextResult.status) {
+      res.statusCode = nextResult.status;
+    }
+    nextResult.cookies?.forEach((cookie) => setCookie(event, cookie.name, cookie.value, cookie.options));
+    nextResult.headers?.forEach((header) => appendHeader(event, header.key, header.value));
+    if (!nextResult.redirect) {
+      return nextResult.body;
+    }
+    if (nextRequest.body?.json) {
+      return { url: nextResult.redirect };
+    }
+    return sendRedirect(event, nextResult.redirect);
+  });
+  if (preparedAuthHandler) {
+    console.warn("You setup the auth handler for a second time - this is likely undesired. Make sure that you only call `NuxtAuthHandler( ... )` once");
+  }
+  preparedAuthHandler = handler;
+  return handler;
+};
+
+const _____ = NuxtAuthHandler({
+  providers: [
+    CredentialsProvider.default({
+      // The name to display on the sign in form (e.g. "Sign in with...")
+      name: "Credentials",
+      // `credentials` is used to generate a form on the sign in page.
+      // You can specify which fields should be submitted, by adding keys to the `credentials` object.
+      // e.g. domain, username, password, 2FA token, etc.
+      // You can pass any HTML attribute to the <input> tag through the object.
+      credentials: {
+        username: { label: "Username", type: "text", placeholder: "1jsmith" },
+        password: { label: "Password", type: "password" }
+      },
+      async authorize(credentials, req) {
+        const user = { id: "1", name: "J Smith", email: "jsmith@example.com" };
+        if (user) {
+          return user;
+        } else {
+          return null;
+        }
+      }
+    })
+  ]
+});
+
+const _____$1 = /*#__PURE__*/Object.freeze({
+  __proto__: null,
+  default: _____
 });
 
 const sitemap_xml = defineEventHandler(async (event) => {
@@ -4222,15 +4388,72 @@ const sitemap_xml$1 = /*#__PURE__*/Object.freeze({
   default: sitemap_xml
 });
 
+const Vue3 = version.startsWith("3");
+
+function resolveUnref(r) {
+  return typeof r === "function" ? r() : unref(r);
+}
+function resolveUnrefHeadInput(ref, lastKey = "") {
+  if (ref instanceof Promise)
+    return ref;
+  const root = resolveUnref(ref);
+  if (!ref || !root)
+    return root;
+  if (Array.isArray(root))
+    return root.map((r) => resolveUnrefHeadInput(r, lastKey));
+  if (typeof root === "object") {
+    return Object.fromEntries(
+      Object.entries(root).map(([k, v]) => {
+        if (k === "titleTemplate" || k.startsWith("on"))
+          return [k, unref(v)];
+        return [k, resolveUnrefHeadInput(v, k)];
+      })
+    );
+  }
+  return root;
+}
+
+const VueReactivityPlugin = defineHeadPlugin({
+  hooks: {
+    "entries:resolve": function(ctx) {
+      for (const entry of ctx.entries)
+        entry.resolvedInput = resolveUnrefHeadInput(entry.input);
+    }
+  }
+});
+
+const headSymbol = "usehead";
+function vueInstall(head) {
+  const plugin = {
+    install(app) {
+      if (Vue3) {
+        app.config.globalProperties.$unhead = head;
+        app.config.globalProperties.$head = head;
+        app.provide(headSymbol, head);
+      }
+    }
+  };
+  return plugin.install;
+}
+function createServerHead(options = {}) {
+  const head = createServerHead$1(options);
+  head.use(VueReactivityPlugin);
+  head.install = vueInstall(head);
+  return head;
+}
+
+const unheadPlugins = [];
+
+const appHead = {"meta":[{"name":"viewport","content":"width=device-width, initial-scale=1"},{"charset":"utf-8"},{"name":"google-site-verification","content":"prwQlgU9QmIFKYKc_dFmeJZVqCEjSUijDzF0b-qSs8M"},{"name":"yandex-verification","content":"a74366574883d178"},{"property":"og:site_name","content":"Elite escort services in Dubai MGTIMES"},{"property":"og:title","content":"Elite escort services in Dubai | VIP girls 🖤 | MGTIMES"},{"property":"og:type","content":"website"},{"property":"og:description","content":"Escort services and model escorts in Dubai. Elite escort agency for successful men! Selection of VIP models to accompany. Strictly confidential 📞 +79775944345 ⚡"},{"property":"og:url","content":"https://mgtimes.ae"},{"property":"og:image","content":"https://mgtimes.ae/extra-activity.png"},{"property":"og:image:alt","content":"Escort Agency «Mgtimes»"},{"property":"og:image:width","content":"600"},{"property":"og:image:height","content":"600"}],"link":[{"rel":"preload","as":"image","href":"/img/index/front-section/bg-image.webp"},{"rel":"stylesheet","href":"https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css"},{"rel":"apple-touch-icon","sizes":"180x180","href":"/apple-touch-icon.png"},{"rel":"icon","type":"image/png","sizes":"32x32","href":"/favicon-32x32.png"},{"rel":"icon","type":"image/png","sizes":"16x16","href":"/favicon-16x16.png"}],"style":[],"script":[{"src":"/assets/js/SmoothScroll.js","body":true,"defer":true},{"src":"https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js","body":true,"defer":true},{"src":"https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js","body":true,"defer":true},{"src":"https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js","body":true,"defer":true},{"src":"/assets/js/app.js","body":true,"defer":true},{"src":" https://www.googletagmanager.com/gtag/js?id=G-ED65NJF30N","body":true,"defer":true},{"type":"application/ld+json","innerHTML":"{\"@context\":\"https://schema.org/\",\"@type\":\"Organization\",\"name\":\"Mgtimes\",\"telephone\":\"+7 977 594-43-45\",\"email\":\"info@mgtimes.ru\",\"image\":\"https://mgtimes.ae/extra-activity.png\",\"address\":{\"@type\":\"PostalAddress\",\"addressLocality\":\"Dubai\",\"streetAddress\":\"Dubai, Business Bay\"}}"},{"innerHTML":"\n\t\tvar fired = false;\n\n\t\twindow.addEventListener('scroll', () => {\n\t\t\tif (fired === false) {\n\t\t\t\tfired = true;\n\t\t\t\tsetTimeout(() => {\n          window.dataLayer = window.dataLayer || [];\n          function gtag(){dataLayer.push(arguments);}\n          gtag('js', new Date());\n        \n          gtag('config', 'G-ED65NJF30N');\n\n\n          (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};\n          m[i].l=1*new Date();\n          for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}\n          k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})\n          (window, document, \"script\", \"https://mc.yandex.ru/metrika/tag.js\", \"ym\");\n       \n          ym(91305537, \"init\", {\n               clickmap:true,\n               trackLinks:true,\n               accurateTrackBounce:true,\n               webvisor:true\n          });\n\t\t\t\t}, 1000)\n\t\t\t}\n\t\t});\n          ","body":true}],"noscript":[{"innerHTML":"\n        <!-- Yandex.Metrika counter -->\n        <div><img src=\"https://mc.yandex.ru/watch/69520198\" style=\"position:absolute; left:-9999px;\" alt=\"\" /></div>\n        <!-- Yandex.Metrika counter -->\n         ","body":true}]};
+
 const appRootId = "__nuxt";
 
 const appRootTag = "div";
 
 globalThis.__buildAssetsURL = buildAssetsURL;
 globalThis.__publicAssetsURL = publicAssetsURL;
-const getClientManifest = () => import('/Users/vitaly/Sites/hostiman_artur/mgtimes_nuxt/.nuxt/dist/server/client.manifest.mjs').then((r) => r.default || r).then((r) => typeof r === "function" ? r() : r);
-const getStaticRenderedHead = () => Promise.resolve().then(function () { return _virtual__headStatic$1; }).then((r) => r.default || r);
-const getServerEntry = () => import('/Users/vitaly/Sites/hostiman_artur/mgtimes_nuxt/.nuxt/dist/server/server.mjs').then((r) => r.default || r);
+const getClientManifest = () => import('file:///Users/vitaly/Sites/hostiman_artur/mgtimes_nuxt/.nuxt/dist/server/client.manifest.mjs').then((r) => r.default || r).then((r) => typeof r === "function" ? r() : r);
+const getServerEntry = () => import('file:///Users/vitaly/Sites/hostiman_artur/mgtimes_nuxt/.nuxt/dist/server/server.mjs').then((r) => r.default || r);
 const getSSRStyles = lazyCachedFunction(() => Promise.resolve().then(function () { return styles$1; }).then((r) => r.default || r));
 const getSSRRenderer = lazyCachedFunction(async () => {
   const manifest = await getClientManifest();
@@ -4252,7 +4475,7 @@ const getSSRRenderer = lazyCachedFunction(async () => {
     if (process.env.NUXT_VITE_NODE_OPTIONS) {
       renderer.rendererContext.updateManifest(await getClientManifest());
     }
-    return `<${appRootTag} id="${appRootId}">${html}</${appRootTag}>`;
+    return `<${appRootTag}${` id="${appRootId}"` }>${html}</${appRootTag}>`;
   }
   return renderer;
 });
@@ -4261,7 +4484,7 @@ const getSPARenderer = lazyCachedFunction(async () => {
   const spaTemplate = await Promise.resolve().then(function () { return _virtual__spaTemplate; }).then((r) => r.template).catch(() => "");
   const options = {
     manifest,
-    renderToString: () => `<${appRootTag} id="${appRootId}">${spaTemplate}</${appRootTag}>`,
+    renderToString: () => `<${appRootTag}${` id="${appRootId}"` }>${spaTemplate}</${appRootTag}>`,
     buildAssetsURL
   };
   const renderer = createRenderer(() => () => {
@@ -4280,7 +4503,6 @@ const getSPARenderer = lazyCachedFunction(async () => {
       public: config.public,
       app: config.app
     };
-    ssrContext.renderMeta = ssrContext.renderMeta ?? getStaticRenderedHead;
     return Promise.resolve(result);
   };
   return {
@@ -4291,29 +4513,36 @@ const getSPARenderer = lazyCachedFunction(async () => {
 const PAYLOAD_URL_RE = /\/_payload(\.[a-zA-Z0-9]+)?.json(\?.*)?$/ ;
 const renderer = defineRenderHandler(async (event) => {
   const nitroApp = useNitroApp();
-  const ssrError = event.node.req.url?.startsWith("/__nuxt_error") ? getQuery$1(event) : null;
+  const ssrError = event.path.startsWith("/__nuxt_error") ? getQuery$1(event) : null;
   if (ssrError && ssrError.statusCode) {
     ssrError.statusCode = parseInt(ssrError.statusCode);
   }
-  if (ssrError && event.node.req.socket.readyState !== "readOnly") {
+  if (ssrError && !("__unenv__" in event.node.req)) {
     throw createError({
       statusCode: 404,
       statusMessage: "Page Not Found: /__nuxt_error"
     });
   }
   const islandContext = void 0;
-  let url = ssrError?.url || islandContext?.url || event.node.req.url;
+  let url = ssrError?.url || islandContext?.url || event.path;
   const isRenderingPayload = PAYLOAD_URL_RE.test(url) && !islandContext;
   if (isRenderingPayload) {
     url = url.substring(0, url.lastIndexOf("/")) || "/";
+    event._path = url;
     event.node.req.url = url;
   }
   const routeOptions = getRouteRules(event);
+  const head = createServerHead({
+    plugins: unheadPlugins
+  });
+  const headEntryOptions = { mode: "server" };
+  head.push(appHead, headEntryOptions);
   const ssrContext = {
     url,
     event,
     runtimeConfig: useRuntimeConfig(),
-    noSSR: event.context.nuxt?.noSSR || routeOptions.ssr === false || (false),
+    noSSR: event.context.nuxt?.noSSR || routeOptions.ssr === false && !islandContext || (false),
+    head,
     error: !!ssrError,
     nuxt: void 0,
     /* NuxtApp */
@@ -4341,38 +4570,56 @@ const renderer = defineRenderHandler(async (event) => {
     const response2 = renderPayloadResponse(ssrContext);
     return response2;
   }
-  const renderedMeta = await ssrContext.renderMeta?.() ?? {};
-  const inlinedStyles = Boolean(islandContext) ? await renderInlineStyles(ssrContext.modules ?? ssrContext._registeredComponents ?? []) : "";
+  const inlinedStyles = Boolean(islandContext) ? await renderInlineStyles(ssrContext.modules ?? ssrContext._registeredComponents ?? []) : [];
   const NO_SCRIPTS = routeOptions.experimentalNoScripts;
+  const { styles, scripts } = getRequestDependencies(ssrContext, renderer.rendererContext);
+  head.push({ style: inlinedStyles });
+  head.push({
+    link: Object.values(styles).map(
+      (resource) => ({ rel: "stylesheet", href: renderer.rendererContext.buildAssetsURL(resource.file) })
+    )
+  }, headEntryOptions);
+  if (!NO_SCRIPTS) {
+    head.push({
+      link: getPreloadLinks(ssrContext, renderer.rendererContext)
+    }, headEntryOptions);
+    head.push({
+      link: getPrefetchLinks(ssrContext, renderer.rendererContext)
+    }, headEntryOptions);
+    head.push({
+      script: renderPayloadJsonScript({ id: "__NUXT_DATA__", ssrContext, data: ssrContext.payload }) 
+    }, {
+      ...headEntryOptions,
+      // this should come before another end of body scripts
+      tagPosition: "bodyClose",
+      tagPriority: "high"
+    });
+  }
+  if (!routeOptions.experimentalNoScripts) {
+    head.push({
+      script: Object.values(scripts).map((resource) => ({
+        type: resource.module ? "module" : null,
+        src: renderer.rendererContext.buildAssetsURL(resource.file),
+        defer: resource.module ? null : true,
+        crossorigin: ""
+      }))
+    }, headEntryOptions);
+  }
+  const { headTags, bodyTags, bodyTagsOpen, htmlAttrs, bodyAttrs } = await renderSSRHead(head);
   const htmlContext = {
     island: Boolean(islandContext),
-    htmlAttrs: normalizeChunks([renderedMeta.htmlAttrs]),
-    head: normalizeChunks([
-      renderedMeta.headTags,
-      null ,
-      NO_SCRIPTS ? null : _rendered.renderResourceHints(),
-      _rendered.renderStyles(),
-      inlinedStyles,
-      ssrContext.styles
-    ]),
-    bodyAttrs: normalizeChunks([renderedMeta.bodyAttrs]),
-    bodyPrepend: normalizeChunks([
-      renderedMeta.bodyScriptsPrepend,
-      ssrContext.teleports?.body
-    ]),
+    htmlAttrs: [htmlAttrs],
+    head: normalizeChunks([headTags, ssrContext.styles]),
+    bodyAttrs: [bodyAttrs],
+    bodyPrepend: normalizeChunks([bodyTagsOpen, ssrContext.teleports?.body]),
     body: [_rendered.html],
-    bodyAppend: normalizeChunks([
-      NO_SCRIPTS ? void 0 : renderPayloadJsonScript({ id: "__NUXT_DATA__", ssrContext, data: ssrContext.payload }) ,
-      routeOptions.experimentalNoScripts ? void 0 : _rendered.renderScripts(),
-      // Note: bodyScripts may contain tags other than <script>
-      renderedMeta.bodyScripts
-    ])
+    bodyAppend: [bodyTags]
   };
   await nitroApp.hooks.callHook("render:html", htmlContext, { event });
   const response = {
     body: renderHTMLDocument(htmlContext),
-    statusCode: event.node.res.statusCode,
-    statusMessage: event.node.res.statusMessage,
+    statusCode: getResponseStatus(event),
+    statusMessage: getResponseStatusText(event),
     headers: {
       "content-type": "text/html;charset=utf-8",
       "x-powered-by": "Nuxt"
@@ -4414,17 +4661,17 @@ async function renderInlineStyles(usedModules) {
   for (const mod of usedModules) {
     if (mod in styleMap) {
       for (const style of await styleMap[mod]()) {
-        inlinedStyles.add(`<style>${style}</style>`);
+        inlinedStyles.add(style);
       }
     }
   }
-  return Array.from(inlinedStyles).join("");
+  return Array.from(inlinedStyles).map((style) => ({ innerHTML: style }));
 }
 function renderPayloadResponse(ssrContext) {
   return {
     body: stringify(splitPayload(ssrContext).payload, ssrContext._payloadReducers) ,
-    statusCode: ssrContext.event.node.res.statusCode,
-    statusMessage: ssrContext.event.node.res.statusMessage,
+    statusCode: getResponseStatus(ssrContext.event),
+    statusMessage: getResponseStatusText(ssrContext.event),
     headers: {
       "content-type": "application/json;charset=utf-8" ,
       "x-powered-by": "Nuxt"
@@ -4432,14 +4679,22 @@ function renderPayloadResponse(ssrContext) {
   };
 }
 function renderPayloadJsonScript(opts) {
-  const attrs = [
-    'type="application/json"',
-    `id="${opts.id}"`,
-    `data-ssr="${!(opts.ssrContext.noSSR)}"`,
-    opts.src ? `data-src="${opts.src}"` : ""
-  ].filter(Boolean);
   const contents = opts.data ? stringify(opts.data, opts.ssrContext._payloadReducers) : "";
-  return `<script ${attrs.join(" ")}>${contents}<\/script><script>window.__NUXT__={};window.__NUXT__.config=${uneval(opts.ssrContext.config)}<\/script>`;
+  const payload = {
+    type: "application/json",
+    id: opts.id,
+    innerHTML: contents,
+    "data-ssr": !(opts.ssrContext.noSSR)
+  };
+  if (opts.src) {
+    payload["data-src"] = opts.src;
+  }
+  return [
+    payload,
+    {
+      innerHTML: `window.__NUXT__={};window.__NUXT__.config=${uneval(opts.ssrContext.config)}`
+    }
+  ];
 }
 function splitPayload(ssrContext) {
   const { data, prerenderedAt, ...initial } = ssrContext.payload;
@@ -4454,13 +4709,6 @@ const renderer$1 = /*#__PURE__*/Object.freeze({
   default: renderer
 });
 
-const _virtual__headStatic = {"headTags":"<meta charset=\"utf-8\">\n<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n<meta name=\"google-site-verification\" content=\"prwQlgU9QmIFKYKc_dFmeJZVqCEjSUijDzF0b-qSs8M\">\n<meta name=\"yandex-verification\" content=\"a74366574883d178\">\n<meta property=\"og:site_name\" content=\"Elite escort services in Dubai MGTIMES\">\n<meta property=\"og:title\" content=\"Elite escort services in Dubai | VIP girls 🖤 | MGTIMES\">\n<meta property=\"og:type\" content=\"website\">\n<meta property=\"og:description\" content=\"Escort services and model escorts in Dubai. Elite escort agency for successful men! Selection of VIP models to accompany. Strictly confidential 📞 +79775944345 ⚡\">\n<meta property=\"og:url\" content=\"https://mgtimes.ae\">\n<meta property=\"og:image\" content=\"https://mgtimes.ae/extra-activity.png\">\n<meta property=\"og:image:alt\" content=\"Escort Agency «Mgtimes»\">\n<meta property=\"og:image:width\" content=\"600\">\n<meta property=\"og:image:height\" content=\"600\">\n<link rel=\"preload\" as=\"image\" href=\"/img/index/front-section/bg-image.webp\">\n<link rel=\"stylesheet\" href=\"https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css\">\n<link rel=\"apple-touch-icon\" sizes=\"180x180\" href=\"/apple-touch-icon.png\">\n<link rel=\"icon\" type=\"image/png\" sizes=\"32x32\" href=\"/favicon-32x32.png\">\n<link rel=\"icon\" type=\"image/png\" sizes=\"16x16\" href=\"/favicon-16x16.png\">\n<script type=\"application/ld+json\">{\"@context\":\"https://schema.org/\",\"@type\":\"Organization\",\"name\":\"Mgtimes\",\"telephone\":\"+7 977 594-43-45\",\"email\":\"info@mgtimes.ru\",\"image\":\"https://mgtimes.ae/extra-activity.png\",\"address\":{\"@type\":\"PostalAddress\",\"addressLocality\":\"Dubai\",\"streetAddress\":\"Dubai, Business Bay\"}}</script>","bodyTags":"<script src=\"/assets/js/SmoothScroll.js\" defer=\"\"></script>\n<script src=\"https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js\" defer=\"\"></script>\n<script src=\"https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js\" defer=\"\"></script>\n<script src=\"https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js\" defer=\"\"></script>\n<script src=\"/assets/js/app.js\" defer=\"\"></script>\n<script src=\" https://www.googletagmanager.com/gtag/js?id=G-ED65NJF30N\" defer=\"\"></script>\n<script>\n\t\tvar fired = false;\n\n\t\twindow.addEventListener('scroll', () => {\n\t\t\tif (fired === false) {\n\t\t\t\tfired = true;\n\t\t\t\tsetTimeout(() => {\n          window.dataLayer = window.dataLayer || [];\n          function gtag(){dataLayer.push(arguments);}\n          gtag('js', new Date());\n        \n          gtag('config', 'G-ED65NJF30N');\n\n\n          (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};\n          m[i].l=1*new Date();\n          for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}\n          k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})\n          (window, document, \"script\", \"https://mc.yandex.ru/metrika/tag.js\", \"ym\");\n       \n          ym(91305537, \"init\", {\n               clickmap:true,\n               trackLinks:true,\n               accurateTrackBounce:true,\n               webvisor:true\n          });\n\t\t\t\t}, 1000)\n\t\t\t}\n\t\t});\n          </script>\n<noscript>\n        <!-- Yandex.Metrika counter -->\n        <div><img src=\"https://mc.yandex.ru/watch/69520198\" style=\"position:absolute; left:-9999px;\" alt=\"\" /></div>\n        <!-- Yandex.Metrika counter -->\n         </noscript>","bodyTagsOpen":"","htmlAttrs":"","bodyAttrs":""};
-
-const _virtual__headStatic$1 = /*#__PURE__*/Object.freeze({
-  __proto__: null,
-  default: _virtual__headStatic
-});
-
 const styles = {};
 
 const styles$1 = /*#__PURE__*/Object.freeze({
@@ -4468,7 +4716,7 @@ const styles$1 = /*#__PURE__*/Object.freeze({
   default: styles
 });
 
-const template = "<svg class=\"nuxt-spa-loading\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 37 25\" fill=\"none\" width=\"80\"><path d=\"M24.236 22.006h10.742L25.563 5.822l-8.979 14.31a4 4 0 0 1-3.388 1.874H2.978l11.631-20 5.897 10.567\"></path></svg><style>.nuxt-spa-loading{position:fixed;top:50%;left:50%;transform:translate(-50%, -50%)}.nuxt-spa-loading>path{fill:none;stroke:#00DC82;stroke-width:4px;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:128;stroke-dashoffset:128;animation:nuxt-spa-loading-move 3s linear infinite}@keyframes nuxt-spa-loading-move{100%{stroke-dashoffset:-128}}</style>";
+const template = "";
 
 const _virtual__spaTemplate = /*#__PURE__*/Object.freeze({
   __proto__: null,
