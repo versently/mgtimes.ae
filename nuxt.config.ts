@@ -1,12 +1,6 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   devtools: { enabled: true },
-  postcss: {
-    plugins: {
-      tailwindcss: {},
-      autoprefixer: {},
-    },
-  },
   app: {
     head: {
       script: [
@@ -179,13 +173,12 @@ export default defineNuxtConfig({
     },
   },
 
-  css: ["@/assets/css/style.css", "@/assets/css/main.css"],
+  css: ["@/assets/css/style.css"],
   modules: [
     "@nuxt/image",
     "@nuxt/content",
     "@nuxtjs/i18n",
-    "@sidebase/nuxt-auth",
-    // "nuxt-delay-hydration",
+    "nuxt-delay-hydration",
     // "@nuxtjs/yandex-metrika",
   ],
   // yandexMetrika: {
