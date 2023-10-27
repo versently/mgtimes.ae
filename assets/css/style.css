@@ -779,6 +779,7 @@ input[name=language]:checked+label {
   line-height: 17px;
   color: #8A8A8A;
   margin: 0px 0px 0px 50px;
+  position:relative;
 }
 
 .front-section img{

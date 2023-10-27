@@ -69,11 +69,26 @@ const { t } = useI18n({
             </div>
           </div>
         </div>
+
         <div class="footer__bottom-block">
           <div class="footer__legal">© 2023 MGTimes</div>
-          <a :href="localePath('/privacy-policy')" class="footer__legal">{{
-            t("Privacy policy")
-          }}</a>
+
+          <span class="footer__legal ">
+            <a
+            class="footer-banner"
+              href="https://www.eurogirlsescort.com"
+              target="_blank"
+              title="EuroGirlsEscort.com"
+              ><img
+                src="https://www.eurogirlsescort.com/dist/images/banners/88X31.jpg"
+                alt="EuroGirlsEscort.com"
+                title="EuroGirlsEscort.com"
+            /></a>
+
+            <a class="footer__legal" :href="localePath('/privacy-policy')">{{
+              t("Privacy policy")
+            }}</a>
+          </span>
           <!-- <a href="/public-offer" class="footer__legal">Privacy policy</a> -->
         </div>
       </div>
@@ -130,9 +145,7 @@ const { t } = useI18n({
             {{ t("Go to Telegram") }}
 
             <svg class="popup-order__btn-svg">
-              <use
-                xlink:href="/img/popup-order/sprite.svg#telegram"
-              ></use>
+              <use xlink:href="/img/popup-order/sprite.svg#telegram"></use>
             </svg>
           </a>
           <a
@@ -143,9 +156,7 @@ const { t } = useI18n({
             {{ t("Go to WhatsApp") }}
 
             <svg class="popup-order__btn-svg">
-              <use
-                xlink:href="/img/popup-order/sprite.svg#whatsapp"
-              ></use>
+              <use xlink:href="/img/popup-order/sprite.svg#whatsapp"></use>
             </svg>
           </a>
         </div>
@@ -153,7 +164,20 @@ const { t } = useI18n({
     </div>
   </div>
 </template>
-<style lang="scss" scoped></style>
+<style scoped>
+.footer-banner{
+  position: relative;
+  top: -5px;
+}
+@media(max-width:575px){
+  .footer-banner{
+  position: absolute;
+  top: -25px;
+  right: 0px;
+}
+}
+
+</style>
 <i18n lang="json">
 {
   "en": {
