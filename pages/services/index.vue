@@ -52,7 +52,6 @@ useHead({
         <div class="services__title">
           <H1>{{ t("Services 'MGTIMES'") }}</H1>
         </div>
-
         <ContentList
           :path="route.path"
           :query="{
@@ -156,8 +155,8 @@ useHead({
     "Home page": "Главная страница",
     "More information": "Больше информации",
     "Our escort agency employs young and beautiful girls who can brighten up any evening. Each of them is a memorable and bright personality. The MGTimes agency puts up not only a high standard of appearance, but also monitors communicative qualities: the ability to present and sell oneself, and also pays great attention to reputation and personal qualities. Our main goal is to make your leisure unforgettable and spectacular in the company of an attractive girl for a vacation in Moscow.": "В нашем агентстве эскорта работают молодые и красивые девушки, способные скрасить любой вечер. Каждая из них запоминающаяся и яркая личность. Агентство «MGTimes» выставляет не только высокий ценз внешности, но и проводит мониторинг коммуникативных качеств: умения подавать и продавать себя, а также уделяет огромное внимание репутации и личным качествам. Основная наша цель – осуществить ваш досуг незабываемым и эффектным в компании с привлекательной девушкой для отдыха в Дубае.",
-    "Services": "Сервисы",
-    "Services 'MGTIMES'": "Сервисы 'MGTIMES'",
+    "Services": "Услуги",
+    "Services 'MGTIMES'": "Услуги 'MGTIMES'",
     "From": "От"
   }
 }

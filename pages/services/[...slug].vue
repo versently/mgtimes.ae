@@ -37,6 +37,8 @@ useHead({
     // },
   ],
 });
+
+
 </script>
 <template>
   <main class="">
@@ -93,6 +95,77 @@ useHead({
             {{ t("Order a service") }}
           </button>
         </div>
+
+
+
+
+
+        <div v-if="(path=='/services/parties-in-dubai')|| (path=='/ru/services/parties-in-dubai')" class="additional-services-section">
+        <div class="additional-services-section__container">
+          <div class="additional-services-section__section-name">
+            <h3>{{ t("Choose your party in Dubai") }}</h3>
+          </div>
+          <div class="additional-services-section__content">
+            <div class="additional-services-section__swiper">
+              <ContentList
+                :path="localePath('/services/parties-in-dubai')"
+                :query="{
+                  only: ['h1', 'about', 'tags', '_path', 'img'],
+                  where: {
+                    tags: {
+                      $contains: filter,
+                    },
+                  },
+                  $sensitivity: 'base',
+                }"
+              >
+                <!-- Default list slot -->
+                <template v-slot="{ list }">
+                  <!-- Additional required wrapper -->
+                  <div class="additional-services-section__swiper-wrapper">
+                    <!-- Slides -->
+                    <div
+                      
+                      class="additional-services-section__swiper-slide"
+                      v-for="services in list"
+                      :key="services._path"
+                    >
+                      <nuxt-img
+                        :src="`/assets/img/services/${services.img}.webp`"
+                        :alt="services.title"
+                      />
+                      <div
+                        class="additional-services-section__slide-description"
+                      >
+                        <div class="additional-services-section__slide-title">
+                          {{ services.h1 }}
+                        </div>
+                        <div class="additional-services-section__slide-text">
+                          {{ services.about }}
+                        </div>
+                        <div class="additional-services-section__slide-more">
+                          <a :href="services._path">{{
+                            t("More information")
+                          }}</a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </template>
+                <!-- Not found slot to display message when no content us is found -->
+                <template #not-found>
+                  <p>No services found.</p>
+                </template>
+              </ContentList>
+
+              <!-- If we need scrollbar -->
+              <div class="additional-services-section__swiper-scrollbar"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
 
         <div class="service__page-wrapper-img private-events__page-wrapper-img">
           <nuxt-img
@@ -181,6 +254,7 @@ useHead({
     "Order a service": "Order a service",
     "More information": "More information",
     "Additional services": "Additional services",
+    "Choose your party in Dubai":"Choose your party in Dubai",
     "From":"From"
   },
   "ru": {
@@ -189,6 +263,8 @@ useHead({
     "Order a service": "Заказать услугу",
     "More information": "Больше информации",
     "Additional services": "Дополнительные услуги",
+    "Choose your party in Dubai":"Выберите свою вечеринку в Дубае",
+
     "From":"От"
   }
 

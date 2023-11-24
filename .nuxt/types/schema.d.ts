@@ -139,12 +139,14 @@ declare module 'nuxt/schema' {
    },
   }
   interface PublicRuntimeConfig {
+   trailingSlash: boolean,
+
    content: {
       locales: Array<any>,
 
       defaultLocale: any,
 
-      integrity: any,
+      integrity: number,
 
       experimental: {
          stripQueryParameters: boolean,
