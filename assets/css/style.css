@@ -407,6 +407,7 @@
 }
 
 .select-city__select {
+  margin-top: 2px;
   position: relative;
   width: 189px;
   height: 18px;
