@@ -280,7 +280,7 @@ const route = useRoute();
     "Weight": "Вес",
     "Age": "Возраст",
     "More information": "Больше информации",
-    "Agency": "Агенство",
+    "Agency": "Агентство",
     "Fit figure": "Спортивная фигура",
     "An elite agency that offers escort services in Moscow for high-status and self-confident men. We guarantee our clients 100% confidentiality, high quality service, because we have an impeccable reputation. In the database of our agency, luxurious and educated Models are available who possess all the subtleties of seduction, the ability to emphasize the solidity of their companion at any VIP event.": "Элитное агентство, которое предлагает услуги эскорта в Москве для статусных и уверенных в себе мужчин. Мы гарантируем своим клиентам 100% конфиденциальность, сервис высокого качества, поскольку владеем безупречной репутацией. В базе нашего агентства доступны роскошные и образованные модели, которые владеют всеми тонкостями обольщения, умением подчеркнуть солидность своего спутника на любом ВИП мероприятии.",
     "You can choose an elegant, intellectually developed and sociable young girl for VIP Escorts. You can order elite ladies for escort at an affordable price.": "Вы можете выбрать элегантную, интеллектуально развитую и коммуникабельную молодую девушку для VIP сопровождения. Заказать элитных леди для эскорта можно по доступной цене.",

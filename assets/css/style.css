@@ -1606,6 +1606,16 @@ height: 100%;
   position: absolute;
   bottom: 0px;
 }
+@media(max-width:575px){
+  .service .additional-services-section__slide-more a {
+   
+    bottom: -60px;
+  }
+  .service .swiper-horizontal>.additional-services-section__swiper-scrollbar, .additional-services-section__swiper-scrollbar.swiper-scrollbar-horizontal{
+    bottom: -94px;
+  }
+}
+
 
 .additional-services-section__slide-more a::before,
 .additional-services-section__slide-more a::after {

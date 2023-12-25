@@ -208,7 +208,7 @@ const { t } = useI18n({
     "Contacts": "Контакты",
     "Media": "Медиа",
 
-    "The agency does not provide intimate services.": "Агенство не предоставляет услуги интимного характера.",
+    "The agency does not provide intimate services.": "Агентство не предоставляет услуги интимного характера.",
     "Order an escort": "Заказать эскорт",
     "Contact us": "Свяжитесь с нами",
     "Go ahead and write to us in a message convenient for you": "Перейдите и напишите нам в удобном для вас месседжере",

@@ -645,7 +645,7 @@ useHead({
     "We do not place the information in the public domain": "Мы не размещаем анкеты в открытом доступе",
     "High salary + bonuses": "Высокая заработная плата + бонусы",
     "The ability to travel all over the world": "Возможность путешествовать по всему миру",
-    "Agency": "Агенство",
+    "Agency": "Агентство",
     "High level of remuneration.": "Высокий уровень вознаграждения.",
     "Our requirements": "Наши требования",
     "Working in our escort agency is a destiny for the elite, who arewaiting for yachts, exclusive private events, trips to differentcountries. If you have a dream to get a prestigious job thatbrings pleasure and dating with successful men, we invite you tothe casting to escort. Vacancies are open in MGTimes. It isquite possible you will become the escort model whom all thedoors to the world of chic life are open.": "Работа в нашем эскорт-агентстве – это удел для избранных, которых ждут яхты, эксклюзивные частные мероприятия, поездки по разным странам. Если вы мечтаете устроиться на престижную работу, которая приносит удовольствие и знакомства с успешными мужчинами, приглашаем пройти кастинг. В «MGTimes» открыты вакансии, и вполне возможно, что именно вы станете теми моделями, перед которыми будут открыты все двери в мир шикарной жизни.",

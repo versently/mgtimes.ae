@@ -1,3 +1,49 @@
+// var modelBlocker = document.querySelector(".model");
+// var modelsBlocker = document.querySelector(".models");
+// var castingBlocker = document.querySelector(".casting");
+// var indexBlocker = document.querySelector(".front-section");
+// var servicesBlocker = document.querySelector(".services");
+// var serviceBlocker = document.querySelector(".service");
+// var contactsBlocker = document.querySelector(".contacts");
+// var mediaBlocker = document.querySelector(".media");
+
+// /*-------menu--------*/
+
+// if (modelsBlocker) {
+//   var showPerClick = 1;
+//   document.addEventListener("DOMContentLoaded", function () {
+//     if (document.documentElement.clientWidth > 991.98) {
+//       showPerClick = 9;
+//       document.getElementById("88sd8q").classList.remove("hidden");
+//     } else {
+//       showPerClick = 8;
+//       document.getElementById("88sd8q").classList.add("hidden");
+//     }
+//   });
+//   window.addEventListener(
+//     "resize",
+//     function () {
+//       if (document.documentElement.clientWidth > 991.98) {
+//         showPerClick = 9;
+//         document.getElementById("88sd8q").classList.remove("hidden");
+//       } else {
+//         showPerClick = 8;
+//         document.getElementById("88sd8q").classList.add("hidden");
+//       }
+//     },
+//     true
+//   );
+//   var modelsBtnShow = document.querySelectorAll(".models__btn-show");
+//   for (var i = 0; i < modelsBtnShow.length; i++) {
+//     modelsBtnShow[i].addEventListener("click", function () {
+//       var hidden = this.parentNode.querySelectorAll("div.hidden");
+//       for (var i = 0; i < showPerClick; i++) {
+//         if (!hidden[i]) return (this.outerHTML = "");
+//         hidden[i].classList.remove("hidden");
+//       }
+//     });
+//   }
+// }
 var modelBlocker = document.querySelector(".model");
 var modelsBlocker = document.querySelector(".models");
 var castingBlocker = document.querySelector(".casting");
@@ -6,43 +52,62 @@ var servicesBlocker = document.querySelector(".services");
 var serviceBlocker = document.querySelector(".service");
 var contactsBlocker = document.querySelector(".contacts");
 var mediaBlocker = document.querySelector(".media");
+var modelList = document.querySelector(".models__list");
+/*----show models btn-----*/
+// let urlAll = document.querySelectorAll('a')
+// urlAll.forEach(index => {
+// 	if (index.href == 'https://mgtimes.ruhttps://mgtimes.ae/ru/'){
+// 		index.href = 'https://mgtimes.ae/ru/'
+// 	}
+// })
+if (modelList) {
+  let showStart;
+  let showPerClick = 9;
+  let currentIndex = 9;
+  var modelsBtnShow = document.querySelector(".models__btn-show");
 
-/*-------menu--------*/
-
-if (modelsBlocker) {
-  var showPerClick = 1;
-  document.addEventListener("DOMContentLoaded", function () {
-    if (document.documentElement.clientWidth > 991.98) {
-      showPerClick = 9;
-      document.getElementById("88sd8q").classList.remove("hidden");
-    } else {
-      showPerClick = 8;
-      document.getElementById("88sd8q").classList.add("hidden");
-    }
-  });
-  window.addEventListener(
-    "resize",
-    function () {
-      if (document.documentElement.clientWidth > 991.98) {
-        showPerClick = 9;
-        document.getElementById("88sd8q").classList.remove("hidden");
-      } else {
-        showPerClick = 8;
-        document.getElementById("88sd8q").classList.add("hidden");
-      }
-    },
-    true
+  let modelItems = document.querySelectorAll(
+    ".models__list .models__model-item"
   );
-  var modelsBtnShow = document.querySelectorAll(".models__btn-show");
-  for (var i = 0; i < modelsBtnShow.length; i++) {
-    modelsBtnShow[i].addEventListener("click", function () {
-      var hidden = this.parentNode.querySelectorAll("div.hidden");
-      for (var i = 0; i < showPerClick; i++) {
-        if (!hidden[i]) return (this.outerHTML = "");
-        hidden[i].classList.remove("hidden");
+  var returnObj;
+  document.addEventListener("DOMContentLoaded", function () {
+    returnObj = JSON.parse(localStorage.getItem("myKey")); // Парсируем данные из localStorage
+    if (returnObj !== null && !isNaN(returnObj)) {
+      // Если данные возвращены и они являются числом
+      showStart = returnObj;
+    } else {
+      showStart = 9; // Устанавливаем значение по умолчанию, если в localStorage нет данных или они некорректны
+    }
+
+    modelItems.forEach((element, index) => {
+      if (index < showStart) {
+        element.classList.remove("hidden");
       }
     });
-  }
+
+    console.log(showStart);
+  });
+
+  modelsBtnShow.addEventListener("click", function () {
+    for (let i = currentIndex; i < modelItems.length; i++) {
+      console.log(
+        "currentIndex" +
+          currentIndex +
+          ";" +
+          "i" +
+          i +
+          ";" +
+          "currentIndex + showPerClick" +
+          currentIndex +
+          showPerClick
+      );
+      if (i >= currentIndex && i < currentIndex + showPerClick) {
+        modelItems[i].classList.remove("hidden");
+      }
+    }
+    currentIndex += showPerClick;
+    localStorage.setItem("myKey", currentIndex); // Сохраняем значение currentIndex в localStorage
+  });
 }
 if (castingBlocker) {
   let inputImages = document.querySelector(".form__input-images");

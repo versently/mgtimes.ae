@@ -100,7 +100,7 @@ useHead({
       "description": "Обращайтесь по контактным телефонам элитного эскорт агентства Mgtimes, лучшие модели Дубая! Организация отдыха и встреч! 📞 +971 58 525 2213 ⚡",
       "Home page": "Главная",
       "Order an escort": "Заказать эскорт",
-      "escort agency Mgtimes": "эскорт-агенство Mgtimes",
+      "escort agency Mgtimes": "эскорт-Агентство Mgtimes",
       "Call or write for any question.": "Звоните или пишите по любому вопросу.",
       "Contacts": "Контакты"
     
