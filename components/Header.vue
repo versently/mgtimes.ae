@@ -320,7 +320,7 @@ if (route.path.startsWith('/cities/')) {
 
     "Dubai": "Dubai",
     "Moscow": "Moscow",
-    "Sankt-Peterburg": "Sankt-Peterburg",
+    "Sankt-Peterburg": "Saint Petersburg",
     "Order an escort": "Order an escort",
 
     "City": "City:"
