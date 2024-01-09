@@ -19,10 +19,12 @@ const head = useLocaleHead({
             :rel="link.rel"
             :href="link.href"
             :hreflang="link.hreflang"
+            v-if="link.rel !== 'canonical'"
           />
         </template>
         <template v-for="meta in head.meta" :key="meta.id">
           <Meta
+           
             :id="meta.id"
             :property="meta.property"
             :content="meta.content"

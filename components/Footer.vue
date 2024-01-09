@@ -71,11 +71,11 @@ const { t } = useI18n({
         </div>
 
         <div class="footer__bottom-block">
-          <div class="footer__legal">© 2023 MGTimes</div>
+          <div class="footer__legal">© 2024 MGTimes</div>
 
-          <span class="footer__legal ">
+          <span class="footer__legal">
             <a
-            class="footer-banner"
+              class="footer-banner"
               href="https://www.eurogirlsescort.com"
               target="_blank"
               title="EuroGirlsEscort.com"
@@ -84,10 +84,12 @@ const { t } = useI18n({
                 alt="EuroGirlsEscort.com"
                 title="EuroGirlsEscort.com"
             /></a>
-
-            <a class="footer__legal" :href="localePath('/privacy-policy')">{{
-              t("Privacy policy")
-            }}</a>
+            <a class="footer__legal" :href="localePath('/sitemap')">{{ t("sitemap") }}</a>
+            <a
+              class="footer__legal footer__legal-2"
+              :href="localePath('/privacy-policy')"
+              >{{ t("Privacy policy") }}</a
+            >
           </span>
           <!-- <a href="/public-offer" class="footer__legal">Privacy policy</a> -->
         </div>
@@ -165,18 +167,17 @@ const { t } = useI18n({
   </div>
 </template>
 <style scoped>
-.footer-banner{
+.footer-banner {
   position: relative;
   top: -5px;
 }
-@media(max-width:575px){
-  .footer-banner{
-  position: absolute;
-  top: -25px;
-  right: 0px;
+@media (max-width: 575px) {
+  .footer-banner {
+    position: absolute;
+    top: -25px;
+    right: 0px;
+  }
 }
-}
-
 </style>
 <i18n lang="json">
 {
@@ -198,6 +199,7 @@ const { t } = useI18n({
     "Arrange a meeting, after discussing all the details, the manager of our agency will arrange a meeting with the girl for you": "Arrange a meeting, after discussing all the details, the manager of our agency will arrange a meeting with the girl for you",
     "Go to Telegram": "Go to Telegram",
     "Go to WhatsApp": "Go to WhatsApp",
+    "sitemap": "Site map",
     "Privacy policy": "Privacy policy"
   },
   "ru": {
@@ -218,6 +220,8 @@ const { t } = useI18n({
     "Arrange a meeting, after discussing all the details, the manager of our agency will arrange a meeting with the girl for you": "Договоритесь о встрече, после обсуждения всех деталей, менеджер нашего агенства организует для вас встречу с девушкой",
     "Go to Telegram": "Перейти в Telegram",
     "Go to WhatsApp": "Перейти в WhatsApp",
+
+    "sitemap": "Карта сайта",
     "Privacy policy": "Политика конфиденциальности"
   }
 }

@@ -10254,3 +10254,20 @@ label.error {
 .additional-services-section__swiper-slide img {
   object-fit: cover;
 }
+
+.footer__legal-2{
+  margin-left: 20px;
+}
+.sitemp-link a{
+  color: #000;
+  font-family: "Inter";
+  font-size: 14px;
+  font-style: normal;
+
+}
+.sitemp-link a:hover{
+  text-decoration: underline;
+}
+.sitemp-link li{
+  margin-bottom: 6px;
+}

@@ -327,14 +327,14 @@ useHead({
 <i18n lang="json">
   {
     "en": {
-      "title": "Elite escort Privacy Policy - MGTimes",
+      "title": " Elite escort Privacy Policy - MGTimes",
       "description": "MGTIMES Privacy Policy. For any questions please contact us!"
 
     
     },
     "ru": {
-      "title": "Elite escort Privacy Policy - MGTimes",
-      "description": "MGTIMES Privacy Policy. For any questions please contact us!"
+      "title": "Элитный эскорт - политика конфиденциальности - MGTimes",
+      "description": "MGTIMES - Политика конфиденциальности. По любым вопросам, пожалуйста, обращайтесь к нам!"
     
     
     }
