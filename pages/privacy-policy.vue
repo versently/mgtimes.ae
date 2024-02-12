@@ -14,13 +14,14 @@ useHead({
       name: "description",
       content: t("description"),
     },
+  ],
+  link: [
     {
       rel: "canonical",
       href: canonicalUrl,
     },
   ],
 });
-
 </script>
 <template>
   <div>
