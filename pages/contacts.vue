@@ -13,7 +13,6 @@ useHead({
     },
   ],
 });
-
 </script>
 <template>
   <main>
@@ -48,11 +47,13 @@ useHead({
           </li>
         </div>
         <div class="contacts__title">
-          {{ t("Contacts") }}  /
+          {{ t("Contacts") }} /
           <h1 style="display: inline">{{ t("escort agency Mgtimes") }}</h1>
         </div>
         <div class="contacts__line"></div>
-        <div class="contacts__subtitle">{{ t("Call or write for any question.") }}</div>
+        <div class="contacts__subtitle">
+          {{ t("Call or write for any question.") }}
+        </div>
         <div class="contacts__line-02"></div>
         <div class="contacts__list">
           <div class="contacts__list-item">
@@ -74,7 +75,9 @@ useHead({
             </a>
           </div>
         </div>
-        <button class="contacts__btn btn-order">{{ t("Order an escort") }}</button>
+        <button class="contacts__btn btn-order">
+          {{ t("Order an escort") }}
+        </button>
       </div>
     </div>
   </main>
@@ -87,8 +90,7 @@ useHead({
   {
     "en": {
       "title": "Contacts - Escort agency «Mgtimes» in Dubai",
-      "description": "Contact the contact numbers of the elite escort agency Mgtimes, the best models of Dubai! Organization of rest and meetings! 📞 +971 58 525 2213 ⚡",
-      "Home page": "Home page",
+      "description": "Contact the contact numbers of the elite escort agency Mgtimes, the best models of Dubai! Organization of rest and meetings! 📞 +971 58 525 2213 ⚡",  "Home page": "Home page",
       "Order an escort": "Order an escort",
       "escort agency Mgtimes": "escort agency Mgtimes",
       "Call or write for any question.": "Call or write for any question.",
@@ -96,8 +98,8 @@ useHead({
     
     },
     "ru": {
-      "title": "Контакты - Эскорт агентство «Mgtimes»",
-      "description": "Обращайтесь по контактным телефонам элитного эскорт агентства Mgtimes, лучшие модели Дубая! Организация отдыха и встреч! 📞 +971 58 525 2213 ⚡",
+      "title": "Наши контакты 🖤 Агентство Mgtimes",
+      "description": "Обращайтесь по контактным телефонам элитного эскорт-агентства Mgtimes, лучших моделей в США и во всем мире 🌎 Организация отдыха и встреч! 🔒 Строго конфиденциально",
       "Home page": "Главная",
       "Order an escort": "Заказать эскорт",
       "escort agency Mgtimes": "эскорт-Агентство Mgtimes",
