@@ -307,6 +307,11 @@ if (route.path.startsWith('/cities/')) {
   left: 5px;
   display: block;
 }
+.menu__services .select-city__select{
+  margin: 0;
+  position: relative;
+  top: 1.5px;
+}
 </style>
 <i18n lang="json">
 {
