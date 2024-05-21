@@ -115,17 +115,17 @@ export default defineNuxtConfig({
         },
         {
           property: "og:site_name",
-          content: "Elite escort services in Dubai MGTIMES",
+          content: "Escort Agency | MGTimes",
         },
         {
           property: "og:title",
-          content: "Elite escort services in Dubai | VIP girls 🖤 | MGTIMES",
+          content: "Escort Agency | MGTimes",
         },
         { property: "og:type", content: "website" },
         {
           property: "og:description",
           content:
-            "Escort services and model escorts in Dubai. Elite escort agency for successful men! Selection of VIP models to accompany. Strictly confidential 📞 +79775944345 ⚡",
+            "Premium Escort Service. TOP Models.  Worldwide 🖤",
         },
         { property: "og:url", content: "https://mgtimes.ae" },
         {
