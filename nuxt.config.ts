@@ -125,7 +125,7 @@ export default defineNuxtConfig({
         {
           property: "og:description",
           content:
-            "Premium Escort Service. TOP Models.  Worldwide 🖤",
+            "Premium Escort Service. TOP Models. Worldwide 🖤",
         },
         { property: "og:url", content: "https://mgtimes.ae" },
         {
