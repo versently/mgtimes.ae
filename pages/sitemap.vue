@@ -4,14 +4,14 @@ const { t, locale } = useI18n({
 });
 
 useHead({
-  title: t("titleMeta"),
+  title: t("sitemap"),
 
-  meta: [
-    {
-      name: "description",
-      content: t("descriptionMeta"),
-    },
-  ],
+  // meta: [
+  //   {
+  //     name: "description",
+  //     content: t("descriptionMeta"),
+  //   },
+  // ],
 });
 
 const revCont = ref(null);
@@ -78,13 +78,15 @@ if (locale.value == "en") {
               <a :href="localePath('/media')">{{ t("Media") }}</a>
             </li>
             <li>
-              <a :href="localePath('/privacy-policy')">{{ t("Privacy Policy") }}</a>
+              <a :href="localePath('/privacy-policy')">{{
+                t("Privacy Policy")
+              }}</a>
             </li>
-            
+
             <ContentList
               :path="localePath('/cities')"
               :query="{
-                only: ['h1','_path'],
+                only: ['h1', '_path'],
                 where: {
                   tags: {
                     $contains: filter,
@@ -208,7 +210,7 @@ if (locale.value == "en") {
     "Casting": "Casting",
     "Contacts": "Contacts",
     "Media": "Media",
-    "Privacy Policy":"Privacy Policy"
+    "Privacy Policy": "Privacy Policy"
   },
   "ru": {
     "titleMeta": "Элитные эскорт услуги в Дубае 🖤 VIP девушки / MGTIMES",
@@ -221,7 +223,7 @@ if (locale.value == "en") {
     "Casting": "Кастинг",
     "Contacts": "Контакты",
     "Media": "Медиа",
-    "Privacy Policy":"Политика конфиденциальности"
+    "Privacy Policy": "Политика конфиденциальности"
   }
 }
 </i18n>
