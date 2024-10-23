@@ -112,9 +112,9 @@ const uniqueModels = (models) => models.filter((item, index) => {
   <label for="filterAge">{{ t("Age") }}</label>
 <select v-model="filterAge" id="filterAge">
   <option value="">{{ t("All") }}</option>
-    <option value="22">18 - 21</option>
+    <option value="21">18 - 21</option>
     <option value="25">22-25</option>
-    <option value="26">26-29</option>
+    <option value="29">26-29</option>
   </select>
 </div>
   
