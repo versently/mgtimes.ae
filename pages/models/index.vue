@@ -15,6 +15,51 @@ useHead({
 });
 
 const route = useRoute();
+
+
+
+const filterHairColor = ref('')
+const filterHairColorModels = (list) => {
+  
+  if (!filterHairColor.value) return list;
+  return list.filter((model) => {
+    return model.hairColor === filterHairColor.value;
+  });
+}
+
+const filterAge = ref('')
+const filterAgeModels = (list) => {
+  if (!filterAge.value) return list;
+  return list.filter((model) => {
+    return Number(model.age) <= Number(filterAge.value);
+  });
+}
+
+const bustSize = ref('')
+const filterBustSizeModels = (list) => {
+  if (!bustSize.value) return list;
+  return list.filter((model) => {
+    console.log(model.bustSize, bustSize.value)
+    return Number(model.bustSize) === Number(bustSize.value);
+  });
+}
+
+const visaFilter = ref('')
+const visaFilterModels = (list) => {
+  if (!visaFilter.value) return list;
+  return list.filter((model) => {
+     return model.visa ===visaFilter.value;
+   
+  });
+}
+
+
+const uniqueModels = (models) => models.filter((item, index) => {
+  
+   const firstIndex = models.findIndex(t => t.title === item.title);
+  
+  return index === firstIndex;
+});
 </script>
 
 <template>
@@ -51,53 +96,98 @@ const route = useRoute();
         </div>
         <h1 class="models__title">{{ t("Models") }}</h1>
         <div>
+          <div class="filters">
+<div class="filter">
+
+  <label for="filterHairColor"> {{ t("HairColor") }}</label>
+<select v-model="filterHairColor" id="filterHairColor">
+  <option value="">{{ t("All") }}</option>
+    <option value="brunet">{{ t("Brunettes") }}</option>
+    <option value="blonde">{{ t("Blondes") }}</option>
+  </select>
+</div>
+
+<div class="filter">
+
+  <label for="filterAge">{{ t("Age") }}</label>
+<select v-model="filterAge" id="filterAge">
+  <option value="">{{ t("All") }}</option>
+    <option value="22">18 - 21</option>
+    <option value="25">22-25</option>
+    <option value="26">26-29</option>
+  </select>
+</div>
+  
+<div class="filter">
+
+  <label for="bustSize">{{ t("BustSize") }}</label>
+<select v-model="bustSize" id="bustSize">
+   <option value="">{{ t("All") }}</option>
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+  </select>
+</div>
+
+<div class="filter">
+
+  <label for="visaFilter">{{ t("Visa") }}</label>
+<select v-model="visaFilter" id="visaFilter">
+   <option value="">{{ t("All") }}</option>
+    <option value="usa">{{ t("USA") }}</option>
+    <option value="europe">{{ t("Europe") }}</option>
+    <option value="GB">{{ t("Great Britain") }}</option>
+    <option value="japan">{{ t("Japan") }}</option>
+  </select>
+</div>
+          </div>
           <ContentList
             :path="route.path"
             :query="{
               only: [
-                'title',
+              'title',
+                'age',                
                 'description',
-                'tags',
+                'bustSize',
+                'visa',
+                'weight',
+                'height',
                 '_path',
+                'hairColor',
                 'folder',
                 'mainImage',
               ],
-              where: {
-                tags: {
-                  $contains: filter,
-                },
-              },
-              $sensitivity: 'base',
             }"
           >
             <template v-slot="{ list }">
               <div class="services__list">
                 <div
                   class="models__model-item"
-                  v-for="models in list"
-                  :key="models._path"
+                  v-for="model in uniqueModels(visaFilterModels(filterBustSizeModels(filterAgeModels(filterHairColorModels(list)))))"
+                  :key="model._path"
                 >
                   <nuxt-img
-                    :src="`/assets/img/models/${models.folder}/${models.mainImage}`"
-                    :alt="models.title"
+                    :src="`/assets/img/models/${model.folder}/${model.mainImage}`"
+                    :alt="model.title"
                     loading="lazy"
                     sizes="sm:100vw md:50vw lg:400px"
                   />
                   <div class="models__model-description">
-                    <div class="models__model-name">{{ models.title }}</div>
+                    <div class="models__model-name">{{ model.title }}</div>
                     <div class="models__model-characteristics">
                       <div class="models__model-property">
-                        {{ t("Height:") }} <span>171</span>
+                        {{ t("Height:") }} <span>{{ model.height }}</span>
                       </div>
                       <div class="models__model-property">
-                        {{ t("Weight") }}: <span>52</span>
+                        {{ t("Weight:") }} <span>{{ model.weight }}</span>
                       </div>
                       <div class="models__model-property">
-                        {{ t("Age:") }} <span>25</span>
+                        {{ t("Age:") }} <span>{{ model.age }}</span>
                       </div>
                     </div>
                   </div>
-                  <a :href="models._path" class="models__model-more">
+                  <a :href="model._path" class="models__model-more">
                     {{ t("More information") }}</a
                   >
                 </div>
@@ -237,7 +327,50 @@ const route = useRoute();
   </main>
 </template>
 
-<style lang="scss" scoped></style>
+<style  scoped>
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 2rem; 
+}
+
+.filter {
+  flex: 1 1 calc(25% - 1rem); 
+  min-width: 150px; /* Минимальная ширина фильтров */
+}
+
+.filter label {
+  display: block;
+  margin-bottom: 0.5rem; /* Отступ между меткой и выбором */
+  font-weight: bold; /* Жирный шрифт для меток */
+}
+
+.filter select {
+  width: 100%; /* Полная ширина для селектов */
+  padding: 0.5rem; /* Отступ внутри селектов */
+  border: 1px solid #ccc; /* Граница селектов */
+  border-radius: 4px; /* Закругление углов */
+  transition: border-color 0.3s; /* Плавный переход для цвета границы */
+}
+
+.filter select:focus {
+  border-color: #007bff; /* Цвет границы при фокусе */
+  outline: none; /* Убираем стандартный контур */
+}
+
+@media (max-width: 768px) {
+  .filters {
+    flex-direction: column; /* Вертикальное расположение на малых экранах */
+  }
+
+  .filter {
+    flex: 1 1 auto; /* Позволяет фильтрам занимать всю ширину */
+  }
+}
+
+
+</style>
 <i18n lang="json">
 {
   "en": {
@@ -268,7 +401,17 @@ const route = useRoute();
     "VIP escort is the prerogative of strong and successful men": "VIP escort is the prerogative of strong and successful men",
     "Expensive escort services are the fate of exceptionally strong men. By contacting our agency, each client gets access to a database of elegant, slender and very beautiful VIP girls who are ideal companions.": "Expensive escort services are the fate of exceptionally strong men. By contacting our agency, each client gets access to a database of elegant, slender and very beautiful VIP girls who are ideal companions.",
     "We offer successful men VIP conditions at a premium cost. You have the opportunity to order elite escort girls at any time, according to your personal fantasies and preferences.": "We offer successful men VIP conditions at a premium cost. You have the opportunity to order elite escort girls at any time, according to your personal fantasies and preferences.",
-    "Our escort service agency will open the door to the world of unforgettable VIP escort for any event!": "Our escort service agency will open the door to the world of unforgettable VIP escort for any event!"
+    "Our escort service agency will open the door to the world of unforgettable VIP escort for any event!": "Our escort service agency will open the door to the world of unforgettable VIP escort for any event!",
+    "Visa": "Visa availability",
+    "BustSize": "Bust size",
+    "HairColor": "Hair color",
+    "Brunettes": "Brunettes",
+    "Blondes": "Blondes",
+    "All": "All",
+    "USA": "USA",
+    "Europe": "Europe",
+    "Great Britain": "Great Britain",
+    "Japan": "Japan"
   },
   "ru": {
     "title": "Каталог эскорт моделей и VIP девушек в Дубае - MGTimes",
@@ -298,7 +441,18 @@ const route = useRoute();
     "VIP escort is the prerogative of strong and successful men": "VIP сопровождение – прерогатива сильных и успешных мужчин",
     "Expensive escort services are the fate of exceptionally strong men. By contacting our agency, each client gets access to a database of elegant, slender and very beautiful VIP girls who are ideal companions.": "Дорогие услуги эскорта – участь исключительно сильных мужчин. Обращаясь в наше агентство, каждый клиент получает доступ к базе изящных, стройных и безумно красивых девушек, которые станут идеальными спутницами.",
     "We offer successful men VIP conditions at a premium cost. You have the opportunity to order elite escort girls at any time, according to your personal fantasies and preferences.": "Мы предлагаем успешным мужчинам ВИП условия по премиальной стоимости. У вас есть возможность заказать элитную девушку на вызов в любое время с учетом ваших личных фантазий и предпочтений.",
-    "Our escort service agency will open the door to the world of unforgettable VIP escort for any event!": "Наше агентство эскорт-услуг откроет вам дверь в мир незабываемого VIP сопровождения на любые мероприятия!"
+    "Our escort service agency will open the door to the world of unforgettable VIP escort for any event!": "Наше агентство эскорт-услуг откроет вам дверь в мир незабываемого VIP сопровождения на любые мероприятия!",
+    "Visa": "Наличие визы",
+    "BustSize": "Pазмер груди",
+    "HairColor": "Цвет волос",
+    "Brunettes": "Брюнетки",
+    "Blondes": "Блондинки",
+    "All": "Все",
+    "USA": "США",
+    "Europe": "Европа",
+    "Great Britain": "Великобритания",
+    "Japan": "Япония"
+    
   }
 }
 </i18n>
