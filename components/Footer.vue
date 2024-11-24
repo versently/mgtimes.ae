@@ -151,7 +151,7 @@ const { t } = useI18n({
             </svg>
           </a>
           <a
-            href="https://wa.me/79775944345"
+            href="https://wa.me/+79939097000"
             target="_blank"
             class="popup-order__btn"
           >
