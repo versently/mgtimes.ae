@@ -58,8 +58,8 @@ useHead({
         <div class="contacts__list">
           <div class="contacts__list-item">
             <div class="contacts__social-name">WhatsApp</div>
-            <a href="https://wa.me/79775944345" class="contacts__social-link">
-              +7 977 594-43-45
+            <a href="https://wa.me/+79939097000" class="contacts__social-link">
+              +7 993 909-70-00
             </a>
           </div>
           <div class="contacts__list-item">
