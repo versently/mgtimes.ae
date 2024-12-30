@@ -1,0 +1,24 @@
+User-agent: *
+Disallow: /test
+Disallow: /?gclid=
+Disallow: /?utm_source=
+Disallow: /?yclid= 
+Disallow: /*_openstat*
+
+User-agent: Yandex
+Disallow: /test
+Disallow: /?gclid=
+Disallow: /?utm_source=
+Disallow: /?yclid= 
+Disallow: /*_openstat*
+
+Clean-param: etext /
+
+User-agent: GoogleBot
+Disallow: /test
+Disallow: /?gclid=
+Disallow: /?utm_source=
+Disallow: /?yclid= 
+Disallow: /*_openstat*
+
+Sitemap: https://mgtimes.ae/sitemap.xml
