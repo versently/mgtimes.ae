@@ -74,7 +74,7 @@ const { t } = useI18n({
           <div class="footer__legal">© 2024 MGTimes</div>
 
           <span class="footer__legal">
-            <a
+            <!-- <a
               class="footer-banner"
               href="https://www.eurogirlsescort.com"
               target="_blank"
@@ -83,7 +83,7 @@ const { t } = useI18n({
                 src="https://www.eurogirlsescort.com/dist/images/banners/88X31.jpg"
                 alt="EuroGirlsEscort.com"
                 title="EuroGirlsEscort.com"
-            /></a>
+            /></a> -->
             <a class="footer__legal" :href="localePath('/sitemap')">{{ t("sitemap") }}</a>
             <a
               class="footer__legal footer__legal-2"
