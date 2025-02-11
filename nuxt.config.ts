@@ -46,7 +46,7 @@ export default defineNuxtConfig({
 
             telephone: "+7 993 909‒70‒00",
 
-            email: "info@mgtimes.com",
+            email: "info@mgtimes.ae",
 
             image: "https://mgtimes.ae/extra-activity.png",
 
