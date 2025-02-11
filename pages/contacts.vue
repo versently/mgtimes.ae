@@ -70,8 +70,8 @@ useHead({
           </div>
           <div class="contacts__list-item">
             <div class="contacts__social-name">Mail</div>
-            <a href="mailto:info@mgtimes.ae" class="contacts__social-link">
-              info@mgtimes.ae
+            <a href="mailto:info@mgtimes.com" class="contacts__social-link">
+              info@mgtimes.com
             </a>
           </div>
         </div>
