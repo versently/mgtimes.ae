@@ -58,7 +58,7 @@ console.log(locale.value);
             {{ t("Elite escort from MGTimes agency") }}
           </h2>
           <div class="services-section__line"></div>
-          <p class="services-section__text">
+          <p class="services-section__text services-section__text-arab">
             {{
               t(
                 "Our agency introduces the confidential services for the VIP-escort, in Dubai according to your preferences. We will help you to enjoy, the women’s attention, show the successful status, receiving the, service from our elite professionals of any existing beauty, standard. While using the services of MGTimes, you can rest assured, that the model picked for the event will be impeccable in every, aspect, from appearance to manners."
@@ -101,7 +101,7 @@ console.log(locale.value);
               />
             </div>
             <div class="services-section__list-item">
-              <a href="/services/models-for-accompanying">{{ t("Escorts") }}</a>
+              <a class="services-section__list-link" href="/services/models-for-accompanying">{{ t("Escorts") }}</a>
               <nuxt-img
                 loading="lazy"
                 src="/img/index/services-section/list/item03.webp"
@@ -124,7 +124,7 @@ console.log(locale.value);
             </div>
 
             <div class="services-section__list-item">
-              <a href="/services/models-for-relationships">{{
+              <a class="services-section__list-link" href="/services/models-for-relationships">{{
                 t("Relationships")
               }}</a>
               <nuxt-img
@@ -166,7 +166,7 @@ console.log(locale.value);
           </h3>
         </div>
         <div class="models-section__content">
-          <p>
+          <p class="models-section__content-text">
             {{
               t(
                 "Below you can see profiles of beautiful girl to convey their beauty, femininity and elegance."
@@ -747,6 +747,74 @@ console.log(locale.value);
     "Height": "Рост",
     "Weight": "Вес",
     "Age": "Возраст"
+  },
+  "ar": {
+    "titleMeta": "Elite escort services in Dubai 🖤 VIP girls / MGTIMES",
+    "descriptionMeta": "Escort services and model escorts in Dubai. Elite escort agency for successful men! Selection of VIP models to accompany. Strictly confidential 📞 +971 58 525 2213 ⚡",
+
+    "Elite escort in Dubai": "النخبة المرافقة في دبي",
+
+    "For those who appreciate beauty, grooming and sexuality in girls": "لأولئك الذين يقدّرون الجمال والأناقة والجاذبية في الفتيات",
+
+    "Order an escort": "طلب الخدمة",
+
+    "Services": "الخدمات",
+
+    "VIP — escort": "مرافقة VIP",
+
+    "Elite escort from MGTimes agency": " مرافقة النخبة من وكالة MGTimes",
+
+    "Our agency introduces the confidential services for the VIP-escort, in Dubai according to your preferences. We will help you to enjoy, the women’s attention, show the successful status, receiving the, service from our elite professionals of any existing beauty, standard. While using the services of MGTimes, you can rest assured, that the model picked for the event will be impeccable in every, aspect, from appearance to manners.": " .تقدم وكالتنا خدمات سرية لمرافقة الشخصيات المهمة في دبي، وفقًا لتفضيلاتك. سنساعدك على الاستمتاع باهتمام السيدات وإبراز مكانتك المرموقة من خلال خدمات نخبة من المحترفات بمختلف معايير الجمال. عند استخدام خدمات MGTimes، يمكنك أن تطمئن إلى أن العارضة المختارة للفعالية ستكون مثالية من جميع الجوانب، بدءًا من المظهر وصولاً إلى الآداب والسلوك",
+
+    "In our agency you can order girls for:": ":في وكالتنا يمكنك طلب فتيات من أجل",
+
+    "Romantic meetings:": "اللقاءات الرومانسية",
+
+    "Private events:": "الفعاليات الخاصة",
+
+    "Relationships": " العلاقات",
+
+    "Travel and business trips": " الرحلات والسفر للأعمال",
+
+    "Escorts": "المرافقة",
+
+    "Reviews": "التقييمات",
+
+    "Models": "العارضات",
+
+    "Below you can see profiles of beautiful girl to convey their beauty, femininity and elegance.": ".فيما يلي يمكنك مشاهدة ملفات تعريف الفتيات الجميلات التي تعكس جمالهن وأنوثتهن ورقتهن",
+
+    "Advantages": " المميزات ",
+
+    "More than 500 of satisfied clients due to the individual work with every case and strict classification of the personnel within the agency": ".أكثر من 500 عميل راضٍ بفضل العمل الفردي مع كل حالة والتصنيف الدقيق للموظفين داخل الوكالة",
+
+    "100%": "100%",
+
+    "100% confidentiality for the clients and safety of the database": ".سرية تامة بنسبة 100% للعملاء وأمان كامل لقاعدة البيانات",
+
+    "100% real photos of every candidate, allowing to pick the escort that fully corresponds to the set preferences": ".صور حقيقية بنسبة 100% لكل مرشحة، مما يتيح اختيار المرافقة التي تتوافق تمامًا مع التفضيلات المحددة",
+
+    "Casting": "تجارب الأداء",
+
+    "More information": " مزيد من المعلومات",
+
+    "Workingin": ".العمل في خدمات المرافقة هو اختيار واعٍ لكل فتاة. إنها فرصة جيدة للحصول على وظيفة ذات دخل مرتفع، وبدء حياة جديدة مليئة بالمعارف المميزة، والرحلات الممتعة، والمشاعر التي لا تُنسى. تساعد وكالة MGTimes الفتيات الجميلات من ذوات المظهر النموذجي على أن يصبحن مصدر إلهام حقيقي لرعاة أثرياء. هؤلاء الأشخاص مستعدون لدفع المال لقاء الرفقة الممتعة وقضاء أوقات الفراغ المشتركة",
+
+    "VIP-girls in Dubai": " فتيات VIP في دبي",
+
+    "Any additional information can be requested via sent e-mail or phone call request.": ".يمكن طلب أي معلومات إضافية عبر البريد الإلكتروني المرسل أو عن طريق الاتصال الهاتفي",
+
+    "Media": "وسائط",
+
+    "What is an escort?": "What is an escort?",
+
+    "In modern society there are professions that are rarely spoken out loud. One of these is the activity of escorts. Let's figure out what an escort is and what the representatives of the direction are doing.": "In modern society there are professions that are rarely spoken out loud. One of these is the activity of escorts. Let's figure out what an escort is and what the representatives of the direction are doing.",
+
+    "View all": "عرض الكل",
+    "Additional services": "الخدمات",
+    "Height": "ارتفاع",
+    "Weight": "وزن",
+    "Age": "عمر"
   }
 }
 </i18n>

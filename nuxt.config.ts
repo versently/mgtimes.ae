@@ -3,7 +3,7 @@ export default defineNuxtConfig({
   runtimeConfig: {
     public: {
       trailingSlash: false,
-    }
+    },
   },
   devtools: { enabled: true },
   app: {
@@ -218,6 +218,8 @@ export default defineNuxtConfig({
         iso: "ru-AE",
         name: "RU",
       },
+      { code: 'ar', iso: 'ar-AE', name: 'AR' }
+
     ],
   },
 });
