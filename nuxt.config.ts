@@ -218,8 +218,8 @@ export default defineNuxtConfig({
         iso: "ru-AE",
         name: "RU",
       },
-      { code: 'ar', iso: 'ar-AE', name: 'AR' }
-
+/*       { code: 'ar', iso: 'ar-AE', name: 'AR' }
+ */
     ],
   },
 });
