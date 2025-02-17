@@ -164,10 +164,10 @@ if (route.path.startsWith('/cities/')) {
         <div class="lang-box__en">
           <a :class="{ active: locale === 'ru' }" :href="switchLocalePath('ru')">RU</a>
         </div>
-     <!--    <div class="lang-box__line"></div>
+        <div class="lang-box__line"></div>
         <div class="lang-box__en">
           <a :class="{ active: locale === 'ar' }" :href="switchLocalePath('ar')">AR</a>
-        </div> -->
+        </div>
       </div>
       <button class="header__btn-order pc btn-order">
         {{ t("Order an escort") }}

@@ -1,9 +1,9 @@
-export const localeCodes = ["en","ru"]
+export const localeCodes = ["en","ru","ar"]
 
 export const localeMessages = {
 }
 
-export const additionalMessages = Object({"ru":[],})
+export const additionalMessages = Object({"ru":[],"ar":[],})
 
 export const resolveNuxtI18nOptions = async (context) => {
   const nuxtI18nOptions = Object({})
@@ -11,7 +11,7 @@ export const resolveNuxtI18nOptions = async (context) => {
   
 },}),})
   nuxtI18nOptions.vueI18n = await vueI18nOptionsLoader(context)
-  nuxtI18nOptions.locales = [Object({"code":"en","iso":"en-AE","name":"EN"}),Object({"code":"ru","iso":"ru-AE","name":"RU"})]
+  nuxtI18nOptions.locales = [Object({"code":"en","iso":"en-AE","name":"EN"}),Object({"code":"ru","iso":"ru-AE","name":"RU"}),Object({"code":"ar","iso":"ar-AE","name":"AR"})]
   nuxtI18nOptions.defaultLocale = "en"
   nuxtI18nOptions.defaultDirection = "ltr"
   nuxtI18nOptions.routesNameSeparator = "___"
@@ -37,7 +37,7 @@ export const resolveNuxtI18nOptions = async (context) => {
 
 export const nuxtI18nOptionsDefault = Object({vueI18n: undefined,locales: [],defaultLocale: "",defaultDirection: "ltr",routesNameSeparator: "___",trailingSlash: false,defaultLocaleRouteNameSuffix: "default",strategy: "prefix_except_default",lazy: false,langDir: null,rootRedirect: null,detectBrowserLanguage: Object({"alwaysRedirect":false,"cookieCrossOrigin":false,"cookieDomain":null,"cookieKey":"i18n_redirected","cookieSecure":false,"fallbackLocale":"","redirectOn":"root","useCookie":true}),differentDomains: false,baseUrl: "",dynamicRouteParams: false,customRoutes: "page",pages: Object({}),skipSettingLocaleOnNavigate: false,onBeforeLanguageSwitch: (() => ""),onLanguageSwitched: (() => null),types: undefined,debug: false})
 
-export const nuxtI18nInternalOptions = Object({__normalizedLocales: [Object({"code":"en","iso":"en-AE","name":"EN"}),Object({"code":"ru","iso":"ru-AE","name":"RU"})]})
+export const nuxtI18nInternalOptions = Object({__normalizedLocales: [Object({"code":"en","iso":"en-AE","name":"EN"}),Object({"code":"ru","iso":"ru-AE","name":"RU"}),Object({"code":"ar","iso":"ar-AE","name":"AR"})]})
 export const NUXT_I18N_MODULE_ID = "@nuxtjs/i18n"
 export const isSSG = false
 export const isSSR = true
