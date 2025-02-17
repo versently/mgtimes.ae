@@ -193,12 +193,12 @@ if (route.path.startsWith("/cities/")) {
             >RU</a
           >
         </div>
-        <div class="lang-box__line"></div>
-        <div class="lang-box__en">
+        <!-- <div class="lang-box__line"></div> -->
+        <!-- <div class="lang-box__en">
           <a :class="{ active: locale === 'ar' }" :href="switchLocalePath('ar')"
             >AR</a
           >
-        </div>
+        </div> -->
       </div>
       <button class="header__btn-order pc btn-order">
         {{ t("Order an escort") }}
