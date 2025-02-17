@@ -23,7 +23,7 @@ onMounted(() => {
 
 const route = useRoute();
 const src = ref(null);
-if (route.path.startsWith('/cities/')) {
+if (route.path.startsWith("/cities/")) {
   src.value = "/cities/" + route.params.slug[0];
 } else {
   src.value = null;
@@ -40,11 +40,12 @@ if (route.path.startsWith('/cities/')) {
           <div class="menu__item">
             <a :href="localePath('index')" class="menu__link">{{
               t("Home")
-              }}</a>
+            }}</a>
           </div>
           <div class="menu__item">
             <a :href="localePath('/models')" class="menu__link">
-              {{ t("Models") }}</a>
+              {{ t("Models") }}</a
+            >
           </div>
           <div class="menu__item">
             <!-- <a :href="localePath('/services')" class="menu__link">{{
@@ -57,17 +58,24 @@ if (route.path.startsWith('/cities/')) {
                 </a>
 
                 <div class="select-city__content">
-                  <ContentList :path="localePath('/services')" :query="{
-                    only: ['title', '_path', 'h1'],
-                    where: {
-                      tags: {
-                        $contains: filter,
+                  <ContentList
+                    :path="localePath('/services')"
+                    :query="{
+                      only: ['title', '_path', 'h1'],
+                      where: {
+                        tags: {
+                          $contains: filter,
+                        },
                       },
-                    },
-                    $sensitivity: 'base',
-                  }">
+                      $sensitivity: 'base',
+                    }"
+                  >
                     <template v-slot="{ list }">
-                      <label class="select-city__label" v-for="сities in list" :key="сities._path">
+                      <label
+                        class="select-city__label"
+                        v-for="сities in list"
+                        :key="сities._path"
+                      >
                         <a :href="сities._path">{{ сities.h1 }}</a>
                       </label>
                     </template>
@@ -82,40 +90,42 @@ if (route.path.startsWith('/cities/')) {
           <div class="menu__item">
             <a :href="localePath('/casting')" class="menu__link">{{
               t("Casting")
-              }}</a>
+            }}</a>
           </div>
           <div class="menu__item">
             <a :href="localePath('/contacts')" class="menu__link">{{
               t("Contacts")
-              }}</a>
+            }}</a>
           </div>
           <div class="menu__item">
             <a :href="localePath('/media')" class="menu__link">{{
               t("Media")
-              }}</a>
+            }}</a>
           </div>
         </div>
       </div>
       <div class="header__select-city select-city">
         <div class="select-city__select">
-
           <div v-if="!(src == null)" class="select-city__title">
             <span class="select-city__before">{{ t("City") }}</span>
-            <ContentList :path="localePath('/cities')" :query="{
-              only: ['title', '_path', 'h1'],
-              where: {
-                tags: {
-                  $contains: filter,
+            <ContentList
+              :path="localePath('/cities')"
+              :query="{
+                only: ['title', '_path', 'h1'],
+                where: {
+                  tags: {
+                    $contains: filter,
+                  },
                 },
-              },
-              $sensitivity: 'base',
-            }">
+                $sensitivity: 'base',
+              }"
+            >
               <template v-slot="{ list }">
                 <span v-for="сities in list" :key="сities._path">
                   <span v-if="сities._path == src">{{ сities.h1 }} </span>
                   <span v-else-if="сities._path == '/ru' + src">{{
                     сities.h1
-                    }}</span>
+                  }}</span>
                 </span>
               </template>
               <template #not-found>
@@ -123,25 +133,34 @@ if (route.path.startsWith('/cities/')) {
               </template>
             </ContentList>
           </div>
-          <div v-else-if="src == null" class="select-city__title ">
+          <div v-else-if="src == null" class="select-city__title">
             <span class="select-city__before">{{ t("City") }}</span>
             {{ t("Dubai") }}
           </div>
 
           <div class="select-city__content">
-            <label class="select-city__label"><a :href="localePath('/')">{{ t("Dubai") }}</a></label>
+            <label class="select-city__label"
+              ><a :href="localePath('/')">{{ t("Dubai") }}</a></label
+            >
 
-            <ContentList :path="localePath('/cities')" :query="{
-              only: ['title', '_path', 'h1'],
-              where: {
-                tags: {
-                  $contains: filter,
+            <ContentList
+              :path="localePath('/cities')"
+              :query="{
+                only: ['title', '_path', 'h1'],
+                where: {
+                  tags: {
+                    $contains: filter,
+                  },
                 },
-              },
-              $sensitivity: 'base',
-            }">
+                $sensitivity: 'base',
+              }"
+            >
               <template v-slot="{ list }">
-                <label class="select-city__label" v-for="сities in list" :key="сities._path">
+                <label
+                  class="select-city__label"
+                  v-for="сities in list"
+                  :key="сities._path"
+                >
                   <a :href="сities._path">{{ сities.h1 }}</a>
                 </label>
               </template>
@@ -149,41 +168,58 @@ if (route.path.startsWith('/cities/')) {
                 <p>error сities</p>
               </template>
             </ContentList>
-            <label class="select-city__label"><a href="https://mgtimes.ru/en">{{ t("Moscow") }}</a></label>
-            <label class="select-city__label"><a href="https://mgtimes.ru/en/escort-modeli-sankt-peterburg.html">{{
-              t("Sankt-Peterburg") }}</a></label>
+            <label class="select-city__label"
+              ><a href="https://mgtimes.ru/en">{{ t("Moscow") }}</a></label
+            >
+            <label class="select-city__label"
+              ><a
+                href="https://mgtimes.ru/en/escort-modeli-sankt-peterburg.html"
+                >{{ t("Sankt-Peterburg") }}</a
+              ></label
+            >
           </div>
         </div>
       </div>
 
       <div class="header__select-language pc lang-box">
         <div class="lang-box__ru">
-          <a :class="{ active: locale === 'en' }" :href="switchLocalePath('en')">EN</a>
+          <a :class="{ active: locale === 'en' }" :href="switchLocalePath('en')"
+            >EN</a
+          >
         </div>
         <div class="lang-box__line"></div>
         <div class="lang-box__en">
-          <a :class="{ active: locale === 'ru' }" :href="switchLocalePath('ru')">RU</a>
+          <a :class="{ active: locale === 'ru' }" :href="switchLocalePath('ru')"
+            >RU</a
+          >
         </div>
         <div class="lang-box__line"></div>
         <div class="lang-box__en">
-          <a :class="{ active: locale === 'ar' }" :href="switchLocalePath('ar')">AR</a>
+          <a :class="{ active: locale === 'ar' }" :href="switchLocalePath('ar')"
+            >AR</a
+          >
         </div>
       </div>
       <button class="header__btn-order pc btn-order">
         {{ t("Order an escort") }}
       </button>
-
+      <button class="header__btn-mobile-menu btn-mobile-menu">
+        <span class="btn-mobile-menu__line-up"></span
+        ><span class="btn-mobile-menu__line-middle"></span
+        ><span class="btn-mobile-menu__line-bottom"></span>
+      </button>
       <div class="header__mobile-menu">
         <div class="header__menu menu">
           <div class="menu__list">
             <div class="menu__item">
               <a :href="localePath('index')" class="menu__link">{{
                 t("Home")
-                }}</a>
+              }}</a>
             </div>
             <div class="menu__item">
               <a :href="localePath('/models')" class="menu__link">
-                {{ t("Models") }}</a>
+                {{ t("Models") }}</a
+              >
             </div>
             <!-- <div class="menu__item">
               <a href="/services" class="menu__link">Services</a>
@@ -196,17 +232,24 @@ if (route.path.startsWith('/cities/')) {
                 </div>
 
                 <div class="select-city__content">
-                  <ContentList :path="localePath('/services')" :query="{
-                    only: ['title', '_path', 'h1'],
-                    where: {
-                      tags: {
-                        $contains: filter,
+                  <ContentList
+                    :path="localePath('/services')"
+                    :query="{
+                      only: ['title', '_path', 'h1'],
+                      where: {
+                        tags: {
+                          $contains: filter,
+                        },
                       },
-                    },
-                    $sensitivity: 'base',
-                  }">
+                      $sensitivity: 'base',
+                    }"
+                  >
                     <template v-slot="{ list }">
-                      <label class="select-city__label" v-for="сities in list" :key="сities._path">
+                      <label
+                        class="select-city__label"
+                        v-for="сities in list"
+                        :key="сities._path"
+                      >
                         <a :href="сities._path">{{ сities.h1 }}</a>
                       </label>
                     </template>
@@ -220,23 +263,21 @@ if (route.path.startsWith('/cities/')) {
             <div class="menu__item">
               <a :href="localePath('/casting')" class="menu__link">{{
                 t("Casting")
-                }}</a>
+              }}</a>
             </div>
             <div class="menu__item">
               <a :href="localePath('/contacts')" class="menu__link">{{
                 t("Contacts")
-                }}</a>
+              }}</a>
             </div>
             <div class="menu__item">
               <a :href="localePath('/media')" class="menu__link">{{
                 t("Media")
-                }}</a>
+              }}</a>
             </div>
           </div>
         </div>
-
       </div>
-
     </div>
   </header>
 </template>
@@ -260,7 +301,8 @@ if (route.path.startsWith('/cities/')) {
   top: 1.5px;
 }
 </style>
-<i18n lang="json">{
+<i18n lang="json">
+{
   "en": {
     "Home": "Home",
     "Models": "Models",
@@ -300,4 +342,5 @@ if (route.path.startsWith('/cities/')) {
     "Order an escort": "طلب الخدمة",
     "City": "المدينة:"
   }
-}</i18n>
+}
+</i18n>
