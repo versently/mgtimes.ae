@@ -193,21 +193,11 @@ if (route.path.startsWith("/cities/")) {
             >RU</a
           >
         </div>
-        <!-- <div class="lang-box__line"></div> -->
-        <!-- <div class="lang-box__en">
-          <a :class="{ active: locale === 'ar' }" :href="switchLocalePath('ar')"
-            >AR</a
-          >
-        </div> -->
       </div>
       <button class="header__btn-order pc btn-order">
         {{ t("Order an escort") }}
       </button>
-      <button class="header__btn-mobile-menu btn-mobile-menu">
-        <span class="btn-mobile-menu__line-up"></span
-        ><span class="btn-mobile-menu__line-middle"></span
-        ><span class="btn-mobile-menu__line-bottom"></span>
-      </button>
+
       <div class="header__mobile-menu">
         <div class="header__menu menu">
           <div class="menu__list">
@@ -277,7 +267,30 @@ if (route.path.startsWith("/cities/")) {
             </div>
           </div>
         </div>
+        <div class="header__select-language lang-box">
+          <div class="lang-box__ru">
+            <a
+              :class="{ active: locale === 'en' }"
+              :href="switchLocalePath('en')"
+              >EN</a
+            >
+          </div>
+          <div class="lang-box__line"></div>
+          <div class="lang-box__en">
+            <a
+              :class="{ active: locale === 'ru' }"
+              :href="switchLocalePath('ru')"
+              >RU</a
+            >
+          </div>
+        </div>
+        <button class="header__btn-order btn-order">Order an escort</button>
       </div>
+      <button class="header__btn-mobile-menu btn-mobile-menu">
+        <span class="btn-mobile-menu__line-up"></span
+        ><span class="btn-mobile-menu__line-middle"></span
+        ><span class="btn-mobile-menu__line-bottom"></span>
+      </button>
     </div>
   </header>
 </template>
@@ -285,7 +298,6 @@ if (route.path.startsWith("/cities/")) {
 .select-city__title a {
   color: #000;
 }
-
 .ar {
   content: url(/img/header/arrow.svg);
   transform: rotate(0deg);
@@ -294,7 +306,6 @@ if (route.path.startsWith("/cities/")) {
   left: 5px;
   display: block;
 }
-
 .menu__services .select-city__select {
   margin: 0;
   position: relative;
@@ -310,10 +321,12 @@ if (route.path.startsWith("/cities/")) {
     "Casting": "Casting",
     "Contacts": "Contacts",
     "Media": "Media",
+
     "Dubai": "Dubai",
     "Moscow": "Moscow",
     "Sankt-Peterburg": "Saint Petersburg",
     "Order an escort": "Order an escort",
+
     "City": "City:"
   },
   "ru": {
@@ -323,24 +336,13 @@ if (route.path.startsWith("/cities/")) {
     "Casting": "Кастинг",
     "Contacts": "Контакты",
     "Media": "Медиа",
+
     "Dubai": "Дубай",
     "Moscow": "Москва",
     "Sankt-Peterburg": "Санкт-Петербург",
     "Order an escort": "Заказать эскорт",
+
     "City": "Город:"
-  },
-  "ar": {
-    "Services": "الخدمات",
-    "Home": "الرئيسية",
-    "Models": "العارضات",
-    "Casting": "التجارب",
-    "Contacts": "التواصل",
-    "Media": "الوسائط",
-    "Dubai": "دبي",
-    "Moscow": "موسكو",
-    "Sankt-Peterburg": "سانت بطرسبرغ",
-    "Order an escort": "طلب الخدمة",
-    "City": "المدينة:"
   }
 }
 </i18n>

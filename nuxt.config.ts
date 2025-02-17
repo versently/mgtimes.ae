@@ -124,8 +124,7 @@ export default defineNuxtConfig({
         { property: "og:type", content: "website" },
         {
           property: "og:description",
-          content:
-            "Premium Escort Service. TOP Models. Worldwide 🖤",
+          content: "Premium Escort Service. TOP Models. Worldwide 🖤",
         },
         { property: "og:url", content: "https://mgtimes.ae" },
         {
@@ -193,7 +192,7 @@ export default defineNuxtConfig({
   // delayHydration: {
   //   mode: "init",
   // },
-  
+
   // auth: {
   //   globalAppMiddleware: true
   //  },
@@ -218,8 +217,6 @@ export default defineNuxtConfig({
         iso: "ru-AE",
         name: "RU",
       },
-      { code: 'ar', iso: 'ar-AE', name: 'AR' }
-
     ],
   },
 });
