@@ -223,6 +223,27 @@ const { t } = useI18n({
 
     "sitemap": "Карта сайта",
     "Privacy policy": "Политика конфиденциальности"
+  },
+  "ar": {
+    "Services": "الخدمات",
+    "Home": "الرئيسية",
+    "Models": "العارضات",
+    "Casting": "التجارب",
+    "Contacts": "التواصل",
+    "Media": "الوسائط",
+
+    "The agency does not provide intimate services.": "The agency does not provide intimate services.",
+    "Order an escort": "Order an escort",
+    "Contact us": "Contact us",
+    "Go ahead and write to us in a message convenient for you": "Go ahead and§ write to us in a message convenient for you",
+    "Describe your wishes": "Describe your wishes",
+    "Specify the service that interests you, and our manager will, select the model according to your preferences. For new customers, the selection of Models is made by prepayment.": "Specify the service that interests you, and our manager will, select the model according to your preferences. For new customers, the selection of Models is made by prepayment.",
+    "Have fun": "Have fun",
+    "Arrange a meeting, after discussing all the details, the manager of our agency will arrange a meeting with the girl for you": "Arrange a meeting, after discussing all the details, the manager of our agency will arrange a meeting with the girl for you",
+    "Go to Telegram": "Go to Telegram",
+    "Go to WhatsApp": "Go to WhatsApp",
+    "sitemap": "خريطة الموقع",
+    "Privacy policy": "سياسة الخصوصية"
   }
 }
 </i18n>
