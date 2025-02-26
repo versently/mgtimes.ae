@@ -168,15 +168,15 @@ if (route.path.startsWith("/cities/")) {
                 <p>error сities</p>
               </template>
             </ContentList>
-            <label class="select-city__label"
+            <!-- <label class="select-city__label"
               ><a href="https://mgtimes.ru/en">{{ t("Moscow") }}</a></label
-            >
-            <label class="select-city__label"
+            > -->
+            <!-- <label class="select-city__label"
               ><a
                 href="https://mgtimes.ru/en/escort-modeli-sankt-peterburg.html"
                 >{{ t("Sankt-Peterburg") }}</a
               ></label
-            >
+            > -->
           </div>
         </div>
       </div>
