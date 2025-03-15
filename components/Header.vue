@@ -40,7 +40,7 @@ if (route.path.startsWith("/cities/")) {
           <div class="menu__item">
             <a :href="localePath('index')" class="menu__link">{{
               t("Home")
-              }}</a>
+            }}</a>
           </div>
           <div class="menu__item">
             <a :href="localePath('/models')" class="menu__link">
@@ -82,17 +82,17 @@ if (route.path.startsWith("/cities/")) {
           <div class="menu__item">
             <a :href="localePath('/casting')" class="menu__link">{{
               t("Casting")
-              }}</a>
+            }}</a>
           </div>
           <div class="menu__item">
             <a :href="localePath('/contacts')" class="menu__link">{{
               t("Contacts")
-              }}</a>
+            }}</a>
           </div>
           <div class="menu__item">
             <a :href="localePath('/media')" class="menu__link">{{
               t("Media")
-              }}</a>
+            }}</a>
           </div>
         </div>
       </div>
@@ -114,7 +114,7 @@ if (route.path.startsWith("/cities/")) {
                   <span v-if="сities._path == src">{{ сities.h1 }} </span>
                   <span v-else-if="сities._path == '/ru' + src">{{
                     сities.h1
-                    }}</span>
+                  }}</span>
                 </span>
               </template>
               <template #not-found>
@@ -172,13 +172,18 @@ if (route.path.startsWith("/cities/")) {
         {{ t("Order an escort") }}
       </button>
 
+      <button class="header__btn-mobile-menu btn-mobile-menu">
+        <span class="btn-mobile-menu__line-up"></span><span class="btn-mobile-menu__line-middle"></span><span
+          class="btn-mobile-menu__line-bottom"></span>
+      </button>
+
       <div class="header__mobile-menu">
         <div class="header__menu menu">
           <div class="menu__list">
             <div class="menu__item">
               <a :href="localePath('index')" class="menu__link">{{
                 t("Home")
-                }}</a>
+              }}</a>
             </div>
             <div class="menu__item">
               <a :href="localePath('/models')" class="menu__link">
@@ -219,17 +224,17 @@ if (route.path.startsWith("/cities/")) {
             <div class="menu__item">
               <a :href="localePath('/casting')" class="menu__link">{{
                 t("Casting")
-                }}</a>
+              }}</a>
             </div>
             <div class="menu__item">
               <a :href="localePath('/contacts')" class="menu__link">{{
                 t("Contacts")
-                }}</a>
+              }}</a>
             </div>
             <div class="menu__item">
               <a :href="localePath('/media')" class="menu__link">{{
                 t("Media")
-                }}</a>
+              }}</a>
             </div>
           </div>
         </div>
@@ -252,6 +257,7 @@ if (route.path.startsWith("/cities/")) {
   left: 5px;
   display: block;
 }
+
 .menu__services .select-city__select {
   margin: 0;
   position: relative;
