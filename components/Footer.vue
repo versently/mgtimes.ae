@@ -71,7 +71,7 @@ const { t } = useI18n({
         </div>
 
         <div class="footer__bottom-block">
-          <div class="footer__legal">© 2024 MGTimes</div>
+          <div class="footer__legal">© 2025 MGTimes</div>
 
           <span class="footer__legal">
             <!-- <a
