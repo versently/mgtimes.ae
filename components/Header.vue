@@ -148,9 +148,15 @@ if (route.path.startsWith("/cities/")) {
                 <p>error сities</p>
               </template>
             </ContentList>
-            <label class="select-city__label"><a href="https://mgtimes.ru/en">{{ t("Moscow") }}</a></label>
-            <label class="select-city__label"><a href="https://mgtimes.ru/en/escort-modeli-sankt-peterburg.html">{{
-              t("Sankt-Peterburg") }}</a></label>
+            <!-- <label class="select-city__label"
+              ><a href="https://mgtimes.ru/en">{{ t("Moscow") }}</a></label
+            > -->
+            <!-- <label class="select-city__label"
+              ><a
+                href="https://mgtimes.ru/en/escort-modeli-sankt-peterburg.html"
+                >{{ t("Sankt-Peterburg") }}</a
+              ></label
+            > -->
           </div>
         </div>
       </div>
@@ -170,11 +176,6 @@ if (route.path.startsWith("/cities/")) {
       </div>
       <button class="header__btn-order pc btn-order">
         {{ t("Order an escort") }}
-      </button>
-
-      <button class="header__btn-mobile-menu btn-mobile-menu">
-        <span class="btn-mobile-menu__line-up"></span><span class="btn-mobile-menu__line-middle"></span><span
-          class="btn-mobile-menu__line-bottom"></span>
       </button>
 
       <div class="header__mobile-menu">
@@ -238,9 +239,26 @@ if (route.path.startsWith("/cities/")) {
             </div>
           </div>
         </div>
+        <div class="header__select-language lang-box">
+          <div class="lang-box__ru">
+            <a :class="{ active: locale === 'en' }" :href="switchLocalePath('en')">EN</a>
+          </div>
+          <div class="lang-box__line"></div>
+          <div class="lang-box__en">
+            <a :class="{ active: locale === 'ru' }" :href="switchLocalePath('ru')">RU</a>
+          </div>
+          <div class="lang-box__line"></div>
+          <div class="lang-box__ar">
+            <a :class="{ active: locale === 'ar' }" :href="switchLocalePath('ar')">AR</a>
+          </div>
+        </div>
 
+        <button class="header__btn-order btn-order">Order an escort</button>
       </div>
-
+      <button class="header__btn-mobile-menu btn-mobile-menu">
+        <span class="btn-mobile-menu__line-up"></span><span class="btn-mobile-menu__line-middle"></span><span
+          class="btn-mobile-menu__line-bottom"></span>
+      </button>
     </div>
   </header>
 </template>
