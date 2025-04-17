@@ -588,7 +588,7 @@ useHead({
 
     "Working in в MGTimes": "Working in в MGTimes",
     "Working in escort services is a conscious choice of every girl. It isa good opportunity for you to get a high-paying job, start a new life,fill it with cool acquaintances, bright trips and unforgettableemotions. The MGTimes agency helps beautiful model girls to becomereal muses of rich patrons. They are willing to pay money for pleasantcompany and joint leisure.": "Working in escort services is a conscious choice of every girl. It isa good opportunity for you to get a high-paying job, start a new life,fill it with cool acquaintances, bright trips and unforgettableemotions. The MGTimes agency helps beautiful model girls to becomereal muses of rich patrons. They are willing to pay money for pleasantcompany and joint leisure.",
-    "Working in our agency": "Working in our agency",
+    "Working in our agency": "Working in MGTimes",
     "Why should you work with us?": "Why should you work with us?",
     "Home page": "Home page",
     "Casting": "Casting",

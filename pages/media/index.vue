@@ -80,6 +80,7 @@ useHead({
                 :key="media._path"
               >
                 <nuxt-img
+                  class=""
                   :src="`/assets/img/media/${media.folder}/${media.mainImage}`"
                   :alt="media.title"
                 />
@@ -118,7 +119,7 @@ useHead({
   "en": {
     "title": "Articles about escorts | Media content Mgtimes Dubai",
     "description": "Escort news. The best articles about escorts on the site mgtimes.ae. Media content on the subject of escort. Escort blog.",
-    
+
     "Home page": "Home page",
     "Media": "Media",
     "More information": "More information"
@@ -126,7 +127,7 @@ useHead({
   "ru": {
     "title": "Статьи об эскорте | Медиаконтент Mgtimes Дубай",
     "description": "Эскорт новости. Лучшие статьи об эскорте на сайте mgtimes.ae. Медийный контент на тему сопровождения. Эскорт блог.",
-   
+
     "Home page": "Главная",
     "Media": "Медиа",
     "More information": "Узнать подробнее"

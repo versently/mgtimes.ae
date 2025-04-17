@@ -611,22 +611,22 @@ console.log(locale.value);
 <i18n lang="json">
 {
   "en": {
-    "titleMeta": "Elite escort services in Dubai 🖤 VIP girls / MGTIMES",
-    "descriptionMeta": "Escort services and model escorts in Dubai. Elite escort agency for successful men! Selection of VIP models to accompany. Strictly confidential 📞 +971 58 525 2213 ⚡",
+    "titleMeta": "Elite escort services in UAE 🖤 VIP girls / MGTIMES",
+    "descriptionMeta": "Escort services and model escorts in UAE. Elite escort agency for successful men! Selection of VIP models to accompany. Strictly confidential 📞 +971 58 525 2213 ⚡",
 
-    "Elite escort in Dubai": "Elite escort in Dubai",
+    "Elite escort in Dubai": "Elite escort in UAE",
 
     "For those who appreciate beauty, grooming and sexuality in girls": "For those who appreciate beauty, grooming and sexuality in girls",
 
     "Order an escort": "Order an escort",
 
-    "Services": "Services",
+    "Services": "VIP-girls in UAE",
 
     "VIP — escort": "VIP — escort",
 
     "Elite escort from MGTimes agency": "Elite escort from MGTimes agency",
 
-    "Our agency introduces the confidential services for the VIP-escort, in Dubai according to your preferences. We will help you to enjoy, the women’s attention, show the successful status, receiving the, service from our elite professionals of any existing beauty, standard. While using the services of MGTimes, you can rest assured, that the model picked for the event will be impeccable in every, aspect, from appearance to manners.": "Our agency introduces the confidential services for the VIP-escort, in Dubai according to your preferences. We will help you to enjoy, the women’s attention, show the successful status, receiving the, service from our elite professionals of any existing beauty, standard. While using the services of MGTimes, you can rest assured, that the model picked for the event will be impeccable in every, aspect, from appearance to manners.",
+    "Our agency introduces the confidential services for the VIP-escort, in Dubai according to your preferences. We will help you to enjoy, the women’s attention, show the successful status, receiving the, service from our elite professionals of any existing beauty, standard. While using the services of MGTimes, you can rest assured, that the model picked for the event will be impeccable in every, aspect, from appearance to manners.": "Our agency introduces the confidential services for the VIP-escort, in the United Arab Emirates according to your preferences. We will help you to enjoy, the women’s attention, show the successful status, receiving the, service from our elite professionals of any existing beauty, standard. While using the services of MGTimes, you can rest assured, that the model picked for the event will be impeccable in every, aspect, from appearance to manners.",
 
     "In our agency you can order girls for:": "In our agency you can order girls for:",
 
@@ -673,28 +673,28 @@ console.log(locale.value);
     "In modern society there are professions that are rarely spoken out loud. One of these is the activity of escorts. Let's figure out what an escort is and what the representatives of the direction are doing.": "In modern society there are professions that are rarely spoken out loud. One of these is the activity of escorts. Let's figure out what an escort is and what the representatives of the direction are doing.",
 
     "View all": "View all",
-    "Additional services": "Services",
+    "Additional services": "VIP-girls in UAE",
     "Height": "Height",
     "Weight": "Weight",
     "Age": "Age"
   },
   "ru": {
-    "titleMeta": "Элитные эскорт услуги в Дубае 🖤 VIP девушки / MGTIMES",
-    "descriptionMeta": "Эскорт услуги и сопровождение моделей в Дубае. Элитное эскорт агентство для успешных мужчин! Подбор VIP моделей для сопровождения. Строго конфиденциально 📞 +971 58 525 2213 ⚡",
+    "titleMeta": "Элитные эскорт услуги в ОАЭ 🖤 VIP девушки / MGTIMES",
+    "descriptionMeta": "Эскорт услуги и сопровождение моделей в ОАЭ. Элитное эскорт агентство для успешных мужчин! Подбор VIP моделей для сопровождения. Строго конфиденциально 📞 +971 58 525 2213 ⚡",
 
-    "Elite escort in Dubai": "VIP Эскорт № 1 в Дубае",
+    "Elite escort in Dubai": "VIP Эскорт № 1 в ОАЭ",
 
     "For those who appreciate beauty, grooming and sexuality in girls": "Для тех, кто ценит в девушках красоту, ухоженность и сексуальность",
 
     "Order an escort": "Заказать эскорт",
 
-    "Services": "Услуги",
+    "Services": "VIP-девушки в ОАЭ",
 
     "VIP — escort": "VIP — эскорт",
 
     "Elite escort from MGTimes agency": "Элитный эскорт от агентства MGTimes",
 
-    "Our agency introduces the confidential services for the VIP-escort, in Dubai according to your preferences. We will help you to enjoy, the women’s attention, show the successful status, receiving the, service from our elite professionals of any existing beauty, standard. While using the services of MGTimes, you can rest assured, that the model picked for the event will be impeccable in every, aspect, from appearance to manners.": "VIP-сопровождение в Дубае требуется состоятельному мужчине чтобы получать удовольствие от того, что он отдыхает с красивой девушкой. Это эмоциональная разгрузка и наслаждение! Данную услугу предлагает наше эскорт-агентство MGTimes. Мы гарантируем VIP-эскорт высокого качества, подбираем моделей в строгом соответствии с требованиями и пожеланиями клиентов.",
+    "Our agency introduces the confidential services for the VIP-escort, in Dubai according to your preferences. We will help you to enjoy, the women’s attention, show the successful status, receiving the, service from our elite professionals of any existing beauty, standard. While using the services of MGTimes, you can rest assured, that the model picked for the event will be impeccable in every, aspect, from appearance to manners.": "VIP-сопровождение в Объединенных Арабских Эмиратах требуется состоятельному мужчине чтобы получать удовольствие от того, что он отдыхает с красивой девушкой. Это эмоциональная разгрузка и наслаждение! Данную услугу предлагает наше эскорт-агентство MGTimes. Мы гарантируем VIP-эскорт высокого качества, подбираем моделей в строгом соответствии с требованиями и пожеланиями клиентов.",
 
     "In our agency you can order girls for:": "В нашем агентстве можно заказать девушек для:",
 
@@ -732,7 +732,7 @@ console.log(locale.value);
 
     "VIP-girls in Dubai": "VIP-девушки в Дубае",
 
-    "Any additional information can be requested via sent e-mail or phone call request.": "Все вопросы по VIP-сопровождению в Дубае и прочим услугам нашего эскорт-агентства можно задать нашим менеджерам через мессенджеры или отправив письмо по электронной почте.",
+    "Any additional information can be requested via sent e-mail or phone call request.": "Все вопросы по VIP-сопровождению в ОАЭ и прочим услугам нашего эскорт-агентства можно задать нашим менеджерам через мессенджеры или отправив письмо по электронной почте.",
 
     "Charming girls": "Charming girls",
 
