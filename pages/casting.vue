@@ -13,9 +13,6 @@ useHead({
     },
   ],
 });
-
-
-
 </script>
 
 <template>
@@ -53,6 +50,35 @@ useHead({
         <div class="casting__title">
           <h1 style="display: inline">{{ t("Working in в MGTimes") }}</h1>
         </div>
+
+        <section class="mgmeet-banner within-casting">
+          <div class="mgmeet-banner__inner">
+            <!-- левая колонка -->
+            <div class="mgmeet-banner__text">
+              <h2>
+                Присоединяйтесь к&nbsp;нашему приложению
+                <span class="mgmeet-banner__accent">MG&nbsp;Meet</span>
+              </h2>
+
+              <a
+                href="https://t.me/mgdatingbot"
+                target="_blank"
+                class="mgmeet-banner__btn"
+              >
+                Перейти
+              </a>
+            </div>
+
+            <!-- правая колонка -->
+            <div class="mgmeet-banner__img">
+              <img
+                src="@/assets/img/casting/01.png"
+                alt="Интерфейс приложения MG Meet"
+                loading="lazy"
+              />
+            </div>
+          </div>
+        </section>
         <div class="casting__p">
           {{
             t(
@@ -61,7 +87,7 @@ useHead({
           }}
         </div>
         <div class="casting__img-main-wrapper">
-         <nuxt-img src="/img/casting/main-img.webp" alt="" />
+          <nuxt-img src="/img/casting/main-img.webp" alt="" />
         </div>
 
         <section class="casting__section-work-with-us work-with-us">
@@ -116,10 +142,10 @@ useHead({
           <div class="agency__content genscasting-content">
             <div class="agency__images-block">
               <div class="agency__img-left">
-               <nuxt-img src="/img/casting/agency/left.webp" alt="" />
+                <nuxt-img src="/img/casting/agency/left.webp" alt="" />
               </div>
               <div class="agency__img-right">
-               <nuxt-img src="/img/casting/agency/right.webp" alt="" />
+                <nuxt-img src="/img/casting/agency/right.webp" alt="" />
               </div>
               <div class="agency__text-decoration">
                 {{ t("Young beautiful girls") }}
@@ -238,7 +264,7 @@ useHead({
                         v-for="models in list"
                         :key="models._path"
                       >
-                       <nuxt-img
+                        <nuxt-img
                           :src="`/assets/img/models/${models.folder}/${models.mainImage}`"
                           :alt="`${models.folder}`"
                         />
@@ -322,7 +348,7 @@ useHead({
             </ul>
             <div class="advantage__decoration">
               <div class="advantage__img">
-               <nuxt-img src="/img/casting/advantage/img.webp" alt="" />
+                <nuxt-img src="/img/casting/advantage/img.webp" alt="" />
               </div>
 
               <div class="advantage__text">{{ t("Elite escort") }}</div>
@@ -335,7 +361,7 @@ useHead({
           </div>
           <div class="necessarily__content genscasting-content">
             <div class="necessarily__content-img">
-             <nuxt-img src="/img/casting/necessarily/full-img.webp" alt="" />
+              <nuxt-img src="/img/casting/necessarily/full-img.webp" alt="" />
             </div>
             <div class="necessarily__info">
               <div class="necessarily__subtitle genscasting-subtitle">
@@ -585,7 +611,6 @@ useHead({
     "title": "Work as an escort in Dubai - get a job as an escort Mgtimes",
     "description": "We offer work for girls in an escort agency. MGTIMES! Elite escort in Dubai! VIP escort in Dubai! Organization of recreation and the best models of Dubai for an escort! 📞 +971 58 525 2213 ⚡",
 
-
     "Working in в MGTimes": "Working in в MGTimes",
     "Working in escort services is a conscious choice of every girl. It isa good opportunity for you to get a high-paying job, start a new life,fill it with cool acquaintances, bright trips and unforgettableemotions. The MGTimes agency helps beautiful model girls to becomereal muses of rich patrons. They are willing to pay money for pleasantcompany and joint leisure.": "Working in escort services is a conscious choice of every girl. It isa good opportunity for you to get a high-paying job, start a new life,fill it with cool acquaintances, bright trips and unforgettableemotions. The MGTimes agency helps beautiful model girls to becomereal muses of rich patrons. They are willing to pay money for pleasantcompany and joint leisure.",
     "Working in our agency": "Working in MGTimes",
@@ -679,3 +704,110 @@ useHead({
   }
 }
 </i18n>
+<style>
+/* секция */
+.within-casting.mgmeet-banner {
+  margin-bottom: 50px;
+  background: #f5f5f5;
+ 
+  padding: 72px 0 0;
+  overflow: hidden; /* прячем, если что‑то вылезет */
+}
+
+/* центрирующий контейнер */
+.mgmeet-banner__inner {
+  width: 100%;
+  max-width: 1100px; /* ~57 % экрана 1920 px */
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 56px;
+  padding: 0 24px;
+  height: 100%;
+}
+
+/* текстовая колонка */
+.mgmeet-banner__text {
+  flex: 1 1 50%;
+}
+.mgmeet-banner__text h2 {
+  font-family: "Lora", serif; /* сайт уже грузит эти шрифты */
+  font-weight: 600;
+  font-size: clamp(24px, 3vw, 34px);
+  line-height: 1.3;
+  margin: 0 0 24px;
+  color: #141414;
+}
+.mgmeet-banner__accent {
+  color: inherit;
+}
+
+/* кнопка */
+.mgmeet-banner__btn {
+  font-family: "Inter", sans-serif;
+  font-weight: 500;
+  display: inline-block;
+  padding: 12px 52px;
+  font-size: 15px;
+  background: #9e2220; /* фирменный красный */
+  color: #fff;
+  border-radius: 4px;
+  transition: background 0.25s;
+}
+.mgmeet-banner__btn:hover {
+  background: #c02e2c;
+}
+
+/* телефон */
+.mgmeet-banner__img {
+  flex: 0 0 300px;
+  text-align: right;
+  margin-bottom:50px ;
+}
+.mgmeet-banner__img img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* ---------------- планшеты ---------------- */
+@media (max-width: 991px) {
+  .mgmeet-banner__inner {
+    max-width: 680px;
+    flex-direction: column;
+    text-align: center;
+    gap: 40px;
+  }
+  .mgmeet-banner__img {
+    text-align: center;
+
+  }
+  .mgmeet-banner__img img {
+    max-width: 260px;
+    max-height: 420px;
+
+  }
+  .mgmeet-banner__btn {
+    padding: 12px 44px;
+  }
+}
+
+/* ---------------- мобильные ---------------- */
+@media (max-width: 575px) {
+  .mgmeet-banner__inner {
+    max-width: 92%;
+    gap: 32px;
+  }
+  .mgmeet-banner__text h2 {
+    font-size: 22px;
+  }
+  .mgmeet-banner__img img {
+    max-width: 200px;
+    max-height: 340px;
+  }
+  .mgmeet-banner__btn {
+    padding: 11px 38px;
+    font-size: 14px;
+  }
+}
+</style>
