@@ -85,7 +85,12 @@ const images = data.value.media.images;
   </main>
 </template>
 
-<style lang="scss" scoped></style>
+<style lang="css" >
+.news p{
+margin-top: 2.5rem;
+
+}
+</style>
 <i18n lang="json">
   {
     "en": {
