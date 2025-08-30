@@ -3,17 +3,22 @@ const { t } = useI18n({
   useScope: "local",
 });
 const localePath = useLocalePath();
-const { path } = useRoute();
-const { data } = await useAsyncData(`content-${path}`, async () => {
-  // fetch document where the document path matches with the cuurent route
-  let media = queryContent().where({ _path: path }).findOne();
 
-  // get the surround information,
-  // which is an array of documeents that come before and after the current document
-  let surround = queryContent()
+// используем route корректно
+const route = useRoute();
+const path = route.path;
+
+// получаем документ и surround
+const { data } = await useAsyncData(`content-${path}`, async () => {
+  // fetch document where the document path matches with the current route
+  const media = queryContent().where({ _path: path }).findOne();
+
+  // get the surround information
+  const surround = queryContent()
     .only(["_path", "title", "description"])
     .sort({ date: 1 })
     .findSurround(path);
+
   return {
     media: await media,
     surround: await surround,
@@ -23,19 +28,22 @@ const { data } = await useAsyncData(`content-${path}`, async () => {
 // destrucure `prev` and `next` value from data
 const [prev, next] = data.value.surround;
 
-// set the meta
-useHead({
-  title: data.value.media.title,
+// вычисляем seoTitle и description (fallback на title)
+const seoTitle = data.value?.media?.seoTitle ?? data.value?.media?.title ?? "MGTimes";
+const seoDescription = data.value?.media?.description ?? "MGTimes – лучшие модели и услуги";
 
+// ставим head — теперь будет использоваться seoTitle
+useHead({
+  title: seoTitle,
   meta: [
-    { name: "description", content: data.value.media.description },
-    // {
-    //   hid: "og:image",
-    //   property: "og:image",
-    //   content: `https://site.com/${data.value.media .img}`,
-    // },
+    { name: "description", content: seoDescription },
+    { property: "og:title", content: seoTitle },
+    { property: "og:description", content: seoDescription },
+    // При необходимости можно раскомментировать og:image и подставить путь:
+    // { property: "og:image", content: `https://your-site.com/assets/img/media/${data.value.media.folder}/${data.value.media.mainImage}` }
   ],
 });
+
 const images = data.value.media.images;
 </script>
 <template>
@@ -67,9 +75,9 @@ const images = data.value.media.images;
 
         <div class="news__content">
           <h1 class="news__title">{{ data.media.title }}</h1>
-          <p class="news__p">
+          <!-- <p class="news__p">
             {{ data.media.description }}
-          </p>
+          </p>-->
           <!-- <p class="news__p">
             <nuxt-img
               class="news__img-main"
@@ -78,7 +86,7 @@ const images = data.value.media.images;
             />
           </p> -->
 
-          <ContentDoc />
+          <ContentRenderer :value="data.media"  />
         </div>
       </div>
     </div>
