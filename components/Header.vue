@@ -1,21 +1,24 @@
 <script setup>
-import { onMounted, ref } from "vue";
+import { onMounted, onBeforeMount } from "vue";
 
-const { t } = useI18n({ useScope: "local" });
+const { t } = useI18n({
+  useScope: "local",
+});
 const localePath = useLocalePath();
 const switchLocalePath = useSwitchLocalePath();
+
 const { locale } = useI18n();
 
-/* безопасный обработчик для мобильного меню */
 onMounted(() => {
-  const menuBtn = document.querySelector(".header__btn-mobile-menu");
-  const menu = document.querySelector(".header__mobile-menu");
-  if (menuBtn && menu) {
-    menuBtn.addEventListener("click", function () {
-      menuBtn.classList.toggle("active");
-      menu.classList.toggle("active");
-    });
-  }
+  /*-------menu--------*/
+
+  let menuBtn = document.querySelector(".header__btn-mobile-menu");
+  let menu = document.querySelector(".header__mobile-menu");
+
+  menuBtn.addEventListener("click", function () {
+    menuBtn.classList.toggle("active");
+    menu.classList.toggle("active");
+  });
 });
 
 const route = useRoute();
@@ -25,19 +28,12 @@ if (route.path.startsWith("/cities/")) {
 } else {
   src.value = null;
 }
-
-/* НЕ деструктурируем props — сохраняем реактивность */
-const props = defineProps({
-  pageTitle: { type: String, default: "MGTimes" }
-});
 </script>
-
 <template>
   <header class="header">
     <div class="header__container">
       <div class="header__logo">
-        <!-- отображаем переданный seoTitle -->
-        <a :href="localePath('index')">{{ props.pageTitle }}</a>
+        <a :href="localePath('index')">MGTimes</a>
       </div>
       <div class="header__menu pc menu">
         <div class="menu__list">
