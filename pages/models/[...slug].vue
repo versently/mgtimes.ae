@@ -7,8 +7,9 @@ const switchLocalePath = useSwitchLocalePath();
 const { t } = useI18n({
   useScope: "local",
 });
-const config = useRuntimeConfig();
-const canonicalUrl = `${config.public.baseUrl}${route.path}`;
+
+// формируем каноникал
+const canonicalUrl = `https://mgtimes.ae${route.path}`
 
 const { path } = useRoute();
 const { data } = await useAsyncData(`content-${path}`, async () => {

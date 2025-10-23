@@ -22,6 +22,9 @@ const { data } = await useAsyncData(`content-${path}`, async () => {
 
 // destrucure `prev` and `next` value from data
 const [prev, next] = data.value.surround;
+// формируем каноникал
+const route = useRoute();
+const canonicalUrl = `https://mgtimes.ae${route.path}`
 
 // set the meta
 useHead({
@@ -34,6 +37,12 @@ useHead({
     //   property: "og:image",
     //   content: `https://site.com/${data.value.cities .img}`,
     // },
+  ],
+  link: [
+    {
+      rel: "canonical",
+      href: canonicalUrl
+    }
   ],
 });
 const images = data.value.cities.images;

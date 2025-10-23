@@ -8,6 +8,9 @@ const localePath = useLocalePath();
 const route = useRoute();
 const path = route.path;
 
+// формируем каноникал
+const canonicalUrl = `https://mgtimes.ae${route.path}`
+
 // получаем документ и surround
 const { data } = await useAsyncData(`content-${path}`, async () => {
   // fetch document where the document path matches with the current route
@@ -41,6 +44,12 @@ useHead({
     { property: "og:description", content: seoDescription },
     // При необходимости можно раскомментировать og:image и подставить путь:
     // { property: "og:image", content: `https://your-site.com/assets/img/media/${data.value.media.folder}/${data.value.media.mainImage}` }
+  ],
+  link: [
+    {
+      rel: "canonical",
+      href: canonicalUrl
+    }
   ],
 });
 
