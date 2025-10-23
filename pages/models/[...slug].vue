@@ -7,6 +7,8 @@ const switchLocalePath = useSwitchLocalePath();
 const { t } = useI18n({
   useScope: "local",
 });
+const config = useRuntimeConfig();
+const canonicalUrl = `${config.public.baseUrl}${route.path}`;
 
 const { path } = useRoute();
 const { data } = await useAsyncData(`content-${path}`, async () => {
@@ -73,6 +75,12 @@ useHead({
     //   property: "og:image",
     //   content: `https://site.com/${data.value.models .img}`,
     // },
+  ],
+  link: [
+    {
+      rel: "canonical",
+      href: canonicalUrl
+    }
   ],
 });
 const images = data.value.models.images;
