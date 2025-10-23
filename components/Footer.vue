@@ -24,7 +24,7 @@ const { t } = useI18n({
                 }}</a>
               </div>
               <div class="footer__item">
-                <a :href="localePath('/models')" class="footer__link">{{
+                <a :href="localePath('/girls')" class="footer__link">{{
                   t("Models")
                 }}</a>
               </div>

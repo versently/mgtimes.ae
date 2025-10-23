@@ -26,8 +26,6 @@ useHead({
 });
 
 
-
-
 const filterHairColor = ref('')
 const filterHairColorModels = (list) => {
   
@@ -63,6 +61,11 @@ const visaFilterModels = (list) => {
   });
 }
 
+// Добавьте эту функцию для исправления путей
+const getCorrectPath = (model) => {
+  // Заменяем /models/ на /girls/ в пути
+  return model._path ? model._path.replace('/models/', '/girls/') : `/girls/${model.folder}`
+}
 
 const uniqueModels = (models) => models.filter((item, index) => {
   
@@ -153,7 +156,7 @@ const uniqueModels = (models) => models.filter((item, index) => {
 </div>
           </div>
           <ContentList
-            :path="route.path"
+            path="/girls"
             :query="{
               only: [
               'title',
@@ -197,7 +200,7 @@ const uniqueModels = (models) => models.filter((item, index) => {
                       </div>
                     </div>
                   </div>
-                  <a :href="model._path" class="models__model-more">
+                    <a :href="getCorrectPath(model)" class="models__model-more">
                     {{ t("More information") }}</a
                   >
                 </div>

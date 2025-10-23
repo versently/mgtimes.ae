@@ -43,7 +43,7 @@ if (route.path.startsWith("/cities/")) {
             }}</a>
           </div>
           <div class="menu__item">
-            <a :href="localePath('/models')" class="menu__link">
+            <a :href="localePath('/girls')" class="menu__link">
               {{ t("Models") }}</a
             >
           </div>
@@ -207,7 +207,7 @@ if (route.path.startsWith("/cities/")) {
               }}</a>
             </div>
             <div class="menu__item">
-              <a :href="localePath('/models')" class="menu__link">
+              <a :href="localePath('/girls')" class="menu__link">
                 {{ t("Models") }}</a
               >
             </div>

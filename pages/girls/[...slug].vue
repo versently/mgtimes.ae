@@ -99,7 +99,7 @@ const images = data.value.models.images;
         /
 
         <li itemprop="itemListElement" itemscope="" itemtype="https://schema.org/ListItem">
-          <a :href="localePath('models')" itemprop="item">
+          <a :href="localePath('girls')" itemprop="item">
             <span itemprop="name">{{ t("Models") }}</span>
             <meta itemprop="position" content="2" />
           </a>
@@ -169,7 +169,7 @@ const images = data.value.models.images;
             </p>
             <div class="models-section__swiper">
               <!-- Additional required wrapper -->
-              <ContentList :path="localePath('/models')" :query="{
+              <ContentList :path="localePath('/girls')" :query="{
                 only: [
                   'title',
                   'description',

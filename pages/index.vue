@@ -32,6 +32,7 @@ if (locale.value == "en") {
   revCont.value = 10;
 }
 console.log(locale.value);
+
 </script>
 <template>
   <main>
@@ -191,7 +192,7 @@ console.log(locale.value);
           <div class="models-section__swiper">
             <!-- Additional required wrapper -->
             <ContentList
-              :path="localePath('/models')"
+              :path="localePath('/girls')"
               :query="{
                 only: [
                   'title',
