@@ -35,7 +35,7 @@ useHead({
 onMounted(() => {
   // Код выполнится только на клиенте
   setTimeout(() => {
-    const telegramBtnWrapper = document.getElementById('telegramBtnWrapper');
+    const telegramBtnWrapper = document.getElementById('telegramBtnWrapperContacts');
     if (telegramBtnWrapper) {
       telegramBtnWrapper.classList.add('show');
     }
@@ -107,9 +107,9 @@ onMounted(() => {
         <button class="contacts__btn btn-order">
           {{ t("Order an escort") }}
         </button>
-        <br/><br/>
+        <br/>
         <!-- Кнопка Telegram с оберткой для анимации -->
-                    <div class="telegram-btn-wrapper" id="telegramBtnWrapper">
+                    <div class="telegram-btn-wrapper" id="telegramBtnWrapperContacts">
                         <a :href="telegramLink" target="_blank">
                             <button class="contacts__btn-tg btn-order-tg">{{ t("Our telegram") }}
 								 <!-- Иконка Telegram -->
@@ -281,3 +281,4 @@ onMounted(() => {
   }
 }
 </i18n>
+
