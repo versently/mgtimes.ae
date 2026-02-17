@@ -4,6 +4,9 @@ const { t } = useI18n({
 });
 const localePath = useLocalePath();
 const route = useRoute();
+// формируем каноникал
+const canonicalUrl = `https://mgtimes.ae${route.path}`
+
 const { path } = useRoute();
 const { data } = await useAsyncData(`content-${path}`, async () => {
   // fetch document where the document path matches with the cuurent route
@@ -35,6 +38,12 @@ useHead({
     //   property: "og:image",
     //   content: `https://site.com/${data.value.service .img}`,
     // },
+  ],
+  link: [
+    {
+      rel: "canonical",
+      href: canonicalUrl
+    }
   ],
 });
 </script>

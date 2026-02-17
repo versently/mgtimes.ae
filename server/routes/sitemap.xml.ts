@@ -12,7 +12,7 @@ export default defineEventHandler(async (event) => {
     url:'/',
   })
   sitemap.write({
-    url:'/models',
+    url:'/girls',
   })
   sitemap.write({
     url:'/services',
@@ -36,7 +36,7 @@ export default defineEventHandler(async (event) => {
     url:'/ru/services',
   })
   sitemap.write({
-    url:'/ru/models',
+    url:'/ru/girls',
   })
   sitemap.write({
     url:'/ru/media',

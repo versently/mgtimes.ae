@@ -2,6 +2,9 @@
 const { t, locale } = useI18n({
   useScope: "local",
 });
+const route = useRoute();
+// формируем каноникал
+const canonicalUrl = `https://mgtimes.ae${route.path}`
 
 useHead({
   title: t("titleMeta"),
@@ -10,6 +13,12 @@ useHead({
     {
       name: "description",
       content: t("descriptionMeta"),
+    },
+  ],
+  link: [
+    {
+      rel: "canonical",
+      href: canonicalUrl,
     },
   ],
 });
@@ -23,6 +32,7 @@ if (locale.value == "en") {
   revCont.value = 10;
 }
 console.log(locale.value);
+
 </script>
 <template>
   <main>
@@ -182,7 +192,7 @@ console.log(locale.value);
           <div class="models-section__swiper">
             <!-- Additional required wrapper -->
             <ContentList
-              :path="localePath('/models')"
+              :path="localePath('/girls')"
               :query="{
                 only: [
                   'title',

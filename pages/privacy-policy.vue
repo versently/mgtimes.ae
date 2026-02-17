@@ -5,7 +5,9 @@ const { t } = useI18n({
 });
 
 const localePath = useLocalePath();
-const canonicalUrl = `https://mgtimes.ae/privacy-policy`;
+const route = useRoute();
+// формируем каноникал
+const canonicalUrl = `https://mgtimes.ae${route.path}`
 useHead({
   title: t("title"),
 

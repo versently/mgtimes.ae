@@ -3,6 +3,9 @@ const { t } = useI18n({
   useScope: "local",
 });
 const localePath = useLocalePath();
+const route = useRoute();
+// формируем каноникал
+const canonicalUrl = `https://mgtimes.ae${route.path}`
 useHead({
   title: t("title"),
 
@@ -11,6 +14,12 @@ useHead({
       name: "description",
       content: t("description"),
     },
+  ],
+  link: [
+    {
+      rel: "canonical",
+      href: canonicalUrl
+    }
   ],
 });
 </script>

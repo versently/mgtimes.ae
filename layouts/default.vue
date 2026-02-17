@@ -11,6 +11,9 @@ const head = useLocaleHead({
 const defaultTitle = "MGTimes"
 const defaultDescription = "MGTimes – лучшие модели и услуги"
 
+// формируем каноникал
+const canonicalUrl = `https://mgtimes.ae${route.path}`
+
 // получаем данные страницы из content
 const { data: content } = await useAsyncData(
   `layout-seo-${route.path}`,
@@ -36,7 +39,13 @@ useHead(computed(() => ({
     { property: "og:description", content: seoDescription.value },
     { name: "twitter:title", content: seoTitle.value },
     { name: "twitter:description", content: seoDescription.value }
-  ]
+  ],
+  link: [
+    {
+      rel: "canonical",
+      href: canonicalUrl
+    }
+  ],
 })))
 
 </script>
