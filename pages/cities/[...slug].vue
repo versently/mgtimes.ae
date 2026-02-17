@@ -28,7 +28,7 @@ const canonicalUrl = `https://mgtimes.ae${route.path}`
 
 // set the meta
 useHead({
-  title: data.value.cities.title,
+  title: data.value.cities.seoTitle,
 
   meta: [
     { name: "description", content: data.value.cities.description },
