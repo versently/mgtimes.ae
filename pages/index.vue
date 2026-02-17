@@ -627,10 +627,10 @@ console.log(locale.value);
 <i18n lang="json">
 {
   "en": {
-    "titleMeta": "Elite escort services in UAE 🖤 VIP girls / MGTIMES",
-    "descriptionMeta": "Escort services and model escorts in UAE. Elite escort agency for successful men! Selection of VIP models to accompany. Strictly confidential 📞 +971 58 525 2213 ⚡",
+    "titleMeta": "VIP high class escort Dubai, luxury escorts - MGTimes",
+    "descriptionMeta": "VIP escort in Dubai by MGTimes — offering premium companionship, discretion, and luxury experiences. Elite VIP escorts in Dubai for exclusive events, private meetings.",
 
-    "Elite escort in Dubai": "Elite Escort Dubai",
+    "Elite escort in Dubai": "VIP Escort Dubai",
 
     "For those who appreciate beauty, grooming and sexuality in girls": "For those who admire beauty, charm, and elegance in women, our elite escort offerings in the UAE deliver an exceptional experience through refined companionship and exclusive treatment.",
 
@@ -765,8 +765,8 @@ console.log(locale.value);
     "Age": "Возраст"
   },
   "ar": {
-    "titleMeta": "Elite escort services in Dubai 🖤 VIP girls / MGTIMES",
-    "descriptionMeta": "Escort services and model escorts in Dubai. Elite escort agency for successful men! Selection of VIP models to accompany. Strictly confidential 📞 +971 58 525 2213 ⚡",
+    "titleMeta": "VIP high class escort Dubai, luxury escorts - MGTimes",
+    "descriptionMeta": "VIP escort in Dubai by MGTimes — offering premium companionship, discretion, and luxury experiences. Elite VIP escorts in Dubai for exclusive events, private meetings.",
 
     "Elite escort in Dubai": "النخبة المرافقة في دبي",
 
