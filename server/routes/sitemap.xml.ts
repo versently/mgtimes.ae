@@ -8,49 +8,45 @@ export default defineEventHandler(async (event) => {
     hostname: 'https://mgtimes.ae'
   })
 
-  sitemap.write({
-    url:'/',
-  })
-  sitemap.write({
-    url:'/girls',
-  })
-  sitemap.write({
-    url:'/services',
-  })
-  sitemap.write({
-    url:'/media',
-  })
+  // Функция для проверки валидности URL
+  const isValidUrl = (url: string) => {
+    return url && 
+           url !== 'undefined' && 
+           url !== '/undefined' && 
+           !url.includes('undefined') &&
+           url !== '#'
+  }
 
-  sitemap.write({
-    url:'/casting',
-  })
-  sitemap.write({
-    url:'/contacts',
-  })
+  // Статические URL (проверяем их тоже)
+  const staticUrls = [
+    '/',
+    '/girls',
+    '/services',
+    '/media',
+    '/casting',
+    '/contacts',
+    '/ru',
+    '/ru/services',
+    '/ru/girls',
+    '/ru/media',
+    '/ru/casting',
+    '/ru/contacts'
+  ]
 
-  
-  sitemap.write({
-    url:'/ru',
-  })
-  sitemap.write({
-    url:'/ru/services',
-  })
-  sitemap.write({
-    url:'/ru/girls',
-  })
-  sitemap.write({
-    url:'/ru/media',
-  })
-  sitemap.write({
-    url:'/ru/casting',
-  })
-  sitemap.write({
-    url:'/ru/contacts',
-  })
+  // Добавляем только валидные статические URL
+  for (const url of staticUrls) {
+    if (isValidUrl(url)) {
+      sitemap.write({ url })
+    }
+  }
+
+  // Добавляем только валидные документы
   for (const doc of docs) {
-    sitemap.write({
-      url: doc._path,
-    })
+    if (isValidUrl(doc._path)) {
+      sitemap.write({
+        url: doc._path,
+      })
+    }
   }
  
   sitemap.end()

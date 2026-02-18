@@ -37,6 +37,11 @@ if (locale.value == "en") {
 } else {
   revCont.value = 10;
 }
+
+// Вспомогательная функция для проверки валидности пути
+const isValidPath = (path) => {
+  return path && path !== 'undefined' && path !== '/undefined' && !path.includes('undefined') && path !== '#'
+}
 </script>
 
 <template>
@@ -75,6 +80,7 @@ if (locale.value == "en") {
 
         <div class="sitemp-link">
           <ul>
+            <!-- Статические ссылки - они всегда валидны -->
             <li>
               <a :href="localePath('index')">{{ t("Home page") }}</a>
             </li>
@@ -99,6 +105,7 @@ if (locale.value == "en") {
               }}</a>
             </li>
 
+            <!-- Города с фильтрацией -->
             <ContentList
               :path="localePath('/cities')"
               :query="{
@@ -111,33 +118,25 @@ if (locale.value == "en") {
                 $sensitivity: 'base',
               }"
             >
-              <!-- Default list slot -->
               <template v-slot="{ list }">
-                <li v-for="models in list" :key="models._path">
-                  <a :href="models._path">
-                    {{ models.h1 }}
+                <li v-for="item in list" :key="item._path" v-if="isValidPath(item._path)">
+                  <a :href="item._path">
+                    {{ item.h1 }}
                   </a>
                 </li>
               </template>
-              <!-- Not found slot to display message when no content us is found -->
               <template #not-found>
                 <p>No services found.</p>
               </template>
             </ContentList>
+
+            <!-- Модели с фильтрацией -->
             <ContentList
               :path="localePath('/models')"
               :query="{
                 only: [
                   'title',
-                  'description',
-                  'tags',
                   '_path',
-                  'img',
-                  'folder',
-                  'mainImage',
-                  'height',
-                  'weight',
-                  'age',
                 ],
                 where: {
                   tags: {
@@ -148,17 +147,18 @@ if (locale.value == "en") {
               }"
             >
               <template v-slot="{ list }">
-                <li v-for="models in list" :key="models._path">
-                  <a :href="models._path">
-                    {{ models.title }}
+                <li v-for="item in list" :key="item._path" v-if="isValidPath(item._path)">
+                  <a :href="item._path">
+                    {{ item.title }}
                   </a>
                 </li>
               </template>
-
               <template #not-found>
                 <p>No services found.</p>
               </template>
             </ContentList>
+
+            <!-- Услуги с фильтрацией -->
             <ContentList
               :path="localePath('/services')"
               :query="{
@@ -172,17 +172,18 @@ if (locale.value == "en") {
               }"
             >
               <template v-slot="{ list }">
-                <li v-for="models in list" :key="models._path">
-                  <a :href="models._path">
-                    {{ models.h1 }}
+                <li v-for="item in list" :key="item._path" v-if="isValidPath(item._path)">
+                  <a :href="item._path">
+                    {{ item.h1 }}
                   </a>
                 </li>
               </template>
-
               <template #not-found>
                 <p>No services found.</p>
               </template>
             </ContentList>
+
+            <!-- Медиа с фильтрацией -->
             <ContentList
               :path="localePath('/media')"
               :query="{
@@ -196,13 +197,12 @@ if (locale.value == "en") {
               }"
             >
               <template v-slot="{ list }">
-                <li v-for="models in list" :key="models._path">
-                  <a :href="models._path">
-                    {{ models.title }}
+                <li v-for="item in list" :key="item._path" v-if="isValidPath(item._path)">
+                  <a :href="item._path">
+                    {{ item.title }}
                   </a>
                 </li>
               </template>
-
               <template #not-found>
                 <p>No services found.</p>
               </template>
