@@ -1,7 +1,9 @@
 <script setup>
+
 const { t } = useI18n({
   useScope: "local",
 });
+const currentYear = new Date().getFullYear()
 </script>
 <template>
   <div>
@@ -71,7 +73,7 @@ const { t } = useI18n({
         </div>
 
         <div class="footer__bottom-block">
-          <div class="footer__legal">© 2025 MGTimes</div>
+          <div class="footer__legal">© {{ currentYear }} MGTimes</div>
 
           <span class="footer__legal">
             <!-- <a
