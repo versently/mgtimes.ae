@@ -86,6 +86,14 @@ if (locale.value == "en") {
           </h3>
         </div>
         <div class="services-section__content">
+
+
+        
+
+
+
+
+
           <h2 class="services-section__title">
             {{ t("Elite escort from MGTimes agency") }}
           </h2>
@@ -106,6 +114,12 @@ if (locale.value == "en") {
           <button class="services-section__btn btn-order">
             {{ t("Order an escort") }}
           </button>
+
+
+ 
+
+
+
           <div class="services-section__list">
             <div class="services-section__list-title">
               {{ t("In our agency you can order girls for:") }}
@@ -174,6 +188,10 @@ if (locale.value == "en") {
             </div>
           </div>
         </div>
+
+
+
+
         <div class="services-section__decoration">
           <div class="services-section__decoration-img-first">
             <nuxt-img
@@ -196,6 +214,18 @@ if (locale.value == "en") {
         </div>
       </div>
     </section>
+
+
+       
+<br/><br/>
+          <div class="aboutNew-text">
+            <!-- Статический контент или динамический -->
+            <div class="content" v-html="data.cities.text"></div>
+            <div class="checkContent" v-if="hasContent">
+
+              </div></div>
+
+
     <div class="models-section">
       <div class="models-section__container">
         <div class="models-section__section-name">
@@ -639,6 +669,10 @@ if (locale.value == "en") {
             {{ t("View all") }}</a
           >
         </div>
+
+
+
+
         <div class="media-section__decoration">
           <div class="media-section__decoration-text">News</div>
         </div>
@@ -646,6 +680,133 @@ if (locale.value == "en") {
     </section>
   </main>
 </template>
+<style>
+.aboutNew-text {
+    /* Основные настройки */
+    font-family: 'Lora', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, serif;
+    color: #1C1B1B;
+    line-height: 1.6;
+    font-size: 16px;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Заголовки h2 - в стиле services-section__title */
+.aboutNew-text h2 {
+    font-family: "Lora";
+    font-style: normal;
+    font-weight: 500;
+    font-size: 32px;
+    line-height: 130%;
+    color: #1C1B1B;
+    max-width: 100%;
+    margin-top: 50px;
+    margin-bottom: 25px;
+    letter-spacing: normal;
+    border: none;
+    padding-bottom: 0;
+}
+
+/* Заголовки h2: первый убираем верхний отступ */
+.aboutNew-text h2:first-of-type {
+    margin-top: 0;
+}
+
+/* Заголовки h3 - чуть меньше, но в том же стиле */
+.aboutNew-text h3 {
+    font-family: "Lora";
+    font-style: normal;
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 130%;
+    color: #1C1B1B;
+    margin-top: 35px;
+    margin-bottom: 20px;
+}
+
+/* Параграфы */
+.aboutNew-text p {
+    margin-bottom: 20px;
+    font-size: 16px;
+    color: #4a4a4a;
+    font-family: 'Lora', 'Inter', serif;
+}
+
+/* Списки */
+.aboutNew-text ul,
+.aboutNew-text ol {
+    margin: 20px 0;
+    padding-left: 20px;
+}
+
+.aboutNew-text li {
+    margin-bottom: 10px;
+    position: relative;
+    color: #4a4a4a;
+    font-family: 'Lora', 'Inter', serif;
+    font-size: 16px;
+}
+
+/* Маркированный список */
+.aboutNew-text ul li {
+    list-style-type: none;
+    padding-left: 25px;
+}
+
+.aboutNew-text ul li::before {
+    content: "•";
+    color: #1C1B1B; /* Изменил на темный цвет в соответствии с заголовками */
+    font-weight: bold;
+    position: absolute;
+    left: 0;
+    font-size: 20px;
+}
+
+/* Нумерованный список */
+.aboutNew-text ol li {
+    padding-left: 5px;
+}
+
+/* Специальная обработка для вложенных p в li */
+.aboutNew-text li p {
+    margin: 0;
+    display: inline;
+}
+
+/* Стили для FAQ (где есть <br> между вопросом и ответом) */
+.aboutNew-text p:has(br) {
+    background-color: #f9f9f9;
+    padding: 15px;
+    border-radius: 8px;
+    border-left: 4px solid #1C1B1B; /* Изменил на темный цвет */
+    margin: 25px 0;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    .aboutNew-text {
+        padding: 15px;
+        font-size: 15px;
+    }
+    
+    .aboutNew-text h2 {
+        font-size: 26px; /* Чуть меньше на мобильных */
+        margin-top: 35px;
+    }
+    
+    .aboutNew-text h3 {
+        font-size: 20px;
+        margin-top: 25px;
+    }
+}
+
+/* Премиум акценты */
+.aboutNew-text strong {
+    color: #1C1B1B;
+    font-weight: 600;
+}
+</style>
 <i18n lang="json">
 {
   "en": {

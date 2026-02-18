@@ -263,6 +263,11 @@ console.log(locale.value);
         </div>
       </div>
     </div>
+
+
+
+
+    
     <section class="advantages-section">
       <div class="advantages-section__container">
         <div class="advantages-section__section-name">
