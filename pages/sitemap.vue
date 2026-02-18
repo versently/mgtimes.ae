@@ -6,15 +6,21 @@ const route = useRoute();
 // формируем каноникал
 const canonicalUrl = `https://mgtimes.ae${route.path}`
 
+// Специфичные description для карты сайта
+const sitemapDescription = computed(() => {
+  return locale.value === 'ru' 
+    ? 'Карта сайта MG Times UAE — изучите все разделы сайта. Удобная навигация и поиск последних обновлений в одном месте.'
+    : 'Sitemap of MG Times UAE — explore all website sections. Easily navigate and find the latest updates in one place.'
+})
+
 useHead({
   title: t("sitemap"),
-
-  // meta: [
-  //   {
-  //     name: "description",
-  //     content: t("descriptionMeta"),
-  //   },
-  // ],
+  meta: [
+    {
+      name: "description",
+      content: t("sitemap_description"),
+    },
+  ],
   link: [
     {
       rel: "canonical",
@@ -32,6 +38,7 @@ if (locale.value == "en") {
   revCont.value = 10;
 }
 </script>
+
 <template>
   <main>
     <div class="models">
@@ -206,12 +213,13 @@ if (locale.value == "en") {
     </div>
   </main>
 </template>
+
 <i18n lang="json">
 {
   "en": {
     "titleMeta": "Elite escort services in Dubai 🖤 VIP girls / MGTIMES",
     "descriptionMeta": "Escort services and model escorts in Dubai. Elite escort agency for successful men! Selection of VIP models to accompany. Strictly confidential 📞 +971 58 525 2213 ⚡",
-
+    "sitemap_description": "Sitemap of MG Times UAE — explore all website sections. Easily navigate and find the latest updates in one place.",
     "sitemap": "Site map",
     "Home page": "Home page",
     "Models": "Models",
@@ -224,7 +232,7 @@ if (locale.value == "en") {
   "ru": {
     "titleMeta": "Элитные эскорт услуги в Дубае 🖤 VIP девушки / MGTIMES",
     "descriptionMeta": "Эскорт услуги и сопровождение моделей в Дубае. Элитное эскорт агентство для успешных мужчин! Подбор VIP моделей для сопровождения. Строго конфиденциально 📞 +971 58 525 2213 ⚡",
-
+    "sitemap_description": "Карта сайта MG Times UAE — изучите все разделы сайта. Удобная навигация и поиск последних обновлений в одном месте.",
     "sitemap": "Карта сайта",
     "Home page": "Главная",
     "Models": "Модели",
