@@ -1093,10 +1093,11 @@ html[lang="ar-AE"] .services-section__list-link {
   width: 175px;
 }
 
+/* Исправляем секцию */
 .models-section {
-  overflow: hidden;
+  overflow: visible; /* Или hidden, если нужен overflow, но тогда скроллбар должен быть внутри */
   margin: 150px -50px 0px;
-  height: 700px;
+  height: 750px; /* Увеличьте высоту, чтобы вместить скроллбар */
   padding: 0px 50px 0px;
 }
 
@@ -1125,6 +1126,7 @@ html[lang="ar-AE"] .services-section__list-link {
 
 .models-section__content {
   width: 100%;
+  position: relative;
 }
 
 .models-section__content p {
@@ -1139,13 +1141,10 @@ html[lang="ar-AE"] .services-section__list-link {
 }
 
 .models-section__swiper {
-
   max-width: 955px;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
   user-select: none;
   position: relative;
+  margin-bottom: 40px; /* Добавьте место для скроллбара */
 }
 
 .models-section__swiper-wrapper {
@@ -1157,19 +1156,18 @@ html[lang="ar-AE"] .services-section__list-link {
 }
 
 .models-section__swiper-slide {
-  width: -webkit-max-content;
-  width: -moz-max-content;
   width: max-content;
-  height: 505px;
+  height: auto; /* Автоматическая высота */
+  min-height: 550px; /* Минимальная высота, подберите под свой контент */
+  position: relative; /* ВАЖНО: для абсолютного позиционирования ссылки */
 }
 
 .models-section__swiper-slide img {
-  -o-object-fit: cover;
   object-fit: cover;
-  -o-object-position: center top;
   object-position: center top;
   width: 327px;
   height: 380px;
+  display: block; /* Убирает возможные отступы снизу */
 }
 
 .models-section__swiper-slide:not(:last-child) {
@@ -1187,9 +1185,10 @@ html[lang="ar-AE"] .services-section__list-link {
 }
 
 .models-section__slide-characteristics {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
+  flex-wrap: wrap; /* На всякий случай, если не помещаются */
+  gap: 15px; /* Современный способ вместо margin */
+  margin-bottom: 40px; /* Место для ссылки */
 }
 
 .models-section__slide-property {
@@ -1211,8 +1210,6 @@ html[lang="ar-AE"] .services-section__list-link {
 }
 
 .models-section__slide-more a {
-  width: -webkit-max-content;
-  width: -moz-max-content;
   width: max-content;
   display: block;
   font-family: "Inter";
@@ -1223,7 +1220,8 @@ html[lang="ar-AE"] .services-section__list-link {
   text-transform: uppercase;
   color: #1c1b1b;
   position: absolute;
-  bottom: 0px;
+  bottom: 0px; /* Теперь будет позиционироваться относительно слайда */
+  left: 0; /* Добавьте, если нужно выровнять по левому краю */
 }
 
 html[lang="ar-AE"] .models-section__slide-more a {
@@ -1281,7 +1279,7 @@ html[lang="ar-AE"] .models-section__slide-more a {
 .models-section__swiper-scrollbar.swiper-scrollbar-horizontal {
   position: absolute;
   left: 0;
-  bottom: -90px;
+  bottom: -20px; /* Поднимите повыше */
   z-index: 5;
   height: 4px;
   width: 100%;
