@@ -1797,9 +1797,9 @@ html[lang="ar-AE"] .vip-section__text, .services-section__title, .models-section
 .additional-reviews-section__swiper-scrollbar.swiper-scrollbar-horizontal {
   position: absolute;
   left: 0;
-  bottom: -80px;
+  bottom: 40px; /* Поднимите повыше */
   z-index: 5;
-  height: 3px;
+  height: 4px;
   width: 100%;
 }
 
@@ -5278,7 +5278,12 @@ h6 {
 
   .swiper-horizontal>.additional-reviews-section__swiper-scrollbar,
   .additional-reviews-section__swiper-scrollbar.swiper-scrollbar-horizontal {
-    bottom: -80px;
+     position: absolute;
+  left: 0;
+  bottom: 40px; /* Поднимите повыше */
+  z-index: 5;
+  height: 4px;
+  width: 100%;
   }
 
   .media-section {
@@ -8239,7 +8244,12 @@ h6 {
 
   .swiper-horizontal>.additional-reviews-section__swiper-scrollbar,
   .additional-reviews-section__swiper-scrollbar.swiper-scrollbar-horizontal {
-    bottom: -20px;
+      position: absolute;
+  left: 0;
+  bottom: 40px; /* Поднимите повыше */
+  z-index: 5;
+  height: 4px;
+  width: 100%;
   }
 
 
