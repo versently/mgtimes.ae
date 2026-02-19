@@ -121,6 +121,9 @@ if (locale.value == "en") {
 
 
 
+
+
+
           <div class="services-section__list">
             <div class="services-section__list-title">
               {{ t("In our agency you can order girls for:") }}
@@ -217,14 +220,7 @@ if (locale.value == "en") {
     </section>
 
 
-       
-<br/><br/>
-          <div class="aboutNew-text">
-            <!-- Статический контент или динамический -->
-            <div class="content" v-html="data.cities.text"></div>
-            <div class="checkContent" v-if="hasContent">
 
-              </div></div>
 
 
     <div class="models-section">
@@ -245,7 +241,7 @@ if (locale.value == "en") {
           <div class="models-section__swiper">
             <!-- Additional required wrapper -->
             <ContentList
-              :path="localePath('/models')"
+              :path="localePath('/girls')"
               :query="{
                 only: [
                   'title',
@@ -316,6 +312,19 @@ if (locale.value == "en") {
         </div>
       </div>
     </div>
+
+
+<br/><br/>
+          <div class="aboutNew-text">
+            <!-- Статический контент или динамический -->
+            <div class="content" v-html="data.cities.text"></div>
+            <div class="checkContent" v-if="hasContent">
+
+              </div></div>
+
+
+
+
     <section class="advantages-section">
       <div class="advantages-section__container">
         <div class="advantages-section__section-name">
