@@ -63,7 +63,8 @@ if (locale.value == "en") {
       <div class="front-section__container">
         <h1 class="front-section__title">
           <!-- Elite escort in  -->
-          {{ t("Elite escort in") }} {{ data.cities.titleEnd }}
+           
+          {{ data.cities.titleEnd }}
         </h1>
         <div class="front-section__line"></div>
         <p class="front-section__text">

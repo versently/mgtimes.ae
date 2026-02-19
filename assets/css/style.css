@@ -811,12 +811,14 @@ height: 100%;
   background-size: cover; */
   position: relative;
   margin-top: 83px;
+
 }
 
 .front-section__container {
   height: 815px;
   overflow: hidden;
-
+  position: relative; /* Чтобы контент был поверх картинки */
+  z-index: 2; /* Поднимаем над картинкой */
 }
 
 
