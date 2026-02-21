@@ -36,7 +36,6 @@ if (route.path.startsWith("/cities/")) {
   src.value = null;
 }
 
-
 </script>
 <template>
   <header class="header">
