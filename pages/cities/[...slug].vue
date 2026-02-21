@@ -315,13 +315,15 @@ if (locale.value == "en") {
 
 
 <br/><br/>
+ <section class="aboutText-section">
+<div class = "aboutText-section__container">
           <div class="aboutNew-text">
             <!-- Статический контент или динамический -->
             <div class="content" v-html="data.cities.text"></div>
             <div class="checkContent" v-if="hasContent">
 
-              </div></div>
-
+              </div></div></div>
+</section>
 
 
 

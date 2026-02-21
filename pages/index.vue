@@ -271,7 +271,7 @@ console.log(locale.value);
       </div>
     </div>
 
-
+<br/><br/><br/><br/><br/><br/>
 <!-- Новая секция с текстом о VIP эскорте -->
 <section class="vip-text-section">
   <div class="vip-text-section__container">
@@ -1561,12 +1561,18 @@ console.log(locale.value);
     padding: 80px 0;
     background-color: #fff;
     width: 100%;
+      display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  position: relative;
+  margin: 150px auto 0px !important;
 }
 
 .vip-text-section__container {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 20px;
+    
 }
 
 .vip-text-section__section-name {

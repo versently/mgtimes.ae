@@ -1299,6 +1299,14 @@ html[lang="ar-AE"] .models-section__slide-more a {
   cursor: move;
 }
 
+.aboutText-section__container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  position: relative;
+  margin: 150px auto 0px !important;
+}
+
 .advantages-section__container {
   display: -webkit-box;
   display: -ms-flexbox;
