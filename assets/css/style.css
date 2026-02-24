@@ -1095,17 +1095,22 @@ html[lang="ar-AE"] .services-section__list-link {
 
 /* Исправляем секцию */
 .models-section {
-  overflow: visible; /* Или hidden, если нужен overflow, но тогда скроллбар должен быть внутри */
-  margin: 150px -50px 0px;
-  height: 750px; /* Увеличьте высоту, чтобы вместить скроллбар */
+  overflow: hidden; /* Скрываем вылезающий контент */
+  margin: 150px 0px 0px; /* Убираем отрицательные margin! */
+  /* height: 750px; */ /* Раскомментируй, если нужна фиксированная высота */
+  min-height: 750px; /* Лучше использовать min-height */
   padding: 0px 50px 0px;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
 }
 
 .models-section__container {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
   position: relative;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
 }
 
 .models-section__section-name {
@@ -1666,7 +1671,7 @@ html[lang="ar-AE"] .vip-section__text, .services-section__title, .models-section
 
 .additional-services-section__swiper-slide img {
   width: 370px;
-  height: 290px;
+  height: 310px;
 }
 
 .additional-services-section__swiper-slide:not(:last-child) {
@@ -1826,7 +1831,7 @@ html[lang="ar-AE"] .vip-section__text, .services-section__title, .models-section
 .additional-reviews-section {
   overflow: hidden;
   margin: 150px -50px 0px;
-  height: 290px;
+  height: 310px;
   padding: 0px 50px 0px;
 }
 
@@ -1884,7 +1889,7 @@ html[lang="ar-AE"] .vip-section__text, .services-section__title, .models-section
 
 .additional-reviews-section__swiper-slide img {
   width: 670px;
-  height: 290px;
+  height: 310px;
 }
 
 .additional-reviews-section__swiper-slide img {
@@ -5251,7 +5256,7 @@ h6 {
   .additional-reviews-section {
     margin: 136px -40px 0px;
     padding: 0px 40px 0px;
-    height: 290px;
+    height: 310px;
   }
 
   .additional-reviews-section__section-name {
