@@ -5,7 +5,7 @@ const { t } = useI18n({
 const localePath = useLocalePath();
 const route = useRoute();
 // формируем каноникал
-const canonicalUrl = `https://mgtimes.ae${route.path}`
+const canonicalUrl = `https://mgtimes.ae${route.path}`;
 useHead({
   title: t("title"),
 
@@ -18,8 +18,8 @@ useHead({
   link: [
     {
       rel: "canonical",
-      href: canonicalUrl
-    }
+      href: canonicalUrl,
+    },
   ],
 });
 </script>
@@ -64,17 +64,16 @@ useHead({
           <div class="mgmeet-banner__inner">
             <!-- левая колонка -->
             <div class="mgmeet-banner__text">
-              <h2>
-                Присоединяйтесь к&nbsp;нашему приложению
-                <span class="mgmeet-banner__accent">MG&nbsp;Meet</span>
-              </h2>
-
+              <h2>{{ t("apptitle") }}</h2>
+              <p>
+                {{ t("appdescription") }}
+              </p>
               <a
-                href="https://t.me/mgdatingbot"
+                href="https://mgmeet.app"
                 target="_blank"
                 class="mgmeet-banner__btn"
               >
-                Перейти
+                {{ t("appbutton") }}
               </a>
             </div>
 
@@ -91,7 +90,7 @@ useHead({
         <div class="casting__p">
           {{
             t(
-              "Working in escort services is a conscious choice of every girl. It isa good opportunity for you to get a high-paying job, start a new life,fill it with cool acquaintances, bright trips and unforgettableemotions. The MGTimes agency helps beautiful model girls to becomereal muses of rich patrons. They are willing to pay money for pleasantcompany and joint leisure."
+              "Working in escort services is a conscious choice of every girl. It isa good opportunity for you to get a high-paying job, start a new life,fill it with cool acquaintances, bright trips and unforgettableemotions. The MGTimes agency helps beautiful model girls to becomereal muses of rich patrons. They are willing to pay money for pleasantcompany and joint leisure.",
             )
           }}
         </div>
@@ -167,7 +166,7 @@ useHead({
               <div class="agency__text genscasting-def-text">
                 {{
                   t(
-                    "Working in our escort agency is a destiny for the elite, who arewaiting for yachts, exclusive private events, trips to differentcountries. If you have a dream to get a prestigious job thatbrings pleasure and dating with successful men, we invite you tothe casting to escort. Vacancies are open in MGTimes. It isquite possible you will become the escort model whom all thedoors to the world of chic life are open."
+                    "Working in our escort agency is a destiny for the elite, who arewaiting for yachts, exclusive private events, trips to differentcountries. If you have a dream to get a prestigious job thatbrings pleasure and dating with successful men, we invite you tothe casting to escort. Vacancies are open in MGTimes. It isquite possible you will become the escort model whom all thedoors to the world of chic life are open.",
                   )
                 }}
               </div>
@@ -183,7 +182,7 @@ useHead({
               <div class="requirements__subtitle genscasting-subtitle">
                 {{
                   t(
-                    "To be the model in our agency you should necessarily have:"
+                    "To be the model in our agency you should necessarily have:",
                   )
                 }}
               </div>
@@ -235,14 +234,14 @@ useHead({
               <p>
                 {{
                   t(
-                    "Below you can see profiles of beautiful girl to convey their beauty, femininity and elegance."
+                    "Below you can see profiles of beautiful girl to convey their beauty, femininity and elegance.",
                   )
                 }}
               </p>
               <div class="models-section__swiper">
                 <!-- Additional required wrapper -->
                 <ContentList
-                  path="/models"
+                  path="/girls"
                   :query="{
                     only: [
                       'title',
@@ -327,7 +326,7 @@ useHead({
             <div class="advantage__p">
               {{
                 t(
-                  "There are a lot of wealthy men in Dubai who need women for VIP escort at various events. Working at the MGTimes agency isassociated with many advantages:"
+                  "There are a lot of wealthy men in Dubai who need women for VIP escort at various events. Working at the MGTimes agency isassociated with many advantages:",
                 )
               }}
             </div>
@@ -335,14 +334,14 @@ useHead({
               <div class="advantage__item">
                 {{
                   t(
-                    "Regular dating with successful men and a chance to find your soul mate."
+                    "Regular dating with successful men and a chance to find your soul mate.",
                   )
                 }}
               </div>
               <div class="advantage__item">
                 {{
                   t(
-                    "Guarantee of complete security and confidentiality. Profiles of our models are only in private access."
+                    "Guarantee of complete security and confidentiality. Profiles of our models are only in private access.",
                   )
                 }}
               </div>
@@ -380,13 +379,13 @@ useHead({
               <div class="necessarily__info-p">
                 {{
                   t(
-                    "Our agency works with rich men who are used to get everything out of life. Therefore, they will not be confused by the high cost of services. Are you interested in a high-paying job?"
+                    "Our agency works with rich men who are used to get everything out of life. Therefore, they will not be confused by the high cost of services. Are you interested in a high-paying job?",
                   )
                 }}
                 <br /><br />
                 {{
                   t(
-                    "Your advantages will be proficiency in foreign languages, availability of an open American visa, participation in beauty contests and other high-quality media projects. We invite beautiful, smart and liberated girls to the casting at MGTimes. Take an important step in your life, and tomorrow it will change for the better."
+                    "Your advantages will be proficiency in foreign languages, availability of an open American visa, participation in beauty contests and other high-quality media projects. We invite beautiful, smart and liberated girls to the casting at MGTimes. Take an important step in your life, and tomorrow it will change for the better.",
                   )
                 }}
               </div>
@@ -620,6 +619,9 @@ useHead({
     "title": "Work as an escort in Dubai - get a job as an escort Mgtimes",
     "description": "We offer work for girls in an escort agency. MGTIMES! Elite escort in Dubai! VIP escort in Dubai! Organization of recreation and the best models of Dubai for an escort! 📞 +971 58 525 2213 ⚡",
 
+    "apptitle": "Models — casting is now open for our new app",
+    "appdescription": "In the app you can work directly with clients — simple and convenient",
+    "appbutton": "Open",
     "Working in в MGTimes": "Working in в MGTimes",
     "Working in escort services is a conscious choice of every girl. It isa good opportunity for you to get a high-paying job, start a new life,fill it with cool acquaintances, bright trips and unforgettableemotions. The MGTimes agency helps beautiful model girls to becomereal muses of rich patrons. They are willing to pay money for pleasantcompany and joint leisure.": "Working in escort services is a conscious choice of every girl. It isa good opportunity for you to get a high-paying job, start a new life,fill it with cool acquaintances, bright trips and unforgettableemotions. The MGTimes agency helps beautiful model girls to becomereal muses of rich patrons. They are willing to pay money for pleasantcompany and joint leisure.",
     "Working in our agency": "Working in MGTimes",
@@ -668,6 +670,9 @@ useHead({
     "title": "Работа в качестве эскорта в Дубае - эскорт агентство Mgtimes",
     "description": "Предлагаем работу для девушек в эскорт агентстве. MGTIMES! Элитный эскорт в Дубае! VIP сопровождение в Дубае! Организация отдыха и лучшие модели Дубая для эскорта! 📞 +971 58 525 2213 ⚡",
 
+    "apptitle": "Модели — открыт кастинг в наше новое приложение",
+    "appdescription": "В приложении вы можете работать с клиентами напрямую — просто и удобно",
+    "appbutton": "Перейти",
     "Working in в MGTimes": "Работа моделью в MGTimes",
     "Working in escort services is a conscious choice of every girl. It isa good opportunity for you to get a high-paying job, start a new life,fill it with cool acquaintances, bright trips and unforgettableemotions. The MGTimes agency helps beautiful model girls to becomereal muses of rich patrons. They are willing to pay money for pleasantcompany and joint leisure.": "Работа в сфере элитных эскорт-услуг – сознательный выбор каждой девушки. Сегодня это возможность получить высокооплачиваемую работу, начать новую жизнь, наполнить ее крутыми знакомствами, яркими путешествиями и незабываемыми эмоциями. Агентство «MGTimes» помогает красивым девушкам с модельной внешностью стать настоящими музами богатых покровителей, которые готовы платить деньги за приятное общество и совместный досуг.",
     "Working in our agency": "Работа у нас",
@@ -718,7 +723,7 @@ useHead({
 .within-casting.mgmeet-banner {
   margin-bottom: 50px;
   background: #f5f5f5;
- 
+
   padding: 72px 0 0;
   overflow: hidden; /* прячем, если что‑то вылезет */
 }
@@ -762,6 +767,7 @@ useHead({
   color: #fff;
   border-radius: 4px;
   transition: background 0.25s;
+  margin-top: 1rem;
 }
 .mgmeet-banner__btn:hover {
   background: #c02e2c;
@@ -771,7 +777,7 @@ useHead({
 .mgmeet-banner__img {
   flex: 0 0 300px;
   text-align: right;
-  margin-bottom:50px ;
+  margin-bottom: 50px;
 }
 .mgmeet-banner__img img {
   display: block;
@@ -789,12 +795,10 @@ useHead({
   }
   .mgmeet-banner__img {
     text-align: center;
-
   }
   .mgmeet-banner__img img {
     max-width: 260px;
     max-height: 420px;
-
   }
   .mgmeet-banner__btn {
     padding: 12px 44px;
