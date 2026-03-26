@@ -180,7 +180,7 @@ useHead({
 <i18n lang="json">
 {
   "en": {
-    "title": "Elite escort in Dubai! VIP escort services form MGTimes",
+    "title": "Services - MGTimes",
     "description": "Selection of escort models for escort meetings, as well as for events of any format, exhibitions, shooting, promo in Dubai 📞 +971 58 525 2213 ⚡",
 
     "Home page": "Home page",
@@ -189,7 +189,7 @@ useHead({
     "Our escort agency employs young and beautiful girls who can brighten up any evening. Each of them is a memorable and bright personality. The MGTimes agency puts up not only a high standard of appearance, but also monitors communicative qualities: the ability to present and sell oneself, and also pays great attention to reputation and personal qualities. Our main goal is to make your leisure unforgettable and spectacular in the company of an attractive girl for a vacation in Moscow.": "At MGTimes, we provide premium-class escort services that bring elegance, charm, and energy to every occasion. Our escort services dubai are designed for those who appreciate not just physical beauty but also captivating personalities. We carefully select only the most stunning, well-groomed, and sophisticated young women. Each of our companions is not only attractive but also bright, memorable, and socially confident — the kind of woman who can light up any room with ease.",
 
     "Services": "Services",
-    "Services 'MGTIMES'": "Exceptional Escort Services Dubai",
+    "Services 'MGTIMES'": "Services",
     "From": "From",
 
     "At MGTimes paragraph": "At MGTimes, we provide premium-class escort services that bring elegance, charm, and energy to every occasion. Our escort services dubai are designed for those who appreciate not just physical beauty but also captivating personalities. We carefully select only the most stunning, well-groomed, and sophisticated young women. Each of our companions is not only attractive but also bright, memorable, and socially confident — the kind of woman who can light up any room with ease.",
@@ -203,7 +203,7 @@ useHead({
   },
 
   "ru": {
-    "title": "Элитный эскорт в Дубае! VIP эскорт услуги от MGTimes",
+    "title": "Услуги - MGTimes",
     "description": "Подбор эскорт моделей для сопровождения встреч, а так же для мероприятий любого формата, выставок, съемок, промо в Дубае 📞 +971 58 525 2213 ⚡",
 
     "Home page": "Главная страница",
@@ -212,7 +212,7 @@ useHead({
     "Our escort agency employs young and beautiful girls who can brighten up any evening. Each of them is a memorable and bright personality. The MGTimes agency puts up not only a high standard of appearance, but also monitors communicative qualities: the ability to present and sell oneself, and also pays great attention to reputation and personal qualities. Our main goal is to make your leisure unforgettable and spectacular in the company of an attractive girl for a vacation in Moscow.": "В нашем агентстве эскорта работают молодые и красивые девушки, способные скрасить любой вечер. Каждая из них — яркая запоминающаяся личность. Агентство «MGTimes» предъявляет высокий ценз к внешности и тщательно оценивает коммуникативные навыки, уделяя большое внимание репутации и личным качествам. Наша цель — сделать ваш отдых незабываемым и эффектным в компании привлекательной девушки в Дубае.",
 
     "Services": "Услуги",
-    "Services 'MGTIMES'": "Услуги MGTimes: Премиальный эскорт в Дубае",
+    "Services 'MGTIMES'": "Услуги",
     "From": "От",
 
     "At MGTimes paragraph": "Агентство MGTimes предлагает эксклюзивные эскорт услуги для тех, кто ценит не только внешнюю привлекательность, но и харизму, интеллект и утонченное общение. В нашей команде работают молодые, красивые и ухоженные девушки, способные скрасить любой вечер и подарить вам яркие эмоции. Каждая из них — это запоминающаяся личность с живым темпераментом и безупречными манерами.",
