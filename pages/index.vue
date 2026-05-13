@@ -271,7 +271,7 @@ console.log(locale.value);
     <section class="vip-text-section">
       <div class="vip-text-section__container">
         <div class="vip-text-section__section-name">
-          <h2>{{ t("vipTitle1") }}</h2>
+          <h2 class="vip-text-section-h2">{{ t("vipTitle1") }}</h2>
         </div>
         <div class="vip-text-section__content">
           <div class="vip-text-section__text aboutNew-text">
@@ -286,19 +286,19 @@ console.log(locale.value);
             <p>{{ t("vipText5") }}</p>
             <ul>
               <li>
-                <p>{{ t("vipLi1") }}</p>
+                {{ t("vipLi1") }}
               </li>
               <li>
-                <p>{{ t("vipLi2") }}</p>
+                {{ t("vipLi2") }}
               </li>
               <li>
-                <p>{{ t("vipLi3") }}</p>
+                {{ t("vipLi3") }}
               </li>
               <li>
-                <p>{{ t("vipLi4") }}</p>
+                {{ t("vipLi4") }}
               </li>
               <li>
-                <p>{{ t("vipLi5") }}</p>
+                {{ t("vipLi5") }}
               </li>
             </ul>
             <p>{{ t("vipText6") }}</p>

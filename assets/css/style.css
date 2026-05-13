@@ -139,7 +139,11 @@
   -ms-transform: translate(-50%, 0);
   transform: translate(-50%, 0);
 }
-
+.vip-text-section-h2{
+ font-size: 40px;
+ font-weight: 600;
+   font-family: "Lora";
+}
 .header__container {
   opacity: 1;
   display: -webkit-box;
