@@ -86,8 +86,7 @@ const currentYear = new Date().getFullYear()
                 alt="EuroGirlsEscort.com"
                 title="EuroGirlsEscort.com"
             /></a> -->
-            <a class="footer__legal" :href="localePath('/sitemap')">{{ t("sitemap") }}</a>
-            <a
+             <a
               class="footer__legal footer__legal-2"
               :href="localePath('/privacy-policy')"
               >{{ t("Privacy policy") }}</a

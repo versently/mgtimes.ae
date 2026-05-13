@@ -156,57 +156,59 @@ const uniqueModels = (models) => models.filter((item, index) => {
 </div>
           </div>
           <ContentList
-            path="/girls"
-            :query="{
-              only: [
-              'title',
-                'age',                
-                'description',
-                'bustSize',
-                'visa',
-                'weight',
-                'height',
-                '_path',
-                'hairColor',
-                'folder',
-                'mainImage',
-              ],
-            }"
-          >
-            <template v-slot="{ list }">
-              <div class="services__list">
-                <div
-                  class="models__model-item"
-                  v-for="model in uniqueModels(visaFilterModels(filterBustSizeModels(filterAgeModels(filterHairColorModels(list)))))"
-                  :key="model._path"
-                >
-                  <nuxt-img
-                    :src="`/assets/img/models/${model.folder}/${model.mainImage}`"
-                    :alt="model.title"
-                    loading="lazy"
-                    sizes="sm:100vw md:50vw lg:400px"
-                  />
-                  <div class="models__model-description">
-                    <div class="models__model-name">{{ model.title }}</div>
-                    <div class="models__model-characteristics">
-                      <div class="models__model-property">
-                        {{ t("Height:") }} <span>{{ model.height }}</span>
-                      </div>
-                      <div class="models__model-property">
-                        {{ t("Weight:") }} <span>{{ model.weight }}</span>
-                      </div>
-                      <div class="models__model-property">
-                        {{ t("Age:") }} <span>{{ model.age }}</span>
-                      </div>
-                    </div>
-                  </div>
-                    <a :href="getCorrectPath(model)" class="models__model-more">
-                    {{ t("More information") }}</a
-                  >
-                </div>
-              </div>
-            </template>
-          </ContentList>
+  path="/girls"
+  :query="{
+    only: [
+      'title',
+      'age',                
+      'description',
+      'bustSize',
+      'visa',
+      'weight',
+      'height',
+      '_path',
+      'hairColor',
+      'folder',
+      'mainImage',
+    ],
+  }"
+>
+  <template v-slot="{ list }">
+    <div class="services__list">
+      <div
+        class="models__model-item"
+        v-for="model in uniqueModels(visaFilterModels(filterBustSizeModels(filterAgeModels(filterHairColorModels(list)))))"
+        :key="model._path"
+      >
+        <a :href="getCorrectPath(model)">
+          <nuxt-img
+            :src="`/assets/img/models/${model.folder}/${model.mainImage}`"
+            :alt="model.title"
+            loading="lazy"
+            sizes="sm:100vw md:50vw lg:400px"
+          />
+        </a>
+        <div class="models__model-description">
+          <div class="models__model-name">{{ model.title }}</div>
+          <div class="models__model-characteristics">
+            <div class="models__model-property">
+              {{ t("Height:") }} <span>{{ model.height }}</span>
+            </div>
+            <div class="models__model-property">
+              {{ t("Weight:") }} <span>{{ model.weight }}</span>
+            </div>
+            <div class="models__model-property">
+              {{ t("Age:") }} <span>{{ model.age }}</span>
+            </div>
+          </div>
+        </div>
+        <a :href="getCorrectPath(model)" class="models__model-more">
+          {{ t("More information") }}
+        </a>
+      </div>
+    </div>
+  </template>
+</ContentList>
         </div>
 
         <section class="models__agency-section agency-section">
