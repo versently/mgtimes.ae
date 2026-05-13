@@ -4469,7 +4469,7 @@ html[lang="ar-AE"] .vip-section__text, .services-section__title, .models-section
 .requirements__list-item::before {
   content: "";
   display: block;
-  width: 8px;
+  min-width: 8px;
   height: 8px;
   border-radius: 50%;
   background: #9E2220;

@@ -745,7 +745,6 @@ useHead({
   flex: 1 1 50%;
 }
 .mgmeet-banner__text h2 {
-  font-family: "Lora", serif; /* сайт уже грузит эти шрифты */
   font-weight: 600;
   font-size: clamp(24px, 3vw, 34px);
   line-height: 1.3;
@@ -758,7 +757,6 @@ useHead({
 
 /* кнопка */
 .mgmeet-banner__btn {
-  font-family: "Inter", sans-serif;
   font-weight: 500;
   display: inline-block;
   padding: 12px 52px;
